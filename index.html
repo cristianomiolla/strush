@@ -2675,12 +2675,12 @@ document.addEventListener('DOMContentLoaded', function() {
     --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
     --primary-green: #B4FACD;
     --primary-purple: #B1ACFA;
-    --speech-bubble-space: -20px; /* Spazio estremamente ridotto tra nuvoletta e immagine*/
+    --speech-bubble-space: -30px; /* Spazio ridotto tra nuvoletta e immagine*/
     --card-width: 800px;
     --card-height: 500px;
     --image-width: 180px;
     --image-height: 250px;
-    --bubble-width: 200px;
+    --bubble-width: 300px; /* Aumentato da 200px a 300px */
 }
 
 
@@ -2755,7 +2755,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-
 .card {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
@@ -2793,15 +2792,15 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-/* Wrapper della nuvoletta con spazio ulteriormente ridotto */
+/* Wrapper della nuvoletta con spazio adattato per nuvole più grandi */
 .bubble-wrapper {
     position: absolute;
-    width: 100%;
+    width: 150%; /* Aumentato per adattarsi alle nuvolette più grandi */
     bottom: 100%;
-    left: 0;
+    left: -25%; /* Centrato rispetto all'avatar */
     display: flex;
     justify-content: center;
-    margin-bottom: var(--speech-bubble-space); /* Spazio minimizzato tra nuvoletta e immagine */
+    margin-bottom: var(--speech-bubble-space);
     z-index: 10;
 }
 
@@ -2923,6 +2922,8 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: opacity 0.7s ease, transform 0.5s ease;
     pointer-events: none;
     max-width: 100%;
+    transform-origin: bottom center; /* Punto di origine delle trasformazioni */
+    transform: scale(1.15); /* Leggermente più grande del normale */
 }
 
 
@@ -2938,10 +2939,9 @@ document.addEventListener('DOMContentLoaded', function() {
         --card-height: 440px;
         --image-width: 160px;
         --image-height: 220px;
-        --bubble-width: 180px;
-        --speech-bubble-space: -20px; /* Spazio estremamente ridotto tra nuvoletta e immagine*/
+        --bubble-width: 270px; /* Aumentato da 180px a 270px */
+        --speech-bubble-space: -25px; /* Adattato per nuvolette più grandi */
     }
-
 }
 
 
@@ -2951,8 +2951,8 @@ document.addEventListener('DOMContentLoaded', function() {
         --card-height: 56vw;
         --image-width: 21vw;
         --image-height: 29vw;
-        --bubble-width: 25vw;
-        --speech-bubble-space: -20px; /* Spazio estremamente ridotto tra nuvoletta e immagine*/
+        --bubble-width: 38vw; /* Aumentato da 25vw a 38vw */
+        --speech-bubble-space: -25px; /* Adattato per nuvolette più grandi */
     }
 
     
@@ -2966,6 +2966,11 @@ document.addEventListener('DOMContentLoaded', function() {
         font-size: 12px;
         padding: 3px 6px;
     }
+    
+    .bubble-wrapper {
+        width: 180%; /* Ancora più largo su schermi più piccoli */
+        left: -40%;
+    }
 }
 
 
@@ -2975,8 +2980,8 @@ document.addEventListener('DOMContentLoaded', function() {
         --card-height: 60vw;
         --image-width: 20vw;
         --image-height: 28vw;
-        --bubble-width: 24vw;
-        --speech-bubble-space: -15px; /* Valore negativo per sovrapposizione */
+        --bubble-width: 36vw; /* Aumentato da 24vw a 36vw */
+        --speech-bubble-space: -20px; /* Adattato per nuvolette più grandi */
     }
     
     
@@ -2991,6 +2996,11 @@ document.addEventListener('DOMContentLoaded', function() {
         padding: 2px 4px;
         margin-top: -5px;
     }
+    
+    .bubble-wrapper {
+        width: 180%;
+        left: -40%;
+    }
 }
 
 
@@ -3002,7 +3012,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     :root {
-        --speech-bubble-space: -13px; /* Spazio estremamente ridotto tra nuvoletta e immagine*/
+        --speech-bubble-space: -18px; /* Adattato per nuvolette più grandi */
+        --bubble-width: 34vw; /* Adattato per schermi molto piccoli */
+    }
+    
+    .bubble-wrapper {
+        width: 170%;
+        left: -35%;
     }
 }
 </style>
@@ -3151,8 +3167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
-
 
 
     <!-- How it works Section -->
@@ -3423,6 +3437,9 @@ document.addEventListener('DOMContentLoaded', function() {
         margin: 0 auto;
         overflow: hidden;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
+        user-select: none; /* Impedisce la selezione del testo */
+        -webkit-touch-callout: none; /* Disabilita il callout su iOS */
     }
     
     /* Progress bars styles */
@@ -3460,6 +3477,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .stories-content {
         position: relative;
         height: 380px;
+        -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
     }
     
     .story {
@@ -3490,6 +3508,8 @@ document.addEventListener('DOMContentLoaded', function() {
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
+        outline: none; /* Rimuove l'outline quando cliccato */
     }
     
     /* Irregular blob shapes */
@@ -3622,6 +3642,13 @@ document.addEventListener('DOMContentLoaded', function() {
         box-shadow: 0 8px 35px rgba(180, 250, 205, 0.15);
         transform: translateY(-5px);
         transition: all 0.3s ease;
+    }
+    
+    /* Stile per l'effetto di pressione attiva invece del highlight blu */
+    .story-inner:active {
+        background-color: #fafafa;
+        transform: translateY(0px);
+        transition: all 0.1s ease;
     }
     
     /* Responsive styles */
@@ -3838,11 +3865,11 @@ document.addEventListener('DOMContentLoaded', function() {
             showStory(currentStoryIndex);
         }
         
-        // Initialize the first story
-        showStory(currentStoryIndex);
-        
         // Click event to manually advance to the next story
         storyContainer.addEventListener('click', (e) => {
+            // Previeni il comportamento predefinito per evitare evidenziazioni
+            e.preventDefault();
+            
             // Cancel the current animation
             cancelAnimationFrame(animationFrameId);
             
