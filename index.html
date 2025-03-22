@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strush - Gestisci le tue finanze in modo divertente</title>
+    <title>Strush - I soldi non crescono sugli alberi</title>
     
     <!-- Collegamento ai font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -733,7 +733,7 @@
 </script>
 
 
-    <!-- Navbar -->
+    <!-- Navbar (resta invariata) -->
 <nav class="strush-navbar" id="mainNav">
     <div class="strush-container">
         <div class="strush-nav-container">
@@ -1136,6 +1136,20 @@
         .strush-logo-mobile .strush-logo-text {
             font-size: 1.5rem;
             transform: translateY(0); /* Rimosso il rialzo del testo nella versione mobile */
+            transition: all 0.3s ease; /* Aggiunto per animare la scomparsa del testo */
+        }
+        
+        /* Stile quando il menu mobile è attivo - Nascondi il testo del logo */
+        .menu-active .strush-logo-mobile .strush-logo-text {
+            opacity: 0;
+            width: 0;
+            margin-left: 0;
+            overflow: hidden;
+        }
+        
+        /* Centramento del logo quando il menu è attivo */
+        .menu-active .strush-logo-mobile .strush-logo {
+            justify-content: center;
         }
         
         /* Nascondi il menu desktop */
@@ -1202,6 +1216,9 @@
             menuBtn.classList.toggle('open');
             menuBtn.classList.toggle('active');
             mobileDropdown.classList.toggle('active');
+            
+            // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+            document.body.classList.toggle('menu-active');
         });
         
         // Chiudi menu quando viene cliccato un link
@@ -1210,6 +1227,7 @@
                 menuBtn.classList.remove('open');
                 menuBtn.classList.remove('active');
                 mobileDropdown.classList.remove('active');
+                document.body.classList.remove('menu-active'); // Rimuovi anche qui
             });
         });
         
@@ -1222,6 +1240,7 @@
                 menuBtn.classList.remove('open');
                 menuBtn.classList.remove('active');
                 mobileDropdown.classList.remove('active');
+                document.body.classList.remove('menu-active'); // Rimuovi anche qui
             }
         });
         
@@ -2738,7 +2757,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="evolution-description">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
         
         <div class="evolution-carousel-container">
-            <div class="evolution-carousel">
+            <div class="evolution-carousel" id="evolutionCarousel">
                 <!-- Duplicate cards for infinite effect -->
                 <div class="evolution-card">
                     <div class="card-content">
@@ -2912,6 +2931,11 @@ document.addEventListener('DOMContentLoaded', function() {
         overflow: hidden;
         padding: 20px 0;
         position: relative;
+        cursor: grab;
+    }
+    
+    .evolution-carousel-container:active {
+        cursor: grabbing;
     }
 
     /* Add fade effect on edges */
@@ -2943,8 +2967,8 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: scroll 20s linear infinite;
     }
 
-    /* Pause animation on hover */
-    .evolution-carousel:hover {
+    /* Pause animation class */
+    .paused {
         animation-play-state: paused;
     }
 
@@ -2968,6 +2992,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: all 0.4s ease;
         margin: 0 20px;
         overflow: hidden;
+        user-select: none; /* Prevent text selection during drag */
     }
 
     .card-content {
@@ -3088,22 +3113,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     @media (max-width: 768px) {
         .evolution-carousel {
-            width: calc(240px * 6); /* Smaller card width for mobile */
+            width: calc(200px * 6); /* Reduced card width for mobile */
+            animation: scroll 20s linear infinite;
         }
         
         .evolution-card {
-            min-width: 240px;
-            width: 240px;
-            margin: 0 10px;
+            min-width: 200px;
+            width: 200px;
+            margin: 0 5px;  /* Reduced margins */
         }
         
         .avatar-container {
-            height: 150px;
+            height: 120px; /* Reduced height */
         }
         
         .avatar-shape {
-            width: 120px;
-            height: 120px;
+            width: 100px; /* Smaller avatar shape */
+            height: 100px;
+        }
+        
+        .avatar-wrapper {
+            border: 3px solid white; /* Thinner border */
+        }
+        
+        .card-info {
+            padding: 1rem; /* Less padding */
+        }
+        
+        .evolution-card h4 {
+            font-size: 1rem; /* Smaller font */
+            margin-bottom: 0.5rem;
+        }
+        
+        .evolution-card p {
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .level-badge {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
         }
         
         @keyframes scroll {
@@ -3111,7 +3160,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-240px * 3)); /* Adjusted for mobile card size */
+                transform: translateX(calc(-200px * 3)); /* Adjusted for mobile card size */
             }
         }
         
@@ -3127,15 +3176,326 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .section-title {
             margin-top: 2rem;
+            font-size: 2rem;
+        }
+        
+        .evolution-description {
+            font-size: 1rem;
+            margin-bottom: 2rem;
         }
         
         /* Adjust fade effect width for mobile */
         .evolution-carousel-container::before,
         .evolution-carousel-container::after {
-            width: 60px;
+            width: 40px; /* Narrower gradient */
         }
     }
+    
+    /* Ulteriori ottimizzazioni per schermi molto piccoli */
+    @media (max-width: 480px) {
+        .evolution-carousel {
+            width: calc(160px * 6); /* Ancora più piccole su schermi molto piccoli */
+        }
+        
+        .evolution-card {
+            min-width: 160px;
+            width: 160px;
+            margin: 0 4px;
+        }
+        
+        .avatar-container {
+            height: 100px;
+        }
+        
+        .avatar-shape {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .card-info {
+            padding: 0.75rem;
+        }
+        
+        .evolution-card h4 {
+            font-size: 0.9rem;
+        }
+        
+        .evolution-card p {
+            font-size: 0.8rem;
+        }
+        
+        .level-badge {
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-160px * 3)); /* Adjusted for smaller mobile */
+            }
+        }
+    }
+
+    /* Stile per la card selezionata (lo stesso effetto hover) */
+.evolution-card.selected {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(180, 250, 205, 0.5);
+}
+
+.evolution-card.selected .avatar-shape {
+    transform: scale(1.05);
+}
+
+/* Modifica allo stile hover per evitare conflitti con la card selezionata */
+.evolution-card:not(.selected):hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(180, 250, 205, 0.5);
+}
+
+.evolution-card:not(.selected):hover .avatar-shape {
+    transform: scale(1.05);
+}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('evolutionCarousel');
+    const container = carousel.parentElement;
+    let selectedCard = null;
+    
+    // Get card dimensions based on current viewport
+    function getCardDimensions() {
+        let cardWidth, cardMargin;
+        if (window.innerWidth <= 480) {
+            cardWidth = 160;
+            cardMargin = 4;
+        } else if (window.innerWidth <= 768) {
+            cardWidth = 200;
+            cardMargin = 5;
+        } else {
+            cardWidth = 280;
+            cardMargin = 20;
+        }
+        return { cardWidth, cardMargin };
+    }
+    
+    // Update dimensions based on current viewport
+    let { cardWidth, cardMargin } = getCardDimensions();
+    let totalCardWidth = cardWidth + (cardMargin * 2);
+    const cardsPerSet = 3; // Number of unique cards
+    
+    let isDown = false;
+    let startX;
+    let startY;
+    let startTranslateX = 0;
+    let currentTranslateX = 0;
+    let isDragging = false;
+    let isScrolling = false;
+    let clickStartTime;
+    
+    // Funzione per aggiungere la classe selected a una card
+    function selectCard(card) {
+        // Rimuovi la classe selected da tutte le card
+        const allCards = document.querySelectorAll('.evolution-card');
+        allCards.forEach(c => c.classList.remove('selected'));
+        
+        // Aggiungi la classe selected alla card cliccata
+        if (card && card !== selectedCard) {
+            card.classList.add('selected');
+            selectedCard = card;
+            // Quando si seleziona una card, interrompi l'animazione
+            carousel.classList.add('paused');
+            carousel.style.animation = 'none';
+        } else {
+            selectedCard = null;
+            // Quando si deseleziona, riprendi l'animazione
+            carousel.classList.remove('paused');
+            carousel.style.animation = '';
+        }
+    }
+    
+    // Function to handle infinite scroll effect
+    function handleInfiniteScroll() {
+        if (!carousel.style.transform) return;
+        
+        const transformValue = parseInt(carousel.style.transform.replace('translateX(', '').replace('px)', ''));
+        const totalWidth = totalCardWidth * cardsPerSet;
+        
+        // If scrolled too far to the right (past first set)
+        if (transformValue > 0) {
+            // Jump to the duplicate cards (effectively moving one full set to the left)
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${transformValue - totalWidth}px)`;
+            // Force reflow
+            carousel.offsetHeight;
+            carousel.style.transition = '';
+        }
+        // If scrolled too far to the left (past the duplicates)
+        else if (transformValue < -totalWidth) {
+            // Calculate how far into the second set we are
+            const remainder = transformValue % totalWidth;
+            // Jump back to the equivalent position in the first set
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${remainder}px)`;
+            // Force reflow
+            carousel.offsetHeight;
+            carousel.style.transition = '';
+        }
+    }
+    
+    // Start dragging
+    function dragStart(clientX, clientY) {
+        isDown = true;
+        isDragging = false;
+        isScrolling = false;
+        clickStartTime = new Date().getTime();
+        carousel.classList.add('paused');
+        startX = clientX - container.offsetLeft;
+        startY = clientY || 0;
+        
+        // Get current transform value
+        const computedStyle = window.getComputedStyle(carousel);
+        const matrix = new DOMMatrix(computedStyle.transform);
+        startTranslateX = matrix.m41;
+        currentTranslateX = startTranslateX;
+        
+        // Pause animation but keep current position
+        carousel.style.animation = 'none';
+        carousel.style.transform = `translateX(${startTranslateX}px)`;
+    }
+    
+    // During dragging
+    function dragging(clientX, clientY) {
+        if (!isDown) return;
+        
+        const x = clientX - container.offsetLeft;
+        const y = clientY || 0;
+        const walkX = (x - startX);
+        const walkY = y - startY;
+        
+        // Determina se l'utente sta scrollando orizzontalmente
+        if (!isDragging && !isScrolling) {
+            // Se lo spostamento orizzontale è maggiore di 5px o è passato più di 200ms,
+            // considera questo come un'azione di drag invece di un click
+            if (Math.abs(walkX) > 5 || (new Date().getTime() - clickStartTime > 200)) {
+                isDragging = true;
+            }
+        }
+        
+        if (isDragging) {
+            currentTranslateX = startTranslateX + walkX;
+            carousel.style.transform = `translateX(${currentTranslateX}px)`;
+            
+            // Apply infinite scroll logic during dragging
+            handleInfiniteScroll();
+        }
+    }
+    
+    // End dragging
+    function dragEnd(event) {
+        if (!isDown) return;
+        isDown = false;
+        
+        // Se è stato un drag, allora gestisci lo scorrimento del carosello
+        if (isDragging) {
+            // Remove existing inline styles to restart animation
+            carousel.style.transform = '';
+            carousel.style.animation = '';
+            carousel.classList.remove('paused');
+            
+            // Calculate position in the animation cycle
+            // Total width of one set of cards
+            const totalWidth = totalCardWidth * cardsPerSet;
+            
+            // Normalize current position to be within 0 to -totalWidth
+            let normalizedPosition = currentTranslateX % totalWidth;
+            if (normalizedPosition > 0) normalizedPosition -= totalWidth;
+            
+            // Calculate animation progress (0 to 1)
+            const animationProgress = -normalizedPosition / totalWidth;
+            
+            // Create a new animation that starts from the current position
+            const animationDuration = 20; // seconds, same as in CSS
+            const remainingDuration = animationDuration * (1 - animationProgress);
+            
+            // Apply the new animation
+            carousel.style.animation = `scroll ${animationDuration}s linear infinite`;
+            carousel.style.animationDelay = `-${animationProgress * animationDuration}s`;
+        } 
+        // Se non è stato un drag, allora potrebbe essere un click su una card
+        else if (event && event.target) {
+            // Cerca l'elemento card più vicino al punto cliccato
+            let targetCard = event.target.closest('.evolution-card');
+            if (targetCard) {
+                selectCard(targetCard);
+            }
+        }
+        
+        isDragging = false;
+    }
+    
+    // Gestisci click fuori dalle card per deselezionare
+    document.addEventListener('click', function(e) {
+        // Se il click non è dentro una card o dentro il container del carosello
+        if (!e.target.closest('.evolution-card') && !e.target.closest('.evolution-carousel-container')) {
+            // Deseleziona card
+            selectCard(null);
+            
+            // Rimuovi la pausa e riprendi l'animazione
+            carousel.classList.remove('paused');
+            carousel.style.animation = '';
+            
+            // Rimuovi transform per garantire che l'animazione riprenda correttamente
+            carousel.style.transform = '';
+        }
+    });
+    
+    // Update card dimensions on window resize
+    window.addEventListener('resize', function() {
+        // Update card dimensions
+        const dimensions = getCardDimensions();
+        cardWidth = dimensions.cardWidth;
+        cardMargin = dimensions.cardMargin;
+        totalCardWidth = cardWidth + (cardMargin * 2);
+    });
+    
+    // Mouse Events
+    container.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        dragStart(e.pageX, e.pageY);
+    });
+    
+    window.addEventListener('mousemove', (e) => {
+        e.preventDefault();
+        dragging(e.pageX, e.pageY);
+    });
+    
+    window.addEventListener('mouseup', (e) => {
+        dragEnd(e);
+    });
+    
+    // Touch Events
+    container.addEventListener('touchstart', (e) => {
+        dragStart(e.touches[0].clientX, e.touches[0].clientY);
+    });
+    
+    window.addEventListener('touchmove', (e) => {
+        dragging(e.touches[0].clientX, e.touches[0].clientY);
+    });
+    
+    window.addEventListener('touchend', (e) => {
+        dragEnd(e);
+    });
+    
+    // Prevent default behavior for touch events to avoid page scrolling
+    container.addEventListener('touchmove', (e) => {
+        if (isDown) e.preventDefault();
+    }, { passive: false });
+});
+</script>
 
 
     <!-- Game Hub Section -->
