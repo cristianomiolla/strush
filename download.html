@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strush - Preregistrazione</title>
+    <title>Preregistrazione - Strush</title>
     
     <!-- Collegamento ai font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -148,7 +148,9 @@
           <div class="strush-logo-mobile">
               <a href="index.html#hero" class="strush-logo-container">
                   <div class="strush-logo">
-                      <img src="immagini/logo.png" alt="Strush Logo">
+                      <div class="strush-logo-blob">
+                          <img src="immagini/logo.png" alt="Strush Logo">
+                      </div>
                       <span class="strush-logo-text">Strush</span>
                   </div>
               </a>
@@ -178,7 +180,9 @@
               <div class="strush-logo-nav-item">
                   <a href="index.html#hero" class="strush-logo-container">
                       <div class="strush-logo">
-                          <img src="immagini/logo.png" alt="Strush Logo">
+                          <div class="strush-logo-blob">
+                              <img src="immagini/logo.png" alt="Strush Logo">
+                          </div>
                           <span class="strush-logo-text">Strush</span>
                       </div>
                   </a>
@@ -350,13 +354,14 @@
       align-items: center;
       flex-wrap: nowrap;
       transition: all 0.3s ease;
-      width: auto;
+      width: auto; 
       padding: 5px 10px;
       border-radius: 30px;
       margin: 0;
       position: relative;
-      overflow: hidden;
-      max-width: 100%;
+      /* Aggiungiamo padding extra ai lati per creare un'area più ampia per l'hover */
+      padding-left: 25px;
+      padding-right: 25px;
   }
   
   /* Shimmer animation on hover */
@@ -390,6 +395,11 @@
       transition: all 0.3s ease;
   }
   
+  /* Attiva l'animazione blob solo quando si fa hover sul contenitore nav in desktop */
+  .strush-nav-links-container:hover .strush-logo-blob {
+      animation: blob-morph 3.5s linear infinite;
+  }
+  
   /* Updated logo styles to match footer */
   .strush-logo-nav-item {
       margin-right: 15px;
@@ -408,30 +418,58 @@
       align-items: center;
   }
   
-  .strush-logo img {
-      height: 36px;
-      width: auto;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #B1ACFA;
-      box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
+  /* Stile modificato per il contenitore blob del logo - ridotto leggermente */
+  .strush-logo-blob {
+      width: 38px;
+      height: 38px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transition: all 0.3s ease;
+      overflow: hidden; /* Assicura che l'immagine non esca dal contenitore */
+      border-radius: 50%; /* Default è un cerchio */
+      background: linear-gradient(135deg, #B1ACFA, #B4FACD);
+      box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
+      /* Contorno aggiunto */
+      border: 2.5px solid  #B1ACFA;
   }
   
-  .strush-logo img:hover {
-      box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+  /* Animazione per il blob - non è attiva di default */
+  @keyframes blob-morph {
+      0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+      25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+      50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
+      75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
+      100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+  }
+  
+  .strush-logo img {
+      height: 38px;
+      width: 38px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      z-index: 1;
+      display: block;
+      margin: auto;
+      /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
+      transform: translateY(-2px);
+  }
+  
+  .strush-logo-blob:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
   }
   
   .strush-logo-text {
-  color: #B1ACFA;
-  font-weight: 800;
-  font-size: 1.6rem;
-  transition: all 0.3s ease;
-  margin-left: 8px;
-  display: inline-block;
-  width: auto;
-  transform: translateY(-2px); /* Added this line to raise the text */
+      color: #B1ACFA;
+      font-weight: 800;
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+      margin-left: 8px;
+      display: inline-block;
+      width: auto;
+      transform: translateY(-2px); /* Added this line to raise the text */
   }
   
   .strush-nav-links {
@@ -536,13 +574,40 @@
           margin-top: 4px; /* Aggiunto per abbassare leggermente il logo */
       }
       
+      .strush-logo-mobile .strush-logo-blob {
+          width: 36px;
+          height: 36px;
+      }
+      
       .strush-logo-mobile .strush-logo img {
-          height: 35px;
+          height: 36px;
+          width: 36px;
+          /* Manteniamo lo stesso spostamento verso l'alto anche in mobile */
+          transform: translateY(-2px);
       }
       
       .strush-logo-mobile .strush-logo-text {
           font-size: 1.5rem;
           transform: translateY(0); /* Rimosso il rialzo del testo nella versione mobile */
+          transition: all 0.3s ease; /* Aggiunto per animare la scomparsa del testo */
+      }
+      
+      /* Stile quando il menu mobile è attivo - Nascondi il testo del logo */
+      .menu-active .strush-logo-mobile .strush-logo-text {
+          opacity: 0;
+          width: 0;
+          margin-left: 0;
+          overflow: hidden;
+      }
+      
+      /* Centramento del logo quando il menu è attivo */
+      .menu-active .strush-logo-mobile .strush-logo {
+          justify-content: center;
+      }
+      
+      /* Animazione blob attiva quando il menu mobile è aperto */
+      .menu-active .strush-logo-mobile .strush-logo-blob {
+          animation: blob-morph 3.5s linear infinite;
       }
       
       /* Nascondi il menu desktop */
@@ -587,6 +652,18 @@
       .strush-logo-mobile {
           margin-top: 5px; /* Leggermente più abbassato su schermi molto piccoli */
       }
+      
+      .strush-logo-mobile .strush-logo-blob {
+          width: 34px;
+          height: 34px;
+      }
+      
+      .strush-logo-mobile .strush-logo img {
+          height: 34px;
+          width: 34px;
+          /* Manteniamo lo stesso spostamento verso l'alto anche in mobile */
+          transform: translateY(-2px);
+      }
   }
 </style>
 
@@ -609,6 +686,9 @@
           menuBtn.classList.toggle('open');
           menuBtn.classList.toggle('active');
           mobileDropdown.classList.toggle('active');
+          
+          // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+          document.body.classList.toggle('menu-active');
       });
       
       // Chiudi menu quando viene cliccato un link
@@ -617,6 +697,7 @@
               menuBtn.classList.remove('open');
               menuBtn.classList.remove('active');
               mobileDropdown.classList.remove('active');
+              document.body.classList.remove('menu-active'); // Rimuovi anche qui
           });
       });
       
@@ -629,6 +710,7 @@
               menuBtn.classList.remove('open');
               menuBtn.classList.remove('active');
               mobileDropdown.classList.remove('active');
+              document.body.classList.remove('menu-active'); // Rimuovi anche qui
           }
       });
       
@@ -1471,240 +1553,278 @@
 
     <!-- Footer -->
 <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="immagini/logo.png" alt="Strush Logo">
-                    <span class="logo-text">Strush</span>
-                </div>
-                <p>L'app che trasforma la gestione delle tue finanze in un'esperienza divertente e motivante.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-about">
+              <div class="footer-logo">
+                  <div class="logo-blob">
+                      <img src="immagini/logo.png" alt="Strush Logo">
+                  </div>
+                  <span class="logo-text">Strush</span>
+              </div>
+              <p>L'app che trasforma la gestione delle tue finanze in un'esperienza divertente e motivante.</p>
+              <div class="footer-social">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
 
-            <div class="footer-links">
-                <h4>Links Rapidi</h4>
-                <ul>
-                    <li><a href="index.html#hero">Home</a></li>
-                    <li><a href="index.html#features">Caratteristiche</a></li>
-                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
-                    <li><a href="index.html#how-it-works">Tutorial</a></li>
-                    <li><a href="index.html#testimonials">Testimonianze</a></li>
-                    <li><a href="index.html#team">Team</a></li>
-                </ul>
-            </div>
+          <div class="footer-links">
+              <h4>Links Rapidi</h4>
+              <ul>
+                  <li><a href="index.html#hero">Home</a></li>
+                  <li><a href="index.html#features">Caratteristiche</a></li>
+                  <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                  <li><a href="index.html#how-it-works">Tutorial</a></li>
+                  <li><a href="index.html#testimonials">Testimonianze</a></li>
+                  <li><a href="index.html#team">Team</a></li>
+              </ul>
+          </div>
 
-            <div class="footer-links">
-                <h4>Supporto</h4>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">Assistenza</a></li>
-                </ul>
-            </div>
+          <div class="footer-links">
+              <h4>Supporto</h4>
+              <ul>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Contatti</a></li>
+                  <li><a href="#">Assistenza</a></li>
+              </ul>
+          </div>
 
-            <div class="footer-links">
-                <h4>Legale</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="t&c.html">Termini e Condizioni</a></li>
-                </ul>
-            </div>
-        </div>
+          <div class="footer-links">
+              <h4>Legale</h4>
+              <ul>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="t&c.html">Termini e Condizioni</a></li>
+              </ul>
+          </div>
+      </div>
 
-        <div class="copyright">
-            <p>&copy; 2025 Strush. Tutti i diritti riservati.</p>
-        </div>
-    </div>    
+      <div class="copyright">
+          <p>&copy; 2025 Strush - Tutti i diritti riservati | Proudly crafted in Southern Italy 🌞 </p>
+      </div>
+  </div>    
 </footer>        
 
 <style>
-    :root {
-        --dark: #222;
-        --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-        --primary: #B4FACD; /* Cambiato da #B1ACFA a #B4FACD per usare il verde */
-    }
+  :root {
+      --dark: #222;
+      --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
+      --primary: #B4FACD; /* Cambiato da #B1ACFA a #B4FACD per usare il verde */
+  }
 
-    footer {
-        background-color: var(--dark);
-        color: white;
-        padding: 4rem 0 2rem;
-    }
-    
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }    
-    
-    /* Updated logo styling to match navbar */
-    .footer-logo {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-    }    
-    
-    .footer-logo img {
-        height: 40px;
-        margin-right: 10px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #B1ACFA;
-        box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
-        transition: all 0.3s ease;
-    }    
-    
-    .footer-logo img:hover {
-        box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
-        transform: scale(1.05);
-    }    
-    
-    .footer-logo .logo-text {
-        color: #B1ACFA;
-        font-weight: 800;
-        font-size: 1.8rem;
-    }    
-    
-    /* Links sections */
-    .footer-links h4 {
-        margin-bottom: 1.5rem;
-        position: relative;
-        padding-bottom: 10px;
-        display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
-    }    
-    
-    .footer-links h4::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
-        height: 3px;
-        background: var(--gradient-primary);
-        border-radius: 2px;
-    }    
-    
-    .footer-links ul li {
-        margin-bottom: 10px;
-    }    
-    
-    /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
-    .footer-links a {
-        color: #e0e0e0;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-        padding: 2px 4px;
-        display: inline-block;
-    }        
-    
-    .footer-links a::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(180, 250, 205, 0.7);
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-        color: #B4FACD;
-    }
-    
-    .footer-links a:hover::after {
-        transform: scaleX(1);
-    }
-    
-    /* Social icons */
-    .footer-social {
-        display: flex;
-        gap: 15px;
-        margin-top: 1.5rem;
-    }
-        
-    .footer-social a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
-    
-    .footer-social a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--gradient-primary);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: -1;
-    }
-    
-    .footer-social a:hover {
-        color: var(--dark);
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
-    }
-    
-    .footer-social a:hover::before {
-        opacity: 1;
-    }
-    
-    /* Copyright section */
-    .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }    
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .footer-content {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }    
-        
-        .footer-logo {
-            justify-content: center;
-        }
-        
-        .footer-links h4 {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Centra i link social nella versione mobile */
-        .footer-social {
-            justify-content: center;
-        }
-        
-        /* Rimuovo la trasformazione dei link mobile perché ora
-           l'animazione della sottolineatura avviene dal centro in modo uniforme */
-        .footer-links a:hover {
-            transform: translateY(-2px);
-        }
-    }
+  footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 4rem 0 2rem;
+  }
   
+  .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+  }    
+  
+  /* Updated logo styling to match navbar */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+} 
+
+/* Stile modificato per il contenitore blob del logo nel footer */
+.footer-logo .logo-blob {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: 50%; /* Default è un cerchio */
+  background: linear-gradient(135deg, #B1ACFA, #B4FACD);
+  box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
+  /* Contorno aggiunto */
+  border: 2.5px solid #B1ACFA;
+}
+
+/* Animazione per il blob - non è attiva di default */
+@keyframes footer-blob-morph {
+  0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+  25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
+  75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
+  100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+}
+  
+.footer-logo img {
+  height: 38px;
+  width: 38px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  z-index: 1;
+  display: block;
+  margin: auto;
+  /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
+  transform: translateY(-2px);
+}
+
+/* Attiva l'animazione blob solo al passaggio del mouse */
+.footer-logo .logo-blob:hover {
+  animation: footer-blob-morph 3.5s linear infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+}
+  
+  .footer-logo img:hover {
+      box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+      transform: scale(1.05);
+  }    
+  
+.footer-logo .logo-text {
+  color: #B1ACFA;
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin-left: 8px;
+  transform: translateY(-2px);
+}
+  
+  /* Links sections */
+  .footer-links h4 {
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+      display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
+  }    
+  
+  .footer-links h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+  }    
+  
+  .footer-links ul li {
+      margin-bottom: 10px;
+  }    
+  
+  /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
+  .footer-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 2px 4px;
+      display: inline-block;
+  }        
+  
+  .footer-links a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(180, 250, 205, 0.7);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+      color: #B4FACD;
+  }
+  
+  .footer-links a:hover::after {
+      transform: scaleX(1);
+  }
+  
+  /* Social icons */
+  .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 1.5rem;
+  }
+      
+  .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+  }
+  
+  .footer-social a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+  }
+  
+  .footer-social a:hover {
+      color: var(--dark);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
+  }
+  
+  .footer-social a:hover::before {
+      opacity: 1;
+  }
+  
+  /* Copyright section */
+  .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }    
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+      }    
+      
+      .footer-logo {
+          justify-content: center;
+      }
+      
+      .footer-links h4 {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+      /* Centra i link social nella versione mobile */
+      .footer-social {
+          justify-content: center;
+      }
+      
+      /* Rimuovo la trasformazione dei link mobile perché ora
+         l'animazione della sottolineatura avviene dal centro in modo uniforme */
+      .footer-links a:hover {
+          transform: translateY(-2px);
+      }
+  }                
 </style>
 
 
