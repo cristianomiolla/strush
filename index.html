@@ -26,8 +26,8 @@
 <style>
         /* Variabili CSS */
         :root {
-            --primary: #B4FACD;
-            --secondary: #B1ACFA;
+            --primary: #8EDCA9;
+            --secondary: #8C8DD4;
             --text: #2b2d42;
             --light: #f8f9fa;
             --dark: #212529;
@@ -49,7 +49,9 @@
             line-height: 1.6;
         }
         
-        /* Stili per i titoli */
+
+        
+
         h1, h2, h3, h4 {
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -100,8 +102,127 @@
         
         .section {
             padding: 5rem 0;
-        }        
+        }
+    
 </style>
+
+
+
+<!-- Animazione sui titoli -->
+<style>
+    /* Stili per i titoli */
+    .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+        position: relative;
+        padding-bottom: 15px;
+        font-size: 2.5rem;
+        color: #000000;
+        font-weight: bold;
+        overflow: hidden;
+    }
+
+    .section-title .title-wrapper {
+        display: inline-block;
+        position: relative;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    /* Effetto di rivelazione */
+    .section-title.reveal .title-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Animazione della barra di sottolineatura */
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%) scaleX(0);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        border-radius: 2px;
+        transition: transform 0.6s ease 0.4s;
+    }
+
+    .section-title.reveal::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sectionTitles = document.querySelectorAll('.section-title');
+
+        // Wrappa il testo
+        sectionTitles.forEach(title => {
+            const text = title.textContent;
+            title.innerHTML = `<span class="title-wrapper">${text}</span>`;
+        });
+
+        function isPartiallyInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+
+            return (
+                rect.top < windowHeight &&
+                rect.bottom >= 0 &&
+                rect.left < windowWidth &&
+                rect.right >= 0
+            );
+        }
+
+        function handleTitleReveal() {
+            sectionTitles.forEach(title => {
+                if (!title.classList.contains('reveal') && isPartiallyInViewport(title)) {
+                    title.classList.add('reveal');
+                }
+            });
+        }
+
+        // Controllo iniziale
+        handleTitleReveal();
+
+        // Listener per lo scroll e resize
+        window.addEventListener('scroll', handleTitleReveal);
+        window.addEventListener('resize', handleTitleReveal);
+
+        // Rimozione del listener quando tutti i titoli sono rivelati
+        const allRevealed = () => 
+            Array.from(sectionTitles).every(title => title.classList.contains('reveal'));
+
+        const titleObserver = new MutationObserver(() => {
+            if (allRevealed()) {
+                window.removeEventListener('scroll', handleTitleReveal);
+                window.removeEventListener('resize', handleTitleReveal);
+                titleObserver.disconnect();
+            }
+        });
+
+        // Osserva i cambiamenti di classe
+        sectionTitles.forEach(title => {
+            titleObserver.observe(title, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        });
+    });
+</script>
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTP9KKD7VG"></script>
@@ -112,6 +233,7 @@
 
   gtag('config', 'G-ZTP9KKD7VG');
 </script>
+
 
 </head>
 
@@ -185,7 +307,7 @@
 .strush-blob.blob1 {
     width: 300px;
     height: 300px;
-    background: #B1ACFA;
+    background: #8C8DD4;
     top: 20%;
     left: 15%;
     animation: blob-morph1 20s ease-in-out infinite alternate;
@@ -194,7 +316,7 @@
 .strush-blob.blob2 {
     width: 350px;
     height: 350px;
-    background: #B4FACD;
+    background: #8EDCA9;
     bottom: 20%;
     right: 15%;
     animation: blob-morph2 25s ease-in-out infinite alternate;
@@ -247,7 +369,7 @@
     position: absolute;
     width: 35px;
     height: 20px;
-    background: #B1ACFA;
+    background: #8C8DD4;
     border-radius: 10px 15px 8px 8px;
     top: 15px;
     left: 10px;
@@ -257,7 +379,7 @@
     position: absolute;
     width: 20px;
     height: 15px;
-    background: #B1ACFA;
+    background: #8C8DD4;
     border-radius: 8px 12px 5px 5px;
     top: 12px;
     left: 40px;
@@ -284,7 +406,7 @@
 
 .spine {
     position: absolute;
-    background: #B4FACD;
+    background: #8EDCA9;
     width: 2px;
     transform-origin: bottom center;
     box-shadow: 0 0 4px rgba(180, 250, 205, 0.6);
@@ -299,7 +421,7 @@
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 8px solid #B4FACD;
+    border-bottom: 8px solid #8EDCA9;
     top: -7px;
     left: -3px;
 }
@@ -309,7 +431,7 @@
     position: absolute;
     width: 4px;
     height: 2px;
-    background: #B4FACD;
+    background: #8EDCA9;
     border-radius: 50%;
     bottom: -1px;
     left: -1px;
@@ -354,7 +476,7 @@
     position: absolute;
     width: 22px;
     height: 8px;
-    background: #B1ACFA;
+    background: #8C8DD4;
     border-radius: 50% 0 0 50%;
     top: 18px;
     left: -8px;
@@ -369,7 +491,7 @@
     position: absolute;
     width: 4px;
     height: 15px;
-    background: #B1ACFA;
+    background: #8C8DD4;
     bottom: -5px;
     border-radius: 2px;
 }
@@ -410,7 +532,7 @@
 
 .strush-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #B1ACFA, #B4FACD);
+    background: linear-gradient(90deg, #8C8DD4, #8EDCA9);
     width: 0;
     border-radius: 3px;
     animation: fill 2s infinite;
@@ -650,7 +772,7 @@
         left: 0;
         height: 100%;
         width: 0%;
-        background: linear-gradient(90deg, #B1ACFA, #9F8CFF); /* Gradiente viola */
+        background: linear-gradient(90deg, #8C8DD4, #9F8CFF); /* Gradiente viola */
         transition: width .3s ease-out;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
@@ -659,7 +781,7 @@
 
     /* Effetto hover sulla barra di progresso */
     .scroll-progress-container:hover .scroll-progress-bar {
-        background: linear-gradient(90deg, #A3F9C0, #B4FACD); /* Gradiente verde */
+        background: linear-gradient(90deg, #A3F9C0, #8EDCA9); /* Gradiente verde */
         box-shadow: 0 0 10px rgba(180, 250, 205, 0.6); /* Glow effect verde */
     }
 
@@ -943,7 +1065,7 @@
         left: 0;
         right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, #B1ACFA, transparent);
+        background: linear-gradient(90deg, transparent, #8C8DD4, transparent);
     }
     
     .strush-mobile-dropdown.active {
@@ -992,7 +1114,7 @@
     
     /* Stesso effetto hover dei link desktop */
     .strush-mobile-links a:hover {
-        color: #B4FACD;
+        color: #8EDCA9;
     }
     
     /* Linea gradiente che appare sotto i link al passaggio del mouse */
@@ -1003,7 +1125,7 @@
         left: 50%;
         width: 0;
         height: 2px;
-        background: linear-gradient(to right, #B1ACFA, #B4FACD);
+        background: linear-gradient(to right, #8C8DD4, #8EDCA9);
         transition: all 0.3s ease;
         transform: translateX(-50%);
     }
@@ -1093,10 +1215,10 @@
         transition: all 0.3s ease;
         overflow: hidden; /* Assicura che l'immagine non esca dal contenitore */
         border-radius: 50%; /* Default è un cerchio */
-        background: linear-gradient(135deg, #B1ACFA, #B4FACD);
+        background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
         box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
         /* Contorno aggiunto */
-        border: 2.5px solid  #B1ACFA;
+        border: 2.5px solid  #8C8DD4;
     }
     
     /* Animazione per il blob - non è attiva di default */
@@ -1126,7 +1248,7 @@
     }
     
     .strush-logo-text {
-        color: #B1ACFA;
+        color: #8C8DD4;
         font-weight: 800;
         font-size: 1.6rem;
         transition: all 0.3s ease;
@@ -1162,7 +1284,7 @@
     }
     
     .strush-nav-links a:hover {
-        color: #B4FACD;
+        color: #8EDCA9;
     }
     
     .strush-nav-links a::after {
@@ -1172,7 +1294,7 @@
         left: 50%;
         width: 0;
         height: 2px;
-        background: linear-gradient(to right, #B1ACFA, #B4FACD);
+        background: linear-gradient(to right, #8C8DD4, #8EDCA9);
         transition: all 0.3s ease;
         transform: translateX(-50%);
     }
@@ -1295,7 +1417,7 @@
         
         .strush-menu-btn.open span,
         .strush-menu-btn.active span {
-            background-color: #B1ACFA;
+            background-color: #8C8DD4;
         }
     }
     
@@ -1542,7 +1664,7 @@ body {
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
-    background: linear-gradient(90deg, #B1ACFA, #B4FACD);
+    background: linear-gradient(90deg, #8C8DD4, #8EDCA9);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1574,7 +1696,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, #B1ACFA, #9992E8);
+    background: linear-gradient(90deg, #8C8DD4, #9992E8);
     color: white;
     box-shadow: 0 4px 15px rgba(177, 172, 250, 0.4);
 }
@@ -1586,8 +1708,8 @@ body {
 
 .btn-secondary {
     background: transparent;
-    color: #B1ACFA;
-    border: 2px solid #B1ACFA;
+    color: #8C8DD4;
+    border: 2px solid #8C8DD4;
 }
 
 .btn-secondary:hover {
@@ -1852,7 +1974,7 @@ body {
     height: 10px;
     background: rgba(177, 172, 250, 0.7);
     border-radius: 50%;
-    box-shadow: 0 0 10px #B1ACFA;
+    box-shadow: 0 0 10px #8C8DD4;
     opacity: 0;
     animation: dataPoint 4s infinite;
 }
@@ -1871,7 +1993,7 @@ body {
     width: 100%;
     height: 2px;
     background: rgba(177, 172, 250, 0.5);
-    box-shadow: 0 0 10px #B1ACFA;
+    box-shadow: 0 0 10px #8C8DD4;
     animation: scanLine 3s infinite;
 }
 
@@ -2634,12 +2756,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
     
 <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-            --primary: #B1ACFA;
-            --secondary: #B4FACD;
-            --dark: #222;
-        }
     
         /* Stile per la sezione features */
         .features {
@@ -2661,27 +2777,6 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: 2;
         }
     
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 15px;
-            font-size: 2.5rem;
-            color: #000000;
-            font-weight: bold;
-        }
-    
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
     
         .features-grid {
             display: grid;
@@ -2695,7 +2790,7 @@ document.addEventListener('DOMContentLoaded', function() {
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, border-top 0.3s, box-shadow 0.3s;
-            border-top: 4px solid #B1ACFA;
+            border-top: 4px solid #8C8DD4;
             text-align: center;
         }
     
@@ -2703,11 +2798,11 @@ document.addEventListener('DOMContentLoaded', function() {
         @media (min-width: 769px) {
             .feature-card:hover {
                 transform: translateY(-10px);
-                border-top: 4px solid #B4FACD;
+                border-top: 4px solid #8EDCA9;
             }
     
             .feature-card:hover .feature-icon {
-                background: linear-gradient(135deg, #B4FACD 60%, #B1ACFA 100%);
+                background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
             }
         }
     
@@ -2751,12 +2846,12 @@ document.addEventListener('DOMContentLoaded', function() {
             /* Classe attiva per effetto scroll su mobile */
             .feature-card.active {
                 transform: translateY(-10px);
-                border-top: 4px solid #B4FACD;
+                border-top: 4px solid #8EDCA9;
                 box-shadow: 0 15px 40px rgba(177, 172, 250, 0.2);
             }
             
             .feature-card.active .feature-icon {
-                background: linear-gradient(135deg, #B4FACD 60%, #B1ACFA 100%);
+                background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
             }
             
             /* Stile specifico per l'ultima card per garantire che abbia spazio sufficiente */
@@ -3001,11 +3096,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <style>
-    :root {
-        --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-        --primary-green: #B4FACD;
-        --primary-purple: #B1ACFA;
-    }
 
     .avatar-evolution {
         background: #E6F2F5;
@@ -3026,28 +3116,6 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 2;
     }
 
-    .section-title {
-        font-size: 2.5rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        color: #000000;
-        font-weight: bold;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--gradient-primary);
-        border-radius: 2px;
-    }
 
     .evolution-description {
         text-align: center;
@@ -3308,10 +3376,6 @@ document.addEventListener('DOMContentLoaded', function() {
             padding-bottom: 4rem;
         }
         
-        .section-title {
-            margin-top: 2rem;
-            font-size: 2rem;
-        }
         
         .evolution-description {
             font-size: 1rem;
@@ -3673,9 +3737,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 :root {
-    --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-    --primary-green: #B4FACD;
-    --primary-purple: #B1ACFA;
     --speech-bubble-space: -30px; /* Spazio ridotto tra nuvoletta e immagine*/
     --card-width: 800px;
     --card-height: 500px;
@@ -3706,13 +3767,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-
 .card-container {
     display: flex;
     justify-content: center;
@@ -3720,32 +3774,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 2rem auto;
     max-width: 100%;
 }
-
-
-.section-title {
-    font-size: 2.5rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #000000;
-    font-weight: bold;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--gradient-primary);
-    border-radius: 2px;
-}
-
 
 .hub-description {
     text-align: center;
@@ -4209,7 +4237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Ticker/Scrolling Bar (outside the container for full width) -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <div class="ticker-item">DISCLAIMER: Migliaia di utenti hanno già migliorato la loro gestione finanziaria con la nostra app • Risparmia fino al 30% in più ogni mese grazie ai nostri consigli personalizzati • Unisciti alla comunità di risparmiatori intelligenti • Ottieni consigli personalizzati basati sulle tue abitudini di spesa • Pianifica il tuo futuro finanziario con strumenti facili da usare • Monitora i tuoi progressi in tempo reale </div>
+            <div class="ticker-item">DISCLAIMER: Strush non assicura di farti diventare milionario. Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà amara • Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi che gli hai anticipato per le birre della scorsa pasquetta • Strush non garantisce che smetterai di ordinare il Glovoo 5 volte a settimana • L'app non stampa i soldi e non cancella i copponi • L’uso prolungato potrebbe causare la drastica riduzione di amici pezzenti che scroccano •  Effetti collaterali possono includere attacchi di parsimonia  </div>
         </div>
     </div>
 </section>
@@ -4272,7 +4300,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .ticker-wrap {
         width: 100%;
         overflow: hidden;
-        background: linear-gradient(45deg, #B1ACFA, #B4FACD);
+        background: linear-gradient(45deg, #8C8DD4, #8EDCA9);
         box-shadow: 0 4px 15px rgba(177, 172, 250, 0.4), 0 -4px 15px rgba(180, 250, 205, 0.4);
         position: relative;
     }
@@ -4370,7 +4398,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="blob blob-1"></div>
                         <div class="blob blob-2"></div>
                         <div class="quote-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#B1ACFA">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#8C8DD4">
                                 <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
                             </svg>
                         </div>
@@ -4394,7 +4422,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="blob blob-1"></div>
                         <div class="blob blob-2"></div>
                         <div class="quote-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#B1ACFA">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#8C8DD4">
                                 <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
                             </svg>
                         </div>
@@ -4418,12 +4446,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="blob blob-1"></div>
                         <div class="blob blob-2"></div>
                         <div class="quote-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#B1ACFA">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#8C8DD4">
                                 <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
                             </svg>
                         </div>
                         <div class="testimonial-content">
-                            <p>Grazie a Strush ho finalmente raggiunto il mio obiettivo di risparmio per andare a Pescocostanzo. Le notifiche mi hanno aiutato a restare motivato!</p>
+                            <p>Grazie a Strush ho finalmente raggiunto il mio obiettivo di risparmio per andare a Pescocostanzo.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="avatar-blob avatar-shape-3">
@@ -4443,9 +4471,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
     :root {
-        --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-        --primary-purple: #B1ACFA;
-        --primary-green: #B4FACD;
+        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --primary-purple: #8C8DD4;
+        --primary-green: #8EDCA9;
         --border-thickness: 3px;
     }
     
@@ -4468,27 +4496,6 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 2;
     }
     
-    .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        color: #000000;
-        font-weight: bold;
-        position: relative;
-        padding-bottom: 15px;
-    }
-    
-    .section-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--gradient-primary);
-        border-radius: 2px;
-    }
     
     /* Story container styles */
     .story-container {
@@ -4757,10 +4764,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /* Mobile optimization */
     @media (max-width: 576px) {
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
         
         .story-inner {
             padding: 1.2rem;
@@ -5064,25 +5067,6 @@ document.addEventListener('DOMContentLoaded', function() {
         margin: 0 auto;
     }
 
-    .section-title {
-        text-align: center;
-        margin-bottom: 3rem;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(135deg, #B1ACFA 0%, #B4FACD 100%);
-        border-radius: 2px;
-    }
-
     .text-center {
         text-align: center;
         max-width: 700px;
@@ -5124,7 +5108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 200px;
         height: 200px;
         position: relative;
-        background: linear-gradient(135deg, #B1ACFA 0%, #B4FACD 100%);
+        background: linear-gradient(135deg, #8C8DD4 0%, #8EDCA9 100%);
         padding: 5px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         overflow: hidden;
@@ -5280,7 +5264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         font-weight: 500;
         margin-bottom: 1rem;
         display: inline-block;
-        background: linear-gradient(135deg, #B1ACFA 0%, #B4FACD 100%);
+        background: linear-gradient(135deg, #8C8DD4 0%, #8EDCA9 100%);
         padding: 5px 15px;
         border-radius: 20px;
     }
@@ -5319,7 +5303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
+        background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
@@ -5561,8 +5545,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
     :root {
         --dark: #222;
-        --gradient-primary: linear-gradient(135deg, #B4FACD 0%, #B1ACFA 100%);
-        --primary: #B4FACD; /* Cambiato da #B1ACFA a #B4FACD per usare il verde */
+        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --primary: #8EDCA9; 
     }
 
     footer {
@@ -5596,10 +5580,10 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: all 0.3s ease;
     overflow: hidden;
     border-radius: 50%; /* Default è un cerchio */
-    background: linear-gradient(135deg, #B1ACFA, #B4FACD);
+    background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
     box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
     /* Contorno aggiunto */
-    border: 2.5px solid #B1ACFA;
+    border: 2.5px solid #8C8DD4;
 }
 
 /* Animazione per il blob - non è attiva di default */
@@ -5636,7 +5620,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
     
 .footer-logo .logo-text {
-    color: #B1ACFA;
+    color: #8C8DD4;
     font-weight: 800;
     font-size: 1.6rem;
     margin-left: 8px;
@@ -5680,17 +5664,17 @@ document.addEventListener('DOMContentLoaded', function() {
         content: '';
         position: absolute;
         width: 100%;
-        height: 1px;
+        height: 0.5px;
         bottom: 0;
         left: 0;
-        background-color: rgba(180, 250, 205, 0.7);
+        background-color: #8EDCA9 ;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
     }
     
     .footer-links a:hover {
-        color: #B4FACD;
+        color: #8EDCA9;
     }
     
     .footer-links a:hover::after {
@@ -6033,7 +6017,114 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 </script>
 
-    
+
+<!-- Cursore Animation -->
+<div id="blob">
+    <div id="cursor"></div>
+</div>
+
+<style>
+    /* Completely remove all cursor styles */
+    * {
+        cursor: none !important;
+    }
+
+    #blob {
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        background-color: rgba(141, 141, 212, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        transition: transform 0.1s ease-out;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+    }
+
+    /* Remove blob for navbar elements */
+    nav * {
+        #blob {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    #cursor {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: #8C8DD4;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 10000;
+    }
+
+    /* Ensure links and interactive elements don't show default cursors */
+    a, button, input, select, textarea {
+        cursor: none !important;
+    }
+    </style>
+
+<script>
+    const blob = document.getElementById('blob');
+    const cursor = document.getElementById('cursor');
+    let lastX = 0;
+    let lastY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Calculate velocity
+        velocityX = x - lastX;
+        velocityY = y - lastY;
+
+        // Move blob surrounding the cursor
+        blob.style.left = `${x}px`;
+        blob.style.top = `${y}px`;
+
+        // Move cursor
+        cursor.style.left = '50%';
+        cursor.style.top = '50%';
+
+        // Deformation based on velocity
+        const speed = Math.sqrt(velocityX**2 + velocityY**2);
+        const maxDeformation = 1.5;
+        const minDeformation = 0.8;
+
+        // More sensitive deformation calculation
+        const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
+        const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
+
+        // Calculate rotation angle
+        const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
+
+        // Apply deformation and rotation
+        blob.style.transform = `
+            translate(-50%, -50%)
+            scaleX(${deformationX})
+            scaleY(${deformationY})
+            rotate(${angle}deg)
+        `;
+
+        lastX = x;
+        lastY = y;
+    });
+
+    // Restore original shape when mouse is still
+    document.addEventListener('mouseleave', () => {
+        blob.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+    </script>
+
+
 
 </body>
 
