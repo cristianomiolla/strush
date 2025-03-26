@@ -118,13 +118,13 @@
             max-width: 700px;
             margin: 0 auto 3rem;
             color: #000000;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         @media (max-width: 768px) {
     
             .section-subtitles {
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             }
             
@@ -2747,7 +2747,7 @@
         .dino-avatar-container {
             height: 40vh;
             max-height: 400px;
-            transform: scale(0.8);
+            transform: scale(0.9);
         }
     
         .hero-buttons {
@@ -2766,7 +2766,7 @@
     
         .btn {
             padding: 10px 20px;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         .dino-avatar-container {
@@ -2782,7 +2782,7 @@
         }
 
         .dino-avatar-container {
-        bottom: -10%;
+        bottom: -0%;
         }
     }
     
@@ -3091,27 +3091,35 @@
 </section>
 
 
-    <!-- Feature Section 1 -->
-<section id="feature-1" class="feature-section section">
+<!-- Sezione principale per tutte le features -->
+<section id="features-container" class="features-main-section section">
     <div class="container">
         <h2 class="section-title">Caratteristiche Principali</h2>
         
-        <div class="feature-parallax-container">
-            <div class="feature-container">
-                <div class="feature-content">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-wallet"></i>
+        <!-- Container per tutte le features (per ora contiene solo la prima) -->
+        <div class="features-list">
+            <!-- Feature 1 -->
+            <div id="feature-1" class="feature-parallax-container">
+                <div class="feature-container">
+                    <div class="feature-content">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h3 class="feature-title">Unica dashboard</h3>
+                            <p>Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
                         </div>
-                        <h3 class="feature-title">Unica dashboard</h3>
-                        <p>Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
+                    </div>
+                    
+                    <div class="center-divider"></div>
+                    
+                    <div class="parallax-video-container">
+                        <video id="parallax-video-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted></video>
                     </div>
                 </div>
-                
-                <div class="parallax-video-container">
-                    <video id="parallax-video-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted></video>
-                </div>
             </div>
+            
+            <!-- Qui in futuro verranno aggiunte altre features (feature-2, feature-3, ecc.) -->
         </div>
     </div>
 
@@ -3123,29 +3131,30 @@
             --border-thickness: 3px;
         }
         
-        .feature-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-            width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
+        .features-main-section {
+            background-color: white;
             position: relative;
-            background: white;
+            padding: 4rem 0;
         }
-        
-        .feature-section::after {
+
+        /* Curva inferiore */
+        .features-main-section::after {
             content: '';
             position: absolute;
             bottom: -30px;
             left: 0;
             width: 100%;
             height: 30px;
-            background: white;
+            background: #ffffff;
             border-radius: 0 0 50% 50% / 0 0 100% 100%;
             z-index: 2;
+        }
+        
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            width: 100%;
         }
         
         .feature-parallax-container {
@@ -3154,29 +3163,38 @@
             justify-content: center;
             align-items: center;
             flex-grow: 1;
+            margin: 60px auto;
         }
         
         .feature-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             width: 90%;
             max-width: 1200px;
-            gap: 4rem;
             position: relative;
         }
         
         .feature-content {
-            width: 45%;
+            width: 48%;
             display: flex;
             justify-content: flex-end;
             position: relative;
             transition: transform 0.8s ease, opacity 0.8s ease, left 0.8s ease;
         }
         
+        /* Center divider */
+        .center-divider {
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
+            margin: 0 80px;
+            display: block;
+        }
+        
         .parallax-video-container {
             position: relative;
-            width: 30%;
+            width: 48%;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -3194,27 +3212,38 @@
         }
         
         .feature-card {
-            background: linear-gradient(135deg, #ffffff, #f5f5ff);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-purple);
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.15);
-            max-width: 320px;
-            transition: all 0.3s ease;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, border-top 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #B1ACFA;
+            text-align: center;
         }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(93, 92, 179, 0.25);
-            background: linear-gradient(135deg, #ffffff, #eeeeff);
-        }
-        
+    
         
         .feature-icon {
-            color: var(--primary-purple);
-            font-size: 28px;
-            margin-bottom: 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            background: var(--gradient-primary);
+            color: var(--dark);
+            transition: background 0.3s;
         }
+
+        .feature-card:hover {
+                transform: translateY(-10px);
+                border-top: 4px solid #8EDCA9;
+            }
+    
+            .feature-card:hover .feature-icon {
+                background: linear-gradient(135deg, #8EDCA9 60%, #B1ACFA 100%);
+            }
         
         .feature-title {
             color: #333;
@@ -3225,10 +3254,10 @@
         
         @media (max-width: 768px) {
             .section {
-                padding: 4rem 0 4rem;
+                padding: 4rem 0;
             }
             
-            .feature-section::after {
+            .features-main-section::after {
                 height: 20px;
                 bottom: -20px;
             }
@@ -3246,10 +3275,15 @@
                 transition: transform 0.8s ease, opacity 0.8s ease, left 0.8s ease, right 0.8s ease;
             }
             
+            /* Hide divider on mobile */
+            .center-divider {
+                display: none;
+            }
+            
             .parallax-video {
-                max-height: 280px;
+                max-height: 350px; /* Video più grande su mobile */
                 margin: 0 auto;
-                width: auto;
+                height: auto;
             }
             
             .feature-card {
@@ -3277,11 +3311,7 @@
             .feature-parallax-container {
                 height: auto;
                 min-height: auto;
-            }
-            
-            .feature-section {
-                height: auto;
-                min-height: auto;
+                margin: 30px auto;
             }
         }
         
@@ -3301,13 +3331,8 @@
                 margin-bottom: 10px;
             }
             
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
-            
             .parallax-video {
-                max-height: 240px;
+                max-height: 300px; /* Ancora più grande su schermi piccoli */
             }
         }
         
@@ -3316,12 +3341,7 @@
                 padding: 15px;
                 font-size: 0.9rem;
             }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 1.5rem;
-            }
-            
+
             .feature-card .feature-title {
                 font-size: 1.1rem;
                 margin-bottom: 6px;
@@ -3333,914 +3353,189 @@
             }
             
             .parallax-video {
-                max-height: 200px;
+                max-height: 250px; /* Dimensione bilanciata per schermi molto piccoli */
             }
         }
     </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const featureSection = document.getElementById('feature-1');
-            const featureContent = featureSection.querySelector('.feature-content');
-            const parallaxVideoContainer = featureSection.querySelector('.parallax-video-container');
-            const parallaxVideo = document.getElementById('parallax-video-1');
+            // Inizializzazione per la feature 1 (in futuro si potranno aggiungere altre feature)
+            initializeFeature('feature-1', 'parallax-video-1');
             
-            // Funzione per mappare un valore da un range a un altro
-            const mapRange = (value, in_min, in_max, out_min, out_max) => {
-                return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-            };
-            
-            // Funzione per limitare un valore tra min e max
-            const clamp = (value, min, max) => {
-                return Math.min(Math.max(value, min), max);
-            };
-            
-            // Imposta le posizioni iniziali
-            featureContent.style.transform = 'translateY(100px)';
-            featureContent.style.opacity = '0';
-            featureContent.style.left = '0';
-            
-            parallaxVideoContainer.style.transform = 'translateY(100px)';
-            parallaxVideoContainer.style.opacity = '0';
-            parallaxVideoContainer.style.right = '0';
-            
-            // Variabili per tracciare lo stato dell'animazione
-            let isVisible = false;
-            
-            // Funzione per aggiornare l'animazione in base alla posizione di scroll
-            const updateAnimation = () => {
-                const rect = featureSection.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
+            // Funzione per inizializzare l'animazione di una feature
+            function initializeFeature(featureId, videoId) {
+                const featureSection = document.getElementById(featureId);
+                const featureContent = featureSection.querySelector('.feature-content');
+                const parallaxVideoContainer = featureSection.querySelector('.parallax-video-container');
+                const parallaxVideo = document.getElementById(videoId);
+                const centerDivider = featureSection.querySelector('.center-divider');
                 
-                // Posizione della sezione rispetto alla viewport
-                const topPosition = rect.top;
-                const bottomPosition = rect.bottom;
+                // Funzione per mappare un valore da un range a un altro
+                const mapRange = (value, in_min, in_max, out_min, out_max) => {
+                    return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+                };
                 
-                // Calcola quando la sezione è completamente visibile
-                const isFullyVisible = topPosition <= 0 && bottomPosition >= windowHeight;
-                const isEntering = topPosition < windowHeight && topPosition > 0;
-                const isExiting = bottomPosition < windowHeight && bottomPosition > 0;
+                // Imposta le posizioni iniziali
+                featureContent.style.transform = 'translateY(100px)';
+                featureContent.style.opacity = '0';
+                featureContent.style.left = '0';
                 
-                // Determina la fase di animazione
-                let entryProgress = 0;
-                let exitProgress = 0;
-                
-                if (isEntering) {
-                    // Fase di entrata (da 0 a 1)
-                    entryProgress = 1 - (topPosition / windowHeight);
-                } else if (isExiting) {
-                    // Fase di uscita (da 0 a 1)
-                    exitProgress = 1 - (bottomPosition / windowHeight);
-                } else if (isFullyVisible) {
-                    // Completamente visibile
-                    entryProgress = 1;
-                    exitProgress = 0;
+                if (centerDivider) {
+                    centerDivider.style.opacity = '0';
                 }
                 
-                // Verifica se siamo in modalità mobile
-                const isMobile = window.innerWidth <= 768;
+                parallaxVideoContainer.style.transform = 'translateY(100px)';
+                parallaxVideoContainer.style.opacity = '0';
+                parallaxVideoContainer.style.right = '0';
                 
-                // Sincronizza le animazioni di entrata
-                if (entryProgress > 0 && exitProgress === 0) {
-                    // Entrata sincronizzata dal basso
-                    const translateY = mapRange(entryProgress, 0, 1, 100, 0);
-                    const opacity = entryProgress;
-                    
-                    if (isMobile) {
-                        // Animazione per mobile: entrata dal basso
-                        parallaxVideoContainer.style.transform = `translateY(${translateY}px)`;
-                        parallaxVideoContainer.style.opacity = opacity;
-                        
-                        // Ritardo per la card
-                        const cardDelay = Math.max(0, entryProgress - 0.2);
-                        const cardTranslateY = mapRange(cardDelay, 0, 0.8, 100, 0);
-                        const cardOpacity = cardDelay * 1.25;
-                        
-                        featureContent.style.transform = `translateY(${cardTranslateY}px)`;
-                        featureContent.style.opacity = cardOpacity;
-                    } else {
-                        // Animazione per desktop: come prima
-                        featureContent.style.transform = `translateY(${translateY}px)`;
-                        featureContent.style.opacity = opacity;
-                        featureContent.style.left = '0';
-                        
-                        parallaxVideoContainer.style.transform = `translateY(${translateY}px)`;
-                        parallaxVideoContainer.style.opacity = opacity;
-                        parallaxVideoContainer.style.right = '0';
-                    }
-                    
-                    if (entryProgress > 0.7 && !isVisible) {
-                        isVisible = true;
-                        // Riproduci il video quando gli elementi sono quasi completamente visibili
-                        parallaxVideo.play().catch(e => {});
-                    }
-                }
+                // Variabili per tracciare lo stato dell'animazione
+                let isVisible = false;
                 
-                // Sincronizza le animazioni di uscita
-                if (exitProgress > 0) {
-                    if (isMobile) {
-                        // Animazione di uscita per mobile: uscita verso l'alto
-                        const videoTranslateY = mapRange(exitProgress, 0, 1, 0, -100);
-                        const videoOpacity = Math.max(1 - exitProgress * 1.5, 0);
-                        
-                        parallaxVideoContainer.style.transform = `translateY(${videoTranslateY}px)`;
-                        parallaxVideoContainer.style.opacity = videoOpacity;
-                        
-                        // La card esce con un ritardo
-                        const cardExitDelay = Math.max(0, exitProgress - 0.1);
-                        const cardTranslateY = mapRange(cardExitDelay, 0, 0.9, 0, -100);
-                        const cardOpacity = Math.max(1 - cardExitDelay * 1.5, 0);
-                        
-                        featureContent.style.transform = `translateY(${cardTranslateY}px)`;
-                        featureContent.style.opacity = cardOpacity;
-                    } else {
-                        // Animazione di uscita per desktop: come prima
-                        const leftOffset = mapRange(exitProgress, 0, 1, 0, -100);
-                        const rightOffset = mapRange(exitProgress, 0, 1, 0, -100);
-                        const fadeOut = Math.max(1 - exitProgress * 1.5, 0);
-                        
-                        featureContent.style.transform = 'translateY(0)';
-                        featureContent.style.left = `${leftOffset}%`;
-                        featureContent.style.opacity = fadeOut;
-                        
-                        parallaxVideoContainer.style.transform = 'translateY(0)';
-                        parallaxVideoContainer.style.right = `${rightOffset}%`;
-                        parallaxVideoContainer.style.opacity = fadeOut;
+                // Funzione per aggiornare l'animazione in base alla posizione di scroll
+                const updateAnimation = () => {
+                    const rect = featureSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Posizione della sezione rispetto alla viewport
+                    const topPosition = rect.top;
+                    const bottomPosition = rect.bottom;
+                    
+                    // Calcola quando la sezione è completamente visibile
+                    const isFullyVisible = topPosition <= 0 && bottomPosition >= windowHeight;
+                    const isEntering = topPosition < windowHeight && topPosition > 0;
+                    const isExiting = bottomPosition < windowHeight && bottomPosition > 0;
+                    
+                    // Determina la fase di animazione
+                    let entryProgress = 0;
+                    let exitProgress = 0;
+                    
+                    if (isEntering) {
+                        // Fase di entrata (da 0 a 1)
+                        entryProgress = 1 - (topPosition / windowHeight);
+                    } else if (isExiting) {
+                        // Fase di uscita (da 0 a 1)
+                        exitProgress = 1 - (bottomPosition / windowHeight);
+                    } else if (isFullyVisible) {
+                        // Completamente visibile
+                        entryProgress = 1;
+                        exitProgress = 0;
                     }
                     
-                    if (exitProgress > 0.3 && isVisible) {
-                        isVisible = false;
-                        // Metti in pausa il video quando inizia ad uscire
-                        parallaxVideo.pause();
+                    // Verifica se siamo in modalità mobile
+                    const isMobile = window.innerWidth <= 768;
+                    
+                    // Sincronizza le animazioni di entrata
+                    if (entryProgress > 0 && exitProgress === 0) {
+                        // Entrata sincronizzata dal basso
+                        const translateY = mapRange(entryProgress, 0, 1, 100, 0);
+                        const opacity = entryProgress;
+                        
+                        if (isMobile) {
+                            // Animazione per mobile: entrata dal basso
+                            parallaxVideoContainer.style.transform = `translateY(${translateY}px)`;
+                            parallaxVideoContainer.style.opacity = opacity;
+                            
+                            // Ritardo per la card
+                            const cardDelay = Math.max(0, entryProgress - 0.2);
+                            const cardTranslateY = mapRange(cardDelay, 0, 0.8, 100, 0);
+                            const cardOpacity = cardDelay * 1.25;
+                            
+                            featureContent.style.transform = `translateY(${cardTranslateY}px)`;
+                            featureContent.style.opacity = cardOpacity;
+                        } else {
+                            // Animazione per desktop: come prima
+                            featureContent.style.transform = `translateY(${translateY}px)`;
+                            featureContent.style.opacity = opacity;
+                            featureContent.style.left = '0';
+                            
+                            parallaxVideoContainer.style.transform = `translateY(${translateY}px)`;
+                            parallaxVideoContainer.style.opacity = opacity;
+                            parallaxVideoContainer.style.right = '0';
+                            
+                            // Animazione per il divider centrale
+                            if (centerDivider) {
+                                centerDivider.style.opacity = opacity;
+                            }
+                        }
+                        
+                        if (entryProgress > 0.7 && !isVisible) {
+                            isVisible = true;
+                            // Riproduci il video quando gli elementi sono quasi completamente visibili
+                            parallaxVideo.play().catch(e => {});
+                        }
                     }
-                }
-            };
-            
-            // Aggiungi un listener per lo scroll
-            window.addEventListener('scroll', updateAnimation, { passive: true });
-            
-            // Esegui l'animazione anche al caricamento
-            updateAnimation();
+                    
+                    // Sincronizza le animazioni di uscita
+                    if (exitProgress > 0) {
+                        if (isMobile) {
+                            // Animazione di uscita per mobile: uscita verso l'alto
+                            const videoTranslateY = mapRange(exitProgress, 0, 1, 0, -100);
+                            const videoOpacity = Math.max(1 - exitProgress * 1.5, 0);
+                            
+                            parallaxVideoContainer.style.transform = `translateY(${videoTranslateY}px)`;
+                            parallaxVideoContainer.style.opacity = videoOpacity;
+                            
+                            // La card esce con un ritardo
+                            const cardExitDelay = Math.max(0, exitProgress - 0.1);
+                            const cardTranslateY = mapRange(cardExitDelay, 0, 0.9, 0, -100);
+                            const cardOpacity = Math.max(1 - cardExitDelay * 1.5, 0);
+                            
+                            featureContent.style.transform = `translateY(${cardTranslateY}px)`;
+                            featureContent.style.opacity = cardOpacity;
+                        } else {
+                            // Animazione di uscita per desktop: come prima
+                            const leftOffset = mapRange(exitProgress, 0, 1, 0, -100);
+                            const rightOffset = mapRange(exitProgress, 0, 1, 0, 100);
+                            const fadeOut = Math.max(1 - exitProgress * 1.5, 0);
+                            
+                            featureContent.style.transform = 'translateY(0)';
+                            featureContent.style.left = `${leftOffset}px`;
+                            featureContent.style.opacity = fadeOut;
+                            
+                            parallaxVideoContainer.style.transform = 'translateY(0)';
+                            parallaxVideoContainer.style.right = `${rightOffset}px`;
+                            parallaxVideoContainer.style.opacity = fadeOut;
+                            
+                            // Animazione di uscita per il divider centrale
+                            if (centerDivider) {
+                                centerDivider.style.opacity = fadeOut;
+                            }
+                        }
+                        
+                        if (exitProgress > 0.3 && isVisible) {
+                            isVisible = false;
+                            // Metti in pausa il video quando inizia ad uscire
+                            parallaxVideo.pause();
+                        }
+                    }
+                };
+                
+                // Aggiungi un listener per lo scroll
+                window.addEventListener('scroll', updateAnimation, { passive: true });
+                
+                // Esegui l'animazione anche al caricamento
+                updateAnimation();
+            }
             
             // Gestione ridimensionamento finestra
-            window.addEventListener('resize', updateAnimation, { passive: true });
+            window.addEventListener('resize', () => {
+                // Aggiorna tutte le animazioni delle features
+                // In futuro qui si aggiungeranno altre feature
+                updateAnimation('feature-1', 'parallax-video-1');
+            }, { passive: true });
+            
+            // Funzione per aggiornare tutte le animazioni
+            function updateAnimation(featureId, videoId) {
+                // Ottieni gli elementi
+                const featureSection = document.getElementById(featureId);
+                if (!featureSection) return;
+                
+                // Simula un evento di scroll per aggiornare le animazioni
+                window.dispatchEvent(new Event('scroll'));
+            }
         });
     </script>
-</section>
-
-
-   <!-- Avatar Evolution Section -->
-<section id="avatar-evolution" class="avatar-evolution section">
-
-    <div class="container">
-        <h2 class="section-title">Avatar</h2>
-        <p class="section-subtitles">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
-        
-        <div class="evolution-carousel-container">
-            <div class="evolution-carousel-wrapper">
-                <div class="evolution-carousel" id="evolutionCarousel">
-                    <!-- Duplicate cards for infinite effect -->
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-1">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 1: Iniziatore</h4>
-                                <p>Primi passi nella gestione delle finanze</p>
-                                <div class="level-badge">Principiante</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-2">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 2: Risparmiatore</h4>
-                                <p>Gestione consapevole del denaro</p>
-                                <div class="level-badge">Intermedio</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-3">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 3: Maestro</h4>
-                                <p>Esperto nella gestione finanziaria</p>
-                                <div class="level-badge">Avanzato</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Duplicated cards for continuous scrolling -->
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-1">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 1: Iniziatore</h4>
-                                <p>Primi passi nella gestione delle finanze</p>
-                                <div class="level-badge">Principiante</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-2">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 2: Risparmiatore</h4>
-                                <p>Gestione consapevole del denaro</p>
-                                <div class="level-badge">Intermedio</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-3">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 3: Maestro</h4>
-                                <p>Esperto nella gestione finanziaria</p>
-                                <div class="level-badge">Avanzato</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-
-    <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
-            --border-thickness: 3px;
-            --speech-bubble-space: -30px;
-            --card-width: 800px;
-            --card-height: 500px;
-            --image-width: 180px;
-            --image-height: 250px;
-            --bubble-width: 300px;
-        }
-        
-        .avatar-evolution {
-            background: #E6F2F5;
-            position: relative;
-        }
-    
-        /* Curva inferiore */
-        .avatar-evolution::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: #E6F2F5;
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            z-index: 2;
-        }
-    
-        /* Soluzione per evitare ombre tagliate */
-        .evolution-carousel-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: visible; /* Cambiato da 'hidden' a 'visible' */
-            position: relative;
-            cursor: grab;
-        }
-
-        /* Aggiungiamo un wrapper interno con overflow hidden per mantenere l'effetto di mascheramento */
-        .evolution-carousel-wrapper {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-        
-        .evolution-carousel-container:active {
-            cursor: grabbing;
-        }
-    
-        /* Manteniamo i fade effect sul wrapper interno */
-        .evolution-carousel-wrapper::before,
-        .evolution-carousel-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-    
-        .evolution-carousel-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #E6F2F5 0%, rgba(230, 242, 245, 0) 100%);
-        }
-
-        .evolution-carousel-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #E6F2F5 0%, rgba(230, 242, 245, 0) 100%);
-        }
-    
-        /* Carousel animation */
-        /* Aggiungiamo padding-bottom al carousel per dare spazio alle ombre */
-        .evolution-carousel {
-            display: flex;
-            width: calc(280px * 6); /* Card width * number of cards */
-            animation: scroll 20s linear infinite;
-            padding-bottom: 15px; /* Spazio per le ombre */
-            padding-top: 10px;
-        }
-    
-        /* Pause animation class */
-        .paused {
-            animation-play-state: paused;
-        }
-    
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-280px * 3)); /* Card width * number of unique cards */
-            }
-        }
-    
-        /* Evolution card styles - redesigned to highlight image */
-        .evolution-card {
-            position: relative;
-            border-radius: 20px;
-            background: white;
-            min-width: 280px;
-            width: 280px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            margin: 0 20px;
-            overflow: hidden;
-            user-select: none; /* Prevent text selection during drag */
-        }
-    
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-    
-        /* Avatar container background */
-        .avatar-container {
-            width: 100%;
-            height: 180px;
-            position: relative;
-            overflow: hidden;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    
-        /* Irregular shape containers for avatars */
-        .avatar-shape {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 140px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-    
-        /* Avatar wrapper - this will have the border and clip-path */
-        .avatar-wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 4px solid white;
-        }
-    
-        /* Style for shape 1 - blob shape */
-        .avatar-shape-1 .avatar-wrapper {
-            border-radius: 71% 29% 65% 35% / 33% 56% 44% 67%;
-        }
-    
-        /* Style for shape 2 - different blob shape */
-        .avatar-shape-2 .avatar-wrapper {
-            border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
-        }
-    
-        /* Style for shape 3 - another blob shape */
-        .avatar-shape-3 .avatar-wrapper {
-            border-radius: 63% 37% 54% 46% / 46% 29% 71% 54%;
-        }
-    
-        /* Avatar image contained inside the shape */
-        .avatar-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    
-        /* Card info section */
-        .card-info {
-            padding: 1.5rem;
-            text-align: center;
-            background: white;
-        }
-    
-        /* Enhanced hover effects */
-        .evolution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(180, 250, 205, 0.5);
-        }
-    
-        .evolution-card:hover .avatar-shape {
-            transform: scale(1.05);
-        }
-    
-        .evolution-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: #333;
-        }
-    
-        .evolution-card p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-    
-        .level-badge {
-            display: inline-block;
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-    
-        /* Badge colors */
-        .evolution-card:nth-child(3n+1) .level-badge {
-            background-color: #E8F5E9;
-            color: #2a9d64;
-        }
-    
-        .evolution-card:nth-child(3n+2) .level-badge {
-            background-color: #E3F2FD;
-            color: #2270b8;
-        }
-    
-        .evolution-card:nth-child(3n+3) .level-badge {
-            background-color: #EDE7F6;
-            color: #6651b8;
-        }
-    
-        /* Media queries per responsività */
-        @media (max-width: 480px) {
-            .evolution-carousel {
-                width: calc(160px * 6); /* Ancora più piccole su schermi molto piccoli */
-            }
-            
-            .evolution-card {
-                min-width: 160px;
-                width: 160px;
-                margin: 0 4px;
-            }
-            
-            .avatar-container {
-                height: 100px;
-            }
-            
-            .avatar-shape {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .card-info {
-                padding: 0.75rem;
-            }
-            
-            .evolution-card h4 {
-                font-size: 0.9rem;
-            }
-            
-            .evolution-card p {
-                font-size: 0.8rem;
-            }
-            
-            .level-badge {
-                padding: 0.2rem 0.6rem;
-                font-size: 0.65rem;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-160px * 3)); /* Adjusted for smaller mobile */
-                }
-            }
-        }
-        
-        /* Per i dispositivi ancora più piccoli */
-        @media (max-width: 400px) {
-            .image-label {
-                font-size: 8px; /* Testo targhetta ancora più piccolo */
-                padding: 1px 3px;
-            }
-            
-            .evolution-carousel {
-                width: calc(140px * 6);
-                padding-bottom: 10px;
-            }
-            
-            .evolution-card {
-                min-width: 140px;
-                width: 140px;
-                margin: 0 3px;
-            }
-            
-            .avatar-container {
-                height: 90px;
-            }
-            
-            .avatar-shape {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .evolution-card h4 {
-                font-size: 0.85rem;
-            }
-            
-            .evolution-card p {
-                font-size: 0.75rem;
-                margin-bottom: 0.5rem;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-140px * 3));
-                }
-            }
-        } 
-        
-        /* Per i dispositivi mobile */
-        @media (max-width: 768px) {
-            
-            .evolution-carousel {
-                width: calc(200px * 6); /* Reduced card width for mobile */
-                animation: scroll 20s linear infinite;
-            }
-            
-            .evolution-card {
-                min-width: 200px;
-                width: 200px;
-                margin: 0 5px;  /* Reduced margins */
-            }
-            
-            .avatar-container {
-                height: 120px; /* Reduced height */
-            }
-            
-            .avatar-shape {
-                width: 100px; /* Smaller avatar shape */
-                height: 100px;
-            }
-            
-            .avatar-wrapper {
-                border: 3px solid white; /* Thinner border */
-            }
-            
-            .card-info {
-                padding: 1rem; /* Less padding */
-            }
-            
-            .evolution-card h4 {
-                font-size: 1rem; /* Smaller font */
-                margin-bottom: 0.5rem;
-            }
-            
-            .evolution-card p {
-                font-size: 0.85rem;
-                margin-bottom: 0.75rem;
-            }
-            
-            .level-badge {
-                padding: 0.25rem 0.75rem;
-                font-size: 0.7rem;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-200px * 3)); /* Adjusted for mobile card size */
-                }
-            }
-            
-            /* Adattamento della curva per dispositivi mobili */
-            .avatar-evolution::after {
-                height: 20px;
-                bottom: -20px;
-            }
-            
-        
-            /* Adjust fade effect width for mobile */
-            .evolution-carousel-wrapper::before,
-            .evolution-carousel-wrapper::after {
-                width: 40px; /* Narrower gradient */
-            }
-
-            .evolution-carousel {
-             padding-bottom: 12px; /* Leggermente ridotto su mobile */
-                }
-            }
-
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const carousel = document.getElementById('evolutionCarousel');
-        const container = carousel.parentElement;
-        let selectedCard = null;
-        
-        // Get card dimensions based on current viewport
-        function getCardDimensions() {
-            let cardWidth, cardMargin;
-            if (window.innerWidth <= 480) {
-                cardWidth = 160;
-                cardMargin = 4;
-            } else if (window.innerWidth <= 768) {
-                cardWidth = 200;
-                cardMargin = 5;
-            } else {
-                cardWidth = 280;
-                cardMargin = 20;
-            }
-            return { cardWidth, cardMargin };
-        }
-        
-        // Update dimensions based on current viewport
-        let { cardWidth, cardMargin } = getCardDimensions();
-        let totalCardWidth = cardWidth + (cardMargin * 2);
-        const cardsPerSet = 3; // Number of unique cards
-        
-        let isDown = false;
-        let startX;
-        let startY;
-        let startTranslateX = 0;
-        let currentTranslateX = 0;
-        let isDragging = false;
-        let isScrolling = false;
-        let clickStartTime;
-        
-        // Funzione per aggiungere la classe selected a una card
-        function selectCard(card) {
-            // Rimuovi la classe selected da tutte le card
-            const allCards = document.querySelectorAll('.evolution-card');
-            allCards.forEach(c => c.classList.remove('selected'));
-            
-            // Aggiungi la classe selected alla card cliccata
-            if (card && card !== selectedCard) {
-                card.classList.add('selected');
-                selectedCard = card;
-                // Quando si seleziona una card, interrompi l'animazione
-                carousel.classList.add('paused');
-                carousel.style.animation = 'none';
-            } else {
-                selectedCard = null;
-                // Quando si deseleziona, riprendi l'animazione
-                carousel.classList.remove('paused');
-                carousel.style.animation = '';
-            }
-        }
-        
-        // Function to handle infinite scroll effect
-        function handleInfiniteScroll() {
-            if (!carousel.style.transform) return;
-            
-            const transformValue = parseInt(carousel.style.transform.replace('translateX(', '').replace('px)', ''));
-            const totalWidth = totalCardWidth * cardsPerSet;
-            
-            // If scrolled too far to the right (past first set)
-            if (transformValue > 0) {
-                // Jump to the duplicate cards (effectively moving one full set to the left)
-                carousel.style.transition = 'none';
-                carousel.style.transform = `translateX(${transformValue - totalWidth}px)`;
-                // Force reflow
-                carousel.offsetHeight;
-                carousel.style.transition = '';
-            }
-            // If scrolled too far to the left (past the duplicates)
-            else if (transformValue < -totalWidth) {
-                // Calculate how far into the second set we are
-                const remainder = transformValue % totalWidth;
-                // Jump back to the equivalent position in the first set
-                carousel.style.transition = 'none';
-                carousel.style.transform = `translateX(${remainder}px)`;
-                // Force reflow
-                carousel.offsetHeight;
-                carousel.style.transition = '';
-            }
-        }
-        
-        // Start dragging
-        function dragStart(clientX, clientY) {
-            isDown = true;
-            isDragging = false;
-            isScrolling = false;
-            clickStartTime = new Date().getTime();
-            carousel.classList.add('paused');
-            startX = clientX - container.offsetLeft;
-            startY = clientY || 0;
-            
-            // Get current transform value
-            const computedStyle = window.getComputedStyle(carousel);
-            const matrix = new DOMMatrix(computedStyle.transform);
-            startTranslateX = matrix.m41;
-            currentTranslateX = startTranslateX;
-            
-            // Pause animation but keep current position
-            carousel.style.animation = 'none';
-            carousel.style.transform = `translateX(${startTranslateX}px)`;
-        }
-        
-        // During dragging
-        function dragging(clientX, clientY) {
-            if (!isDown) return;
-            
-            const x = clientX - container.offsetLeft;
-            const y = clientY || 0;
-            const walkX = (x - startX);
-            const walkY = y - startY;
-            
-            // Determina se l'utente sta scrollando orizzontalmente
-            if (!isDragging && !isScrolling) {
-                // Se lo spostamento orizzontale è maggiore di 5px o è passato più di 200ms,
-                // considera questo come un'azione di drag invece di un click
-                if (Math.abs(walkX) > 5 || (new Date().getTime() - clickStartTime > 200)) {
-                    isDragging = true;
-                }
-            }
-            
-            if (isDragging) {
-                currentTranslateX = startTranslateX + walkX;
-                carousel.style.transform = `translateX(${currentTranslateX}px)`;
-                
-                // Apply infinite scroll logic during dragging
-                handleInfiniteScroll();
-            }
-        }
-        
-        // End dragging
-        function dragEnd(event) {
-            if (!isDown) return;
-            isDown = false;
-            
-            // Se è stato un drag, allora gestisci lo scorrimento del carosello
-            if (isDragging) {
-                // Remove existing inline styles to restart animation
-                carousel.style.transform = '';
-                carousel.style.animation = '';
-                carousel.classList.remove('paused');
-                
-                // Calculate position in the animation cycle
-                // Total width of one set of cards
-                const totalWidth = totalCardWidth * cardsPerSet;
-                
-                // Normalize current position to be within 0 to -totalWidth
-                let normalizedPosition = currentTranslateX % totalWidth;
-                if (normalizedPosition > 0) normalizedPosition -= totalWidth;
-                
-                // Calculate animation progress (0 to 1)
-                const animationProgress = -normalizedPosition / totalWidth;
-                
-                // Create a new animation that starts from the current position
-                const animationDuration = 20; // seconds, same as in CSS
-                const remainingDuration = animationDuration * (1 - animationProgress);
-                
-                // Apply the new animation
-                carousel.style.animation = `scroll ${animationDuration}s linear infinite`;
-                carousel.style.animationDelay = `-${animationProgress * animationDuration}s`;
-            } 
-            // Se non è stato un drag, allora potrebbe essere un click su una card
-            else if (event && event.target) {
-                // Cerca l'elemento card più vicino al punto cliccato
-                let targetCard = event.target.closest('.evolution-card');
-                if (targetCard) {
-                    selectCard(targetCard);
-                }
-            }
-            
-            isDragging = false;
-        }
-        
-        // Gestisci click fuori dalle card per deselezionare
-        document.addEventListener('click', function(e) {
-            // Se il click non è dentro una card o dentro il container del carosello
-            if (!e.target.closest('.evolution-card') && !e.target.closest('.evolution-carousel-container')) {
-                // Deseleziona card
-                selectCard(null);
-                
-                // Rimuovi la pausa e riprendi l'animazione
-                carousel.classList.remove('paused');
-                carousel.style.animation = '';
-                
-                // Rimuovi transform per garantire che l'animazione riprenda correttamente
-                carousel.style.transform = '';
-            }
-        });
-        
-        // Update card dimensions on window resize
-        window.addEventListener('resize', function() {
-            // Update card dimensions
-            const dimensions = getCardDimensions();
-            cardWidth = dimensions.cardWidth;
-            cardMargin = dimensions.cardMargin;
-            totalCardWidth = cardWidth + (cardMargin * 2);
-        });
-        
-        // Mouse Events
-        container.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            dragStart(e.pageX, e.pageY);
-        });
-        
-        window.addEventListener('mousemove', (e) => {
-            e.preventDefault();
-            dragging(e.pageX, e.pageY);
-        });
-        
-        window.addEventListener('mouseup', (e) => {
-            dragEnd(e);
-        });
-        
-        // Touch Events
-        container.addEventListener('touchstart', (e) => {
-            dragStart(e.touches[0].clientX, e.touches[0].clientY);
-        });
-        
-        window.addEventListener('touchmove', (e) => {
-            dragging(e.touches[0].clientX, e.touches[0].clientY);
-        });
-        
-        window.addEventListener('touchend', (e) => {
-            dragEnd(e);
-        });
-        
-        // Prevent default behavior for touch events to avoid page scrolling
-        container.addEventListener('touchmove', (e) => {
-            if (isDown) e.preventDefault();
-        }, { passive: false });
-    });
-    </script>
-
 </section>
 
 
@@ -4321,7 +3616,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: auto;
+            margin: 5px auto auto auto;
             max-width: 100%;
         }
         
@@ -4806,6 +4101,8 @@
             background-color: white;
             position: relative;
         }
+
+        
     
         /* Bottom curve - reduced height */
         .how-it-works::after {
@@ -5131,13 +4428,12 @@
         .story-container {
             position: relative;
             max-width: 900px;
-            margin: auto;
+            margin: 5px auto auto auto;
             overflow: hidden;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
             user-select: none; /* Impedisce la selezione del testo */
             -webkit-touch-callout: none; /* Disabilita il callout su iOS */
-            padding-top: 5px;
         }
         
         /* Progress bars styles */
@@ -5704,7 +5000,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            padding-top: 5px;
+            margin: 5px auto auto auto;
         }
     
         .team-member {
