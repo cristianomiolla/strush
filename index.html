@@ -103,7 +103,35 @@
         .section {
             padding: 5rem 0 5rem;
         }
+
+        @media (max-width: 768px) { 
+
+        .section {
+            padding: 5rem 0 5rem;
+            }
+
+        }
+
+    /* Section sub-titles */
+    .section-subtitles {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #000000;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
     
+            .section-subtitles {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            }
+            
+        }
+
+
+
 </style>
 
 <!-- Blob in Background -->
@@ -162,6 +190,16 @@
             font-size: 2rem;
         }
     }
+
+    @media (max-width: 400px) {
+        .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+
+
 </style>
 
 <script>
@@ -1954,7 +1992,6 @@
     }
     
     
-    
     .hero .container {
         position: relative;
         z-index: 1;
@@ -2001,7 +2038,7 @@
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         line-height: 1.6;
         margin-bottom: 30px;
         color: rgba(255, 255, 255, 0.8);
@@ -2010,7 +2047,7 @@
     
     .hero-buttons {
         display: flex;
-        gap: 15px;
+        gap: 30px;
     }
     
     .btn {
@@ -2394,7 +2431,7 @@
     /* Ambiente preistorico stilizzato */
     .prehistoric-bg {
         position: absolute;
-        bottom: 0;
+        bottom: 20%;
         left: 0;
         width: 100%;
         height: 30%;
@@ -2410,7 +2447,7 @@
     
     .mountain.m1 {
         left: 10%;
-        width: 150px;
+        width: 130px;
         height: 100px;
         opacity: 0.7;
     }
@@ -2707,10 +2744,6 @@
             max-height: 40vh;
         }
     
-        .hero-title {
-            font-size: 2.5rem;
-        }
-    
         .dino-avatar-container {
             height: 40vh;
             max-height: 400px;
@@ -2724,11 +2757,11 @@
     
     @media screen and (max-width: 767px) {
         .hero-title {
-            font-size: 2rem;
+            font-size: 2.1rem;
         }
     
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
     
         .btn {
@@ -2737,18 +2770,21 @@
         }
         
         .dino-avatar-container {
-            transform: scale(0.6);
+            transform: scale(0.8);
         }
         
         .scroll-indicator {
             display: none;
         }
+
+        .prehistoric-bg {
+        bottom: 0;
+        }
+
+        .dino-avatar-container {
+        bottom: -10%;
+        }
     }
-    
-    /* Add this JavaScript to your page to calculate scrollbar width */
-    /* 
-    
-    */
     
         
     </style>
@@ -3077,7 +3113,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
     <style>
@@ -3174,11 +3209,6 @@
             background: linear-gradient(135deg, #ffffff, #eeeeff);
         }
         
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            margin-top: 0;
-        }
         
         .feature-icon {
             color: var(--primary-purple);
@@ -3194,140 +3224,118 @@
         }
         
         @media (max-width: 768px) {
-        .section {
-            padding: 4rem 0 4rem;
+            .section {
+                padding: 4rem 0 4rem;
+            }
+            
+            .feature-section::after {
+                height: 20px;
+                bottom: -20px;
+            }
+            
+            .feature-container {
+                flex-direction: column-reverse; /* Inverte l'ordine: card sotto, video sopra */
+                width: 90%;
+                gap: 2rem;
+            }
+            
+            .feature-content,
+            .parallax-video-container {
+                width: 100%;
+                justify-content: center;
+                transition: transform 0.8s ease, opacity 0.8s ease, left 0.8s ease, right 0.8s ease;
+            }
+            
+            .parallax-video {
+                max-height: 280px;
+                margin: 0 auto;
+                width: auto;
+            }
+            
+            .feature-card {
+                max-width: 100%;
+                padding: 25px;
+                font-size: 1rem;
+            }
+            
+            .feature-card .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            
+            .feature-card .feature-title {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            
+            .feature-card .feature-icon {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+            
+            .feature-parallax-container {
+                height: auto;
+                min-height: auto;
+            }
+            
+            .feature-section {
+                height: auto;
+                min-height: auto;
+            }
         }
         
-        .feature-section::after {
-            height: 20px;
-            bottom: -20px;
-        }
-        
-        .feature-container {
-            flex-direction: column-reverse; /* Inverte l'ordine: card sotto, video sopra */
-            width: 90%;
-            gap: 2rem;
-        }
-        
-        .feature-content {
-            width: 85%; /* Ridotto dal 100% per rendere la card più piccola */
-            justify-content: center;
-            transition: transform 0.8s ease, opacity 0.8s ease, left 0.8s ease, right 0.8s ease;
-        }
-        
-        .parallax-video-container {
-            width: 85%; /* Aumentato da 80% per rendere il video leggermente più grande */
-            justify-content: center;
-            transition: transform 0.8s ease, opacity 0.8s ease, left 0.8s ease, right 0.8s ease;
-        }
-        
-        .parallax-video {
-            max-height: 320px; /* Aumentato da 280px */
-            margin: 0 auto;
-            width: auto;
-        }
-        
-        .feature-card {
-            max-width: 100%;
-            padding: 20px; /* Ridotto da 25px */
-            font-size: 0.95rem; /* Ridotto da 1rem */
-        }
-        
-        .feature-card .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .feature-card .feature-title {
-            font-size: 1.2rem; /* Ridotto da 1.3rem */
-            margin-bottom: 8px; /* Ridotto da 10px */
-        }
-        
-        .feature-card .feature-icon {
-            font-size: 22px; /* Ridotto da 24px */
-            margin-bottom: 10px; /* Ridotto da 12px */
-        }
-        
-        .feature-parallax-container {
-            height: auto;
-            min-height: auto;
-        }
-        
-        .feature-section {
-            height: auto;
-            min-height: auto;
-        }
-        }
-
         @media (max-width: 576px) {
-        .feature-content {
-            width: 90%; /* Ridotto ulteriormente su schermi più piccoli */
+            .feature-card {
+                padding: 20px;
+                font-size: 0.95rem;
+            }
+            
+            .feature-card .feature-title {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .feature-card .feature-icon {
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+            
+            .parallax-video {
+                max-height: 240px;
+            }
         }
         
-        .parallax-video-container {
-            width: 90%; /* Allargato su schermi più piccoli */
-        }
-        
-        .feature-card {
-            padding: 18px; /* Ridotto da 20px */
-            font-size: 0.9rem; /* Ridotto da 0.95rem */
-        }
-        
-        .feature-card .feature-title {
-            font-size: 1.15rem; /* Ridotto da 1.2rem */
-            margin-bottom: 7px; /* Ridotto da 8px */
-        }
-        
-        .feature-card .feature-icon {
-            font-size: 20px; /* Ridotto da 22px */
-            margin-bottom: 8px; /* Ridotto da 10px */
-        }
-        
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 1.8rem; /* Ridotto da 2rem */
-        }
-        
-        .parallax-video {
-            max-height: 260px; /* Aumentato da 240px */
-        }
-        }
-
         @media (max-width: 400px) {
-        .feature-content {
-            width: 95%; /* Card quasi a piena larghezza su schermi molto piccoli */
+            .feature-card {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature-card .feature-title {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+            
+            .feature-card .feature-icon {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+            
+            .parallax-video {
+                max-height: 200px;
+            }
         }
-        
-        .parallax-video-container {
-            width: 95%; /* Video quasi a piena larghezza su schermi molto piccoli */
-        }
-        
-        .feature-card {
-            padding: 15px;
-            font-size: 0.85rem; /* Ridotto da 0.9rem */
-        }
-        
-        .section-title {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-card .feature-title {
-            font-size: 1.05rem; /* Ridotto da 1.1rem */
-            margin-bottom: 5px; /* Ridotto da 6px */
-        }
-        
-        .feature-card .feature-icon {
-            font-size: 18px; /* Ridotto da 20px */
-            margin-bottom: 7px; /* Ridotto da 8px */
-        }
-        
-        .parallax-video {
-            max-height: 220px; /* Aumentato da 200px */
-        }
-        }
-        
     </style>
 
     <script>
@@ -3486,7 +3494,7 @@
 
     <div class="container">
         <h2 class="section-title">Avatar</h2>
-        <p class="evolution-description">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
+        <p class="section-subtitles">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
         
         <div class="evolution-carousel-container">
             <div class="evolution-carousel-wrapper">
@@ -3628,14 +3636,6 @@
             background: #E6F2F5;
             border-radius: 0 0 50% 50% / 0 0 100% 100%;
             z-index: 2;
-        }
-    
-        .evolution-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: #000000;
-            font-size: 1.1rem;
         }
     
         /* Soluzione per evitare ombre tagliate */
@@ -3931,9 +3931,6 @@
         
         /* Per i dispositivi mobile */
         @media (max-width: 768px) {
-            .section {
-                padding: 4rem 0 4rem;
-            }
             
             .evolution-carousel {
                 width: calc(200px * 6); /* Reduced card width for mobile */
@@ -3993,11 +3990,7 @@
                 bottom: -20px;
             }
             
-            .evolution-description {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
+        
             /* Adjust fade effect width for mobile */
             .evolution-carousel-wrapper::before,
             .evolution-carousel-wrapper::after {
@@ -4256,7 +4249,7 @@
 
     <div class="container">
         <h2 class="section-title">Hub</h2>
-        <p class="hub-description">L'hub centrale dove puoi incontrare i tuoi amici e interagire con i loro avatar.</p>
+        <p class="section-subtitles">L'hub centrale dove puoi incontrare i tuoi amici e interagire con i loro avatar.</p>
         
         <div class="card-container">
             <div class="card" style="background-image: url('immagini/sfondo hub.png'); background-size: cover; background-position: center; position: relative;">
@@ -4331,15 +4324,6 @@
             margin: auto;
             max-width: 100%;
         }
-        
-        .hub-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: #000000;
-            font-size: 1.1rem;
-        }
-        
         
         .card {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -4547,11 +4531,6 @@
                 bottom: -20px;
             }   
             
-            .section {
-                padding: 4rem 0 4rem; /* Equal padding for mobile */
-            }
-        
-            
             .speech-bubble {
                 font-size: 12px;
                 min-height: 50px;
@@ -4567,11 +4546,7 @@
                 width: 180%; /* Ancora più largo su schermi più piccoli */
                 left: -40%;
             }
-            
-            .hub-description {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
+    
         }
         
         
@@ -4603,10 +4578,6 @@
                 left: -40%;
             }
             
-            .hub-description {
-                font-size: 0.95rem;
-                margin-bottom: 1.5rem;
-            }
         }
         
         
@@ -4627,9 +4598,6 @@
                 left: -35%;
             }
             
-            .hub-description {
-                font-size: 0.9rem;
-            }
         }
     </style>
         
@@ -4779,6 +4747,7 @@
     </script>
 
 </section>
+
 
 
     <!-- How it works Section --> 
@@ -4935,10 +4904,7 @@
                 height: 20px;
                 bottom: -20px;
             }
-            
-            .section {
-                padding: 4rem 0 4rem;
-            }
+
             
             .step {
                 grid-template-columns: 1fr;
@@ -5165,12 +5131,13 @@
         .story-container {
             position: relative;
             max-width: 900px;
-            margin: 0 auto;
+            margin: auto;
             overflow: hidden;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
             user-select: none; /* Impedisce la selezione del testo */
             -webkit-touch-callout: none; /* Disabilita il callout su iOS */
+            padding-top: 5px;
         }
         
         /* Progress bars styles */
@@ -5732,20 +5699,12 @@
             border-radius: 0 0 50% 50% / 0 0 100% 100%;
             z-index: 2;
         }
-        
-        .text-center {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            color: #000000;
-            font-size: 1.1rem;
-        }
     
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            margin-top: 3rem;
+            padding-top: 5px;
         }
     
         .team-member {
@@ -5992,10 +5951,6 @@
                 bottom: -20px;
             }
             
-            .team {
-                padding: 4rem 0 4rem; /* Equal padding for mobile */
-            }
-            
             .team-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -6015,11 +5970,6 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .section {
-                padding: 4rem 0 4rem;
-            }
-        }
         
         @media (max-width: 576px) {
             .team-photo-wrapper {
@@ -6116,7 +6066,6 @@
 
     <!-- Download Section -->
 <section id="download" class="download section">
-
     <div class="container">
         <div class="download-content">
             <h2>Pronto a migliorare la tua gestione finanziaria?</h2>
@@ -6142,77 +6091,74 @@
 
     <style>
         /* Download Section */
-    .download {
-        background: var(--gradient-primary);
-        color: var(--dark);
-        padding-top: 100px; /* Increased top padding to accommodate the team section's curve */
-        padding-bottom: 5rem;
-    }
-    
-    .download-content {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .store-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-    
-    .store-btn {
-        display: flex;
-        align-items: center;
-        background-color: var(--dark);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 10px;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .store-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .store-btn i {
-        font-size: 2rem;
-        margin-right: 10px;
-    }
-    
-    .store-btn-text {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-    }
-    
-    .store-name {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    
-    /* Media query for mobile devices */
-    @media (max-width: 768px) {
         .download {
-            padding-top: 60px; /* Adjusted for mobile to account for the smaller curve */
+            background: var(--gradient-primary);
+            color: var(--dark);
         }
-        
-        .store-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .store-btn {
-            width: 80%;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-    }
-    
-    </style>
 
+        .download-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            background-color: var(--dark);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 200px; /* Larghezza fissa per entrambi i bottoni */
+            justify-content: flex-start; /* Allineamento del contenuto a sinistra */
+        }
+
+        .store-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .store-btn i {
+            font-size: 2rem;
+            margin-right: 10px;
+            width: 32px; /* Larghezza fissa per le icone */
+            text-align: left;
+        }
+
+        .store-btn-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex: 1;
+        }
+
+        .store-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .store-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .store-btn {
+                width: 70%;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </section>
 
 
