@@ -3090,27 +3090,15 @@
 
 </section>
 
-
-<!-- Sezione principale per tutte le features -->
-<section id="features-container" class="features-main-section section">
+<!-- VERSIONE DESKTOP DELLE FEATURE -->
+<div id="features-container-desktop" class="features-main-section section desktop-only">
     <div class="container">
         <h2 class="section-title">Caratteristiche Principali</h2>
         
         <!-- Container per tutte le features -->
-        <div class="features-list" id="features-carousel">
+        <div class="features-list" id="features-carousel-desktop">
             <!-- Feature 1 -->
-            <div id="feature-1" class="feature-parallax-container">
-                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
-                <div class="mobile-nav-arrows">
-                    <button id="prev-feature" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-                    <div class="feature-indicators">
-                        <span class="feature-dot active" data-index="0"></span>
-                        <span class="feature-dot" data-index="1"></span>
-                        <span class="feature-dot" data-index="2"></span>
-                    </div>
-                    <button id="next-feature" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
+            <div id="feature-desktop-1" class="feature-parallax-container">
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
@@ -3125,24 +3113,13 @@
                     <div class="center-divider"></div>
                     
                     <div class="feature-half feature-half-right">
-                        <video id="parallax-video-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
+                        <video id="parallax-video-desktop-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
                     </div>
                 </div>
             </div>
             
             <!-- Feature 2 -->
-            <div id="feature-2" class="feature-parallax-container">
-                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
-                <div class="mobile-nav-arrows">
-                    <button id="prev-feature-2" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-                    <div class="feature-indicators">
-                        <span class="feature-dot" data-index="0"></span>
-                        <span class="feature-dot active" data-index="1"></span>
-                        <span class="feature-dot" data-index="2"></span>
-                    </div>
-                    <button id="next-feature-2" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
+            <div id="feature-desktop-2" class="feature-parallax-container">
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
@@ -3157,24 +3134,13 @@
                     <div class="center-divider"></div>
                     
                     <div class="feature-half feature-half-right">
-                        <video id="parallax-video-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
+                        <video id="parallax-video-desktop-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
                     </div>
                 </div>
             </div>
             
             <!-- Feature 3 -->
-            <div id="feature-3" class="feature-parallax-container">
-                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
-                <div class="mobile-nav-arrows">
-                    <button id="prev-feature-3" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-                    <div class="feature-indicators">
-                        <span class="feature-dot" data-index="0"></span>
-                        <span class="feature-dot" data-index="1"></span>
-                        <span class="feature-dot active" data-index="2"></span>
-                    </div>
-                    <button id="next-feature-3" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
+            <div id="feature-desktop-3" class="feature-parallax-container">
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
@@ -3189,370 +3155,605 @@
                     <div class="center-divider"></div>
                     
                     <div class="feature-half feature-half-right">
-                        <video id="parallax-video-3" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
+                        <video id="parallax-video-desktop-3" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
-            --border-thickness: 3px;
-        }
-        
-        .features-main-section {
-            background-color: white;
-            position: relative;
-            padding: 4rem 0;
-        }
-
-        /* Curva inferiore */
-        .features-main-section::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: #ffffff;
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            z-index: 2;
-        }
-        
-        .features-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
-            width: 100%;
-        }
-        
-        .feature-parallax-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 60px auto;
-            position: relative;
-        }
-        
-        .feature-container {
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            width: 90%;
-            max-width: 1200px;
-            position: relative;
-            min-height: 450px;
-        }
-        
-        /* Metà del container */
-        .feature-half {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 0; /* Rimuovi padding per allineare al divider */
-        }
-        
-        /* Allinea la card verso il divider (destra) */
-        .feature-half-left {
-            justify-content: flex-end;
-        }
-        
-        /* Allinea il video verso il divider (sinistra) */
-        .feature-half-right {
-            justify-content: flex-start;
-        }
-        
-        /* Center divider - mantenuto come l'originale */
-        .center-divider {
-            width: 2px;
-            height: 450px;
-            background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
-            margin: 0 80px; /* Ripristinato il margine originale */
-            flex-shrink: 0;
-        }
-        
-        .parallax-video {
-            width: 253px;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-            display: block;
-            margin: 0; /* Rimuovi margini interni */
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, border-top 0.3s, box-shadow 0.3s;
-            border-top: 4px solid #B1ACFA;
-            text-align: center;
-            max-width: 300px;
-            margin: 0; /* Rimuovi margini interni */
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            background: var(--gradient-primary);
-            color: var(--dark);
-            transition: background 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-top: 4px solid #8EDCA9;
-        }
+<style>
+    /* Stili per la versione desktop */
+    :root {
+        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --primary-purple: #8C8DD4;
+        --primary-green: #8EDCA9;
+        --border-thickness: 3px;
+    }
     
-        .feature-card:hover .feature-icon {
-            background: linear-gradient(135deg, #8EDCA9 60%, #B1ACFA 100%);
+    /* Nascondi su mobile */
+    @media (max-width: 768px) {
+        .desktop-only {
+            display: none !important;
         }
-        
-        .feature-title {
-            color: #333;
-            margin-bottom: 12px;
-            font-weight: 600;
-            font-size: 1.4rem;
-        }
-        
-        /* Mobile Navigation Arrows - Posizionamento rivisto */
-        .mobile-nav-arrows {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 0 20px 0;
-            gap: 15px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-        
-        .nav-arrow {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            border: 1px solid #ddd;
-            color: var(--primary-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
-        }
-        
-        /* Stato attivo per i pulsanti - solo quando cliccati */
-        .nav-arrow.active {
-            background: var(--gradient-primary);
-            color: white;
-        }
-        
-        .feature-indicators {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .feature-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .feature-dot.active {
-            background: var(--primary-purple);
-            transform: scale(1.2);
-        }
-        
-        @media (max-width: 768px) {
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .features-main-section::after {
-                height: 20px;
-                bottom: -20px;
-            }
-            
-            /* Mostra i controlli di navigazione su mobile */
-            .mobile-nav-arrows {
-                display: flex;
-                /* Stile aggiornato: centrare nel container */
-                position: absolute;
-                top: auto;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10;
-            }
-            
-            /* Container principale per lo scorrimento orizzontale */
-            .features-list {
-                display: block;
-                overflow: hidden;
-                width: 100%;
-                gap: 0;
-                position: relative;
-                transition: none; /* Rimuoviamo la transizione nativa */
-                height: 750px; /* Altezza fissa per contenere le card su mobile */
-            }
-            
-            .feature-parallax-container {
-                flex: 0 0 100%;
-                width: 100%;
-                min-width: 100%;
-                transition: transform 0.4s ease-in-out;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                will-change: transform;
-            }
-            
-            .feature-container {
-                flex-direction: column-reverse; /* Video sopra, card sotto */
-                width: 90%;
-                min-height: auto;
-                padding: 20px 0;
-                margin: 0 auto;
-            }
-            
-            .feature-half {
-                justify-content: center;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            
-            /* Nascondi il divisore per il layout mobile */
-            .center-divider {
-                display: none;
-            }
-            
-            .parallax-video {
-                max-width: 100%;
-                width: 220px;
-                height: 380px;
-                margin: 0 auto 20px;
-                display: block;
-            }
-            
-            .feature-card {
-                max-width: 100%;
-                padding: 25px;
-                font-size: 1rem;
-            }
-            
-            .feature-card .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 1.5rem;
-                text-align: center;
-            }
-            
-            .feature-card .feature-title {
-                font-size: 1.3rem;
-                margin-bottom: 10px;
-            }
-            
-            .feature-card .feature-icon {
-                font-size: 24px;
-                margin-bottom: 12px;
-            }
-        }
-    </style>
+    }
+    
+    #features-container-desktop {
+        background-color: white;
+        position: relative;
+        padding: 4rem 0;
+    }
 
-    <script>
+    /* Curva inferiore */
+    #features-container-desktop::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: #ffffff;
+        border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        z-index: 2;
+    }
+    
+    #features-container-desktop .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        width: 100%;
+    }
+    
+    #features-container-desktop .feature-parallax-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 60px auto;
+        position: relative;
+    }
+    
+    #features-container-desktop .feature-container {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+        position: relative;
+        min-height: 450px;
+    }
+    
+    /* Metà del container */
+    #features-container-desktop .feature-half {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+    
+    /* Allinea la card verso il divider (destra) */
+    #features-container-desktop .feature-half-left {
+        justify-content: flex-end;
+    }
+    
+    /* Allinea il video verso il divider (sinistra) */
+    #features-container-desktop .feature-half-right {
+        justify-content: flex-start;
+    }
+    
+    /* Center divider */
+    #features-container-desktop .center-divider {
+        width: 2px;
+        height: 450px;
+        background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
+        margin: 0 80px;
+        flex-shrink: 0;
+    }
+    
+    #features-container-desktop .parallax-video {
+        width: 253px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        display: block;
+        margin: 0;
+    }
+    
+    #features-container-desktop .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, border-top 0.3s, box-shadow 0.3s;
+        border-top: 4px solid #B1ACFA;
+        text-align: center;
+        max-width: 300px;
+        margin: 0;
+    }
+    
+    #features-container-desktop .feature-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+        background: var(--gradient-primary);
+        color: var(--dark);
+        transition: background 0.3s;
+    }
+
+    #features-container-desktop .feature-card:hover {
+        transform: translateY(-10px);
+        border-top: 4px solid #8EDCA9;
+    }
+
+    #features-container-desktop .feature-card:hover .feature-icon {
+        background: linear-gradient(135deg, #8EDCA9 60%, #B1ACFA 100%);
+    }
+    
+    #features-container-desktop .feature-title {
+        color: #333;
+        margin-bottom: 12px;
+        font-weight: 600;
+        font-size: 1.4rem;
+    }
+</style>
+
+<script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Variabili per il carosello mobile
-        let currentFeatureIndex = 0;
-        const totalFeatures = document.querySelectorAll('.feature-parallax-container').length;
-        const featuresCarousel = document.getElementById('features-carousel');
-        const featureElements = document.querySelectorAll('.feature-parallax-container');
-        const dots = document.querySelectorAll('.feature-dot');
-        const prevBtns = document.querySelectorAll('.prev-arrow');
-        const nextBtns = document.querySelectorAll('.next-arrow');
-        let isAnimating = false;
+        // Inizializzazione per desktop
+        initializeDesktopFeature('feature-desktop-1', 'parallax-video-desktop-1');
+        initializeDesktopFeature('feature-desktop-2', 'parallax-video-desktop-2');
+        initializeDesktopFeature('feature-desktop-3', 'parallax-video-desktop-3');
         
-        // Imposta lo stato iniziale per mobile
-        function setupMobileCarousel() {
-            // Se in modalità mobile, imposta la prima feature come attiva
-            if (window.innerWidth <= 768) {
-                updateActiveDot(0);
-                featureElements.forEach((feature, index) => {
-                    // Assicurati che la posizione iniziale sia corretta:
-                    // Prima feature visibile, tutte le altre a destra
-                    if (index === 0) {
-                        feature.style.transform = 'translateX(0)';
-                        feature.style.visibility = 'visible';
-                        feature.style.opacity = '1';
+        // Funzione per inizializzare l'animazione di una feature desktop
+        function initializeDesktopFeature(featureId, videoId) {
+            const featureSection = document.getElementById(featureId);
+            if (!featureSection) return;
+            
+            const featureCard = featureSection.querySelector('.feature-card');
+            const parallaxVideo = document.getElementById(videoId);
+            const centerDivider = featureSection.querySelector('.center-divider');
+            const leftHalf = featureSection.querySelector('.feature-half-left');
+            const rightHalf = featureSection.querySelector('.feature-half-right');
+            
+            // Assicurati che il video sia in loop
+            if (parallaxVideo) {
+                parallaxVideo.loop = true;
+            }
+            
+            // Funzione per mappare un valore da un range a un altro
+            const mapRange = (value, in_min, in_max, out_min, out_max) => {
+                return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+            };
+            
+            // Imposta le posizioni iniziali - elementi visibili da subito
+            if (leftHalf) {
+                leftHalf.style.transform = 'translateX(0)';
+                leftHalf.style.opacity = '1';
+            }
+            
+            if (rightHalf) {
+                rightHalf.style.transform = 'translateX(0)';
+                rightHalf.style.opacity = '1';
+            }
+            
+            if (centerDivider) {
+                centerDivider.style.opacity = '1';
+            }
+            
+            // Variabili per tracciare lo stato dell'animazione
+            let isVisible = false;
+            
+            // Funzione per aggiornare l'animazione in base alla posizione di scroll
+            const updateAnimation = () => {
+                // Non eseguire questa funzione se siamo in modalità mobile
+                if (window.innerWidth <= 768) return;
+                
+                const rect = featureSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Altezza stimata della navbar
+                const navbarHeight = 70;
+                
+                // Verifica se il container è visibile
+                const isInView = rect.top < windowHeight && rect.bottom > 0;
+                
+                // Calcola se il margine superiore della sezione ha toccato la navbar
+                const hasReachedNavbar = rect.top <= navbarHeight;
+                
+                // Se il margine superiore ha toccato la navbar, calcola la percentuale di uscita
+                const exitPercentage = hasReachedNavbar 
+                    ? Math.min((navbarHeight - rect.top) / (rect.height / 2), 1) 
+                    : 0;
+                
+                if (isInView) {
+                    // Se il margine superiore non ha ancora toccato la navbar
+                    if (!hasReachedNavbar) {
+                        // Nessuna animazione - elementi completamente visibili
+                        if (leftHalf) leftHalf.style.transform = 'translateX(0)';
+                        if (rightHalf) rightHalf.style.transform = 'translateX(0)';
+                        
+                        if (leftHalf) leftHalf.style.opacity = '1';
+                        if (rightHalf) rightHalf.style.opacity = '1';
+                        
+                        if (centerDivider) centerDivider.style.opacity = '1';
                     } else {
-                        feature.style.transform = 'translateX(100%)';
-                        feature.style.visibility = 'visible';
-                        feature.style.opacity = '1';
+                        // Animazione di uscita quando il margine superiore tocca o supera la navbar
+                        const opacity = Math.max(0, 1 - exitPercentage);
+                        
+                        // Calcola lo spostamento in base alla percentuale di uscita
+                        const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150);
+                        
+                        // Movimento laterale delle metà
+                        if (leftHalf) {
+                            leftHalf.style.opacity = opacity;
+                            leftHalf.style.transform = `translateX(-${translateAmount}px)`;
+                        }
+                        
+                        if (rightHalf) {
+                            rightHalf.style.opacity = opacity;
+                            rightHalf.style.transform = `translateX(${translateAmount}px)`;
+                        }
+                        
+                        if (centerDivider) centerDivider.style.opacity = opacity;
                     }
                     
-                    // Gestisci i video
-                    const video = feature.querySelector('.parallax-video');
-                    if (index === 0 && video) {
-                        video.play().catch(e => {});
-                    } else if (video) {
-                        video.pause();
+                    // Gestione riproduzione video
+                    if (parallaxVideo) {
+                        if (isInView && !isVisible) {
+                            isVisible = true;
+                            // Riproduci il video quando in vista
+                            parallaxVideo.play().catch(e => {});
+                        } else if ((!isInView || (hasReachedNavbar && exitPercentage > 0.5)) && isVisible) {
+                            isVisible = false;
+                            // Metti in pausa il video quando non è più visibile
+                            parallaxVideo.pause();
+                        }
                     }
-                });
-            } else {
-                // In modalità desktop, ripristina il layout normale
-                featureElements.forEach(feature => {
+                }
+            };
+            
+            // Aggiungi un listener per lo scroll
+            window.addEventListener('scroll', updateAnimation, { passive: true });
+            
+            // Esegui l'animazione anche al caricamento
+            updateAnimation();
+        }
+    });
+</script>
+
+<!-- VERSIONE MOBILE DELLE FEATURE -->
+<div id="features-container-mobile" class="features-main-section section mobile-only">
+    <div class="container">
+        <h2 class="section-title">Caratteristiche Principali</h2>
+        
+        <!-- Container per tutte le features -->
+        <div class="features-list" id="features-carousel-mobile">
+            <!-- Feature 1 -->
+            <div id="feature-mobile-1" class="feature-parallax-container">
+                <div class="feature-container">
+                    <div class="feature-half feature-half-right">
+                        <video id="parallax-video-mobile-1" class="parallax-video" src="immagini/video2square.mp4" playsinline muted loop></video>
+                    </div>
+                    
+                    <div class="feature-half feature-half-left">
+                        <div class="feature-card">
+                            <!-- Indicatori di pagina -->
+                            <div class="feature-indicators">
+                                <span class="feature-dot active" data-index="0"></span>
+                                <span class="feature-dot" data-index="1"></span>
+                                <span class="feature-dot" data-index="2"></span>
+                            </div>
+                            <h3 class="feature-title">Unica dashboard</h3>
+                            <p>Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+                <!-- Frecce di navigazione laterali -->
+                <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div id="feature-mobile-2" class="feature-parallax-container">
+                <div class="feature-container">
+                    <div class="feature-half feature-half-right">
+                        <video id="parallax-video-mobile-2" class="parallax-video" src="immagini/video2square.mp4" playsinline muted loop></video>
+                    </div>
+                    
+                    <div class="feature-half feature-half-left">
+                        <div class="feature-card">
+                            <!-- Indicatori di pagina -->
+                            <div class="feature-indicators">
+                                <span class="feature-dot" data-index="0"></span>
+                                <span class="feature-dot active" data-index="1"></span>
+                                <span class="feature-dot" data-index="2"></span>
+                            </div>
+                            <h3 class="feature-title">Collaborativa e smart</h3>
+                            <p>Connettiti con i tuoi amici e gestisci gli abbonamenti condivisi (come Netflix e Spotify) e le spese comuni in un unico spazio.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+                <!-- Frecce di navigazione laterali -->
+                <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div id="feature-mobile-3" class="feature-parallax-container">
+                <div class="feature-container">
+                    <div class="feature-half feature-half-right">
+                        <video id="parallax-video-mobile-3" class="parallax-video" src="immagini/video2square.mp4" playsinline muted loop></video>
+                    </div>
+                    
+                    <div class="feature-half feature-half-left">
+                        <div class="feature-card">
+                            <!-- Indicatori di pagina -->
+                            <div class="feature-indicators">
+                                <span class="feature-dot" data-index="0"></span>
+                                <span class="feature-dot" data-index="1"></span>
+                                <span class="feature-dot active" data-index="2"></span>
+                            </div>
+                            <h3 class="feature-title">Notifiche Intelligenti</h3>
+                            <p>Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+                <!-- Frecce di navigazione laterali -->
+                <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Stili per la versione mobile */
+    :root {
+        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --primary-purple: #8C8DD4;
+        --primary-green: #8EDCA9;
+        --border-thickness: 3px;
+    }
+    
+    /* Nascondi su desktop */
+    .mobile-only {
+        display: none !important;
+    }
+    
+    @media (max-width: 768px) {
+        .mobile-only {
+            display: block !important;
+        }
+    }
+    
+    #features-container-mobile {
+        background-color: white;
+        position: relative;
+        padding: 4rem 0;
+    }
+
+    /* Curva inferiore */
+    #features-container-mobile::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: #ffffff;
+        border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        z-index: 2;
+    }
+    
+    #features-container-mobile .features-list {
+        display: block;
+        overflow: visible;
+        width: 100%;
+        position: relative;
+        height: 580px; /* Aumentato per dare spazio alle ombre */
+    }
+    
+    #features-container-mobile .feature-parallax-container {
+        width: 100%;
+        min-width: 100%;
+        transition: transform 0.4s ease-in-out;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        will-change: transform;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    
+    #features-container-mobile .feature-container {
+        position: relative;
+        width: 90%;
+        max-width: 350px;
+        height: 550px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid var(--primary-purple);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        text-align: center;
+        justify-content: flex-start;
+    }
+    
+    #features-container-mobile .feature-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    #features-container-mobile .parallax-video {
+        width: 280px;
+        height: 280px; /* Dimensione aumentata per il video */
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+    }
+    
+
+    
+    #features-container-mobile .feature-title {
+        color: #333;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 1.3rem;
+    }
+    
+    #features-container-mobile .feature-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    /* Indicatori (dots) all'inizio della card, dopo il video */
+    #features-container-mobile .feature-indicators {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 10px;
+        z-index: 10;
+    }
+    
+    #features-container-mobile .feature-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    #features-container-mobile .feature-dot.active {
+        background: var(--primary-purple);
+        transform: scale(1.2);
+    }
+    
+    /* Navigazione ai lati */
+    #features-container-mobile .nav-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        border: 1px solid #ddd;
+        color: var(--primary-purple);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    #features-container-mobile .prev-arrow {
+        left: 5px;
+    }
+    
+    #features-container-mobile .next-arrow {
+        right: 5px;
+    }
+    
+    /* Stato attivo per i pulsanti - solo quando cliccati */
+    #features-container-mobile .nav-arrow.active {
+        background: var(--gradient-primary);
+        color: white;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Assicurati che questo codice venga eseguito solo su mobile
+        if (window.innerWidth > 768) return;
+        
+        // Variabili per il carosello mobile
+        let currentFeatureIndex = 0;
+        const totalFeatures = document.querySelectorAll('#features-carousel-mobile .feature-parallax-container').length;
+        const featuresCarousel = document.getElementById('features-carousel-mobile');
+        const featureElements = document.querySelectorAll('#features-carousel-mobile .feature-parallax-container');
+        const dots = document.querySelectorAll('#features-container-mobile .feature-dot');
+        const prevBtns = document.querySelectorAll('#features-container-mobile .prev-arrow');
+        const nextBtns = document.querySelectorAll('#features-container-mobile .next-arrow');
+        let isAnimating = false;
+        
+        // Imposta lo stato iniziale del carosello mobile
+        function setupMobileCarousel() {
+            // Solo se siamo in mobile
+            if (window.innerWidth > 768 || !featuresCarousel) return;
+            
+            updateActiveDot(0);
+            featureElements.forEach((feature, index) => {
+                // Prima feature visibile, tutte le altre a destra
+                if (index === 0) {
                     feature.style.transform = 'translateX(0)';
                     feature.style.visibility = 'visible';
                     feature.style.opacity = '1';
-                });
-            }
-            
-            // Nascondi i controlli di navigazione in modalità desktop
-            document.querySelectorAll('.mobile-nav-arrows').forEach(nav => {
-                nav.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+                } else {
+                    feature.style.transform = 'translateX(100%)';
+                    feature.style.visibility = 'visible';
+                    feature.style.opacity = '1';
+                }
+                
+                // Gestisci i video
+                const video = feature.querySelector('.parallax-video');
+                if (index === 0 && video) {
+                    video.play().catch(e => {});
+                } else if (video) {
+                    video.pause();
+                }
             });
-            
-            // Forza un reflow/repaint per assicurarsi che tutto sia visibile
-            document.body.offsetHeight;
         }
         
-        // Aggiorna il dot attivo
+        // Aggiorna il dot attivo su mobile
         function updateActiveDot(index) {
             dots.forEach(dot => dot.classList.remove('active'));
-            const activeDots = document.querySelectorAll(`.feature-dot[data-index="${index}"]`);
+            const activeDots = document.querySelectorAll(`#features-container-mobile .feature-dot[data-index="${index}"]`);
             activeDots.forEach(dot => dot.classList.add('active'));
         }
         
-        // Gestisci il cambio di feature
+        // Gestisci il cambio di feature su mobile
         function goToFeature(index) {
-            if (isAnimating) return;
+            if (isAnimating || !featuresCarousel) return;
             isAnimating = true;
             
             const previousIndex = currentFeatureIndex;
             currentFeatureIndex = index;
             
             // Pausa tutti i video
-            document.querySelectorAll('.parallax-video').forEach(video => {
+            document.querySelectorAll('#features-container-mobile .parallax-video').forEach(video => {
                 video.pause();
             });
             
@@ -3602,196 +3803,96 @@
         }
         
         // Evento click sui pulsanti precedenti
-        prevBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                handleButtonClick(btn);
-                
-                if (currentFeatureIndex > 0) {
-                    goToFeature(currentFeatureIndex - 1);
-                } else {
-                    // Loop alla fine
-                    goToFeature(totalFeatures - 1);
-                }
+        if (prevBtns && prevBtns.length) {
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    handleButtonClick(btn);
+                    
+                    if (currentFeatureIndex > 0) {
+                        goToFeature(currentFeatureIndex - 1);
+                    } else {
+                        // Loop alla fine
+                        goToFeature(totalFeatures - 1);
+                    }
+                });
             });
-        });
+        }
         
         // Evento click sui pulsanti successivi
-        nextBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                handleButtonClick(btn);
-                
-                if (currentFeatureIndex < totalFeatures - 1) {
-                    goToFeature(currentFeatureIndex + 1);
-                } else {
-                    // Loop all'inizio
-                    goToFeature(0);
-                }
+        if (nextBtns && nextBtns.length) {
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    handleButtonClick(btn);
+                    
+                    if (currentFeatureIndex < totalFeatures - 1) {
+                        goToFeature(currentFeatureIndex + 1);
+                    } else {
+                        // Loop all'inizio
+                        goToFeature(0);
+                    }
+                });
             });
-        });
+        }
         
         // Event listener per i dot indicatori
-        dots.forEach((dot) => {
-            dot.addEventListener('click', () => {
-                const index = parseInt(dot.getAttribute('data-index'));
-                goToFeature(index);
+        if (dots && dots.length) {
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    goToFeature(index);
+                });
             });
-        });
-        
-        // Inizializzazione per desktop
-        initializeFeature('feature-1', 'parallax-video-1');
-        initializeFeature('feature-2', 'parallax-video-2');
-        initializeFeature('feature-3', 'parallax-video-3');
+        }
         
         // Imposta il carosello mobile all'avvio
         setupMobileCarousel();
         
         // Gestione resize della finestra
         window.addEventListener('resize', () => {
-            setupMobileCarousel();
-        }, { passive: true });
-        
-        // Funzione per inizializzare l'animazione di una feature (per desktop)
-        function initializeFeature(featureId, videoId) {
-            const featureSection = document.getElementById(featureId);
-            const featureCard = featureSection.querySelector('.feature-card');
-            const parallaxVideo = document.getElementById(videoId);
-            const centerDivider = featureSection.querySelector('.center-divider');
-            const leftHalf = featureSection.querySelector('.feature-half-left');
-            const rightHalf = featureSection.querySelector('.feature-half-right');
-            
-            // Assicurati che il video sia in loop
-            parallaxVideo.loop = true;
-            
-            // Funzione per mappare un valore da un range a un altro
-            const mapRange = (value, in_min, in_max, out_min, out_max) => {
-                return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-            };
-            
-            // Imposta le posizioni iniziali - elementi visibili da subito
-            leftHalf.style.transform = 'translateX(0)';
-            leftHalf.style.opacity = '1';
-            
-            rightHalf.style.transform = 'translateX(0)';
-            rightHalf.style.opacity = '1';
-            
-            if (centerDivider) {
-                centerDivider.style.opacity = '1';
+            // Assicurati che siamo ancora in modalità mobile
+            if (window.innerWidth <= 768) {
+                setupMobileCarousel();
             }
-            
-            // Variabili per tracciare lo stato dell'animazione
-            let isVisible = false;
-            
-            // Funzione per aggiornare l'animazione in base alla posizione di scroll (desktop only)
-            const updateAnimation = () => {
-                // Solo su desktop
-                if (window.innerWidth <= 768) return;
-                
-                const rect = featureSection.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                // Altezza stimata della navbar
-                const navbarHeight = 70;
-                
-                // Verifica se il container è visibile
-                const isInView = rect.top < windowHeight && rect.bottom > 0;
-                
-                // Calcola se il margine superiore della sezione ha toccato la navbar
-                const hasReachedNavbar = rect.top <= navbarHeight;
-                
-                // Se il margine superiore ha toccato la navbar, calcola la percentuale di uscita
-                const exitPercentage = hasReachedNavbar 
-                    ? Math.min((navbarHeight - rect.top) / (rect.height / 2), 1) 
-                    : 0;
-                
-                if (isInView) {
-                    // Se il margine superiore non ha ancora toccato la navbar
-                    if (!hasReachedNavbar) {
-                        // Nessuna animazione - elementi completamente visibili
-                        leftHalf.style.transform = 'translateX(0)';
-                        rightHalf.style.transform = 'translateX(0)';
-                        
-                        leftHalf.style.opacity = '1';
-                        rightHalf.style.opacity = '1';
-                        
-                        if (centerDivider) {
-                            centerDivider.style.opacity = '1';
-                        }
-                    } else {
-                        // Animazione di uscita quando il margine superiore tocca o supera la navbar
-                        const opacity = Math.max(0, 1 - exitPercentage);
-                        
-                        // Calcola lo spostamento in base alla percentuale di uscita
-                        const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150);
-                        
-                        // Movimento laterale delle metà
-                        leftHalf.style.opacity = opacity;
-                        leftHalf.style.transform = `translateX(-${translateAmount}px)`;
-                        
-                        rightHalf.style.opacity = opacity;
-                        rightHalf.style.transform = `translateX(${translateAmount}px)`;
-                        
-                        if (centerDivider) {
-                            centerDivider.style.opacity = opacity;
-                        }
-                    }
-                    
-                    // Gestione riproduzione video
-                    if (isInView && !isVisible) {
-                        isVisible = true;
-                        // Riproduci il video quando in vista
-                        parallaxVideo.play().catch(e => {});
-                    } else if ((!isInView || (hasReachedNavbar && exitPercentage > 0.5)) && isVisible) {
-                        isVisible = false;
-                        // Metti in pausa il video quando non è più visibile
-                        parallaxVideo.pause();
-                    }
-                }
-            };
-            
-            // Aggiungi un listener per lo scroll (solo per desktop)
-            window.addEventListener('scroll', updateAnimation, { passive: true });
-            
-            // Esegui l'animazione anche al caricamento
-            updateAnimation();
-        }
+        }, { passive: true });
         
         // Supporto per touch swipe su mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        featuresCarousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        featuresCarousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
+        if (featuresCarousel) {
+            let touchStartX = 0;
+            let touchEndX = 0;
             
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Swipe a sinistra - vai alla feature successiva
-                if (currentFeatureIndex < totalFeatures - 1) {
-                    goToFeature(currentFeatureIndex + 1);
-                } else {
-                    goToFeature(0);
+            featuresCarousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            featuresCarousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe a sinistra - vai alla feature successiva
+                    if (currentFeatureIndex < totalFeatures - 1) {
+                        goToFeature(currentFeatureIndex + 1);
+                    } else {
+                        goToFeature(0);
+                    }
                 }
-            }
-            
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Swipe a destra - vai alla feature precedente
-                if (currentFeatureIndex > 0) {
-                    goToFeature(currentFeatureIndex - 1);
-                } else {
-                    goToFeature(totalFeatures - 1);
+                
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe a destra - vai alla feature precedente
+                    if (currentFeatureIndex > 0) {
+                        goToFeature(currentFeatureIndex - 1);
+                    } else {
+                        goToFeature(totalFeatures - 1);
+                    }
                 }
             }
         }
     });
-    </script>
-</section>
+</script>
 
    <!-- Avatar Evolution Section -->
    <section id="avatar-evolution" class="avatar-evolution section">
@@ -6757,4 +6858,4 @@
 </body>
 
 
-    </html>
+</html>
