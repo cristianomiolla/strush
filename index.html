@@ -3097,9 +3097,20 @@
         <h2 class="section-title">Caratteristiche Principali</h2>
         
         <!-- Container per tutte le features -->
-        <div class="features-list">
+        <div class="features-list" id="features-carousel">
             <!-- Feature 1 -->
             <div id="feature-1" class="feature-parallax-container">
+                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
+                <div class="mobile-nav-arrows">
+                    <button id="prev-feature" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <div class="feature-indicators">
+                        <span class="feature-dot active" data-index="0"></span>
+                        <span class="feature-dot" data-index="1"></span>
+                        <span class="feature-dot" data-index="2"></span>
+                    </div>
+                    <button id="next-feature" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
@@ -3121,6 +3132,17 @@
             
             <!-- Feature 2 -->
             <div id="feature-2" class="feature-parallax-container">
+                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
+                <div class="mobile-nav-arrows">
+                    <button id="prev-feature-2" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <div class="feature-indicators">
+                        <span class="feature-dot" data-index="0"></span>
+                        <span class="feature-dot active" data-index="1"></span>
+                        <span class="feature-dot" data-index="2"></span>
+                    </div>
+                    <button id="next-feature-2" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
@@ -3135,18 +3157,29 @@
                     <div class="center-divider"></div>
                     
                     <div class="feature-half feature-half-right">
-                        <video id="parallax-video-2" class="parallax-video" src="immagini/video2.mp4" playsinline muted loop></video>
+                        <video id="parallax-video-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
                     </div>
                 </div>
             </div>
             
             <!-- Feature 3 -->
             <div id="feature-3" class="feature-parallax-container">
+                <!-- Mobile Navigation Arrows - ora all'interno di ogni feature container -->
+                <div class="mobile-nav-arrows">
+                    <button id="prev-feature-3" class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <div class="feature-indicators">
+                        <span class="feature-dot" data-index="0"></span>
+                        <span class="feature-dot" data-index="1"></span>
+                        <span class="feature-dot active" data-index="2"></span>
+                    </div>
+                    <button id="next-feature-3" class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
                 <div class="feature-container">
                     <div class="feature-half feature-half-left">
                         <div class="feature-card">
                             <div class="feature-icon">
-                                <i class="fas fa-bell"></i>
+                                <i class="fas fa-calendar-alt"></i>
                             </div>
                             <h3 class="feature-title">Notifiche Intelligenti</h3>
                             <p>Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
@@ -3156,7 +3189,7 @@
                     <div class="center-divider"></div>
                     
                     <div class="feature-half feature-half-right">
-                        <video id="parallax-video-3" class="parallax-video" src="immagini/video3.mp4" playsinline muted loop></video>
+                        <video id="parallax-video-3" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop></video>
                     </div>
                 </div>
             </div>
@@ -3200,9 +3233,11 @@
         .feature-parallax-container {
             width: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 60px auto;
+            position: relative;
         }
         
         .feature-container {
@@ -3294,6 +3329,60 @@
             font-size: 1.4rem;
         }
         
+        /* Mobile Navigation Arrows - Posizionamento rivisto */
+        .mobile-nav-arrows {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 20px 0;
+            gap: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .nav-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #ddd;
+            color: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        /* Stato attivo per i pulsanti - solo quando cliccati */
+        .nav-arrow.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .feature-indicators {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .feature-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .feature-dot.active {
+            background: var(--primary-purple);
+            transform: scale(1.2);
+        }
+        
         @media (max-width: 768px) {
             .section {
                 padding: 4rem 0;
@@ -3304,16 +3393,54 @@
                 bottom: -20px;
             }
             
+            /* Mostra i controlli di navigazione su mobile */
+            .mobile-nav-arrows {
+                display: flex;
+                /* Stile aggiornato: centrare nel container */
+                position: absolute;
+                top: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+            }
+            
+            /* Container principale per lo scorrimento orizzontale */
+            .features-list {
+                display: block;
+                overflow: hidden;
+                width: 100%;
+                gap: 0;
+                position: relative;
+                transition: none; /* Rimuoviamo la transizione nativa */
+                height: 750px; /* Altezza fissa per contenere le card su mobile */
+            }
+            
+            .feature-parallax-container {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+                transition: transform 0.4s ease-in-out;
+                margin: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                will-change: transform;
+            }
+            
             .feature-container {
-                flex-direction: column-reverse;
+                flex-direction: column-reverse; /* Video sopra, card sotto */
                 width: 90%;
                 min-height: auto;
-                gap: 2rem;
+                padding: 20px 0;
+                margin: 0 auto;
             }
             
             .feature-half {
-                justify-content: center; /* Centra gli elementi in modalità mobile */
+                justify-content: center;
                 width: 100%;
+                margin-bottom: 15px;
             }
             
             /* Nascondi il divisore per il layout mobile */
@@ -3323,8 +3450,10 @@
             
             .parallax-video {
                 max-width: 100%;
-                width: auto;
-                max-height: 350px;
+                width: 220px;
+                height: 380px;
+                margin: 0 auto 20px;
+                display: block;
             }
             
             .feature-card {
@@ -3348,23 +3477,180 @@
                 font-size: 24px;
                 margin-bottom: 12px;
             }
-            
-            .feature-parallax-container {
-                height: auto;
-                min-height: auto;
-                margin: 30px auto;
-            }
         }
     </style>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Inizializzazione per le features
+        // Variabili per il carosello mobile
+        let currentFeatureIndex = 0;
+        const totalFeatures = document.querySelectorAll('.feature-parallax-container').length;
+        const featuresCarousel = document.getElementById('features-carousel');
+        const featureElements = document.querySelectorAll('.feature-parallax-container');
+        const dots = document.querySelectorAll('.feature-dot');
+        const prevBtns = document.querySelectorAll('.prev-arrow');
+        const nextBtns = document.querySelectorAll('.next-arrow');
+        let isAnimating = false;
+        
+        // Imposta lo stato iniziale per mobile
+        function setupMobileCarousel() {
+            // Se in modalità mobile, imposta la prima feature come attiva
+            if (window.innerWidth <= 768) {
+                updateActiveDot(0);
+                featureElements.forEach((feature, index) => {
+                    // Assicurati che la posizione iniziale sia corretta:
+                    // Prima feature visibile, tutte le altre a destra
+                    if (index === 0) {
+                        feature.style.transform = 'translateX(0)';
+                        feature.style.visibility = 'visible';
+                        feature.style.opacity = '1';
+                    } else {
+                        feature.style.transform = 'translateX(100%)';
+                        feature.style.visibility = 'visible';
+                        feature.style.opacity = '1';
+                    }
+                    
+                    // Gestisci i video
+                    const video = feature.querySelector('.parallax-video');
+                    if (index === 0 && video) {
+                        video.play().catch(e => {});
+                    } else if (video) {
+                        video.pause();
+                    }
+                });
+            } else {
+                // In modalità desktop, ripristina il layout normale
+                featureElements.forEach(feature => {
+                    feature.style.transform = 'translateX(0)';
+                    feature.style.visibility = 'visible';
+                    feature.style.opacity = '1';
+                });
+            }
+            
+            // Nascondi i controlli di navigazione in modalità desktop
+            document.querySelectorAll('.mobile-nav-arrows').forEach(nav => {
+                nav.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+            });
+            
+            // Forza un reflow/repaint per assicurarsi che tutto sia visibile
+            document.body.offsetHeight;
+        }
+        
+        // Aggiorna il dot attivo
+        function updateActiveDot(index) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            const activeDots = document.querySelectorAll(`.feature-dot[data-index="${index}"]`);
+            activeDots.forEach(dot => dot.classList.add('active'));
+        }
+        
+        // Gestisci il cambio di feature
+        function goToFeature(index) {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const previousIndex = currentFeatureIndex;
+            currentFeatureIndex = index;
+            
+            // Pausa tutti i video
+            document.querySelectorAll('.parallax-video').forEach(video => {
+                video.pause();
+            });
+            
+            // Animazione di scorrimento
+            if (previousIndex < index) {
+                // Scorrimento verso sinistra (avanti)
+                featureElements[previousIndex].style.transform = 'translateX(-100%)';
+                featureElements[index].style.transform = 'translateX(0)';
+            } else {
+                // Scorrimento verso destra (indietro)
+                featureElements[previousIndex].style.transform = 'translateX(100%)';
+                featureElements[index].style.transform = 'translateX(0)';
+            }
+            
+            // Aggiorna il dot attivo
+            updateActiveDot(index);
+            
+            // Avvia il video della feature attiva
+            const activeVideo = featureElements[index].querySelector('.parallax-video');
+            if (activeVideo) {
+                activeVideo.play().catch(e => {});
+            }
+            
+            // Reset dello stato di animazione dopo la transizione
+            setTimeout(() => {
+                isAnimating = false;
+                
+                // Posiziona le altre feature fuori dal viewport
+                featureElements.forEach((feature, idx) => {
+                    if (idx !== currentFeatureIndex) {
+                        // Posiziona tutte le altre feature a destra (pronte per entrare)
+                        feature.style.transform = 'translateX(100%)';
+                    }
+                });
+            }, 400); // Durata della transizione
+        }
+        
+        // Funzione per gestire l'effetto di clic sui pulsanti
+        function handleButtonClick(button) {
+            // Aggiungi la classe active
+            button.classList.add('active');
+            
+            // Rimuovi la classe active dopo 300ms (durata dell'effetto)
+            setTimeout(() => {
+                button.classList.remove('active');
+            }, 300);
+        }
+        
+        // Evento click sui pulsanti precedenti
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                handleButtonClick(btn);
+                
+                if (currentFeatureIndex > 0) {
+                    goToFeature(currentFeatureIndex - 1);
+                } else {
+                    // Loop alla fine
+                    goToFeature(totalFeatures - 1);
+                }
+            });
+        });
+        
+        // Evento click sui pulsanti successivi
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                handleButtonClick(btn);
+                
+                if (currentFeatureIndex < totalFeatures - 1) {
+                    goToFeature(currentFeatureIndex + 1);
+                } else {
+                    // Loop all'inizio
+                    goToFeature(0);
+                }
+            });
+        });
+        
+        // Event listener per i dot indicatori
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                goToFeature(index);
+            });
+        });
+        
+        // Inizializzazione per desktop
         initializeFeature('feature-1', 'parallax-video-1');
         initializeFeature('feature-2', 'parallax-video-2');
         initializeFeature('feature-3', 'parallax-video-3');
         
-        // Funzione per inizializzare l'animazione di una feature
+        // Imposta il carosello mobile all'avvio
+        setupMobileCarousel();
+        
+        // Gestione resize della finestra
+        window.addEventListener('resize', () => {
+            setupMobileCarousel();
+        }, { passive: true });
+        
+        // Funzione per inizializzare l'animazione di una feature (per desktop)
         function initializeFeature(featureId, videoId) {
             const featureSection = document.getElementById(featureId);
             const featureCard = featureSection.querySelector('.feature-card');
@@ -3395,15 +3681,18 @@
             // Variabili per tracciare lo stato dell'animazione
             let isVisible = false;
             
-            // Funzione per aggiornare l'animazione in base alla posizione di scroll
+            // Funzione per aggiornare l'animazione in base alla posizione di scroll (desktop only)
             const updateAnimation = () => {
+                // Solo su desktop
+                if (window.innerWidth <= 768) return;
+                
                 const rect = featureSection.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 
-                // Altezza stimata della navbar (puoi regolare questo valore)
+                // Altezza stimata della navbar
                 const navbarHeight = 70;
                 
-                // Verifica se il container è completamente visibile
+                // Verifica se il container è visibile
                 const isInView = rect.top < windowHeight && rect.bottom > 0;
                 
                 // Calcola se il margine superiore della sezione ha toccato la navbar
@@ -3414,28 +3703,18 @@
                     ? Math.min((navbarHeight - rect.top) / (rect.height / 2), 1) 
                     : 0;
                 
-                // Verifica se siamo in modalità mobile
-                const isMobile = window.innerWidth <= 768;
-                
                 if (isInView) {
                     // Se il margine superiore non ha ancora toccato la navbar
                     if (!hasReachedNavbar) {
                         // Nessuna animazione - elementi completamente visibili
-                        if (isMobile) {
-                            // Per mobile
-                            leftHalf.style.transform = 'translateY(0)';
-                            rightHalf.style.transform = 'translateY(0)';
-                        } else {
-                            // Per desktop
-                            leftHalf.style.transform = 'translateX(0)';
-                            rightHalf.style.transform = 'translateX(0)';
-                        }
+                        leftHalf.style.transform = 'translateX(0)';
+                        rightHalf.style.transform = 'translateX(0)';
                         
                         leftHalf.style.opacity = '1';
                         rightHalf.style.opacity = '1';
                         
                         if (centerDivider) {
-                            centerDivider.style.opacity = isMobile ? '0' : '1'; // Nascondi il divider su mobile
+                            centerDivider.style.opacity = '1';
                         }
                     } else {
                         // Animazione di uscita quando il margine superiore tocca o supera la navbar
@@ -3444,64 +3723,71 @@
                         // Calcola lo spostamento in base alla percentuale di uscita
                         const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150);
                         
-                        if (isMobile) {
-                            // Per mobile: movimento verticale
-                            leftHalf.style.opacity = opacity;
-                            leftHalf.style.transform = `translateY(${translateAmount * 0.5}px)`;
-                            
-                            rightHalf.style.opacity = opacity;
-                            rightHalf.style.transform = `translateY(-${translateAmount * 0.5}px)`;
-                        } else {
-                            // Per desktop: movimento laterale delle metà
-                            leftHalf.style.opacity = opacity;
-                            leftHalf.style.transform = `translateX(-${translateAmount}px)`;
-                            
-                            rightHalf.style.opacity = opacity;
-                            rightHalf.style.transform = `translateX(${translateAmount}px)`;
-                            
-                            if (centerDivider) {
-                                centerDivider.style.opacity = opacity;
-                            }
+                        // Movimento laterale delle metà
+                        leftHalf.style.opacity = opacity;
+                        leftHalf.style.transform = `translateX(-${translateAmount}px)`;
+                        
+                        rightHalf.style.opacity = opacity;
+                        rightHalf.style.transform = `translateX(${translateAmount}px)`;
+                        
+                        if (centerDivider) {
+                            centerDivider.style.opacity = opacity;
                         }
                     }
                     
                     // Gestione riproduzione video
-                    // Avvia la riproduzione appena l'elemento è visibile
                     if (isInView && !isVisible) {
                         isVisible = true;
-                        // Riproduci il video immediatamente quando in vista
+                        // Riproduci il video quando in vista
                         parallaxVideo.play().catch(e => {});
                     } else if ((!isInView || (hasReachedNavbar && exitPercentage > 0.5)) && isVisible) {
                         isVisible = false;
-                        // Metti in pausa il video quando l'animazione di uscita è avanzata o non è più visibile
+                        // Metti in pausa il video quando non è più visibile
                         parallaxVideo.pause();
                     }
                 }
             };
             
-            // Aggiungi un listener per lo scroll
+            // Aggiungi un listener per lo scroll (solo per desktop)
             window.addEventListener('scroll', updateAnimation, { passive: true });
             
             // Esegui l'animazione anche al caricamento
             updateAnimation();
         }
         
-        // Gestione ridimensionamento finestra
-        window.addEventListener('resize', () => {
-            // Aggiorna tutte le animazioni delle features
-            updateAnimation('feature-1', 'parallax-video-1');
-            updateAnimation('feature-2', 'parallax-video-2');
-            updateAnimation('feature-3', 'parallax-video-3');
+        // Supporto per touch swipe su mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        featuresCarousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
         
-        // Funzione per aggiornare tutte le animazioni
-        function updateAnimation(featureId, videoId) {
-            // Ottieni gli elementi
-            const featureSection = document.getElementById(featureId);
-            if (!featureSection) return;
+        featuresCarousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
             
-            // Simula un evento di scroll per aggiornare le animazioni
-            window.dispatchEvent(new Event('scroll'));
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe a sinistra - vai alla feature successiva
+                if (currentFeatureIndex < totalFeatures - 1) {
+                    goToFeature(currentFeatureIndex + 1);
+                } else {
+                    goToFeature(0);
+                }
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe a destra - vai alla feature precedente
+                if (currentFeatureIndex > 0) {
+                    goToFeature(currentFeatureIndex - 1);
+                } else {
+                    goToFeature(totalFeatures - 1);
+                }
+            }
         }
     });
     </script>
@@ -6471,4 +6757,4 @@
 </body>
 
 
-</html>
+    </html>
