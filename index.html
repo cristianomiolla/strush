@@ -6851,7 +6851,7 @@
         .store-buttons {             
             display: flex;             
             justify-content: center;             
-            gap: 2rem;             
+            gap: 3rem;             
             margin-top: 2rem;         
         }          
         .store-btn {             
@@ -6859,20 +6859,20 @@
             align-items: center;             
             background-color: var(--dark);             
             color: white;             
-            padding: 12px 24px;             
-            border-radius: 10px;             
+            padding: 15px 30px;             
+            border-radius: 12px;             
             transition: transform 0.3s, box-shadow 0.3s;             
-            width: 200px; /* Larghezza fissa per entrambi i bottoni */             
-            justify-content: flex-start; /* Allineamento del contenuto a sinistra */         
+            width: 240px;             
+            justify-content: flex-start;         
         }          
         .store-btn:hover {             
             transform: translateY(-5px);             
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);         
         }          
         .store-btn i {             
-            font-size: 2rem;             
-            margin-right: 10px;             
-            width: 32px; /* Larghezza fissa per le icone */             
+            font-size: 2.4rem;             
+            margin-right: 12px;             
+            width: 38px;             
             text-align: left;         
         }          
         .store-btn-text {             
@@ -6882,30 +6882,31 @@
             flex: 1;         
         }          
         .store-name {             
-            font-size: 1.2rem;             
+            font-size: 1.4rem;             
             font-weight: bold;         
         }          
         /* Media query for mobile devices */         
         @media (max-width: 768px) {             
             .store-buttons {                 
                 flex-direction: column;                 
-                align-items: center;             
+                align-items: center;
+                gap: 1rem;                        
             }              
             .store-btn {                 
-                width: 60%; /* Ridotta la larghezza da 70% a 60% */
-                max-width: 190px;                 
-                justify-content: flex-start; /* Mantenuto l'allineamento a sinistra */                 
+                width: 70%;
+                max-width: 220px;                 
+                justify-content: flex-start;                 
                 margin-bottom: 1rem;
-                padding: 10px 20px; /* Ridotto il padding */             
+                padding: 12px 24px;             
             }
             
             .store-btn i {
-                font-size: 1.8rem; /* Icona leggermente più piccola */
-                margin-right: 15px; /* Aumentato lo spazio tra l'icona e il testo */
+                font-size: 2.2rem;
+                margin-right: 15px;
             }
             
             .store-name {
-                font-size: 1.1rem; /* Testo leggermente più piccolo */
+                font-size: 1.3rem;
             }
         }     
     </style> 
