@@ -53,11 +53,12 @@ body {
 }
 
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
     line-height: 1.2;
     transform: scaleY(1.15); /* Distende il font in altezza */
     font-stretch: expanded; /* Riduce la larghezza del font (se supportato) */
+    letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
 }
 
 h1 {
@@ -69,12 +70,26 @@ h2 {
 }
 
 h3 {
-    font-weight: 500; /* Medium */
+    font-weight: 600; /* Medium */
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 h4 {
+    font-weight: 500; /* Medium */
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-weight: 400; /* Medium */
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+h6 {
     font-weight: 300; /* Light */
+    font-size: 0.75rem;
     margin-bottom: 1rem;
 }
 
@@ -82,12 +97,15 @@ h4 {
 a {
     text-decoration: none;
     color: #2b2d42;
+    font-size: 0.93rem;
 }
 
 p {
     color: #555555;
     line-height: 1.6;
     margin-bottom: 0;
+    font-size: 1rem;
+
 }
 
 ul {
@@ -1157,7 +1175,7 @@ img {
                                 <div class="strush-logo-blob">
                                     <img src="immagini/logo.png" alt="Strush Logo">
                                 </div>
-                                <h1 class="strush-logo-text">Strush</h1>
+                                <h4 class="strush-logo-text">Strush</h4>
                             </div>
                         </a>
                     </div>
@@ -1189,7 +1207,7 @@ img {
                                     <div class="strush-logo-blob">
                                         <img src="immagini/logo.png" alt="Strush Logo">
                                     </div>
-                                    <h1 class="strush-logo-text">Strush</h1>
+                                    <h4 class="strush-logo-text">Strush</h4>
                                 </div>
                             </a>
                         </div>
@@ -1394,10 +1412,10 @@ img {
                 @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
                 .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
                 .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
-                .strush-logo-text { color: #8C8DD4; font-weight: 800; font-size: 1.4rem; transition: all 0.3s ease; margin-left: 8px; display: inline-block; width: auto }
+                .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
                 .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
                 .strush-nav-links li { margin: 0 3px; }
-                .strush-nav-links a { text-decoration: none; color: white; font-size: 14px; font-weight: 500; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+                .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
                 .strush-nav-links a:hover { color: #8EDCA9; }
                 .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
                 .strush-nav-links a:hover::after { width: 80%; }
@@ -1412,7 +1430,6 @@ img {
                     .strush-navbar {
                         background-color: black;
                         height: 70px;
-                         /* Rimuoviamo il backdrop-filter dalla navbar base in mobile per vederlo meglio nel dropdown */
                         backdrop-filter: none;
                         -webkit-backdrop-filter: none;
                     }
@@ -1421,7 +1438,7 @@ img {
                     .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 4px; }
                     .strush-logo-mobile .strush-logo-blob { width: 36px; height: 36px; }
                     .strush-logo-mobile .strush-logo img { height: 36px; width: 36px; transform: translateY(-2px); }
-                    .strush-logo-mobile .strush-logo-text { font-size: 1.5rem; transition: all 0.3s ease; }
+                    .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; }
                     .menu-active .strush-logo-mobile .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
                     .menu-active .strush-logo-mobile .strush-logo { justify-content: center; }
                     .menu-active .strush-logo-mobile .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
@@ -1435,9 +1452,6 @@ img {
                 /* Media query per schermi extra-small */
                 @media screen and (max-width: 480px) {
                     .strush-container { width: 98%; }
-                    /* Potrebbe non essere necessario ridurre il testo logo globale */
-                    /* .strush-logo-text { font-size: 1.4rem; } */
-                    .strush-logo-mobile .strush-logo-text { font-size: 1.3rem; }
                     .strush-logo-mobile { margin-top: 5px; }
                     .strush-logo-mobile .strush-logo-blob { width: 34px; height: 34px; }
                     .strush-logo-mobile .strush-logo img { height: 34px; width: 34px; transform: translateY(-2px); }
@@ -2551,14 +2565,7 @@ img {
              #features-container-desktop .feature-card:hover .feature-icon i {
                  transform: rotate(5deg) scale(0.95); /* Rotate and slightly shrink icon */
              }
-    
-    
-            #features-container-desktop .feature-title {
-                font-size: 1.2rem;
-            }
-             #features-container-desktop .feature-card p {
-                 font-size: 0.95rem; /* Slightly smaller */
-             }
+
         </style>
     
         <!-- Updated JavaScript -->
@@ -2884,15 +2891,6 @@ img {
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-        }
-
-        #features-mobile .feature-title {
-            font-size: 1.3rem;
-        }
-
-        #features-mobile .feature-description {
-            font-size: 1rem;
-
         }
 
         /* MODIFICATO: Indicatori (dots) posizionati in fondo al wrapper */
@@ -3258,7 +3256,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 1: Iniziatore</h3>
+                                <h4>Livello 1:<br>Iniziatore</h4>
                                 <p>Primi passi nella gestione delle finanze</p>
                                 <div class="level-badge">Principiante</div>
                             </div>
@@ -3275,7 +3273,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 2: Risparmiatore</h3>
+                                <h4>Livello 2:<br>Risparmiatore</h4>
                                 <p>Gestione consapevole del denaro</p>
                                 <div class="level-badge">Intermedio</div>
                             </div>
@@ -3292,7 +3290,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 3: Maestro</h3>
+                                <h4>Livello 3:<br>Maestro</h4>
                                 <p>Esperto nella gestione finanziaria</p>
                                 <div class="level-badge">Avanzato</div>
                             </div>
@@ -3310,7 +3308,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 1: Iniziatore</h3>
+                                <h4>Livello 1:<br> Iniziatore</h4>
                                 <p>Primi passi nella gestione delle finanze</p>
                                 <div class="level-badge">Principiante</div>
                             </div>
@@ -3327,7 +3325,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 2: Risparmiatore</h3>
+                                <h4>Livello 2:<br> Risparmiatore</h4>
                                 <p>Gestione consapevole del denaro</p>
                                 <div class="level-badge">Intermedio</div>
                             </div>
@@ -3344,7 +3342,7 @@ img {
                                 </div>
                             </div>
                             <div class="card-info">
-                                <h3>Livello 3: Maestro</h3>
+                                <h4>Livello 3:<br> Maestro</h4>
                                 <p>Esperto nella gestione finanziaria</p>
                                 <div class="level-badge">Avanzato</div>
                             </div>
@@ -3548,12 +3546,7 @@ img {
             transform: scale(1.05);
         }
     
-        .evolution-card h3 {
-            font-size: 1.2rem;
-        }
-    
         .evolution-card p {
-            font-size: 0.95rem;
             margin-bottom: 1rem;
         }
     
@@ -3608,7 +3601,7 @@ img {
                 padding: 0.75rem;
             }
             
-            .evolution-card h3 {
+            .evolution-card h4 {
                 font-size: 0.9rem;
             }
             
@@ -3658,7 +3651,7 @@ img {
                 height: 70px;
             }
             
-            .evolution-card h3 {
+            .evolution-card h4 {
                 font-size: 0.85rem;
             }
             
@@ -3708,7 +3701,7 @@ img {
                 padding: 1rem; /* Less padding */
             }
             
-            .evolution-card h3 {
+            .evolution-card h4 {
                 font-size: 0.8rem; /* Smaller font */
                 margin-bottom: 0.5rem;
             }
@@ -4605,7 +4598,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">1</div>
-                    <h3>Registrati e configura il tuo profilo</h3>
+                    <h4 class="step-description">Registrati e configura il tuo profilo</h4>
                     <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
                 </div>
             </div>
@@ -4615,7 +4608,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">2</div>
-                    <h3>Imposta i tuoi obiettivi finanziari</h3>
+                    <h4 class="step-description">Imposta i tuoi obiettivi finanziari</h4>
                     <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
                 </div>
             </div>
@@ -4625,7 +4618,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">3</div>
-                    <h3>Traccia le tue spese quotidiane</h3>
+                    <h4 class="step-description">Traccia le tue spese quotidiane</h4>
                     <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
                 </div>
             </div>
@@ -4635,7 +4628,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">4</div>
-                    <h3>Analizza e migliora</h3>
+                    <h4 class="step-description">Analizza e migliora</h4>
                     <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
                 </div>
             </div>
@@ -4676,7 +4669,6 @@ img {
             background-color: white;
             position: relative;
         }
-    
         
         /* Timeline styles */
         .timeline {
@@ -4959,7 +4951,7 @@ img {
                 font-size: 1rem;
             }
             
-            .timeline-content h3 {
+            .timeline-content h4 {
                 font-size: 1.1rem;
             }
             
@@ -4987,7 +4979,7 @@ img {
                 margin-bottom: 0.5rem;
             }
             
-            .timeline-content h3 {
+            .timeline-content h4 {
                 font-size: 1rem;
                 margin-bottom: 0.5rem;
             }
@@ -5041,7 +5033,7 @@ img {
                                 <img src="immagini/testimonial 1.jpg" alt="Scapi A." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
-                                <h3>Scapi A.</h3>
+                                <h5>Scapi A.</h5>
                                 <p>Utente da 6 mesi</p>
                             </div>
                         </div>
@@ -5065,7 +5057,7 @@ img {
                                 <img src="immagini/testimonial 2.jpg" alt="Sgabbi Y." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
-                                <h3>Sgabbi Y.</h3>
+                                <h5>Sgabbi Y.</h5>
                                 <p>Utente da 1 anno</p>
                             </div>
                         </div>
@@ -5089,7 +5081,7 @@ img {
                                 <img src="immagini/testimonial 3.jpg" alt="Baluiso A." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
-                                <h3>Baluiso A.</h3>
+                                <h5>Baluiso A.</h5>
                                 <p>Utente da 8 mesi</p>
                             </div>
                         </div>
@@ -5321,13 +5313,11 @@ img {
             border-radius: var(--blob-shape);
         }
         
-        .testimonial-info h3 {
-            font-size: 1.2rem;
+        .testimonial-info h5 {
             margin: 0 0 0.3rem;
         }
         
         .testimonial-info p {
-            font-size: 1.1rem;
             margin: 0;
         }
         
@@ -5418,7 +5408,7 @@ img {
                 margin-right: 10px;
             }
             
-            .testimonial-info h3 {
+            .testimonial-info h5 {
                 font-size: 0.8rem;
                 margin-bottom: 0.2rem;
             }
@@ -5458,7 +5448,7 @@ img {
                 height: 45px;
             }
             
-            .testimonial-info h3 {
+            .testimonial-info h5 {
                 font-size: 0.9rem;
             }
             
@@ -5627,7 +5617,7 @@ img {
                         <img src="immagini/team1.png" alt="Cristiano Miolla">
                     </div>
                 </div>
-                <h3 class="team-name">Cristiano Miolla</h3>
+                <h4 class="team-name">Cristiano Miolla</h4>
                 <div class="team-role">CEO & Founder</div>
                 <p class="team-bio">Appassionato di start up, la missione di Cristiano è rendere l'educazione finanziaria accessibile</p>
                 <div class="team-social">
@@ -5643,7 +5633,7 @@ img {
                         <img src="immagini/team2.jpg" alt="Silvano Sorino">
                     </div>
                 </div>
-                <h3 class="team-name">Silvano Sorino</h3>
+                <h4 class="team-name">Silvano Sorino</h4>
                 <div class="team-role">Game Designer</div>
                 <p class="team-bio">Concept artist nel mondo dei videogiochi, Silvano porta il suo know-how nella gamification di Strush</p>
                 <div class="team-social">
@@ -5659,7 +5649,7 @@ img {
                         <img src="immagini/team3.jpg" alt="Vito Carnimeo">
                     </div>
                 </div>
-                <h3 class="team-name">Vito Carnimeo</h3>
+                <h4 class="team-name">Vito Carnimeo</h4>
                 <div class="team-role">Brand Identity & Social Media Manager</div>
                 <p class="team-bio">Vito cura l'identità visiva di Strush e gestisce la comunicazione sui social</p>
                 <div class="team-social">
@@ -5875,10 +5865,6 @@ img {
             }
         }
     
-        .team-name {
-            font-size: 1.5rem;
-        }
-    
         .team-role {
             font-weight: 500;
             margin-bottom: 1rem;
@@ -6057,7 +6043,7 @@ img {
 
     <div class="container">         
         <div class="download-content">             
-            <h2 class="headline">Pronto a migliorare la tua gestione finanziaria?</h2>             
+            <h4 class="headline">Pronto a migliorare la tua gestione finanziaria?</h4>             
             <p class="description">Scarica l'app Strush oggi stesso e inizia il tuo percorso verso una gestione finanziaria più semplice e consapevole.</p>             
             <div class="store-buttons">                 
                 <a href="download.html" class="store-btn">                     
@@ -6092,14 +6078,11 @@ img {
         }
         
         .headline { 
-            margin-bottom: 1rem;
             color: var(--text);
-            font-size: 1.5rem;
         }
 
         .description { 
             color: var(--text);
-            font-size: 1.1rem;
         }
             
         .store-buttons {             
@@ -6177,7 +6160,7 @@ img {
                     <div class="logo-blob">
                         <img src="immagini/logo.png" alt="Strush Logo">
                     </div>
-                    <h1 class="logo-text">Strush</h1>
+                    <h4 class="logo-text">Strush</h4>
                 </div>
                 <p class="elevator-pitch">L'app che trasforma la gestione delle tue finanze in un'esperienza divertente e motivante.</p>
                 <div class="footer-social">
@@ -6189,7 +6172,7 @@ img {
             </div>
 
             <div class="footer-links">
-                <h3 class="links-rapidi">Links Rapidi</h3>
+                <h5 class="links-rapidi">Links Rapidi</h5>
                 <ul>
                     <li><a href="index.html#hero">Home</a></li>
                     <li><a href="index.html#features">Caratteristiche</a></li>
@@ -6201,7 +6184,7 @@ img {
             </div>
 
             <div class="footer-links">
-                <h3 class="links-rapidi">Supporto</h3>
+                <h5 class="links-rapidi">Supporto</h5>
                 <ul>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Contatti</a></li>
@@ -6210,7 +6193,7 @@ img {
             </div>
 
             <div class="footer-links">
-                <h3 class="links-rapidi">Legale</h3>
+                <h5 class="links-rapidi">Legale</h5>
                 <ul>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="t&c.html">Termini e Condizioni</a></li>
@@ -6219,8 +6202,8 @@ img {
         </div>
 
         <div class="copyright">
-            <h4 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
-            <h4 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
+            <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
         </div>
     </div>    
 </footer>        
@@ -6241,10 +6224,6 @@ img {
 
     .elevator-pitch {
     color: rgb(255, 255, 255);
-    } 
-
-    .links-rapidi {
-    font-size: 1rem;
     } 
         
     /* Updated logo styling to match navbar */
@@ -6307,20 +6286,18 @@ img {
 .footer-logo .logo-text {
     color: #8C8DD4;
     font-weight: 800;
-    font-size: 1.6rem;
     margin-left: 8px;
+    margin-bottom: 0px;
 }
     
     /* Links sections */
-    .footer-links h3 {
-        margin-bottom: 1.5rem;
-        font-size: 0.9rem;
+    .footer-links h5 {
         position: relative;
         padding-bottom: 10px;
         display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
     }    
     
-    .footer-links h3::after {
+    .footer-links h5::after {
         content: '';
         position: absolute;
         left: 0;
@@ -6422,13 +6399,11 @@ img {
     .copyright .proudly-crafted {
         margin-bottom: 15px;
         color: white;
-        font-size: 0.8rem;
     }
     
     .copyright .copyright-text {
         margin-top: 0;
         color: white;
-        font-size: 0.8rem;
     }
     
     /* Responsive adjustments */
@@ -6442,7 +6417,7 @@ img {
             justify-content: center;
         }
         
-        .footer-links h4 {
+        .footer-links h5 {
             margin-left: auto;
             margin-right: auto;
         }
