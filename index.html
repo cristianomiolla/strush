@@ -56,9 +56,8 @@ body {
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
-    line-height: 1.2;
+    line-height: 1.4;
     transform: scaleY(1.15); /* Distende il font in altezza */
-    font-stretch: expanded; /* Riduce la larghezza del font (se supportato) */
     letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
 }
 
@@ -86,7 +85,7 @@ h4 {
 h5 {
     font-weight: 400; /* Medium */
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 h6 {
@@ -105,7 +104,7 @@ a {
 p {
     color: #555555;
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.1rem;
 
 }
 
@@ -145,12 +144,11 @@ img {
     max-width: 700px;
     margin: 0 auto 3rem;
     color: #2b2d42;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 @media (max-width: 768px) {
     .section-subtitles {
-        font-size: 1.1rem;
         margin-bottom: 2rem;
     }
 }
@@ -206,19 +204,9 @@ img {
 
     @media (max-width: 768px) {
         .section-title {
-            margin-top: 2rem;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
-
-    @media (max-width: 400px) {
-        .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 1.5rem;
-            }
-        }
-
-
 
 </style>
 
@@ -2498,7 +2486,6 @@ img {
                 flex-direction: column;
                 gap: 6rem; /* Spacing between features */
                 width: 100%;
-                padding-top: 2rem; /* Add some padding at the top */
                 padding-bottom: 4rem; /* Add padding at the bottom */
             }
     
@@ -2958,7 +2945,6 @@ img {
             align-items: center;
             padding: 30px 20px;
             border-top: 4px solid var(--primary-purple);
-            /* Metti un'altezza minima se necessario per uniformità? Per ora lascio auto come originale */
             /* min-height: 550px; */
         }
 
@@ -2981,7 +2967,7 @@ img {
         }
 
         #features-mobile .feature-video {
-            width: 180px; /* Mantenuto dall'originale */
+            width: 170px; /* Mantenuto dall'originale */
             height: auto;
             object-fit: cover;
             border-radius: 15px;
@@ -4593,7 +4579,7 @@ img {
         /* Timeline styles */
         .timeline {
             position: relative;
-            margin: 3rem auto;
+            margin: 0 auto 3rem;
             padding: 2rem 0;
             max-width: 1000px;
         }
@@ -5986,6 +5972,7 @@ img {
         position: relative;
         padding-bottom: 10px;
         display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
+        margin-bottom: 20px;
     }    
     
     .footer-links h5::after {
@@ -6130,4 +6117,4 @@ img {
 </body>
 
 
-    </html>
+</html>
