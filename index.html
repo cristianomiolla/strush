@@ -69,10 +69,11 @@ h2 {
     font-weight: 700; /* Bold */
 }
 
+/* Non usato */
 h3 {
     font-weight: 600; /* Medium */
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 h4 {
@@ -1521,7 +1522,7 @@ img {
                 });
         </script>
     
-    </nav>
+</nav>
 
     <!-- Barra di avanzamento orizzontale migliorata sotto la navbar -->
 <div class="scroll-progress-container">
@@ -1817,7 +1818,7 @@ img {
         }
     
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3.3rem;
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -2169,31 +2170,66 @@ img {
         @keyframes glowPulse { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }
         @keyframes energyWave { 0% { width: 10px; height: 10px; opacity: 1; } 100% { width: 300px; height: 300px; opacity: 0; } }
     
-        /* Media Queries (invariati tranne il font-size dei bottoni .btn già modificato sopra) */
-        @media screen and (max-width: 991px) {
-            .hero .container { flex-direction: column; justify-content: center; }
-            .hero-content, .hero-image { width: 100%; text-align: center; padding: 0; }
-            .hero-content { margin-bottom: 40px; order: 1; }
-            .hero-image { order: 0; margin-bottom: 30px; max-height: 40vh; }
-            .dino-avatar-container { height: 40vh; max-height: 400px; transform: scale(0.9); }
-            .hero-buttons { justify-content: center; }
+    /* Media Queries integrate per dispositivi mobili */
+    @media screen and (max-width: 768px) {
+        /* Struttura hero */
+        .hero .container { 
+            flex-direction: column; 
+            justify-content: center; 
         }
-    
-        @media screen and (max-width: 767px) {
-            .hero-title { font-size: 2.1rem; }
-            .hero-subtitle { font-size: 1.2rem; }
-            /* Dimensione .btn già modificata, potrebbe andare bene anche per mobile
-               o si può ridurre leggermente qui se troppo grande */
-            /* Esempio per ridurlo solo su mobile:
-            .btn {
-                 padding: 12px 28px;
-                 font-size: 1rem;
-            } */
-            .dino-avatar-container { transform: scale(0.8); }
-            .scroll-indicator { display: none; }
-            .prehistoric-bg { bottom: 0; }
-            .dino-avatar-container { bottom: -0%; }
+        
+        .hero-content, .hero-image { 
+            width: 100%; 
+            text-align: center; 
+            padding: 0; 
         }
+        
+        .hero-content { 
+            margin-bottom: 40px; 
+            order: 1; 
+        }
+        
+        .hero-image { 
+            order: 0; 
+            margin-bottom: 30px; 
+            max-height: 40vh; 
+        }
+        
+        /* Testi */
+        .hero-title { 
+            font-size: 1.8rem; 
+        }
+        
+        .hero-subtitle { 
+            font-size: 1.3rem; 
+        }
+        
+        /* Bottoni */
+        .hero-buttons { 
+            justify-content: center; 
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            font-size: 1rem;
+        }
+        
+        /* Elementi decorativi */
+        .dino-avatar-container { 
+            height: 40vh; 
+            max-height: 400px; 
+            transform: scale(0.8); 
+            bottom: -0%; 
+        }
+        
+        .scroll-indicator { 
+            display: none; 
+        }
+        
+        .prehistoric-bg { 
+            bottom: 0; 
+        }
+}
     
         </style>
     
@@ -2289,7 +2325,7 @@ img {
                                             <i class="fas fa-wallet"></i>
                                         </div>
                                     </div>
-                                    <h3 class="feature-title">Unica dashboard</h3>
+                                    <h4 class="feature-title">Unica dashboard</h4>
                                     <p>Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
                                 </div>
                             </div>
@@ -2324,7 +2360,7 @@ img {
                                             <i class="fas fa-users"></i>
                                         </div>
                                     </div>
-                                    <h3 class="feature-title">Collaborativa e smart</h3>
+                                    <h4 class="feature-title">Collaborativa e smart</h4>
                                     <p>Connettiti con i tuoi amici e gestisci gli abbonamenti condivisi (come Netflix e Spotify) e le spese comuni in un unico spazio.</p>
                                 </div>
                             </div>
@@ -2341,7 +2377,7 @@ img {
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
-                                    <h3 class="feature-title">Notifiche Intelligenti</h3>
+                                    <h4 class="feature-title">Notifiche Intelligenti</h4>
                                     <p>Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
                                 </div>
                             </div>
@@ -2719,7 +2755,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Unica dashboard</h3>
+                            <h4 class="feature-title">Unica dashboard</h4>
                             <p class="feature-description">Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
                         </div>
                         <div class="feature-media">
@@ -2735,7 +2771,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Collaborativa e smart</h3>
+                            <h4 class="feature-title">Collaborativa e smart</h4>
                             <p class="feature-description">Connettiti con i tuoi amici e gestisci gli abbonamenti condivisi (come Netflix e Spotify) e le spese comuni in un unico spazio.</p>
                         </div>
                         <div class="feature-media">
@@ -2751,7 +2787,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Notifiche Intelligenti</h3>
+                            <h4 class="feature-title">Notifiche Intelligenti</h4>
                             <p class="feature-description">Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
                         </div>
                         <div class="feature-media">
@@ -3242,7 +3278,7 @@ img {
         <h2 class="section-title">Avatar</h2>
         <p class="section-subtitles">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
         
-        <div class="evolution-carousel-container">
+    <div class="evolution-carousel-container">
             <div class="evolution-carousel-wrapper">
                 <div class="evolution-carousel" id="evolutionCarousel">
                     <!-- Duplicate cards for infinite effect -->
@@ -3576,133 +3612,42 @@ img {
             color: #6651b8;
         }
     
-        /* Media queries per responsività */
-        @media (max-width: 480px) {
-            .evolution-carousel {
-                width: calc(160px * 6); /* Ancora più piccole su schermi molto piccoli */
-            }
-            
-            .evolution-card {
-                min-width: 160px;
-                width: 160px;
-                margin: 0 4px;
-            }
-            
-            .avatar-container {
-                height: 100px;
-            }
-            
-            .avatar-shape {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .card-info {
-                padding: 0.75rem;
-            }
-            
-            .evolution-card h4 {
-                font-size: 0.9rem;
-            }
-            
-            .evolution-card p {
-                font-size: 0.8rem;
-            }
-            
-            .level-badge {
-                padding: 0.2rem 0.6rem;
-                font-size: 0.65rem;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-160px * 3)); /* Adjusted for smaller mobile */
-                }
-            }
-        }
-        
-        /* Per i dispositivi ancora più piccoli */
-        @media (max-width: 400px) {
-            .image-label {
-                font-size: 8px; /* Testo targhetta ancora più piccolo */
-                padding: 1px 3px;
-            }
-            
-            .evolution-carousel {
-                width: calc(140px * 6);
-                padding-bottom: 10px;
-            }
-            
-            .evolution-card {
-                min-width: 140px;
-                width: 140px;
-                margin: 0 3px;
-            }
-            
-            .avatar-container {
-                height: 90px;
-            }
-            
-            .avatar-shape {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .evolution-card h4 {
-                font-size: 0.85rem;
-            }
-            
-            .evolution-card p {
-                font-size: 0.75rem;
-                margin-bottom: 0.5rem;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-140px * 3));
-                }
-            }
-        } 
-        
-        /* Per i dispositivi mobile */
+        /* Media query unificata per dispositivi mobili */
         @media (max-width: 768px) {
-            
+            /* Carousel e card */
             .evolution-carousel {
-                width: calc(200px * 6); /* Reduced card width for mobile */
+                width: calc(200px * 6);
                 animation: scroll 20s linear infinite;
+                padding-bottom: 23px;
             }
             
             .evolution-card {
                 min-width: 200px;
                 width: 200px;
-                margin: 0 5px;  /* Reduced margins */
+                margin: 0 5px;
             }
             
+            /* Avatar e contenitori */
             .avatar-container {
-                height: 120px; /* Reduced height */
+                height: 120px;
             }
             
             .avatar-shape {
-                width: 100px; /* Smaller avatar shape */
+                width: 100px;
                 height: 100px;
             }
             
             .avatar-wrapper {
-                border: 3px solid white; /* Thinner border */
+                border: 3px solid white;
             }
             
+            /* Testi e informazioni */
             .card-info {
-                padding: 1rem; /* Less padding */
+                padding: 1rem;
             }
             
             .evolution-card h4 {
-                font-size: 0.8rem; /* Smaller font */
+                font-size: 0.8rem;
                 margin-bottom: 0.5rem;
             }
             
@@ -3716,32 +3661,33 @@ img {
                 font-size: 0.7rem;
             }
             
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-200px * 3)); /* Adjusted for mobile card size */
-                }
-            }
-            
-            /* Adattamento della curva per dispositivi mobili */
+            /* Effetti decorativi */
             .avatar-evolution::after {
                 height: 20px;
                 bottom: -20px;
             }
             
-        
-            /* Adjust fade effect width for mobile */
             .evolution-carousel-wrapper::before,
             .evolution-carousel-wrapper::after {
-                width: 40px; /* Narrower gradient */
+                width: 40px;
             }
-
-            .evolution-carousel {
-             padding-bottom: 23px; /* Leggermente ridotto su mobile */
+            
+            /* Animazione */
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-200px * 3));
                 }
             }
+            
+            /* Regola per le etichette immagine */
+            .image-label {
+                font-size: 10px;
+                padding: 2px 4px;
+            }
+        }
 
     </style>
     
@@ -4276,119 +4222,48 @@ img {
     }
     
     
-    /* Media queries per responsività */
-    @media screen and (max-width: 1024px) {
-        :root {
-            --card-width: 700px;
-            --card-height: 440px;
-            --image-width: 160px;
-            --image-height: 220px;
-            --bubble-width: 270px; /* Aumentato da 180px a 270px */
-            --speech-bubble-space: -25px; /* Adattato per nuvolette più grandi */
-        }
+    /* Media query unificata per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    :root {
+        --card-width: 90vw;
+        --card-height: 56vw;
+        --image-width: 21vw;
+        --image-height: 29vw;
+        --bubble-width: 38vw;
+        --speech-bubble-space: -25px;
     }
     
-    
-    @media screen and (max-width: 768px) {
-        :root {
-            --card-width: 90vw;
-            --card-height: 56vw;
-            --image-width: 21vw;
-            --image-height: 29vw;
-            --bubble-width: 38vw; /* Aumentato da 25vw a 38vw */
-            --speech-bubble-space: -25px; /* Adattato per nuvolette più grandi */
-        }
-
-        .game-hub::after {
-            height: 20px;
-            bottom: -20px;
-        }   
-        
-        .speech-bubble {
-            font-size: 12px;
-            min-height: 50px;
-            padding: 8px 12px;
-        }
-        
-        .image-label {
-            font-size: 12px;
-            padding: 3px 6px;
-        }
-
-        .image-label.user-avatar {
-            font-size: 12px;
-            padding: 3px 0px;
-        }
-
-        
-        .bubble-wrapper {
-            width: 180%; /* Ancora più largo su schermi più piccoli */
-            left: -40%;
-        }
-
+    /* Decorazioni e struttura */
+    .game-hub::after {
+        height: 20px;
+        bottom: -20px;
     }
     
-    
-    @media screen and (max-width: 576px) {
-        :root {
-            --card-width: 95vw;
-            --card-height: 60vw;
-            --image-width: 22vw;
-            --image-height: 28vw;
-            --bubble-width: 36vw; /* Aumentato da 24vw a 36vw */
-            --speech-bubble-space: -20px; /* Adattato per nuvolette più grandi */
-        }
-        
-        
-        .speech-bubble {
-            font-size: 10px;
-            min-height: 40px;
-            padding: 6px 8px;
-        }
-        
-        .image-label {
-            font-size: 10px; /* Testo targhetta più piccolo su mobile */
-            padding: 2px 4px;
-            margin-top: -5px;
-        }
-
-        .image-label.user-avatar {
-            font-size: 10px; /* Testo targhetta più piccolo su mobile */
-            padding: 2px 0px;
-            margin-top: -5px;
-        }
-        
-        .bubble-wrapper {
-            width: 180%;
-            left: -40%;
-        }
-        
+    /* Bolle di dialogo */
+    .speech-bubble {
+        font-size: 10px;
+        min-height: 40px;
+        padding: 6px 8px;
     }
     
-    
-    /* Per i dispositivi ancora più piccoli */
-    @media screen and (max-width: 400px) {
-        .image-label {
-            font-size: 8px; /* Testo targhetta ancora più piccolo */
-            padding: 1px 3px;
-        }
-
-        .image-label.user-avatar {
-            font-size: 8px; /* Testo targhetta ancora più piccolo */
-            padding: 1px 0px;
-        }
-        
-        :root {
-            --speech-bubble-space: -18px; /* Adattato per nuvolette più grandi */
-            --bubble-width: 34vw; /* Adattato per schermi molto piccoli */
-        }
-        
-        .bubble-wrapper {
-            width: 170%;
-            left: -35%;
-        }
-        
+    .bubble-wrapper {
+        width: 180%;
+        left: -40%;
     }
+    
+    /* Etichette immagini */
+    .image-label {
+        font-size: 8px;
+        padding: 1px 3px;
+        margin-top: -5px;
+    }
+    
+    .image-label.user-avatar {
+        font-size: 8px;
+        padding: 1px 0px;
+        margin-top: -5px;
+    }
+}
 </style>
     
 <script>
@@ -4846,137 +4721,54 @@ img {
             }
         }
         
-        /* Media query for tablet */
-        @media (max-width: 992px) {
-            .timeline-content {
-                width: 42%;
-            }
-        }
-        
-        /* Media query for small tablet and mobile */
+        /* Media query unificata per dispositivi mobili */
         @media (max-width: 768px) {
+            /* Linea temporale e punti */
             .timeline-line {
-                left: 30px; /* Move timeline to left */
+                left: 20px;
             }
             
             .timeline-dot {
-                left: 30px; /* Move dots to left */
-            }
-            
-            .timeline-item.left,
-            .timeline-item.right {
-                justify-content: flex-start; /* All items start from left */
-                padding-left: 60px; /* Space for timeline */
-            }
-            
-            .timeline-content {
-                width: calc(100% - 60px); /* Full width minus timeline space */
-                padding: 1.5rem;
-            }
-            
-            /* Adjust connectors and dots for mobile layout */
-            .timeline-dot {
-                left: 30px;
-            }
-            
-            .timeline-item.left .timeline-content:before,
-            .timeline-item.right .timeline-content:before {
-                left: -20px;
-                right: auto;
-                width: 20px;
-                top: 34px; /* Keep same alignment as desktop */
-            }
-            
-            .step-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
-            .timeline-content h3 {
-                font-size: 1rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .timeline-content p {
-                font-size: 0.95rem;
-            }
-            
-            .ticker-item {
-                font-size: 0.9rem;
-                padding: 10px 1rem;
-            }
-            
-            .how-it-works::after {
-                height: 20px;
-                bottom: -20px;
-            }
-        }
-        
-        /* Extra small devices */
-        @media (max-width: 576px) {
-            .timeline-line {
-                left: 20px; /* Timeline even more to left */
-            }
-            
-            .timeline-dot {
-                left: 20px; /* Move dots to align with timeline */
+                left: 20px;
                 top: 24px;
                 width: 16px;
                 height: 16px;
                 border-width: 3px;
             }
             
+            /* Layout elementi */
             .timeline-item.left,
             .timeline-item.right {
-                padding-left: 40px; /* Less space needed */
+                justify-content: flex-start;
+                padding-left: 40px;
             }
             
             .timeline-content {
                 width: calc(100% - 40px);
-                padding: 1.2rem;
-            }
-            
-            /* Align connector precisely with center of dot */
-            .timeline-item.left .timeline-content:before,
-            .timeline-item.right .timeline-content:before {
-                left: -20px;
-                width: 20px;
-                top: 32px; /* Precisely aligned with center of 16px dot at top: 24px */
-            }
-            
-            .step-number {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .timeline-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .timeline-content p {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Very small devices */
-        @media (max-width: 400px) {
-            .timeline-content {
                 padding: 1rem;
             }
             
-            .timeline-dot {
-                width: 16px;
-                height: 16px;
-                border-width: 3px;
+            /* Connettori */
+            .timeline-item.left .timeline-content:before,
+            .timeline-item.right .timeline-content:before {
+                left: -20px;
+                right: auto;
+                width: 20px;
+                top: 32px;
             }
             
+            /* Numerazione passi */
             .step-number {
                 width: 30px;
                 height: 30px;
                 font-size: 0.9rem;
                 margin-bottom: 0.5rem;
+            }
+            
+            /* Testi */
+            .timeline-content h3 {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
             }
             
             .timeline-content h4 {
@@ -4987,6 +4779,17 @@ img {
             .timeline-content p {
                 font-size: 0.85rem;
                 line-height: 1.3;
+            }
+            
+            /* Altri elementi */
+            .ticker-item {
+                font-size: 0.9rem;
+                padding: 10px 1rem;
+            }
+            
+            .how-it-works::after {
+                height: 20px;
+                bottom: -20px;
             }
         }
     </style>
@@ -5335,131 +5138,75 @@ img {
             transition: all 0.1s ease;
         }
         
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .testimonials::after {
-                height: 20px;
-                bottom: -20px;
-            }
-            
-            .testimonials {
-                padding: 4rem 0 4rem;
-            }
-            
-            .story-inner {
-                padding: 1.5rem;
-            }
-            
-            .testimonial-content p {
-                font-size: 1.1rem;
-            }
-            
-            .avatar-blob {
-                width: 58px;
-                height: 58px;
-            }
-            
-            .stories-content {
-                height: 350px;
-            }
-            
-            .blob-1 {
-                width: 150px;
-                height: 130px;
-                top: -60px;
-                left: -40px;
-            }
-            
-            .blob-2 {
-                width: 170px;
-                height: 150px;
-                bottom: -60px;
-                right: -30px;
-            }
-        }
-        
-        /* Mobile optimization */
-        @media (max-width: 576px) {
-            
-            .story-inner {
-                padding: 1.2rem;
-            }
-            
-            .testimonial-content {
-                margin-bottom: 15px;
-            }
-            
-            .testimonial-content p {
-                font-size: 1.1rem;
-            }
-            
-            .quote-icon {
-                margin-bottom: 10px;
-            }
-            
-            .quote-icon svg {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .avatar-blob {
-                width: 50px;
-                height: 50px;
-                margin-right: 10px;
-            }
-            
-            .testimonial-info h5 {
-                font-size: 0.8rem;
-                margin-bottom: 0.2rem;
-            }
-            
-            .testimonial-info p {
-                font-size: 0.85rem;
-            }
-            
-            .stories-content {
-                height: 300px;
-            }
-            
-            /* Smaller blobs for mobile */
-            .blob-1 {
-                width: 120px;
-                height: 100px;
-                top: -50px;
-                left: -30px;
-            }
-            
-            .blob-2 {
-                width: 130px;
-                height: 110px;
-                bottom: -40px;
-                right: -20px;
-            }
-        }
-        
-        /* Extra small devices */
-        @media (max-width: 400px) {
-            .testimonial-content p {
-                font-size: 1.05rem;
-            }
-            
-            .avatar-blob {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .testimonial-info h5 {
-                font-size: 0.9rem;
-            }
-            
-            .testimonial-info p {
-                font-size: 0.8rem;
-            }
-            
-            .stories-content {
-                height: 280px;
-            }
-        }
+       /* Media query unificata per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Struttura e spaziatura */
+    .testimonials {
+        padding: 4rem 0 4rem;
+    }
+    
+    .testimonials::after {
+        height: 20px;
+        bottom: -20px;
+    }
+    
+    .story-inner {
+        padding: 1.2rem;
+    }
+    
+    .testimonial-content {
+        margin-bottom: 15px;
+    }
+    
+    .stories-content {
+        height: 280px;
+    }
+    
+    /* Contenuto testimonial */
+    .testimonial-content p {
+        font-size: 1.05rem;
+    }
+    
+    .quote-icon {
+        margin-bottom: 10px;
+    }
+    
+    .quote-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Avatar e info utente */
+    .avatar-blob {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+    }
+    
+    .testimonial-info h5 {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .testimonial-info p {
+        font-size: 0.8rem;
+    }
+    
+    /* Elementi decorativi (blob) */
+    .blob-1 {
+        width: 120px;
+        height: 100px;
+        top: -50px;
+        left: -30px;
+    }
+    
+    .blob-2 {
+        width: 130px;
+        height: 110px;
+        bottom: -40px;
+        right: -20px;
+    }
+}
     </style>
     
     <script>
@@ -5923,8 +5670,9 @@ img {
             opacity: 1;
         }
     
-        /* Mobile styles */
+        /* Media query unificata per dispositivi mobili */
         @media (max-width: 768px) {
+            /* Struttura */
             .team::after {
                 height: 20px;
                 bottom: -20px;
@@ -5935,7 +5683,18 @@ img {
                 gap: 2rem;
             }
             
-            /* For mobile viewport detection, add class with Intersection Observer */
+            /* Foto e wrapper */
+            .team-photo-wrapper {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .team-photo {
+                width: 160px;
+                height: 160px;
+            }
+            
+            /* Animazioni forme */
             .team-photo.active-mobile.shape-1 {
                 animation: morph-shape-1 7s infinite;
             }
@@ -5947,39 +5706,8 @@ img {
             .team-photo.active-mobile.shape-3 {
                 animation: morph-shape-3 7s infinite;
             }
-        }
-        
-        
-        @media (max-width: 576px) {
-            .team-photo-wrapper {
-                width: 180px;
-                height: 180px;
-            }
             
-            .team-photo {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .team-name {
-                font-size: 1.3rem;
-            }
-            
-            .team-role {
-                font-size: 0.9rem;
-            }
-            
-            .team-bio {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .team-photo-wrapper {
-                width: 160px;
-                height: 160px;
-            }
-            
+            /* Testi */
             .team-name {
                 font-size: 1.1rem;
             }
@@ -5994,6 +5722,7 @@ img {
                 margin-bottom: 1rem;
             }
             
+            /* Social */
             .team-social a {
                 width: 35px;
                 height: 35px;
@@ -6291,10 +6020,12 @@ img {
 }
     
     /* Links sections */
-    .footer-links h5 {
+    .footer-links h5{
         position: relative;
         padding-bottom: 10px;
         display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
+        font-weight: 300;
+        font-size: 0.9rem;
     }    
     
     .footer-links h5::after {
