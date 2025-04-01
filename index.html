@@ -62,24 +62,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-weight: 300; /* Light */
+    font-weight: 900; /* Light */
 }
 
 h2 {
     font-weight: 700; /* Bold */
 }
 
-/* Non usato */
 h3 {
-    font-weight: 600; /* Medium */
+    font-weight: 500; /* Medium */
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 h4 {
     font-weight: 500; /* Medium */
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 h5 {
@@ -98,13 +97,23 @@ h6 {
 a {
     text-decoration: none;
     color: #2b2d42;
-    font-size: 0.93rem;
+    font-size: 1rem;
 }
 
 p {
     color: #555555;
-    line-height: 1.6;
+    line-height: 1.5;
     font-size: 1.1rem;
+
+}
+
+@media (max-width: 768px) { 
+    p {
+    font-size: 1.1rem;
+    }
+    h4 {
+    font-size: 0.9rem;
+    }
 
 }
 
@@ -150,6 +159,7 @@ img {
 @media (max-width: 768px) {
     .section-subtitles {
         margin-bottom: 2rem;
+        font-size: 1.2rem;
     }
 }
 </style>
@@ -1164,7 +1174,7 @@ img {
                                 <div class="strush-logo-blob">
                                     <img src="immagini/logo.png" alt="Strush Logo">
                                 </div>
-                                <h4 class="strush-logo-text">Strush</h4>
+                                <h3 class="strush-logo-text">Strush</h3>
                             </div>
                         </a>
                     </div>
@@ -1196,7 +1206,7 @@ img {
                                     <div class="strush-logo-blob">
                                         <img src="immagini/logo.png" alt="Strush Logo">
                                     </div>
-                                    <h4 class="strush-logo-text">Strush</h4>
+                                    <h3 class="strush-logo-text">Strush</h3>
                                 </div>
                             </a>
                         </div>
@@ -1403,7 +1413,7 @@ img {
                 .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
                 .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
                 .strush-nav-links li { margin: 0 3px; }
-                .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+                .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.93rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
                 .strush-nav-links a:hover { color: #8EDCA9; }
                 .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
                 .strush-nav-links a:hover::after { width: 80%; }
@@ -2372,7 +2382,7 @@ img {
                                             <i class="fas fa-wallet"></i>
                                         </div>
                                     </div>
-                                    <h4 class="feature-title">Unica dashboard</h4>
+                                    <h3 class="feature-title">Unica dashboard</h3>
                                     <p>Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
                                 </div>
                             </div>
@@ -2407,7 +2417,7 @@ img {
                                             <i class="fas fa-users"></i>
                                         </div>
                                     </div>
-                                    <h4 class="feature-title">Collaborativa e smart</h4>
+                                    <h3 class="feature-title">Collaborativa e smart</h3>
                                     <p>Connettiti con i tuoi amici e gestisci gli abbonamenti condivisi (come Netflix e Spotify) e le spese comuni in un unico spazio.</p>
                                 </div>
                             </div>
@@ -2424,7 +2434,7 @@ img {
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
-                                    <h4 class="feature-title">Notifiche Intelligenti</h4>
+                                    <h3 class="feature-title">Notifiche Intelligenti</h3>
                                     <p>Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
                                 </div>
                             </div>
@@ -2801,7 +2811,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h4 class="feature-title">Unica dashboard</h4>
+                            <h3 class="feature-title">Unica dashboard</h3>
                             <p class="feature-description">Tutti i tuoi conti sincronizzati in un'unica dashboard intuitiva per una panoramica istantanea della tua situazione finanziaria.</p>
                         </div>
                         <div class="feature-media">
@@ -2817,7 +2827,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h4 class="feature-title">Collaborativa e smart</h4>
+                            <h3 class="feature-title">Collaborativa e smart</h3>
                             <p class="feature-description">Connettiti con i tuoi amici e gestisci gli abbonamenti condivisi (come Netflix e Spotify) e le spese comuni in un unico spazio.</p>
                         </div>
                         <div class="feature-media">
@@ -2833,7 +2843,7 @@ img {
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h4 class="feature-title">Notifiche Intelligenti</h4>
+                            <h3 class="feature-title">Notifiche Intelligenti</h3>
                             <p class="feature-description">Ricevi insight personalizzati e promemoria delle spese future/ricorrenti per tenere sotto controllo il portafoglio.</p>
                         </div>
                         <div class="feature-media">
@@ -3464,7 +3474,7 @@ img {
             position: relative;
             cursor: grab;
             margin: 5px auto auto auto;
-            padding-bottom: 60px; /* Per separare da Hub */
+            padding-bottom: 0px; /* Per separare da Hub */
 
         }
 
@@ -3620,7 +3630,7 @@ img {
         .evolution-card p {
             margin-bottom: 1rem;
         }
-    
+
         .level-badge {
             display: inline-block;
             padding: 0.35rem 1rem;
@@ -3682,10 +3692,12 @@ img {
             }
             
             .evolution-card h4 {
-                font-size: 0.8rem;
                 margin-bottom: 0.5rem;
             }
             
+            .evolution-card p {
+            font-size: 1rem;
+            }
             
             .level-badge {
                 padding: 0.25rem 0.75rem;
@@ -4504,7 +4516,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">1</div>
-                    <h4 class="step-description">Registrati e configura il tuo profilo</h4>
+                    <h3 class="step-description">Registrati e configura il tuo profilo</h3>
                     <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
                 </div>
             </div>
@@ -4514,7 +4526,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">2</div>
-                    <h4 class="step-description">Imposta i tuoi obiettivi finanziari</h4>
+                    <h3 class="step-description">Imposta i tuoi obiettivi finanziari</h3>
                     <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
                 </div>
             </div>
@@ -4524,7 +4536,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">3</div>
-                    <h4 class="step-description">Traccia le tue spese quotidiane</h4>
+                    <h3 class="step-description">Traccia le tue spese quotidiane</h3>
                     <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
                 </div>
             </div>
@@ -4534,7 +4546,7 @@ img {
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">4</div>
-                    <h4 class="step-description">Analizza e migliora</h4>
+                    <h3 class="step-description">Analizza e migliora</h3>
                     <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
                 </div>
             </div>
@@ -5122,6 +5134,7 @@ img {
         
         .testimonial-info p {
             margin: 0;
+            font-size: 1rem;
         }
         
         
@@ -5180,6 +5193,10 @@ img {
                 width: 45px;
                 height: 45px;
                 margin-right: 10px;
+            }
+
+            .testimonial-info p {
+            font-size: 0.9rem;
             }
             
             /* Elementi decorativi (blob) */
@@ -5354,7 +5371,7 @@ img {
                         <img src="immagini/team1.png" alt="Cristiano Miolla">
                     </div>
                 </div>
-                <h4 class="team-name">Cristiano Miolla</h4>
+                <h3 class="team-name">Cristiano Miolla</h3>
                 <div class="team-role">CEO & Founder</div>
                 <p class="team-bio">Appassionato di start up, la missione di Cristiano è rendere l'educazione finanziaria accessibile</p>
                 <div class="team-social">
@@ -5370,7 +5387,7 @@ img {
                         <img src="immagini/team2.jpg" alt="Silvano Sorino">
                     </div>
                 </div>
-                <h4 class="team-name">Silvano Sorino</h4>
+                <h3 class="team-name">Silvano Sorino</h3>
                 <div class="team-role">Game Designer</div>
                 <p class="team-bio">Concept artist nel mondo dei videogiochi, Silvano porta il suo know-how nella gamification di Strush</p>
                 <div class="team-social">
@@ -5386,7 +5403,7 @@ img {
                         <img src="immagini/team3.jpg" alt="Vito Carnimeo">
                     </div>
                 </div>
-                <h4 class="team-name">Vito Carnimeo</h4>
+                <h3 class="team-name">Vito Carnimeo</h3>
                 <div class="team-role">Brand Identity & Social Media Manager</div>
                 <p class="team-bio">Vito cura l'identità visiva di Strush e gestisce la comunicazione sui social</p>
                 <div class="team-social">
@@ -5720,7 +5737,7 @@ img {
 
     <div class="container">         
         <div class="download-content">             
-            <h4 class="headline">Pronto a migliorare la tua gestione finanziaria?</h4>             
+            <h3 class="headline">Pronto a migliorare la tua gestione finanziaria?</h3>             
             <p class="description">Scarica l'app Strush oggi stesso e inizia il tuo percorso verso una gestione finanziaria più semplice e consapevole.</p>             
             <div class="store-buttons">                 
                 <a href="download.html" class="store-btn">                     
@@ -5837,7 +5854,7 @@ img {
                     <div class="logo-blob">
                         <img src="immagini/logo.png" alt="Strush Logo">
                     </div>
-                    <h4 class="logo-text">Strush</h4>
+                    <h3 class="logo-text">Strush</h3>
                 </div>
                 <p class="elevator-pitch">L'app che trasforma la gestione delle tue finanze in un'esperienza divertente e motivante.</p>
                 <div class="footer-social">
