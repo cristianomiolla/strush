@@ -67,6 +67,7 @@ h1 {
 
 h2 {
     font-weight: 700; /* Bold */
+    font-size: 2.5rem;
 }
 
 h3 {
@@ -111,6 +112,11 @@ p {
     p {
     font-size: 1.1rem;
     }
+
+    h2 {
+    font-size: 1.8rem;
+    }
+
     h4 {
     font-size: 0.9rem;
     }
@@ -174,7 +180,6 @@ img {
         margin-top: 3rem;
         position: relative;
         padding-bottom: 10px;
-        font-size: 2.5rem;
         color: #2b2d42;
         font-weight: bold;
         overflow: hidden;
@@ -2337,11 +2342,11 @@ img {
 
 
     <!-- Desktop Feature -->
-<section id="features-desktop">
+    <section id="features-desktop">
         <div id="features-container-desktop" class="features-main-section section desktop-only">
             <div class="container">
                 <h2 class="section-title">Caratteristiche Principali</h2>
-    
+
                 <!-- Container per tutte le features -->
                 <div class="features-list" id="features-carousel-desktop">
                     <!-- Feature 1 -->
@@ -2355,12 +2360,12 @@ img {
                                         </div>
                                     </div>
                                     <h3 class="feature-title">Unica Dashboard</h3>
-                                    <p>Segna tutte le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
+                                    <p>Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
                                 </div>
                             </div>
-    
+
                             <div class="center-divider"></div>
-    
+
                             <div class="feature-half feature-half-right">
                                 <div class="video-perspective-container">
                                     <!-- Added preload="metadata" -->
@@ -2369,7 +2374,7 @@ img {
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Feature 2 (Invertita) -->
                     <div id="feature-desktop-2" class="feature-parallax-container">
                         <div class="feature-container">
@@ -2379,9 +2384,9 @@ img {
                                     <video id="parallax-video-desktop-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
                                 </div>
                             </div>
-    
+
                             <div class="center-divider"></div>
-    
+
                             <div class="feature-half feature-half-right">
                                 <div class="feature-card">
                                     <div class="feature-icon-wrapper">
@@ -2395,7 +2400,7 @@ img {
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Feature 3 -->
                     <div id="feature-desktop-3" class="feature-parallax-container">
                         <div class="feature-container">
@@ -2403,16 +2408,16 @@ img {
                                 <div class="feature-card">
                                     <div class="feature-icon-wrapper">
                                         <div class="feature-icon">
-                                            <i class="fas fa-calendar-alt"></i>
+                                            <i class="fas fa-calendar-alt"></i> <!-- Icona per Insight Intelligenti -->
                                         </div>
                                     </div>
                                     <h3 class="feature-title">Insight Intelligenti</h3>
                                     <p>Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
                                 </div>
                             </div>
-    
+
                             <div class="center-divider"></div>
-    
+
                             <div class="feature-half feature-half-right">
                                 <div class="video-perspective-container">
                                     <!-- Added preload="metadata" -->
@@ -2424,7 +2429,7 @@ img {
                 </div>
             </div>
         </div>
-    
+
         <style>
             /* Stili per la versione desktop */
             :root {
@@ -2437,19 +2442,19 @@ img {
                 --video-base-z: 10px;
                 --video-hover-z: 15px;
             }
-    
+
             /* Nascondi su mobile */
             @media (max-width: 768px) {
                 .desktop-only {
                     display: none !important;
                 }
             }
-    
+
             #features-container-desktop {
                 background-color: white;
                 position: relative;
             }
-    
+
             /* Curva inferiore */
             #features-container-desktop::after {
                 content: '';
@@ -2462,7 +2467,7 @@ img {
                 border-radius: 0 0 50% 50% / 0 0 100% 100%;
                 z-index: 2;
             }
-    
+
             #features-container-desktop .features-list {
                 display: flex;
                 flex-direction: column;
@@ -2470,7 +2475,7 @@ img {
                 width: 100%;
                 padding-bottom: 4rem; /* Add padding at the bottom */
             }
-    
+
             #features-container-desktop .feature-parallax-container {
                 width: 100%;
                 display: flex;
@@ -2478,7 +2483,7 @@ img {
                 align-items: center;
                 position: relative;
             }
-    
+
             #features-container-desktop .feature-container {
                 display: flex;
                 align-items: stretch; /* Make halves equal height */
@@ -2488,7 +2493,7 @@ img {
                 position: relative;
                 min-height: 450px; /* Maintain minimum height */
             }
-    
+
             /* Metà del container */
             #features-container-desktop .feature-half {
                 flex: 1;
@@ -2497,19 +2502,19 @@ img {
                 padding: 1rem; /* Add slight padding */
                 transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Added transitions for exit anim */
             }
-    
+
             /* Allinea la card verso il divider */
             #features-container-desktop .feature-half-left {
                 justify-content: flex-end;
                 padding-right: 0; /* Align closer to divider */
             }
-    
+
             /* Allinea il video verso il divider */
             #features-container-desktop .feature-half-right {
                 justify-content: flex-start;
                 padding-left: 0; /* Align closer to divider */
             }
-    
+
             /* Adjust alignment for inverted layout (Feature 2) */
             #feature-desktop-2 .feature-half-left {
                 justify-content: flex-end; /* Video aligned right */
@@ -2521,8 +2526,8 @@ img {
                 padding-right: 1rem; /* Reset padding */
                 padding-left: 0;
             }
-    
-    
+
+
             /* Center divider */
             #features-container-desktop .center-divider {
                 width: 2px;
@@ -2532,13 +2537,13 @@ img {
                 flex-shrink: 0;
                 transition: opacity 0.5s ease-out; /* Added transition for exit anim */
             }
-    
+
             /* Video container with perspective */
             #features-container-desktop .video-perspective-container {
                 perspective: 1200px; /* Slightly increased perspective */
                 transform-style: preserve-3d;
             }
-    
+
             /* --- Video Styling & Hover --- */
             #features-container-desktop .parallax-video {
                 width: 253px;
@@ -2551,15 +2556,15 @@ img {
                 transform: translateZ(var(--video-base-z));
                 transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
             }
-    
+
             /* Video hover state (managed by CSS for scale/shadow/base Z) */
             #features-container-desktop .video-perspective-container:hover .parallax-video {
                 transform: scale(var(--video-hover-scale)) translateZ(var(--video-hover-z));
                 box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
             }
             /* Note: The dynamic rotation/translation effect on mousemove is handled by JS */
-    
-    
+
+
             /* --- Feature Card Styling & Hover (NO LIFT) --- */
             #features-container-desktop .feature-card {
                 background: white;
@@ -2575,14 +2580,14 @@ img {
                 position: relative; /* Needed for potential pseudo-elements */
                 z-index: 1; /* Ensure card is clickable over other elements */
             }
-    
+
             #features-container-desktop .feature-card:hover {
                 /* MODIFIED: Removed transform: translateY(...) */
                 /* Highlight border */
                 border-top-color: var(--primary-green); /* Green border stays */
                 box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
             }
-    
+
             /* Wrapper per la forma irregolare */
             #features-container-desktop .feature-icon-wrapper {
                 position: relative;
@@ -2593,7 +2598,7 @@ img {
                 align-items: center;
                 justify-content: center;
             }
-    
+
             /* Icona con forma inizialmente tonda */
             #features-container-desktop .feature-icon {
                 width: 70px;
@@ -2604,19 +2609,19 @@ img {
                 background: var(--gradient-primary);
                 transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
                 border-radius: 50%; /* Inizia come un cerchio perfetto */
-    
+
                 /* Blob shapes preimpostate ma non applicate inizialmente */
-                --blob1: 71% 29% 65% 35% / 33% 56% 44% 67%;
-                --blob2: 41% 59% 27% 73% / 58% 28% 72% 42%;
-                --blob3: 63% 37% 54% 46% / 46% 29% 71% 54%;
+                --blob1: 71% 29% 65% 35% / 33% 56% 44% 67%; /* Shape per Feature 1 */
+                --blob2: 41% 59% 27% 73% / 58% 28% 72% 42%; /* Shape per Feature 2 */
+                --blob3: 58% 42% 65% 35% / 42% 58% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
             }
-    
+
             #features-container-desktop .feature-icon i {
                 font-size: 1.8rem;
                 color: rgb(0, 0, 0); /* Better contrast on gradient */
                 transition: transform 0.4s ease;
             }
-    
+
              /* Icon hover state */
             #features-container-desktop .feature-card:hover .feature-icon {
                 background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
@@ -2624,77 +2629,79 @@ img {
                 box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
                 border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
             }
-    
+
              /* Optional: Rotate the icon itself slightly on hover */
              #features-container-desktop .feature-card:hover .feature-icon i {
                  transform: rotate(5deg) scale(0.95); /* Rotate and slightly shrink icon */
              }
 
         </style>
-    
+
         <!-- Updated JavaScript -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 // Assegna a ciascuna icona una forma di blob predefinita (ma non applicarla subito)
                 const featureIcons = document.querySelectorAll('#features-container-desktop .feature-icon');
+                 // --- NOTA: I VALORI EFFETTIVI sono definiti nel CSS ora ---
                 const blobShapes = [ 'var(--blob1)', 'var(--blob2)', 'var(--blob3)' ];
-    
+
                 featureIcons.forEach((icon, index) => {
-                    const blobShape = blobShapes[index % blobShapes.length];
-                    icon.style.setProperty('--blob-shape', blobShape);
+                    // Assicura che ci sia una forma definita per questo indice, altrimenti usa l'ultima
+                    const blobShapeVar = blobShapes[index < blobShapes.length ? index : blobShapes.length - 1];
+                    icon.style.setProperty('--blob-shape', blobShapeVar);
                 });
-    
+
                 // Inizializzazione per desktop
                 initializeDesktopFeature('feature-desktop-1', 'parallax-video-desktop-1');
                 initializeDesktopFeature('feature-desktop-2', 'parallax-video-desktop-2');
                 initializeDesktopFeature('feature-desktop-3', 'parallax-video-desktop-3');
-    
+
                 function initializeDesktopFeature(featureId, videoId) {
                     const featureSection = document.getElementById(featureId);
                     if (!featureSection) return;
-    
+
                     const parallaxVideo = document.getElementById(videoId);
                     const centerDivider = featureSection.querySelector('.center-divider');
                     const leftHalf = featureSection.querySelector('.feature-half-left');
                     const rightHalf = featureSection.querySelector('.feature-half-right');
                     const videoContainer = featureSection.querySelector('.video-perspective-container'); // Define videoContainer here
-    
+
                     // --- Parameters for Mouse Effect (Adjust as needed) ---
                     const MOUSE_ROTATION_FACTOR = 10; // Slightly reduced rotation for subtlety with scale
                     const MOUSE_TRANSLATE_Z = 45;     // Increased Z translation for more pop
                     const VIDEO_HOVER_SCALE = 1.05;   // Get scale from CSS variable or define here
-    
+
                     if (parallaxVideo) {
                         parallaxVideo.loop = true;
                         parallaxVideo.muted = true; // Ensure it's muted
                         parallaxVideo.playsInline = true; // Good practice
                     }
-    
+
                     const mapRange = (value, in_min, in_max, out_min, out_max) => {
                          const clampedValue = Math.max(in_min, Math.min(value, in_max));
                          return (clampedValue - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
                     };
-    
+
                     // Imposta le posizioni iniziali
                     if (leftHalf) { leftHalf.style.transform = 'translateX(0)'; leftHalf.style.opacity = '1'; }
                     if (rightHalf) { rightHalf.style.transform = 'translateX(0)'; rightHalf.style.opacity = '1'; }
                     if (centerDivider) { centerDivider.style.opacity = '1'; }
-    
+
                     // --- Parallax 3D effect on mousemove ---
                     if (videoContainer && parallaxVideo) {
                         videoContainer.addEventListener('mousemove', (e) => {
                             const rect = videoContainer.getBoundingClientRect();
                             const x = (e.clientX - rect.left) / rect.width; // 0 to 1
                             const y = (e.clientY - rect.top) / rect.height; // 0 to 1
-    
+
                             const rotateX = mapRange(y, 0, 1, MOUSE_ROTATION_FACTOR, -MOUSE_ROTATION_FACTOR);
                             const rotateY = mapRange(x, 0, 1, -MOUSE_ROTATION_FACTOR, MOUSE_ROTATION_FACTOR);
-    
+
                             // Apply rotation, dynamic Z, AND the hover scale via inline style
                             // This overrides the CSS :hover transform temporarily while moving
                             parallaxVideo.style.transform = `scale(${VIDEO_HOVER_SCALE}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${MOUSE_TRANSLATE_Z}px)`;
                         });
-    
+
                         videoContainer.addEventListener('mouseleave', () => {
                             // *** KEY CHANGE ***
                             // Remove the inline style entirely. This allows the CSS :hover state
@@ -2703,27 +2710,27 @@ img {
                             parallaxVideo.style.transform = '';
                         });
                     }
-    
+
                     // Scroll animation logic (remains largely the same)
                     let isVisible = false;
                     const updateAnimation = () => {
                         if (window.innerWidth <= 768) return; // Only run on desktop
-    
+
                         const rect = featureSection.getBoundingClientRect();
                         const windowHeight = window.innerHeight;
                         const navbarHeight = 70; // Or get dynamically if possible
-    
+
                         const isInView = rect.top < windowHeight && rect.bottom > navbarHeight; // Ensure bottom is below navbar too
                         const hasReachedNavbar = rect.top <= navbarHeight;
-    
+
                         const exitPercentage = hasReachedNavbar
                             ? Math.min(1, (navbarHeight - rect.top) / (rect.height / 1.5)) // Make exit slightly faster
                             : 0;
-    
+
                          // Play/Pause logic refined
                          if (parallaxVideo) {
                             const shouldBePlaying = isInView && !hasReachedNavbar; // Play only when fully visible before exit starts
-    
+
                             if (shouldBePlaying && !isVisible) {
                                  parallaxVideo.play().catch(e => { /* console.error("Video play failed:", e) */ });
                                  isVisible = true;
@@ -2732,12 +2739,12 @@ img {
                                  isVisible = false;
                              }
                          }
-    
+
                          // Apply exit animation styles
                          if (hasReachedNavbar) {
                              const opacity = Math.max(0, 1 - exitPercentage * 1.5); // Faster fade out
                              const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150); // Slide out
-    
+
                              if (leftHalf) {
                                  leftHalf.style.opacity = opacity;
                                  const hasVideo = leftHalf.querySelector('.video-perspective-container');
@@ -2758,13 +2765,13 @@ img {
                              if (centerDivider) { centerDivider.style.opacity = '1'; }
                          }
                      };
-    
+
                     window.addEventListener('scroll', updateAnimation, { passive: true });
                     updateAnimation(); // Initial check
                 }
             });
         </script>
-    
+
 </section>
 
 
@@ -2784,7 +2791,7 @@ img {
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h3 class="feature-title">Unica Dashboard</h3>
-                            <p class="feature-description">Segna tutte le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
+                            <p class="feature-description">Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-1" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
@@ -3292,661 +3299,435 @@ img {
 <section id="avatar-evolution" class="avatar-evolution section">
 
     <div class="container">
-        <h2 class="section-title">Avatar</h2>
-        <p class="section-subtitles">Mentre gestisci meglio le tue finanze, il tuo avatar si evolve, visualizzando concretamente i tuoi progressi finanziari.</p>
-        
-    <div class="evolution-carousel-container">
-            <div class="evolution-carousel-wrapper">
-                <div class="evolution-carousel" id="evolutionCarousel">
-                    <!-- Duplicate cards for infinite effect -->
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-1">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 1:<br>Iniziatore</h4>
-                                <p>Primi passi nella gestione delle finanze</p>
-                                <div class="level-badge">Principiante</div>
+    <h2 class="section-title">Avatar</h2>
+    <p class="section-subtitles">Scegli l'avatar che ti rispecchia e fallo evolvere migliorando le tue abitudini di spesa!</p>
+    
+    <div class="avatar-selection-container">
+        <!-- Card 1 -->
+        <div class="avatar-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="avatar-container">
+                        <div class="avatar-shape avatar-shape-1">
+                            <div class="avatar-wrapper">
+                                <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-image">
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-2">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 2:<br>Risparmiatore</h4>
-                                <p>Gestione consapevole del denaro</p>
-                                <div class="level-badge">Intermedio</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-3">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 3:<br>Maestro</h4>
-                                <p>Esperto nella gestione finanziaria</p>
-                                <div class="level-badge">Avanzato</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Duplicated cards for continuous scrolling -->
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-1">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 1:<br> Iniziatore</h4>
-                                <p>Primi passi nella gestione delle finanze</p>
-                                <div class="level-badge">Principiante</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-2">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 2:<br> Risparmiatore</h4>
-                                <p>Gestione consapevole del denaro</p>
-                                <div class="level-badge">Intermedio</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="evolution-card">
-                        <div class="card-content">
-                            <div class="avatar-container">
-                                <div class="avatar-shape avatar-shape-3">
-                                    <div class="avatar-wrapper">
-                                        <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <h4>Livello 3:<br> Maestro</h4>
-                                <p>Esperto nella gestione finanziaria</p>
-                                <div class="level-badge">Avanzato</div>
-                            </div>
-                        </div>
+                    <div class="card-info">
+                        <h4>Latrofa</h4>
+                        <p>Look da hipster squattrinato, ma con stile. Vive tra un caffè d’arte e il dramma del conto in rosso.</p>
+                        <div class="level-badge">Principiante</div>
                     </div>
                 </div>
+                <div class="card-back">
+                    <img src="immagini/liv 1.png" alt="Avatar livello 1" class="avatar-fullscreen">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="avatar-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="avatar-container">
+                        <div class="avatar-shape avatar-shape-2">
+                            <div class="avatar-wrapper">
+                                <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4>Fabiola</h4>
+                        <p>Mamma di famiglia, esperta di risparmio e di "dove sono le chiavi?! </p>
+                        <div class="level-badge">Intermedio</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <img src="immagini/liv 2.png" alt="Avatar livello 2" class="avatar-fullscreen">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="avatar-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="avatar-container">
+                        <div class="avatar-shape avatar-shape-3">
+                            <div class="avatar-wrapper">
+                                <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4>Baluiso</h4>
+                        <p>Eleganza casual, ma con Excel aperto. Divide l’aperitivo al centesimo, ma con classe.</p>
+                        <div class="level-badge">Avanzato</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <img src="immagini/liv 3.png" alt="Avatar livello 3" class="avatar-fullscreen">
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
-            --border-thickness: 3px;
-            --speech-bubble-space: -30px;
-            --card-width: 800px;
-            --card-height: 500px;
-            --image-width: 180px;
-            --image-height: 250px;
-            --bubble-width: 300px;
+<style>
+    :root {
+        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --primary-purple: #8C8DD4;
+        --primary-green: #8EDCA9;
+        --border-thickness: 3px;
+    }
+    
+    .avatar-evolution {
+        background: #E6F2F5;
+        position: relative;
+        padding: 3rem 0;
+    }
+
+    /* Curva inferiore */
+    .avatar-evolution::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: #E6F2F5;
+        border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        z-index: 2;
+    }
+    
+    .avatar-selection-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* Card styles */
+    .avatar-card {
+        width: 280px;
+        height: 400px;
+        perspective: 1000px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease-out;
+    }
+    
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform-style: preserve-3d;
+        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        border-radius: 20px;
+        will-change: transform;
+    }
+    
+    .avatar-card:hover .card-inner {
+        transform: rotateY(180deg) scale(1.05);
+        box-shadow: 0 15px 30px rgba(119, 252, 166, 0.4);
+    }
+    
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+    
+    .card-front {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card-back {
+        background-color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Avatar container background */
+    .avatar-container {
+        width: 100%;
+        height: 180px;
+        position: relative;
+        overflow: hidden;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Irregular shape containers for avatars */
+    .avatar-shape {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
+        transition: transform 0.4s ease;
+    }
+
+    /* Avatar wrapper - this will have the border and clip-path */
+    .avatar-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border: 4px solid white;
+    }
+
+    /* Style for shape 1 - blob shape */
+    .avatar-shape-1 .avatar-wrapper {
+        border-radius: 71% 29% 65% 35% / 33% 56% 44% 67%;
+    }
+
+    /* Style for shape 2 - different blob shape */
+    .avatar-shape-2 .avatar-wrapper {
+        border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
+    }
+
+    /* Style for shape 3 - another blob shape */
+    .avatar-shape-3 .avatar-wrapper {
+        border-radius: 58% 42% 65% 35% / 42% 58% 35% 65%;
+    }
+
+    /* Avatar image contained inside the shape */
+    .avatar-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    /* Fullscreen image on the back */
+    .avatar-fullscreen {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        transform: translateZ(0px);
+    }
+
+    /* Card info section */
+    .card-info {
+        padding: 1.5rem;
+        text-align: center;
+        background: white;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .card-info p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    .level-badge {
+        display: inline-block;
+        padding: 0.35rem 1rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+    }
+
+    /* Badge colors */
+    .avatar-card:nth-child(1) .level-badge {
+        background-color: #E8F5E9;
+        color: #2a9d64;
+    }
+
+    .avatar-card:nth-child(2) .level-badge {
+        background-color: #E3F2FD;
+        color: #2270b8;
+    }
+
+    .avatar-card:nth-child(3) .level-badge {
+        background-color: #EDE7F6;
+        color: #6651b8;
+    }
+    
+    /* Effetto 3D per gli elementi nelle card */
+    .card-front > *, .card-back > * {
+        transform: translateZ(0px);
+    }
+    
+    /* Media query for responsive design */
+    @media (max-width: 768px) {
+        .avatar-selection-container {
+            gap: 20px;
+            padding: 15px;
         }
         
-        .avatar-evolution {
-            background: #E6F2F5;
-            position: relative;
-        }
-    
-        /* Curva inferiore */
-        .avatar-evolution::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: 0;
+        .avatar-card {
             width: 100%;
-            height: 30px;
-            background: #E6F2F5;
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            z-index: 2;
-        }
-
-    
-        /* Soluzione per evitare ombre tagliate */
-        .evolution-carousel-container {
-            width: 100%;
-            max-width: 1000px;
-            overflow: visible; /* Cambiato da 'hidden' a 'visible' */
-            position: relative;
-            cursor: grab;
-            margin: 5px auto auto auto;
-            padding-bottom: 0px; /* Per separare da Hub */
-
-        }
-
-        /* Aggiungiamo un wrapper interno con overflow hidden per mantenere l'effetto di mascheramento */
-        .evolution-carousel-wrapper {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
+            max-width: 280px;
+            height: 380px;
         }
         
-        .evolution-carousel-container:active {
-            cursor: grabbing;
-        }
-    
-        /* Manteniamo i fade effect sul wrapper interno */
-        .evolution-carousel-wrapper::before,
-        .evolution-carousel-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-    
-        .evolution-carousel-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #E6F2F5 0%, rgba(230, 242, 245, 0) 100%);
-        }
-
-        .evolution-carousel-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #E6F2F5 0%, rgba(230, 242, 245, 0) 100%);
-        }
-    
-        /* Carousel animation */
-        /* Aggiungiamo padding-bottom al carousel per dare spazio alle ombre */
-        .evolution-carousel {
-            display: flex;
-            width: calc(280px * 6); /* Card width * number of cards */
-            animation: scroll 20s linear infinite;
-            padding-bottom: 23px; /* Spazio per le ombre */
-            padding-top: 10px;
-        }
-    
-        /* Pause animation class */
-        .paused {
-            animation-play-state: paused;
-        }
-    
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-280px * 3)); /* Card width * number of unique cards */
-            }
-        }
-    
-        /* Evolution card styles - redesigned to highlight image */
-        .evolution-card {
-            position: relative;
-            border-radius: 20px;
-            background: white;
-            min-width: 280px;
-            width: 280px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-            transition: all 0.4s ease;
-            margin: 0 20px;
-            overflow: hidden;
-            user-select: none; /* Prevent text selection during drag */
-        }
-    
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-    
-        /* Avatar container background */
         .avatar-container {
-            width: 100%;
-            height: 180px;
-            position: relative;
-            overflow: hidden;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 150px;
         }
-    
-        /* Irregular shape containers for avatars */
+        
         .avatar-shape {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 140px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            width: 120px;
+            height: 120px;
         }
-    
-        /* Avatar wrapper - this will have the border and clip-path */
-        .avatar-wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 4px solid white;
-        }
-    
-        /* Style for shape 1 - blob shape */
-        .avatar-shape-1 .avatar-wrapper {
-            border-radius: 71% 29% 65% 35% / 33% 56% 44% 67%;
-        }
-    
-        /* Style for shape 2 - different blob shape */
-        .avatar-shape-2 .avatar-wrapper {
-            border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
-        }
-    
-        /* Style for shape 3 - another blob shape */
-        .avatar-shape-3 .avatar-wrapper {
-            border-radius: 63% 37% 54% 46% / 46% 29% 71% 54%;
-        }
-    
-        /* Avatar image contained inside the shape */
-        .avatar-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    
-        /* Card info section */
+        
         .card-info {
-            padding: 1.5rem;
-            text-align: center;
-            background: white;
+            padding: 1rem;
         }
-    
-        /* Enhanced hover effects */
-        .evolution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(119, 252, 166, 0.5);
-        }
-    
-        .evolution-card:hover .avatar-shape {
-            transform: scale(1.05);
-        }
-    
-        .evolution-card p {
-            margin-bottom: 1rem;
-        }
-
+        
         .level-badge {
-            display: inline-block;
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-    
-        /* Badge colors */
-        .evolution-card:nth-child(3n+1) .level-badge {
-            background-color: #E8F5E9;
-            color: #2a9d64;
-        }
-    
-        .evolution-card:nth-child(3n+2) .level-badge {
-            background-color: #E3F2FD;
-            color: #2270b8;
-        }
-    
-        .evolution-card:nth-child(3n+3) .level-badge {
-            background-color: #EDE7F6;
-            color: #6651b8;
-        }
-    
-        /* Media query unificata per dispositivi mobili */
-        @media (max-width: 768px) {
-            /* Carousel e card */
-            .evolution-carousel {
-                width: calc(200px * 6);
-                animation: scroll 20s linear infinite;
-                padding-bottom: 23px;
-            }
-            
-            .evolution-card {
-                min-width: 200px;
-                width: 200px;
-                margin: 0 5px;
-            }
-            
-            /* Avatar e contenitori */
-            .avatar-container {
-                height: 120px;
-            }
-            
-            .avatar-shape {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .avatar-wrapper {
-                border: 3px solid white;
-            }
-            
-            /* Testi e informazioni */
-            .card-info {
-                padding: 1rem;
-            }
-            
-            .evolution-card h4 {
-                margin-bottom: 0.5rem;
-            }
-            
-            .evolution-card p {
-            font-size: 1rem;
-            }
-            
-            .level-badge {
-                padding: 0.25rem 0.75rem;
-                font-size: 0.7rem;
-            }
-            
-            /* Effetti decorativi */
-            .avatar-evolution::after {
-                height: 20px;
-                bottom: -20px;
-            }
-            
-            .evolution-carousel-wrapper::before,
-            .evolution-carousel-wrapper::after {
-                width: 40px;
-            }
-            
-            /* Animazione */
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-200px * 3));
-                }
-            }
-            
-            /* Regola per le etichette immagine */
-            .image-label {
-                font-size: 10px;
-                padding: 2px 4px;
-            }
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
         }
 
-    </style>
+        /* Per dispositivi mobili: disattiva l'effetto hover */
+        .avatar-card:hover .card-inner {
+            transform: none;
+            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        }
+        
+        /* La card si gira solo quando ha la classe flipped */
+        .avatar-card .card-inner.flipped {
+            transform: rotateY(180deg);
+            box-shadow: 0 15px 30px rgba(119, 252, 166, 0.4);
+        }
+    }
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.avatar-card');
+    let isMobile = window.innerWidth < 768;
+    let activeCard = null;
     
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const carousel = document.getElementById('evolutionCarousel');
-        const container = carousel.parentElement;
-        let selectedCard = null;
+    // Funzione per aggiornare lo stato mobile/desktop
+    function updateDeviceState() {
+        isMobile = window.innerWidth < 768;
         
-        // Get card dimensions based on current viewport
-        function getCardDimensions() {
-            let cardWidth, cardMargin;
-            if (window.innerWidth <= 480) {
-                cardWidth = 160;
-                cardMargin = 4;
-            } else if (window.innerWidth <= 768) {
-                cardWidth = 200;
-                cardMargin = 5;
-            } else {
-                cardWidth = 280;
-                cardMargin = 20;
-            }
-            return { cardWidth, cardMargin };
-        }
+        // Resetta tutte le card quando cambia lo stato del dispositivo
+        cards.forEach(card => {
+            const cardInner = card.querySelector('.card-inner');
+            cardInner.classList.remove('flipped');
+            cardInner.style.transform = '';
+        });
         
-        // Update dimensions based on current viewport
-        let { cardWidth, cardMargin } = getCardDimensions();
-        let totalCardWidth = cardWidth + (cardMargin * 2);
-        const cardsPerSet = 3; // Number of unique cards
+        activeCard = null;
+    }
+    
+    // Monitora i cambiamenti nelle dimensioni della finestra
+    window.addEventListener('resize', updateDeviceState);
+    
+    cards.forEach(card => {
+        const cardInner = card.querySelector('.card-inner');
         
-        let isDown = false;
-        let startX;
-        let startY;
-        let startTranslateX = 0;
-        let currentTranslateX = 0;
-        let isDragging = false;
-        let isScrolling = false;
-        let clickStartTime;
-        
-        // Funzione per aggiungere la classe selected a una card
-        function selectCard(card) {
-            // Rimuovi la classe selected da tutte le card
-            const allCards = document.querySelectorAll('.evolution-card');
-            allCards.forEach(c => c.classList.remove('selected'));
-            
-            // Aggiungi la classe selected alla card cliccata
-            if (card && card !== selectedCard) {
+        // Gestione degli eventi di click/touch per dispositivi mobili
+        card.addEventListener('click', function(e) {
+            if (isMobile) {
+                // Se c'è una card già attiva e non è questa, resettala
+                if (activeCard && activeCard !== cardInner) {
+                    activeCard.classList.remove('flipped');
+                    activeCard.style.transform = '';
+                }
+                
+                // Attiva/disattiva questa card
+                cardInner.classList.toggle('flipped');
+                if (cardInner.classList.contains('flipped')) {
+                    cardInner.style.transform = 'rotateY(180deg)';
+                    activeCard = cardInner;
+                } else {
+                    cardInner.style.transform = '';
+                    activeCard = null;
+                }
+                
+                // Seleziona questa card
+                cards.forEach(c => c.classList.remove('selected'));
                 card.classList.add('selected');
-                selectedCard = card;
-                // Quando si seleziona una card, interrompi l'animazione
-                carousel.classList.add('paused');
-                carousel.style.animation = 'none';
-            } else {
-                selectedCard = null;
-                // Quando si deseleziona, riprendi l'animazione
-                carousel.classList.remove('paused');
-                carousel.style.animation = '';
+                
+                // Logica per salvare la selezione dell'avatar
+                const avatarIndex = Array.from(cards).indexOf(card) + 1;
+                console.log(`Avatar di livello ${avatarIndex} selezionato!`);
             }
-        }
+        });
         
-        // Function to handle infinite scroll effect
-        function handleInfiniteScroll() {
-            if (!carousel.style.transform) return;
-            
-            const transformValue = parseInt(carousel.style.transform.replace('translateX(', '').replace('px)', ''));
-            const totalWidth = totalCardWidth * cardsPerSet;
-            
-            // If scrolled too far to the right (past first set)
-            if (transformValue > 0) {
-                // Jump to the duplicate cards (effectively moving one full set to the left)
-                carousel.style.transition = 'none';
-                carousel.style.transform = `translateX(${transformValue - totalWidth}px)`;
-                // Force reflow
-                carousel.offsetHeight;
-                carousel.style.transition = '';
-            }
-            // If scrolled too far to the left (past the duplicates)
-            else if (transformValue < -totalWidth) {
-                // Calculate how far into the second set we are
-                const remainder = transformValue % totalWidth;
-                // Jump back to the equivalent position in the first set
-                carousel.style.transition = 'none';
-                carousel.style.transform = `translateX(${remainder}px)`;
-                // Force reflow
-                carousel.offsetHeight;
-                carousel.style.transition = '';
-            }
-        }
-        
-        // Start dragging
-        function dragStart(clientX, clientY) {
-            isDown = true;
-            isDragging = false;
-            isScrolling = false;
-            clickStartTime = new Date().getTime();
-            carousel.classList.add('paused');
-            startX = clientX - container.offsetLeft;
-            startY = clientY || 0;
-            
-            // Get current transform value
-            const computedStyle = window.getComputedStyle(carousel);
-            const matrix = new DOMMatrix(computedStyle.transform);
-            startTranslateX = matrix.m41;
-            currentTranslateX = startTranslateX;
-            
-            // Pause animation but keep current position
-            carousel.style.animation = 'none';
-            carousel.style.transform = `translateX(${startTranslateX}px)`;
-        }
-        
-        // During dragging
-        function dragging(clientX, clientY) {
-            if (!isDown) return;
-            
-            const x = clientX - container.offsetLeft;
-            const y = clientY || 0;
-            const walkX = (x - startX);
-            const walkY = y - startY;
-            
-            // Determina se l'utente sta scrollando orizzontalmente
-            if (!isDragging && !isScrolling) {
-                // Se lo spostamento orizzontale è maggiore di 5px o è passato più di 200ms,
-                // considera questo come un'azione di drag invece di un click
-                if (Math.abs(walkX) > 5 || (new Date().getTime() - clickStartTime > 200)) {
-                    isDragging = true;
+        // Effetto 3D solo per desktop
+        card.addEventListener('mousemove', function(e) {
+            if (!isMobile) {
+                // Calcola la posizione del cursore relativa alla card
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Punto centrale della card
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calcola lo spostamento dal centro (da -1 a 1)
+                const deltaX = (x - centerX) / centerX;
+                const deltaY = (y - centerY) / centerY;
+                
+                // Converti in gradi di rotazione (massimo ±15 gradi)
+                const xRotation = deltaY * 15; // Movimento verticale: positivo quando il mouse è in basso
+                const yRotation = deltaX * 15; // Movimento orizzontale: positivo quando il mouse è a destra
+                
+                // Applica solo l'effetto 3D, lasciando che l'hover CSS gestisca il flip
+                if (cardInner.classList.contains('flipped')) {
+                    cardInner.style.transform = `rotateY(180deg) scale(1.05) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+                } else {
+                    cardInner.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
                 }
             }
-            
-            if (isDragging) {
-                currentTranslateX = startTranslateX + walkX;
-                carousel.style.transform = `translateX(${currentTranslateX}px)`;
-                
-                // Apply infinite scroll logic during dragging
-                handleInfiniteScroll();
-            }
-        }
+        });
         
-        // End dragging
-        function dragEnd(event) {
-            if (!isDown) return;
-            isDown = false;
-            
-            // Se è stato un drag, allora gestisci lo scorrimento del carosello
-            if (isDragging) {
-                // Remove existing inline styles to restart animation
-                carousel.style.transform = '';
-                carousel.style.animation = '';
-                carousel.classList.remove('paused');
-                
-                // Calculate position in the animation cycle
-                // Total width of one set of cards
-                const totalWidth = totalCardWidth * cardsPerSet;
-                
-                // Normalize current position to be within 0 to -totalWidth
-                let normalizedPosition = currentTranslateX % totalWidth;
-                if (normalizedPosition > 0) normalizedPosition -= totalWidth;
-                
-                // Calculate animation progress (0 to 1)
-                const animationProgress = -normalizedPosition / totalWidth;
-                
-                // Create a new animation that starts from the current position
-                const animationDuration = 20; // seconds, same as in CSS
-                const remainingDuration = animationDuration * (1 - animationProgress);
-                
-                // Apply the new animation
-                carousel.style.animation = `scroll ${animationDuration}s linear infinite`;
-                carousel.style.animationDelay = `-${animationProgress * animationDuration}s`;
-            } 
-            // Se non è stato un drag, allora potrebbe essere un click su una card
-            else if (event && event.target) {
-                // Cerca l'elemento card più vicino al punto cliccato
-                let targetCard = event.target.closest('.evolution-card');
-                if (targetCard) {
-                    selectCard(targetCard);
-                }
-            }
-            
-            isDragging = false;
-        }
-        
-        // Gestisci click fuori dalle card per deselezionare
-        document.addEventListener('click', function(e) {
-            // Se il click non è dentro una card o dentro il container del carosello
-            if (!e.target.closest('.evolution-card') && !e.target.closest('.evolution-carousel-container')) {
-                // Deseleziona card
-                selectCard(null);
-                
-                // Rimuovi la pausa e riprendi l'animazione
-                carousel.classList.remove('paused');
-                carousel.style.animation = '';
-                
-                // Rimuovi transform per garantire che l'animazione riprenda correttamente
-                carousel.style.transform = '';
+        // Gestisci il flip della card su desktop tramite hover
+        card.addEventListener('mouseenter', function() {
+            if (!isMobile) {
+                // Aggiungi la classe per tenere traccia dello stato flippato
+                setTimeout(() => {
+                    cardInner.classList.add('flipped');
+                }, 50);
             }
         });
         
-        // Update card dimensions on window resize
-        window.addEventListener('resize', function() {
-            // Update card dimensions
-            const dimensions = getCardDimensions();
-            cardWidth = dimensions.cardWidth;
-            cardMargin = dimensions.cardMargin;
-            totalCardWidth = cardWidth + (cardMargin * 2);
+        // Resetta la trasformazione quando il cursore esce dalla card (solo desktop)
+        card.addEventListener('mouseleave', function() {
+            if (!isMobile) {
+                cardInner.classList.remove('flipped');
+                cardInner.style.transform = '';
+            }
         });
-        
-        // Mouse Events
-        container.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            dragStart(e.pageX, e.pageY);
-        });
-        
-        window.addEventListener('mousemove', (e) => {
-            e.preventDefault();
-            dragging(e.pageX, e.pageY);
-        });
-        
-        window.addEventListener('mouseup', (e) => {
-            dragEnd(e);
-        });
-        
-        // Touch Events
-        container.addEventListener('touchstart', (e) => {
-            dragStart(e.touches[0].clientX, e.touches[0].clientY);
-        });
-        
-        window.addEventListener('touchmove', (e) => {
-            dragging(e.touches[0].clientX, e.touches[0].clientY);
-        });
-        
-        window.addEventListener('touchend', (e) => {
-            dragEnd(e);
-        });
-        
-        // Prevent default behavior for touch events to avoid page scrolling
-        container.addEventListener('touchmove', (e) => {
-            if (isDown) e.preventDefault();
-        }, { passive: false });
     });
-    </script>
+    
+    // Imposta lo stato iniziale
+    updateDeviceState();
+});
+</script>
 
 <!-- Hub SUB-Section -->
 <div class="container">
     <h2 class="section-title">Hub</h2>
-    <p class="section-subtitles">L'hub centrale dove puoi incontrare i tuoi amici e interagire con i loro avatar.</p>
+    <p class="section-subtitles">Incontra gli amici e interagisci con i loro avatar per condividere progressi e ricevere promemoria utili.</p>
     
     <div class="card-container">
         <div class="card">
@@ -4475,254 +4256,259 @@ img {
 </section>
 
 
-<section id="how-it-works" class="how-it-works section">
-    <div class="container">
-        <h2 class="section-title">Tutorial</h2>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works section">
+        <div class="container">
+            <h2 class="section-title">Tutorial</h2>
 
-        <div class="timeline">
-            <div class="timeline-line"></div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
 
-            <!-- Step 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">1</div>
-                    <h3 class="step-description">Registrati e configura il tuo profilo</h3>
-                    <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
+                <!-- Step 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="step-number">1</div>
+                        <h3 class="step-description">Registrati e configura il tuo profilo</h3>
+                        <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Step 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">2</div>
-                    <h3 class="step-description">Imposta i tuoi obiettivi finanziari</h3>
-                    <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
+                <!-- Step 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="step-number">2</div>
+                        <h3 class="step-description">Imposta i tuoi obiettivi finanziari</h3>
+                        <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">3</div>
-                    <h3 class="step-description">Traccia le tue spese quotidiane</h3>
-                    <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
+                <!-- Step 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="step-number">3</div>
+                        <h3 class="step-description">Traccia le tue spese quotidiane</h3>
+                        <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Step 4 -->
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">4</div>
-                    <h3 class="step-description">Analizza e migliora</h3>
-                    <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
+                <!-- Step 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="step-number">4</div>
+                        <h3 class="step-description">Analizza e migliora</h3>
+                        <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
+                    </div>
                 </div>
-            </div>
-        </div> <!-- Fine .timeline -->
-    </div> <!-- Fine .container -->
+            </div> <!-- Fine .timeline -->
+        </div> <!-- Fine .container -->
 
-    <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">
-                <span class="disclaimer-point">DISCLAIMER:</span>
-                <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà amara</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo 5 volte a settimana</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'app non stampa i soldi e non cancella i copponi</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici pezzenti che scroccano</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
-            </div><!-- Ripeti ticker-item per un loop più fluido se il testo è corto -->
-             <div class="ticker-item">
-                <span class="disclaimer-point">DISCLAIMER:</span>
-                <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà amara</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo 5 volte a settimana</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'app non stampa i soldi e non cancella i copponi</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici pezzenti che scroccano</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
+        <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">
+                    <span class="disclaimer-point">DISCLAIMER:</span>
+                    <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà amara</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo 5 volte a settimana</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">L'app non stampa i soldi e non cancella i copponi</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici pezzenti che scroccano</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
+                </div><!-- Ripeti ticker-item per un loop più fluido se il testo è corto -->
+                 <div class="ticker-item">
+                    <span class="disclaimer-point">DISCLAIMER:</span>
+                    <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà amara</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo 5 volte a settimana</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">L'app non stampa i soldi e non cancella i copponi</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici pezzenti che scroccano</span>
+                    <span class="ticker-separator">*</span>
+                    <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- ============== Stili Specifici per #how-it-works ============== -->
-    <style>
-         /* --- Stili Specifici per #how-it-works --- */
-         /* Nota: :root, .section-title, etc. sono ereditati dalla sezione precedente */
-        .how-it-works {
-            background-color: white;
-            position: relative;
-            padding-bottom: 60px; /* Spazio per curva + ticker */
-        }
-
-        .timeline {
-            position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
-        }
-
-        .timeline-line {
-            position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
-            background: var(--gradient-primary); transform: translateX(-50%); border-radius: 4px;
-        }
-
-        .timeline-line:after {
-            content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
-            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
-            border-top: 15px solid var(--primary-purple);
-        }
-
-        .timeline-item {
-            position: relative; margin-bottom: 4rem; width: 100%; display: flex;
-        }
-        .timeline-item.left { justify-content: flex-start; }
-        .timeline-item.right { justify-content: flex-end; }
-
-        .timeline-dot {
-            position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
-            background: white; border: 4px solid var(--primary-purple); border-radius: 50%;
-            transform: translateX(-50%); z-index: 2;
-        }
-
-        .timeline-content {
-            width: 45%; background: white; padding: 2rem; border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-            position: relative;
-        }
-
-        .timeline-content:hover {
-            box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
-            /* transform: translateY(-5px); */
-        }
-
-        .timeline-item.left .timeline-content:before,
-        .timeline-item.right .timeline-content:before {
-            content: ''; position: absolute; top: 34px; /* Allinea al dot */
-            width: 40px; height: 2px; background-color: var(--primary-purple); z-index: 1;
-        }
-        .timeline-item.left .timeline-content:before { right: -40px; }
-        .timeline-item.right .timeline-content:before { left: -40px; }
-
-
-        .step-number {
-            width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: bold; color: #2b2d42;
-            box-shadow: 0 5px 15px rgba(177, 172, 250, 0.5);
-            margin-bottom: 1rem; position: relative; z-index: 1;
-            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        transform 0.4s ease, box-shadow 0.3s ease;
-        }
-
-        .timeline-content:hover .step-number {
-            border-radius: var(--step-blob-shape, 50%);
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
-        }
-
-        .step-description { margin-top: 0; margin-bottom: 0.5rem; color: #333; }
-        .timeline-content p { margin-bottom: 0; color: #555; }
-
-        /* Curva inferiore */
-        .how-it-works::after {
-            content: ''; position: absolute; bottom: -30px; left: 0; width: 100%; height: 30px;
-            background: white; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
-        }
-
-        /* Ticker Styles */
-         .ticker-wrap {
-            width: 100%; overflow: hidden; background: black;
-            box-shadow: 0 2px 8px rgba(135, 128, 234, 0.4), 0 -2px 8px rgba(135, 128, 234, 0.4);
-            position: relative;
-            transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
-         }
-         .ticker-wrap:hover {
-             box-shadow: 0 2px 8px rgba(142, 220, 169, 0.4), 0 -2px 8px rgba(142, 220, 169, 0.4) !important;
-         }
-         .ticker {
-             display: inline-block; white-space: nowrap; padding-left: 100%;
-             animation: ticker 45s linear infinite; /* Rallentato un po' */
-         }
-         .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
-         .ticker-item {
-             display: inline-block; font-size: 1.1rem; font-weight: 600;
-             text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); color: #8C8DD4 !important;
-             transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
-         }
-        .ticker-wrap:hover .ticker-item,
-        .ticker-wrap:hover .disclaimer-text,
-        .ticker-wrap:hover .disclaimer-point,
-        .ticker-wrap:hover .ticker-separator { color: #8EDCA9 !important; }
-
-        .ticker-separator {
-            font-size: 1.5rem; font-weight: bold; margin: 0 0.8rem;
-            vertical-align: middle; display: inline-block; color: #8C8DD4;
-            transition: color 0.3s ease;
-        }
-        .disclaimer-text, .disclaimer-point {
-            color: #8C8DD4; transition: color 0.3s ease; margin-right: 0.5rem;
-        }
-        .disclaimer-point { font-weight: bold; }
-
-         @keyframes ticker {
-             0% { transform: translateX(0); }
-             100% { transform: translateX(-100%); } /* Loop fluido */
-         }
-
-         /* Media query How It Works Mobile */
-         @media (max-width: 768px) {
-             .timeline-line { left: 20px; }
-             .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
-             .timeline-item { margin-bottom: 2rem; }
-             .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
-             .timeline-content { width: 100%; padding: 1.5rem; }
-             .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
-                 left: -25px; right: auto; width: 25px; top: 32px;
-             }
-             .how-it-works::after { height: 20px; bottom: -20px; }
-             .ticker-item { font-size: 1rem; margin-right: 1.5rem; }
-             .ticker { animation-duration: 30s; } /* Più veloce su mobile */
-         }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Logica per le forme blob dei numeri dei passaggi ---
-            const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
-            if (stepNumbers.length > 0) {
-                const stepBlobShapes = [
-                    '71% 29% 65% 35% / 33% 56% 44% 67%', // Forma 1
-                    '41% 59% 27% 73% / 58% 28% 72% 42%', // Forma 2
-                    '63% 37% 54% 46% / 46% 29% 71% 54%', // Forma 3
-                    '30% 70% 70% 30% / 60% 40% 60% 40%'  // Forma 4
-                ];
-
-                stepNumbers.forEach((stepNumber, index) => {
-                    const blobShape = stepBlobShapes[index % stepBlobShapes.length];
-                    stepNumber.style.setProperty('--step-blob-shape', blobShape);
-                });
+        <!-- ============== Stili Specifici per #how-it-works ============== -->
+        <style>
+             /* --- Stili Specifici per #how-it-works --- */
+             /* Nota: :root, .section-title, etc. sono ereditati dalla sezione precedente */
+            .how-it-works {
+                background-color: white;
+                position: relative;
+                padding-bottom: 60px; /* Spazio per curva + ticker */
             }
-        }); // Fine DOMContentLoaded per How It Works
-    </script>
+
+            .timeline {
+                position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
+            }
+
+            .timeline-line {
+                position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+                background: var(--gradient-primary); transform: translateX(-50%); border-radius: 4px;
+            }
+
+            .timeline-line:after {
+                content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+                width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
+                border-top: 15px solid var(--primary-purple);
+            }
+
+            .timeline-item {
+                position: relative; margin-bottom: 4rem; width: 100%; display: flex;
+            }
+            .timeline-item.left { justify-content: flex-start; }
+            .timeline-item.right { justify-content: flex-end; }
+
+            .timeline-dot {
+                position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
+                background: white; border: 4px solid var(--primary-purple); border-radius: 50%;
+                transform: translateX(-50%); z-index: 2;
+            }
+
+            .timeline-content {
+                width: 45%; background: white; padding: 2rem; border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+                position: relative;
+            }
+
+            .timeline-content:hover {
+                box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+                /* transform: translateY(-5px); */ /* Rimosso per coerenza con feature card */
+            }
+
+            .timeline-item.left .timeline-content:before,
+            .timeline-item.right .timeline-content:before {
+                content: ''; position: absolute; top: 34px; /* Allinea al dot */
+                width: 40px; height: 2px; background-color: var(--primary-purple); z-index: 1;
+            }
+            .timeline-item.left .timeline-content:before { right: -40px; }
+            .timeline-item.right .timeline-content:before { left: -40px; }
+
+
+            .step-number {
+                width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
+                display: flex; align-items: center; justify-content: center;
+                font-size: 1.5rem; font-weight: bold; color: #2b2d42; /* Changed color slightly for contrast */
+                box-shadow: 0 5px 15px rgba(177, 172, 250, 0.5);
+                margin-bottom: 1rem; position: relative; z-index: 1;
+                /* MODIFIED: Added 'background' to transition */
+                transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                            transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
+            }
+
+            /* --- MODIFIED: Hover effect for step number --- */
+            .timeline-content:hover .step-number {
+                border-radius: var(--step-blob-shape, 50%); /* Apply blob shape */
+                transform: scale(1.1) rotate(5deg); /* Scale up and rotate slightly */
+                box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5); /* Greenish shadow */
+                background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%); /* Green dominant gradient */
+            }
+            /* --- END MODIFICATION --- */
+
+            .step-description { margin-top: 0; margin-bottom: 0.5rem; color: #333; }
+            .timeline-content p { margin-bottom: 0; color: #555; }
+
+            /* Curva inferiore */
+            .how-it-works::after {
+                content: ''; position: absolute; bottom: -30px; left: 0; width: 100%; height: 30px;
+                background: white; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
+            }
+
+            /* Ticker Styles */
+             .ticker-wrap {
+                width: 100%; overflow: hidden; background: black;
+                box-shadow: 0 2px 8px rgba(135, 128, 234, 0.4), 0 -2px 8px rgba(135, 128, 234, 0.4);
+                position: relative;
+                transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
+             }
+             .ticker-wrap:hover {
+                 box-shadow: 0 2px 8px rgba(142, 220, 169, 0.4), 0 -2px 8px rgba(142, 220, 169, 0.4) !important;
+             }
+             .ticker {
+                 display: inline-block; white-space: nowrap; padding-left: 100%;
+                 animation: ticker 45s linear infinite; /* Rallentato un po' */
+             }
+             .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
+             .ticker-item {
+                 display: inline-block; font-size: 1.1rem; font-weight: 600;
+                 text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); color: #8C8DD4 !important;
+                 transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
+             }
+            .ticker-wrap:hover .ticker-item,
+            .ticker-wrap:hover .disclaimer-text,
+            .ticker-wrap:hover .disclaimer-point,
+            .ticker-wrap:hover .ticker-separator { color: #8EDCA9 !important; }
+
+            .ticker-separator {
+                font-size: 1.5rem; font-weight: bold; margin: 0 0.8rem;
+                vertical-align: middle; display: inline-block; color: #8C8DD4;
+                transition: color 0.3s ease;
+            }
+            .disclaimer-text, .disclaimer-point {
+                color: #8C8DD4; transition: color 0.3s ease; margin-right: 0.5rem;
+            }
+            .disclaimer-point { font-weight: bold; }
+
+             @keyframes ticker {
+                 0% { transform: translateX(0); }
+                 100% { transform: translateX(-100%); } /* Loop fluido */
+             }
+
+             /* Media query How It Works Mobile */
+             @media (max-width: 768px) {
+                 .timeline-line { left: 20px; }
+                 .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
+                 .timeline-item { margin-bottom: 2rem; }
+                 .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
+                 .timeline-content { width: 100%; padding: 1.5rem; }
+                 .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
+                     left: -25px; right: auto; width: 25px; top: 32px;
+                 }
+                 .how-it-works::after { height: 20px; bottom: -20px; }
+                 .ticker-item { font-size: 1rem; margin-right: 1.5rem; }
+                 .ticker { animation-duration: 30s; } /* Più veloce su mobile */
+             }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // --- Logica per le forme blob dei numeri dei passaggi ---
+                const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
+                if (stepNumbers.length > 0) {
+                    // Modificate le forme 3 e 4 per essere più simili a quadrati deformati
+                    const stepBlobShapes = [
+                        '71% 29% 65% 35% / 33% 56% 44% 67%', // Forma 1 (Originale)
+                        '41% 59% 27% 73% / 58% 28% 72% 42%', // Forma 2 (Originale)
+                        '45% 55% 40% 60% / 60% 40% 55% 45%', // Forma 3 (Modificata - Quadrato Deformato 1)
+                        '58% 42% 65% 35% / 42% 58% 35% 65%'  // Forma 4 (Modificata - Quadrato Deformato 2)
+                    ];
+
+                    stepNumbers.forEach((stepNumber, index) => {
+                        const blobShape = stepBlobShapes[index % stepBlobShapes.length];
+                        stepNumber.style.setProperty('--step-blob-shape', blobShape);
+                    });
+                }
+            }); // Fine DOMContentLoaded per How It Works
+        </script>
 
 </section>
-
 
     <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section">
