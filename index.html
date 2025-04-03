@@ -78,13 +78,11 @@ h3 {
 
 h4 {
     font-weight: 500; /* Medium */
-    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
 h5 {
     font-weight: 400; /* Medium */
-    margin-bottom: 1rem;
     font-size: 0.85rem;
 }
 
@@ -2810,7 +2808,7 @@ img {
                             <p class="feature-description">Connettiti con i tuoi amici e tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi.</p>
                         </div>
                         <div class="feature-media">
-                            <video id="video-mobile-2" class="feature-video" src="immagini/video2square.mp4" playsinline muted loop></video>
+                            <video id="video-mobile-2" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
                         </div>
                         <!-- Indicatori RIMOSSI da qui -->
                     </div>
@@ -2826,7 +2824,7 @@ img {
                             <p class="feature-description">Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa.</p>
                         </div>
                         <div class="feature-media">
-                            <video id="video-mobile-3" class="feature-video" src="immagini/video2square.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
+                            <video id="video-mobile-3" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
                         </div>
                          <!-- Indicatori RIMOSSI da qui -->
                     </div>
@@ -2889,7 +2887,6 @@ img {
         /* NUOVO/MODIFICATO: Stile per il wrapper */
         .features-carousel-wrapper {
             position: relative; /* Necessario per posizionare frecce/dots */
-            padding-bottom: 20px; /* Spazio per i dots in basso */
         }
 
         /* Contenitore delle slide (come originale) */
@@ -3339,7 +3336,7 @@ img {
                     </div>
                     <div class="card-info">
                         <h4>Fabiola</h4>
-                        <p>Mamma di famiglia, esperta di risparmio e di "dove sono le chiavi?! </p>
+                        <p>Mamma di famiglia, esperta di risparmio e di "dove sono le chiavi?!" </p>
                         <div class="level-badge">Intermedio</div>
                     </div>
                 </div>
@@ -3525,7 +3522,7 @@ img {
 
     /* Card info section */
     .card-info {
-        padding: 1.5rem;
+        padding: 1.2rem;
         text-align: center;
         background: white;
         flex-grow: 1;
@@ -3535,7 +3532,6 @@ img {
     }
     
     .card-info p {
-        margin-bottom: 1rem;
         font-size: 1rem;
     }
 
@@ -3546,7 +3542,6 @@ img {
         font-size: 0.8rem;
         font-weight: 600;
         text-transform: uppercase;
-        margin-top: 0.5rem;
     }
 
     /* Badge colors */
@@ -3584,23 +3579,9 @@ img {
         }
         
         .avatar-container {
-            height: 150px;
+            height: 170px;
         }
         
-        .avatar-shape {
-            width: 120px;
-            height: 120px;
-        }
-        
-        .card-info {
-            padding: 1rem;
-        }
-        
-        .level-badge {
-            padding: 0.25rem 0.75rem;
-            font-size: 0.7rem;
-        }
-
         /* Per dispositivi mobili: disattiva l'effetto hover */
         .avatar-card:hover .card-inner {
             transform: none;
@@ -3762,25 +3743,35 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <style>
+    /* Aggiungere spazio sopra e sotto il container per evitare tagli con zoom */
+    .container {
+        position: relative;
+    }
+
     :root {
         --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
         --primary-purple: #8C8DD4;
         --primary-green: #8EDCA9;
         --border-thickness: 3px;
-        --speech-bubble-space: -30px; /* Spazio ridotto tra nuvoletta e immagine*/
+        --speech-bubble-space: -30px;
         --card-width: 800px;
         --card-height: 500px;
         --image-width: 180px;
         --image-height: 250px;
-        --bubble-width: 300px; /* Aumentato da 200px a 300px */
+        --bubble-width: 300px;
     }
     
+    /* Limitare overflow solo alla sezione Hub, ma permettere overflow verticale */
+    .card-container {
+        overflow-x: hidden;
+        overflow-y: visible;
+        width: 100%;
+    }
     
     .game-hub {
         background: #E6F2F5;
         position: relative;
     }
-    
     
     /* Curva inferiore */
     .game-hub::after {
@@ -3801,7 +3792,8 @@ document.addEventListener('DOMContentLoaded', function() {
         align-items: center;
         margin: 5px auto auto auto;
         max-width: 100%;
-        perspective: 1500px; /* Perspective sul container esterno */
+        perspective: 1500px;
+        overflow: visible; /* Cambiato da hidden a visible */
     }
     
     .card {
@@ -3814,8 +3806,8 @@ document.addEventListener('DOMContentLoaded', function() {
         position: relative;
         margin: 0 auto;
         max-width: 100%;
-        aspect-ratio: 16/10; /* Mantiene la proporzione della card */
-        perspective: none; /* Rimuovo perspective dalla card */
+        aspect-ratio: 16/10;
+        perspective: none;
         transform-style: preserve-3d;
         background-size: cover;
         background-position: center;
@@ -3841,11 +3833,9 @@ document.addEventListener('DOMContentLoaded', function() {
         transform: scale(1.05);
     }
     
-    
     .card:hover {
         box-shadow: 0 15px 30px rgba(119, 252, 166, 0.5);
     }
-    
     
     .image-container {
         position: relative;
@@ -3874,24 +3864,22 @@ document.addEventListener('DOMContentLoaded', function() {
         position: absolute;
         transition: left 2s ease-in-out;
         text-align: center;
-        top: 65%; /* Abbassato dal 50% al 65% */
+        top: 65%;
         transform: translateY(-50%);
         width: calc(var(--image-width));
     }
     
-    
-    /* Wrapper della nuvoletta con spazio adattato per nuvole più grandi */
+    /* Wrapper della nuvoletta */
     .bubble-wrapper {
         position: absolute;
-        width: 150%; /* Aumentato per adattarsi alle nuvolette più grandi */
+        width: 150%;
         bottom: 100%;
-        left: -25%; /* Centrato rispetto all'avatar */
+        left: -25%;
         display: flex;
         justify-content: center;
         margin-bottom: var(--speech-bubble-space);
         z-index: 10;
     }
-    
     
     .image {
         width: 100%;
@@ -3902,11 +3890,10 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: none;
     }
     
-    
     /* Stili per le etichette sotto le immagini */
     .image-label {
         display: block;
-        margin-top: -8px; /* Spazio sopra la targhetta */
+        margin-top: -8px;
         font-size: 14px;
         font-weight: bold;
         background-color: rgba(255, 255, 255, 0.8);
@@ -3918,7 +3905,6 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 5;
     }
     
-    
     /* Stile speciale per la targhetta dell'avatar utente */
     .image-label.user-avatar {
         background: var(--gradient-primary);
@@ -3928,19 +3914,16 @@ document.addEventListener('DOMContentLoaded', function() {
         padding: 4px 0px;
     }
     
-    
     .user-icon {
         font-style: normal;
         margin-left: 5px;
     }
-    
     
     @keyframes pulse {
         0% { box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
         50% { box-shadow: 0 3px 15px rgba(177, 172, 250, 0.8); }
         100% { box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
     }
-    
     
     /* Posizionamento immagini */
     #wrapper-center {
@@ -3949,20 +3932,17 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 2;
     }
     
-    
     #wrapper-left {
-        left: 15%;
+        left: 20%;
         transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
     
     #wrapper-right {
-        left: 85%;
+        left: 80%;
         transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
     
     /* Animazioni fluttuanti - solo movimento verticale */
     @keyframes floatCenter {
@@ -3971,13 +3951,11 @@ document.addEventListener('DOMContentLoaded', function() {
         100% { transform: translateY(0); }
     }
     
-    
     @keyframes floatLeft {
         0% { transform: translateY(0); }
         50% { transform: translateY(5px); }
         100% { transform: translateY(0); }
     }
-    
     
     @keyframes floatRight {
         0% { transform: translateY(0); }
@@ -3985,21 +3963,17 @@ document.addEventListener('DOMContentLoaded', function() {
         100% { transform: translateY(0); }
     }
     
-    
     #img-center {
         animation: floatCenter 3s ease-in-out infinite;
     }
-    
     
     #img-left {
         animation: floatLeft 4s ease-in-out infinite;
     }
     
-    
     #img-right {
         animation: floatRight 4s ease-in-out infinite;
     }
-    
     
     /* Stile nuvoletta dei fumetti */
     .speech-bubble {
@@ -4008,194 +3982,243 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: opacity 0.7s ease, transform 0.5s ease;
         pointer-events: none;
         max-width: 100%;
-        transform-origin: bottom center; /* Punto di origine delle trasformazioni */
-        transform: scale(1.15); /* Leggermente più grande del normale */
+        transform-origin: bottom center;
+        transform: scale(1.15);
     }
-    
     
     .speech-bubble.visible {
         opacity: 1;
     }
     
-    
-    /* Media query unificata per dispositivi mobili */
-@media screen and (max-width: 768px) {
-    :root {
-        --card-width: 90vw;
-        --card-height: 56vw;
-        --image-width: 21vw;
-        --image-height: 29vw;
-        --bubble-width: 38vw;
-        --speech-bubble-space: -25px;
+    /* Assicurarsi che i titoli della sezione siano visibili */
+    .section-title,
+    .section-subtitles {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
-    /* Decorazioni e struttura */
-    .game-hub::after {
-        height: 20px;
-        bottom: -20px;
+    /* Media query ottimizzata per dispositivi mobili */
+    @media screen and (max-width: 768px) {
+        :root {
+            --card-width: 90vw;
+            --card-height: 56vw;
+            --image-width: 21vw;
+            --image-height: 29vw;
+            --bubble-width: 30vw; /* Ridotto */
+            --speech-bubble-space: -15px; /* Ridotto */
+        }
+        
+        /* Decorazioni e struttura */
+        .game-hub::after {
+            height: 20px;
+            bottom: -20px;
+        }
+        
+        /* Bolle di dialogo */
+        .speech-bubble {
+            font-size: 10px;
+            min-height: 40px;
+            padding: 6px 8px;
+            transform: scale(0.9); /* Leggermente più piccole */
+        }
+        
+        .bubble-wrapper {
+            width: 140%; /* Ridotto */
+            left: -20%; /* Ottimizzato */
+        }
+        
+        /* Etichette immagini */
+        .image-label {
+            font-size: 8px;
+            padding: 1px 3px;
+            margin-top: -5px;
+        }
+        
+        .image-label.user-avatar {
+            font-size: 8px;
+            padding: 1px 0px;
+            margin-top: -5px;
+        }
+        
+        /* Posizionamento aggiornato per gli avatar */
+        #wrapper-left {
+            left: 20%;
+        }
+        
+        #wrapper-right {
+            left: 80%;
+        }
+        
+        /* Assicura che la card non causi scroll orizzontale */
+        .card-container {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            overflow-y: visible;
+        }
+        
+        /* Disattiva trasformazioni hover su mobile */
+        .card:hover .card-bg {
+            transform: none;
+        }
+        
+        .card:hover .image-container {
+            transform: none;
+        }
     }
-    
-    /* Bolle di dialogo */
-    .speech-bubble {
-        font-size: 10px;
-        min-height: 40px;
-        padding: 6px 8px;
-    }
-    
-    .bubble-wrapper {
-        width: 180%;
-        left: -40%;
-    }
-    
-    /* Etichette immagini */
-    .image-label {
-        font-size: 8px;
-        padding: 1px 3px;
-        margin-top: -5px;
-    }
-    
-    .image-label.user-avatar {
-        font-size: 8px;
-        padding: 1px 0px;
-        margin-top: -5px;
-    }
-}
 </style>
     
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Elementi DOM
-        const wrapperLeft = document.getElementById('wrapper-left');
-        const wrapperCenter = document.getElementById('wrapper-center');
-        const wrapperRight = document.getElementById('wrapper-right');
-        const speechBubbleLeft = document.getElementById('speech-bubble-left');
-        const speechBubbleRight = document.getElementById('speech-bubble-right');
-        const imageContainer = document.querySelector('.image-container');
-        const card = document.querySelector('.card');
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementi DOM
+    const wrapperLeft = document.getElementById('wrapper-left');
+    const wrapperCenter = document.getElementById('wrapper-center');
+    const wrapperRight = document.getElementById('wrapper-right');
+    const speechBubbleLeft = document.getElementById('speech-bubble-left');
+    const speechBubbleRight = document.getElementById('speech-bubble-right');
+    const imageContainer = document.querySelector('.image-container');
+    const card = document.querySelector('.card');
+
+    // Controllo se è un dispositivo mobile
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     
-        // Posizioni - utilizzando percentuali per responsività
-        const positionLeft = { left: '15%' };
-        const positionMeetLeft = { left: '35%' };
-        const positionMeetRight = { left: '65%' };
-        const positionRight = { left: '85%' };
+    // Posizioni - aggiornate per migliore responsività
+    const positionLeft = { left: isMobile ? '20%' : '20%' };
+    const positionMeetLeft = { left: '35%' };
+    const positionMeetRight = { left: '65%' };
+    const positionRight = { left: isMobile ? '80%' : '80%' };
+    
+    // Configurazione iniziale
+    wrapperLeft.style.left = positionLeft.left;
+    wrapperRight.style.left = positionRight.left;
+
+    // Immagini per le nuvolette
+    const leftBubbleImages = [
+        "immagini/nuvola1.png",
+        "immagini/nuvola2.png"
+    ];
+
+    const rightBubbleImages = [
+        "immagini/nuvola3.png",
+        "immagini/nuvola4.png"
+    ];
+
+    // Indici immagini
+    let leftImageIndex = 0;
+    let rightImageIndex = 0;
+
+    // Funzioni per mostrare le nuvolette
+    function showLeftSpeechBubble() {
+        speechBubbleLeft.src = leftBubbleImages[leftImageIndex];
+        leftImageIndex = (leftImageIndex + 1) % leftBubbleImages.length;
+        speechBubbleLeft.classList.add('visible');
         
-        // Configurazione iniziale
+        setTimeout(() => {
+            speechBubbleLeft.classList.remove('visible');
+        }, 2800);
+    }
+
+    function showRightSpeechBubble() {
+        speechBubbleRight.src = rightBubbleImages[rightImageIndex];
+        rightImageIndex = (rightImageIndex + 1) % rightBubbleImages.length;
+        speechBubbleRight.classList.add('visible');
+        
+        setTimeout(() => {
+            speechBubbleRight.classList.remove('visible');
+        }, 2800);
+    }
+
+    // Funzioni per spostare le immagini
+    function moveLeftToCenter() {
+        // Prima impostiamo solo lo z-index senza transizione
+        wrapperLeft.style.zIndex = '3';
+        
+        // Usiamo setTimeout per evitare che il cambio di z-index e posizione
+        // avvengano simultaneamente e causino problemi di rendering
+        setTimeout(() => {
+            wrapperLeft.style.left = positionMeetLeft.left;
+        }, 10);
+        
+        setTimeout(() => {
+            showLeftSpeechBubble();
+        }, 2000);
+        
+        setTimeout(() => {
+            wrapperLeft.style.left = positionLeft.left;
+            
+            // Ripristiniamo lo z-index originale dopo che l'elemento
+            // è tornato nella posizione iniziale
+            setTimeout(() => {
+                wrapperLeft.style.zIndex = '1';
+            }, 2000);
+        }, 4000);
+    }
+
+    function moveRightToCenter() {
+        // Prima impostiamo solo lo z-index senza transizione
+        wrapperRight.style.zIndex = '3';
+        
+        // Usiamo setTimeout per evitare che il cambio di z-index e posizione
+        // avvengano simultaneamente e causino problemi di rendering
+        setTimeout(() => {
+            wrapperRight.style.left = positionMeetRight.left;
+        }, 10);
+        
+        setTimeout(() => {
+            showRightSpeechBubble();
+        }, 2000);
+        
+        setTimeout(() => {
+            wrapperRight.style.left = positionRight.left;
+            
+            // Ripristiniamo lo z-index originale dopo che l'elemento
+            // è tornato nella posizione iniziale
+            setTimeout(() => {
+                wrapperRight.style.zIndex = '1';
+            }, 2000);
+        }, 4000);
+    }
+
+    // Avvio dell'animazione
+    function startAnimationLoop() {
+        moveLeftToCenter();
+        
+        let isLeftTurn = false;
+        setInterval(() => {
+            if (isLeftTurn) {
+                moveLeftToCenter();
+            } else {
+                moveRightToCenter();
+            }
+            isLeftTurn = !isLeftTurn;
+        }, 8000);
+    }
+
+    // Avvia l'animazione dopo un breve ritardo
+    setTimeout(startAnimationLoop, 1000);
+
+    // Aggiorna le dimensioni quando la finestra viene ridimensionata
+    window.addEventListener('resize', function() {
+        // Aggiorna il controllo per dispositivi mobili
+        const newIsMobile = window.matchMedia("(max-width: 768px)").matches;
+        
+        // Se cambia da desktop a mobile o viceversa, aggiorna la variabile
+        if (isMobile !== newIsMobile) {
+            location.reload(); // Ricarica la pagina per applicare le modifiche
+        }
+        
+        // Riconfigura posizioni
         wrapperLeft.style.left = positionLeft.left;
         wrapperRight.style.left = positionRight.left;
+    });
     
-        // Immagini per le nuvolette
-        const leftBubbleImages = [
-            "immagini/nuvola1.png",
-            "immagini/nuvola2.png"
-        ];
-    
-        const rightBubbleImages = [
-            "immagini/nuvola3.png",
-            "immagini/nuvola4.png"
-        ];
-    
-        // Indici immagini
-        let leftImageIndex = 0;
-        let rightImageIndex = 0;
-    
-        // Funzioni per mostrare le nuvolette
-        function showLeftSpeechBubble() {
-            speechBubbleLeft.src = leftBubbleImages[leftImageIndex];
-            leftImageIndex = (leftImageIndex + 1) % leftBubbleImages.length;
-            speechBubbleLeft.classList.add('visible');
-            
-            setTimeout(() => {
-                speechBubbleLeft.classList.remove('visible');
-            }, 2800);
-        }
-    
-        function showRightSpeechBubble() {
-            speechBubbleRight.src = rightBubbleImages[rightImageIndex];
-            rightImageIndex = (rightImageIndex + 1) % rightBubbleImages.length;
-            speechBubbleRight.classList.add('visible');
-            
-            setTimeout(() => {
-                speechBubbleRight.classList.remove('visible');
-            }, 2800);
-        }
-    
-        // Funzioni per spostare le immagini
-        function moveLeftToCenter() {
-            // Prima impostiamo solo lo z-index senza transizione
-            wrapperLeft.style.zIndex = '3';
-            
-            // Usiamo setTimeout per evitare che il cambio di z-index e posizione
-            // avvengano simultaneamente e causino problemi di rendering
-            setTimeout(() => {
-                wrapperLeft.style.left = positionMeetLeft.left;
-            }, 10);
-            
-            setTimeout(() => {
-                showLeftSpeechBubble();
-            }, 2000);
-            
-            setTimeout(() => {
-                wrapperLeft.style.left = positionLeft.left;
-                
-                // Ripristiniamo lo z-index originale dopo che l'elemento
-                // è tornato nella posizione iniziale
-                setTimeout(() => {
-                    wrapperLeft.style.zIndex = '1';
-                }, 2000);
-            }, 4000);
-        }
-    
-        function moveRightToCenter() {
-            // Prima impostiamo solo lo z-index senza transizione
-            wrapperRight.style.zIndex = '3';
-            
-            // Usiamo setTimeout per evitare che il cambio di z-index e posizione
-            // avvengano simultaneamente e causino problemi di rendering
-            setTimeout(() => {
-                wrapperRight.style.left = positionMeetRight.left;
-            }, 10);
-            
-            setTimeout(() => {
-                showRightSpeechBubble();
-            }, 2000);
-            
-            setTimeout(() => {
-                wrapperRight.style.left = positionRight.left;
-                
-                // Ripristiniamo lo z-index originale dopo che l'elemento
-                // è tornato nella posizione iniziale
-                setTimeout(() => {
-                    wrapperRight.style.zIndex = '1';
-                }, 2000);
-            }, 4000);
-        }
-    
-        // Avvio dell'animazione
-        function startAnimationLoop() {
-            moveLeftToCenter();
-            
-            let isLeftTurn = false;
-            setInterval(() => {
-                if (isLeftTurn) {
-                    moveLeftToCenter();
-                } else {
-                    moveRightToCenter();
-                }
-                isLeftTurn = !isLeftTurn;
-            }, 8000);
-        }
-    
-        // Avvia l'animazione dopo un breve ritardo
-        setTimeout(startAnimationLoop, 1000);
-    
-        // Aggiorna le dimensioni quando la finestra viene ridimensionata
-        window.addEventListener('resize', function() {
-            // Riconfigura posizioni se necessario
-            wrapperLeft.style.left = positionLeft.left;
-            wrapperRight.style.left = positionRight.left;
-        });
-        
-        // ===== EFFETTO 3D MIGLIORATO =====
+    // ===== EFFETTO 3D MIGLIORATO =====
+    // Applica effetto 3D solo su desktop, non su mobile
+    if (!isMobile) {
         // Aggiungi effetto 3D al passaggio del mouse sulla card
         card.addEventListener('mousemove', function(e) {
             // Ottieni dimensioni e posizione della card
@@ -4216,7 +4239,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Aggiungi un'ombra per enfatizzare l'effetto 3D
             card.style.boxShadow = `0 25px 50px rgba(119, 252, 166, 0.5), 
-                                   ${yRotation * 0.5}px ${xRotation * -0.5}px 30px rgba(0,0,0,0.1)`;
+                                ${yRotation * 0.5}px ${xRotation * -0.5}px 30px rgba(0,0,0,0.1)`;
             
             // Controlla se il cursore è sopra l'image container per applicare uno zoom aggiuntivo
             const imageContainerRect = imageContainer.getBoundingClientRect();
@@ -4236,8 +4259,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Zoom base per lo sfondo
                 cardBg.style.transform = 'scale(1.05)';
             }
-            
-            console.log("Movimento mouse: ", xRotation, yRotation); // Debug
         });
         
         // Reset della trasformazione quando il mouse esce dalla card
@@ -4247,10 +4268,26 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
             imageContainer.style.transform = 'scale(1)';
             cardBg.style.transform = 'scale(1)';
-            
-            console.log("Mouse uscito"); // Debug
         });
-    });
+    } else {
+        // Su mobile, rimuovi tutte le trasformazioni di default e disabilita il zoom
+        const cardBg = card.querySelector('.card-bg');
+        card.style.transform = 'none';
+        imageContainer.style.transform = 'none';
+        cardBg.style.transform = 'none';
+        
+        // Su mobile, gestisci il click per mostrare solo l'ombra verde
+        card.addEventListener('click', function() {
+            // Crea effetto pulsante con ombra verde
+            card.style.boxShadow = '0 15px 30px rgba(119, 252, 166, 0.5)';
+            
+            // Rimuovi l'effetto dopo un breve periodo
+            setTimeout(() => {
+                card.style.boxShadow = '0 8px 20px rgba(93, 92, 179, 0.25)';
+            }, 500);
+        });
+    }
+});
 </script>
 
 </section>
@@ -4388,10 +4425,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 position: relative;
             }
 
-            .timeline-content:hover {
-                box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
-                /* transform: translateY(-5px); */ /* Rimosso per coerenza con feature card */
+            /* Stili Hover Desktop */
+            @media (hover: hover) and (min-width: 769px) { /* Applica solo se il device supporta hover e non è mobile */
+                .timeline-content:hover {
+                    box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+                }
+
+                .timeline-content:hover .step-number {
+                    border-radius: var(--step-blob-shape, 50%);
+                    transform: scale(1.1) rotate(5deg);
+                    box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
+                    background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
+                }
             }
+
 
             .timeline-item.left .timeline-content:before,
             .timeline-item.right .timeline-content:before {
@@ -4408,19 +4455,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 font-size: 1.5rem; font-weight: bold; color: #2b2d42; /* Changed color slightly for contrast */
                 box-shadow: 0 5px 15px rgba(177, 172, 250, 0.5);
                 margin-bottom: 1rem; position: relative; z-index: 1;
-                /* MODIFIED: Added 'background' to transition */
                 transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
                             transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
             }
-
-            /* --- MODIFIED: Hover effect for step number --- */
-            .timeline-content:hover .step-number {
-                border-radius: var(--step-blob-shape, 50%); /* Apply blob shape */
-                transform: scale(1.1) rotate(5deg); /* Scale up and rotate slightly */
-                box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5); /* Greenish shadow */
-                background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%); /* Green dominant gradient */
-            }
-            /* --- END MODIFICATION --- */
 
             .step-description { margin-top: 0; margin-bottom: 0.5rem; color: #333; }
             .timeline-content p { margin-bottom: 0; color: #555; }
@@ -4443,7 +4480,7 @@ document.addEventListener('DOMContentLoaded', function() {
              }
              .ticker {
                  display: inline-block; white-space: nowrap; padding-left: 100%;
-                 animation: ticker 45s linear infinite; /* Rallentato un po' */
+                 animation: ticker 45s linear infinite;
              }
              .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
              .ticker-item {
@@ -4483,29 +4520,118 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  .how-it-works::after { height: 20px; bottom: -20px; }
                  .ticker-item { font-size: 1rem; margin-right: 1.5rem; }
-                 .ticker { animation-duration: 30s; } /* Più veloce su mobile */
+
+                 /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
+                 .ticker {
+                    animation-duration: 60s; /* Era 30s, aumentato per rallentare */
+                 }
+
+                 /* NUOVO: Stili per l'elemento timeline centrato su mobile */
+                 .timeline-content.is-centered {
+                    box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+                    /* Aggiungi qui altri stili desiderati per lo stato "attivo" se necessario */
+                 }
+
+                 .timeline-content.is-centered .step-number {
+                    border-radius: var(--step-blob-shape, 50%);
+                    transform: scale(1.1) rotate(5deg);
+                    box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
+                    background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
+                 }
+
+                 /* Opzionale: Se vuoi disabilitare completamente l'hover CSS su mobile
+                 .timeline-content:hover {
+                     box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); // Reset allo stato normale
+                 }
+                 .timeline-content:hover .step-number {
+                     // Reset allo stato normale
+                     border-radius: 50%;
+                     transform: scale(1) rotate(0deg);
+                     box-shadow: 0 5px 15px rgba(177, 172, 250, 0.5);
+                     background: var(--gradient-primary);
+                 } */
              }
         </style>
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                // --- Logica per le forme blob dei numeri dei passaggi ---
+                // --- Logica per le forme blob dei numeri dei passaggi (invariata) ---
                 const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
                 if (stepNumbers.length > 0) {
-                    // Modificate le forme 3 e 4 per essere più simili a quadrati deformati
                     const stepBlobShapes = [
-                        '71% 29% 65% 35% / 33% 56% 44% 67%', // Forma 1 (Originale)
-                        '41% 59% 27% 73% / 58% 28% 72% 42%', // Forma 2 (Originale)
-                        '45% 55% 40% 60% / 60% 40% 55% 45%', // Forma 3 (Modificata - Quadrato Deformato 1)
-                        '58% 42% 65% 35% / 42% 58% 35% 65%'  // Forma 4 (Modificata - Quadrato Deformato 2)
+                        '71% 29% 65% 35% / 33% 56% 44% 67%',
+                        '41% 59% 27% 73% / 58% 28% 72% 42%',
+                        '45% 55% 40% 60% / 60% 40% 55% 45%',
+                        '58% 42% 65% 35% / 42% 58% 35% 65%'
                     ];
-
                     stepNumbers.forEach((stepNumber, index) => {
                         const blobShape = stepBlobShapes[index % stepBlobShapes.length];
                         stepNumber.style.setProperty('--step-blob-shape', blobShape);
                     });
                 }
-            }); // Fine DOMContentLoaded per How It Works
+
+                // --- NUOVO: Logica per attivare la timeline card centrale su mobile ---
+                const timelineItems = document.querySelectorAll('.how-it-works .timeline-content');
+                const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+                let scrollTimeout; // Per throttling leggero
+
+                function checkTimelineActivation() {
+                    // Esegui solo su mobile
+                    if (!mobileMediaQuery.matches || timelineItems.length === 0) {
+                        // Se non siamo più su mobile, rimuovi la classe da tutti
+                        timelineItems.forEach(item => item.classList.remove('is-centered'));
+                        return;
+                    }
+
+                    const viewportCenterY = window.innerHeight / 2;
+                    let closestItem = null;
+                    let minDistance = Infinity;
+
+                    timelineItems.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        // Calcola il centro verticale dell'elemento rispetto alla viewport
+                        const itemCenterY = rect.top + rect.height / 2;
+                        const distance = Math.abs(viewportCenterY - itemCenterY);
+
+                        // Considera solo elementi visibili (almeno parzialmente)
+                        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                closestItem = item;
+                            }
+                        }
+                    });
+
+                    // Rimuovi la classe da tutti tranne il più vicino (se trovato)
+                    timelineItems.forEach(item => {
+                        if (item === closestItem) {
+                             // Aggiungi un piccolo threshold per evitare attivazioni troppo sensibili
+                             // Se l'elemento più vicino è effettivamente "vicino" al centro
+                             if (minDistance < (viewportCenterY * 0.5) ) { // Ad es. entro metà altezza viewport dal centro
+                                item.classList.add('is-centered');
+                             } else {
+                                 item.classList.remove('is-centered'); // Rimuovi se non è abbastanza vicino
+                             }
+                        } else {
+                            item.classList.remove('is-centered');
+                        }
+                    });
+                }
+
+                // Funzione per gestire lo scroll con throttling
+                function handleScroll() {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(checkTimelineActivation, 50); // Esegui max ogni 50ms
+                }
+
+                // Aggiungi event listener per scroll e resize
+                window.addEventListener('scroll', handleScroll);
+                window.addEventListener('resize', checkTimelineActivation); // Controlla anche al resize
+
+                // Esegui un controllo iniziale al caricamento
+                checkTimelineActivation();
+
+            }); // Fine DOMContentLoaded
         </script>
 
 </section>
