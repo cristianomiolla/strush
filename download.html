@@ -43,34 +43,32 @@
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Unbounded', sans-serif;
         line-height: 1.4;
-        transform: scaleY(1.15); /* Distende il font in altezza */
+        transform: scaleY(1.2); /* Distende il font in altezza */
         letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
     }
     
     h1 {
-        font-weight: 300; /* Light */
+        font-weight: 900; /* Light */
     }
     
     h2 {
         font-weight: 700; /* Bold */
+        font-size: 2.5rem;
     }
     
-    /* Non usato */
     h3 {
-        font-weight: 600; /* Medium */
+        font-weight: 500; /* Medium */
         margin-bottom: 1rem;
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
     
     h4 {
         font-weight: 500; /* Medium */
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     h5 {
         font-weight: 400; /* Medium */
-        margin-bottom: 1rem;
         font-size: 0.85rem;
     }
     
@@ -84,13 +82,24 @@
     a {
         text-decoration: none;
         color: #2b2d42;
-        font-size: 0.93rem;
+        font-size: 1rem;
     }
     
     p {
         color: #555555;
-        line-height: 1.6;
+        line-height: 1.5;
         font-size: 1.1rem;
+    
+    }
+    
+    @media (max-width: 768px) { 
+        p {
+        font-size: 1.1rem;
+        }
+    
+        h2 {
+        font-size: 1.8rem;
+        }
     
     }
     
@@ -115,7 +124,7 @@
     
     /* Section base style */
     .section {
-        padding: 5rem 0 5rem;
+        padding: 6rem 0 6rem;
     }
     
     @media (max-width: 768px) { 
@@ -136,6 +145,7 @@
     @media (max-width: 768px) {
         .section-subtitles {
             margin-bottom: 2rem;
+            font-size: 1.2rem;
         }
     }
     </style>
@@ -263,7 +273,7 @@
 <body>    
 
     <!-- Navbar -->
-<nav class="strush-navbar" id="mainNav">
+    <nav class="strush-navbar" id="mainNav">
       <div class="strush-container">
               <div class="strush-nav-container">
                   <!-- Logo sempre visibile e centrato in mobile -->
@@ -273,7 +283,7 @@
                               <div class="strush-logo-blob">
                                   <img src="immagini/logo.png" alt="Strush Logo">
                               </div>
-                              <h4 class="strush-logo-text">Strush</h4>
+                              <h3 class="strush-logo-text">Strush</h3>
                           </div>
                       </a>
                   </div>
@@ -305,7 +315,7 @@
                                   <div class="strush-logo-blob">
                                       <img src="immagini/logo.png" alt="Strush Logo">
                                   </div>
-                                  <h4 class="strush-logo-text">Strush</h4>
+                                  <h3 class="strush-logo-text">Strush</h3>
                               </div>
                           </a>
                       </div>
@@ -512,7 +522,7 @@
               .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
               .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
               .strush-nav-links li { margin: 0 3px; }
-              .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+              .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.93rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
               .strush-nav-links a:hover { color: #8EDCA9; }
               .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
               .strush-nav-links a:hover::after { width: 80%; }
@@ -1493,8 +1503,8 @@
 </script>
 
 
-  <!-- Footer -->
-<footer>
+    <!-- Footer -->
+    <footer>
       <div class="container">
           <div class="footer-content">
               <div class="footer-about">
@@ -1502,9 +1512,9 @@
                       <div class="logo-blob">
                           <img src="immagini/logo.png" alt="Strush Logo">
                       </div>
-                      <h4 class="logo-text">Strush</h4>
+                      <h3 class="logo-text">Strush</h3>
                   </div>
-                  <p class="elevator-pitch">L'app che trasforma la gestione delle tue finanze in un'esperienza divertente e motivante.</p>
+                  <p class="elevator-pitch">Migliora le tue abitudini di spesa per far evolvere il tuo avatar e interagisci con i tuoi amici.</p>
                   <div class="footer-social">
                       <a href="#"><i class="fab fa-facebook"></i></a>
                       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1548,9 +1558,9 @@
               <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
           </div>
       </div>    
-</footer>        
+  </footer>        
   
-<style>
+  <style>
       footer {
           background-color: var(--dark);
           color: white;
@@ -1774,8 +1784,7 @@
               transform: translateY(-2px);
           }
       }                
-</style>
-
+  </style>
 
 
 </body>
