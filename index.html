@@ -2524,47 +2524,40 @@ img {
             /* Center divider */
             #features-container-desktop .center-divider {
                 width: 2px;
-                height: 450px; /* Match min-height or adjust */
+                height: 450px; 
                 background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
-                margin: 0 60px; /* Reduced margin slightly */
+                margin: 0 60px; 
                 flex-shrink: 0;
-                transition: opacity 0.5s ease-out; /* Added transition for exit anim */
+                transition: opacity 0.5s ease-out; 
             }
 
-            /* Video container with perspective */
             #features-container-desktop .video-perspective-container {
-                perspective: 1200px; /* Slightly increased perspective */
+                perspective: 1200px;
                 transform-style: preserve-3d;
             }
 
-            /* --- Video Styling & Hover --- */
             #features-container-desktop .parallax-video {
                 width: 253px;
                 height: 450px;
                 object-fit: cover;
-                border-radius: 18px; /* Slightly larger radius */
-                box-shadow: 0 8px 25px rgba(93, 92, 179, 0.2); /* Softer shadow */
+                border-radius: 18px; 
+                box-shadow: 0 8px 25px rgba(93, 92, 179, 0.2); 
                 display: block;
-                margin: 0 auto; /* Center if container is wider */
+                margin: 0 auto; 
                 transform: translateZ(var(--video-base-z));
                 transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
             }
 
-            /* Video hover state (managed by CSS for scale/shadow/base Z) */
             #features-container-desktop .video-perspective-container:hover .parallax-video {
                 transform: scale(var(--video-hover-scale)) translateZ(var(--video-hover-z));
                 box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
             }
-            /* Note: The dynamic rotation/translation effect on mousemove is handled by JS */
 
-
-            /* --- Feature Card Styling & Hover (NO LIFT) --- */
             #features-container-desktop .feature-card {
                 background: white;
                 border-radius: 18px; /* Match video radius */
                 padding: 2rem 1.8rem; /* Adjusted padding */
                 box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-                /* MODIFIED: Removed 'transform' from transition */
                 transition: border-top-color 0.35s ease, box-shadow 0.35s ease-out;
                 border-top: 4px solid #8C8DD4; /* Lighter initial border */
                 text-align: center;
@@ -2630,7 +2623,6 @@ img {
 
         </style>
 
-        <!-- Updated JavaScript -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 // Assegna a ciascuna icona una forma di blob predefinita (ma non applicarla subito)
@@ -5681,7 +5673,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-links">
                 <h5 class="links-rapidi">Legale</h5>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="t&c.html">Termini e Condizioni</a></li>
                 </ul>
             </div>
