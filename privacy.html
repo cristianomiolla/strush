@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Modificato il titolo -->
+    <title>Strush | Privacy Policy</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Collegamento ai font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Importazione del font Unbounded da Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        /* Variabili CSS */
+        :root {
+            --primary: #8EDCA9;
+            --secondary: #8C8DD4;
+            --text: #2b2d42;
+            --text2: #555555;
+            --light: #f8f9fa;
+            --dark: #222222;
+            --accent: #FF85B3;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        /* Reset CSS di base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stili di base del corpo */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Utilizzo del font Unbounded per i titoli con pesi diversi */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Unbounded', sans-serif;
+            line-height: 1.4;
+            transform: scaleY(1.2); /* Distende il font in altezza */
+            letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
+        }
+
+        h1 {
+            font-weight: 900; /* Light */
+        }
+
+        h2 {
+            font-weight: 700; /* Bold */
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-weight: 500; /* Medium */
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+        }
+
+        h4 {
+            font-weight: 500; /* Medium */
+            font-size: 1.1rem;
+        }
+
+        h5 {
+            font-weight: 400; /* Medium */
+            font-size: 0.85rem;
+        }
+
+        h6 {
+            font-weight: 300; /* Light */
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #2b2d42;
+            font-size: 1rem;
+        }
+
+        p {
+            color: #555555;
+            line-height: 1.5;
+            font-size: 1.1rem;
+
+        }
+
+        @media (max-width: 768px) {
+            p {
+            font-size: 1.1rem;
+            }
+
+            h2 {
+            font-size: 1.8rem;
+            }
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0rem 0 0rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Section base style */
+        .section {
+            padding: 6rem 0 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 5rem 0 5rem;
+            }
+        }
+
+        /* Section sub-titles */
+        .section-subtitles {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #2b2d42;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-subtitles {
+                margin-bottom: 2rem;
+                font-size: 1.2rem;
+            }
+        }
+        </style>
+
+</head>
+
+<body>
+
+    <!-- Cursore Animation Pallino viola + Blob-->
+<div id="blob"></div>
+<div id="violet-cursor"></div>
+        
+<style>
+            /* Global cursor removal */
+            * {
+                cursor: none !important;
+            }
+        
+            #blob {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(141, 141, 212, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                transition: transform 0.1s ease-out;
+                z-index: 9999;
+                display: none; /* Start hidden */
+                justify-content: center;
+                align-items: center;
+            }
+        
+            #violet-cursor {
+                position: fixed;
+                width: 12px;
+                height: 12px;
+                background-color: #8C8DD4;
+                border-radius: 50%;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                z-index: 10000;
+                display: none; /* Start hidden */
+            }
+        
+            /* Ensure mobile responsiveness */
+            @media (max-width: 767px) {
+                #blob, #violet-cursor {
+                    display: none !important;
+                }
+            }
+</style>
+        
+<script>
+            const blob = document.getElementById('blob');
+            const violetCursor = document.getElementById('violet-cursor');
+            let lastX = 0;
+            let lastY = 0;
+            let velocityX = 0;
+            let velocityY = 0;
+        
+            function isMobileDevice() {
+                return window.innerWidth < 768;
+            }
+        
+            document.addEventListener('mousemove', (e) => {
+                if (isMobileDevice()) return;
+        
+                const x = e.clientX;
+                const y = e.clientY;
+        
+                // Check if mouse is over a nav element
+                const isOverNav = e.target.closest('nav') !== null;
+        
+                // Always move the violet cursor everywhere
+                violetCursor.style.left = `${x}px`;
+                violetCursor.style.top = `${y}px`;
+                violetCursor.style.display = 'block';
+        
+                // Calculate velocity
+                velocityX = x - lastX;
+                velocityY = y - lastY;
+        
+                if (isOverNav) {
+                    // In nav: hide blob
+                    blob.style.display = 'none';
+                } else {
+                    // Outside nav: full blob animation
+                    blob.style.display = 'flex';
+                    blob.style.left = `${x}px`;
+                    blob.style.top = `${y}px`;
+        
+                    // Deformation based on velocity
+                    const maxDeformation = 1.5;
+                    const minDeformation = 0.8;
+        
+                    const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
+                    const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
+        
+                    // Calculate rotation angle
+                    const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
+        
+                    // Apply deformation and rotation
+                    blob.style.transform = `
+                        translate(-50%, -50%)
+                        scaleX(${deformationX})
+                        scaleY(${deformationY})
+                        rotate(${angle}deg)
+                    `;
+                }
+        
+                lastX = x;
+                lastY = y;
+            });
+        
+            // Hide both cursor elements when mouse leaves the screen
+            document.addEventListener('mouseleave', () => {
+                if (!isMobileDevice()) {
+                    blob.style.display = 'none';
+                    violetCursor.style.display = 'none';
+                }
+            });
+</script>
+
+    <!-- Navbar -->
+    <nav class="strush-navbar" id="mainNav">
+        <div class="strush-container">
+                <div class="strush-nav-container">
+                    <!-- Logo sempre visibile e centrato in mobile -->
+                    <div class="strush-logo-mobile">
+                        <a href="index.html#hero" class="strush-logo-container">
+                            <div class="strush-logo">
+                                <div class="strush-logo-blob">
+                                    <img src="immagini/logo.png" alt="Strush Logo">
+                                </div>
+                                <h3 class="strush-logo-text">Strush</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Menu hamburger a destra -->
+                    <div class="strush-menu-btn" id="menuBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <!-- Menu dropdown per mobile -->
+                    <div class="strush-mobile-dropdown" id="mobileDropdown">
+                        <ul class="strush-mobile-links">
+                            <li><a href="index.html#features-mobile">Caratteristiche</a></li>
+                            <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                            <li><a href="index.html#how-it-works">Tutorial</a></li>
+                            <li><a href="index.html#testimonials">Testimonianze</a></li>
+                            <li><a href="index.html#team">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Menu desktop -->
+                    <div class="strush-nav-links-container" id="navLinksContainer">
+                        <!-- Logo per versione desktop -->
+                        <div class="strush-logo-nav-item">
+                            <a href="index.html#hero" class="strush-logo-container">
+                                <div class="strush-logo">
+                                    <div class="strush-logo-blob">
+                                        <img src="immagini/logo.png" alt="Strush Logo">
+                                    </div>
+                                    <h3 class="strush-logo-text">Strush</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <ul class="strush-nav-links">
+                            <li><a href="index.html#features-desktop">Caratteristiche</a></li>
+                            <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                            <li><a href="index.html#how-it-works">Tutorial</a></li>
+                            <li><a href="index.html#testimonials">Testimonianze</a></li>
+                            <li><a href="index.html#team">Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+
+        <style>
+                /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
+                .strush-navbar {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    z-index: 999; /* Reduced from 1000 */
+                    padding: 0;
+                    transition: all 0.3s ease;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+                    height: auto;
+                }
+
+                /* Add padding to body to prevent navbar from covering content */
+                body {
+                    padding-top: 70px; /* Match navbar height */
+                }
+
+                /* Scrolled state for navbar */
+                .strush-navbar.scrolled {
+                    background-color: rgba(0, 0, 0, 0.95);
+                    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+                }
+
+                .strush-container {
+                    width: 96%;
+                    max-width: 1140px;
+                    margin: 0 auto;
+                    padding: 0;
+                }
+
+                .strush-nav-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    padding: 10px 0;
+                    position: relative;
+                }
+
+                /* Logo per versione mobile (inizialmente nascosto in desktop) */
+                .strush-logo-mobile {
+                    display: none;
+                }
+
+                /* --- MODIFICA DROPDOWN MOBILE --- */
+                .strush-mobile-dropdown {
+                    display: none; /* Inizialmente nascosto, controllato da JS e @media */
+                    position: absolute;
+                    top: 70px; /* Altezza navbar mobile */
+                    left: 0;
+                    width: 100%;
+                    /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
+                    background-color: rgba(10, 10, 15, 0.95);
+                    /* Blur dello SFONDO DIETRO il menu */
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    z-index: 998; /* Lower than navbar */
+                    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
+                    padding: 20px 0;
+                    border-radius: 0 0 15px 15px;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
+                    transform: translateY(-20px);
+                    opacity: 0;
+                    height: auto;
+                    max-height: 0;
+                    overflow: hidden; /* Necessario per max-height transition */
+                    /* Ensure positioning context for pseudo-elements */
+                    position: absolute;
+                }
+
+                /* Sottile linea viola per evidenziare il bordo superiore */
+                .strush-mobile-dropdown::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
+                    z-index: 1; /* Sopra il glow */
+                }
+
+                /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
+                .strush-mobile-dropdown::after {
+                    content: '';
+                    position: absolute;
+                    /* Posizionamento leggermente espanso per un glow più ampio */
+                    top: -30px;
+                    left: -30px;
+                    right: -30px;
+                    bottom: -30px;
+                    /* Gradient con i colori del brand e trasparenza per il glow */
+                    background: radial-gradient(ellipse at center,
+                        rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
+                        rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
+                        rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
+                    );
+                    filter: blur(35px);
+                    z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
+                    opacity: 0; /* Inizialmente invisibile */
+                    transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
+                    pointer-events: none; /* Non interagibile */
+                    border-radius: 50%; /* Mantiene forma ellittica/rotonda */
+                }
+
+                /* Quando il dropdown è attivo */
+                .strush-mobile-dropdown.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    max-height: 400px; /* Abbastanza alto per i link */
+                }
+
+                /* Rendi visibile il glow quando il dropdown è attivo */
+                .strush-mobile-dropdown.active::after {
+                    opacity: 1;
+                }
+                /* --- FINE MODIFICA DROPDOWN MOBILE --- */
+
+                .strush-mobile-links {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    /* Posizionamento relativo per essere sopra lo sfondo e il glow */
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .strush-mobile-links li {
+                    margin: 10px 0;
+                    width: 100%;
+                    text-align: center;
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+                    transition-delay: calc(0.05s * var(--i, 0));
+                }
+
+                .strush-mobile-dropdown.active .strush-mobile-links li {
+                    opacity: 1;
+                    transform: translateY(0);
+                    /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
+                    transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
+                }
+
+                .strush-mobile-links a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 18px;
+                    padding: 12px 20px;
+                    display: block;
+                    width: 100%;
+                    max-width: 250px;
+                    margin: 0 auto;
+                    border-radius: 20px;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    /* Aggiunto per migliore leggibilità su sfondi complessi */
+                    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+                }
+
+                .strush-mobile-links a:hover {
+                    color: #8EDCA9;
+                    /* Effetto leggero anche sull'hover del link */
+                    background-color: rgba(255, 255, 255, 0.05);
+                }
+
+                /* Resto del CSS invariato... */
+                .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+                .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
+                @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+                .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
+                .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
+                .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
+                .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
+                .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
+                .strush-logo { display: flex; align-items: center; }
+                .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
+                @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
+                .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
+                .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
+                .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
+                .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
+                .strush-nav-links li { margin: 0 3px; }
+                .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.93rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+                .strush-nav-links a:hover { color: #8EDCA9; }
+                .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+                .strush-nav-links a:hover::after { width: 80%; }
+                .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
+                .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+                .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+                .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
+                .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+                /* Media query unificata per dispositivi mobili */
+                @media screen and (max-width: 768px) {
+                    /* Navbar struttura */
+                    .strush-navbar {
+                        background-color: black;
+                        height: 70px;
+                        backdrop-filter: none;
+                        -webkit-backdrop-filter: none;
+                    }
+
+                    .strush-nav-container {
+                        display: grid;
+                        grid-template-columns: 1fr auto 1fr;
+                        padding: 0;
+                        height: 70px;
+                        align-items: center;
+                    }
+
+                    /* Logo mobile */
+                    .strush-logo-mobile {
+                        display: block;
+                        z-index: 999;
+                        grid-column: 2;
+                        text-align: center;
+                        padding: 0 15px;
+                        margin-top: 5px;
+                    }
+
+                    .strush-logo-mobile .strush-logo-blob {
+                        width: 34px;
+                        height: 34px;
+                    }
+
+                    .strush-logo-mobile .strush-logo img {
+                        height: 34px;
+                        width: 34px;
+                        transform: translateY(-2px);
+                    }
+
+                    .strush-logo-mobile .strush-logo-text {
+                        margin-bottom: 0px;
+                        transition: all 0.3s ease;
+                    }
+
+                    /* Stati attivi */
+                    .menu-active .strush-logo-mobile .strush-logo-text {
+                        opacity: 0;
+                        width: 0;
+                        margin-left: 0;
+                        overflow: hidden;
+                    }
+
+                    .menu-active .strush-logo-mobile .strush-logo {
+                        justify-content: center;
+                    }
+
+                    .menu-active .strush-logo-mobile .strush-logo-blob {
+                        animation: blob-morph 3.5s linear infinite;
+                    }
+
+                    /* Navigazione */
+                    .strush-nav-links-container {
+                        display: none;
+                    }
+
+                    .strush-mobile-dropdown {
+                        display: block;
+                    }
+
+                    .strush-mobile-dropdown::after {
+                        filter: blur(25px);
+                        top: -20px;
+                        left: -20px;
+                        right: -20px;
+                        bottom: -20px;
+                    }
+
+                    /* Pulsante menu */
+                    .strush-menu-btn {
+                        display: block;
+                        z-index: 999;
+                        grid-column: 3;
+                        justify-self: end;
+                        margin-right: 20px;
+                    }
+
+                    .strush-menu-btn.open span,
+                    .strush-menu-btn.active span {
+                        background-color: #8C8DD4;
+                    }
+
+                    /* Container */
+                    .strush-container {
+                        width: 98%;
+                    }
+                }
+        </style>
+
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Ottieni riferimenti agli elementi
+                    const menuBtn = document.getElementById('menuBtn');
+                    const mobileDropdown = document.getElementById('mobileDropdown');
+                    const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
+                    const navbar = document.getElementById('mainNav');
+
+                    // Aggiungi attributi per l'animazione sequenziale
+                    document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
+                        item.style.setProperty('--i', index);
+                    });
+
+                    // Toggle menu su click del pulsante hamburger
+                    menuBtn.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Previene la propagazione dell'evento
+                        menuBtn.classList.toggle('open');
+                        menuBtn.classList.toggle('active');
+                        mobileDropdown.classList.toggle('active');
+
+                        // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+                        document.body.classList.toggle('menu-active');
+                    });
+
+                    // Chiudi menu quando viene cliccato un link
+                    mobileLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            menuBtn.classList.remove('open');
+                            menuBtn.classList.remove('active');
+                            mobileDropdown.classList.remove('active');
+                            document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                        });
+                    });
+
+                    // Chiudi menu quando si clicca fuori
+                    document.addEventListener('click', function(e) {
+                        if (mobileDropdown.classList.contains('active') &&
+                            !mobileDropdown.contains(e.target) &&
+                            e.target !== menuBtn &&
+                            !menuBtn.contains(e.target)) {
+                            menuBtn.classList.remove('open');
+                            menuBtn.classList.remove('active');
+                            mobileDropdown.classList.remove('active');
+                            document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                        }
+                    });
+
+                    // Effetto scroll per navbar
+                    window.addEventListener('scroll', function() {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('scrolled');
+                        } else {
+                            navbar.classList.remove('scrolled');
+                        }
+                    });
+                });
+        </script>
+
+</nav>
+
+<!-- Header principale - MODIFICATO PER PRIVACY POLICY -->
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h1>Privacy Policy</h1>
+            <p>La tua privacy è importante per noi. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali.</p>
+        </div>
+    </div>
+</header>
+
+<style>
+/* Header principale */
+.main-header {
+    background: var(--gradient-primary);
+    padding: 7rem 0 5rem;
+    margin-top: 0; /* Rimosso il margin-top che causava lo spazio bianco */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('pattern.png'); /* Assicurati che pattern.png sia disponibile o rimuovi/cambia lo sfondo */
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.main-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.main-header p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--dark);
+    opacity: 0.9;
+}
+
+/* Stile aggiuntivo per assicurarsi che non ci siano spazi tra navbar e header */
+body {
+    margin: 0;
+    /* Rimuovi il padding-top qui perché viene gestito dallo script della navbar */
+}
+
+/* Stile per il body quando la navbar è fissa */
+body {
+    padding-top: 70px; /* Assicurati che questo valore corrisponda all'altezza della navbar fissa */
+}
+
+
+/* Se la navbar è fissa in alto, aggiungi questo stile */
+.navbar {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 5rem 0 3rem;
+        /* margin-top: 70px; Rimosso perché padding-top sul body gestisce lo spazio */
+    }
+
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+}
+</style>
+
+
+<!-- Contenuto principale -->
+<main>
+    <div class="container">
+        <div class="terms-content"> <!-- Riutilizzo la classe per mantenere lo stile -->
+
+            <div class="terms-intro">
+                <h2>Informativa sulla Privacy di Strush</h2>
+                <p>Benvenuto/a sul sito www.strush.it ("Sito"). La presente Privacy Policy ha lo scopo di descrivere le modalità di gestione del Sito in riferimento al trattamento dei dati personali degli utenti che lo consultano e che interagiscono con i servizi web accessibili per via telematica.</p>
+                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush srls, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
+                <p>L'ultimo aggiornamento di questa informativa risale al <strong>15 aprile 2025</strong>.</p>
+            </div>
+
+            <!-- TOC Opzionale, se desiderato -->
+            <!--
+            <div class="toc">
+                <h3>Indice dei contenuti</h3>
+                <ul>
+                    <li><a href="#introduction">Introduzione</a></li>
+                    <li><a href="#titolare">Titolare del Trattamento</a></li>
+                    <li><a href="#data-types">Tipi di Dati Trattati</a></li>
+                    <li><a href="#purpose">Finalità del Trattamento</a></li>
+                    <li><a href="#legal-basis">Base Giuridica del Trattamento</a></li>
+                    <li><a href="#processing-methods">Modalità del Trattamento</a></li>
+                    <li><a href="#recipients">Destinatari dei Dati</a></li>
+                    <li><a href="#transfer">Trasferimento dei Dati all'Estero</a></li>
+                    <li><a href="#retention">Periodo di Conservazione</a></li>
+                    <li><a href="#rights">Diritti degli Interessati</a></li>
+                    <li><a href="#changes">Modifiche alla Privacy Policy</a></li>
+                </ul>
+            </div>
+            -->
+
+            <div id="introduction" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>1. Introduzione</h2>
+                </div>
+                 <p>Benvenuto/a sul sito www.strush.it ("Sito"). La presente Privacy Policy ha lo scopo di descrivere le modalità di gestione del Sito in riferimento al trattamento dei dati personali degli utenti che lo consultano e che interagiscono con i servizi web accessibili per via telematica.</p>
+                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush srls, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
+            </div>
+
+            <div id="titolare" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>2. Titolare del Trattamento</h2>
+                </div>
+                <p>Il Titolare del trattamento dei dati personali è Strush srls, con sede in [Indirizzo completo], email: [tua email], P.IVA/C.F.: [tua partita IVA o codice fiscale].</p>
+                <p><em>(Nota: Ricorda di sostituire i segnaposto [Indirizzo completo], [tua email], [tua partita IVA o codice fiscale] con le informazioni corrette.)</em></p>
+            </div>
+
+            <div id="data-types" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-database"></i>
+                    <h2>3. Tipi di Dati Trattati</h2>
+                </div>
+                <h3>3.1 Dati di navigazione</h3>
+                <p>I sistemi informatici e le procedure software preposte al funzionamento di questo Sito acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet.</p>
+                <p>In questa categoria di dati rientrano gli indirizzi IP o i nomi a dominio dei computer utilizzati dagli utenti che si connettono al Sito, gli indirizzi in notazione URI (Uniform Resource Identifier) delle risorse richieste, l'orario della richiesta, il metodo utilizzato nel sottoporre la richiesta al server, la dimensione del file ottenuto in risposta, il codice numerico indicante lo stato della risposta data dal server (buon fine, errore, ecc.) ed altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente.</p>
+                <p>Questi dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime sull'uso del Sito e per controllarne il corretto funzionamento.</p>
+                <h3>3.2 Dati forniti volontariamente dall'utente</h3>
+                <p>L'invio facoltativo, esplicito e volontario di dati personali attraverso il modulo di preregistrazione presente sul Sito comporta la successiva acquisizione dei dati forniti dal mittente, necessari per rispondere alle richieste e/o fornire i servizi richiesti.</p>
+                <h3>3.3 Cookie</h3>
+                <p>Il nostro Sito utilizza cookie tecnici necessari al funzionamento del Sito stesso e cookie analitici (Google Analytics) utilizzati in forma anonimizzata per raccogliere informazioni, in forma aggregata, sul numero degli utenti e su come questi visitano il Sito.</p>
+                 <!-- Potresti aggiungere un link alla Cookie Policy se ne hai una separata -->
+                 <!-- <p>Per maggiori dettagli sui cookie utilizzati, consulta la nostra <a href="cookie-policy.html">Cookie Policy</a>.</p> -->
+            </div>
+
+            <div id="purpose" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-bullseye"></i>
+                    <h2>4. Finalità del Trattamento</h2>
+                </div>
+                <p>I dati personali sono trattati per le seguenti finalità:</p>
+                <ul>
+                    <li>a) Permettere la navigazione sul Sito;</li>
+                    <li>b) Gestire le richieste di contatto e/o di informazioni inviate tramite il modulo di preregistrazione;</li>
+                    <li>c) Adempiere ad obblighi previsti da leggi, regolamenti o dalla normativa comunitaria;</li>
+                    <li>d) Analizzare, in forma anonimizzata, le modalità di utilizzo del Sito per migliorare i servizi offerti (Google Analytics).</li>
+                </ul>
+            </div>
+
+            <div id="legal-basis" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-balance-scale"></i>
+                    <h2>5. Base Giuridica del Trattamento</h2>
+                </div>
+                <p>La base giuridica del trattamento dei dati è:</p>
+                <ul>
+                    <li>Per le finalità di cui al punto 4.a): legittimo interesse del Titolare a garantire il corretto funzionamento e la sicurezza del Sito;</li>
+                    <li>Per le finalità di cui al punto 4.b): consenso dell'interessato e/o esecuzione di misure precontrattuali adottate su richiesta dello stesso;</li>
+                    <li>Per le finalità di cui al punto 4.c): adempimento di un obbligo legale al quale è soggetto il Titolare;</li>
+                    <li>Per le finalità di cui al punto 4.d): legittimo interesse del Titolare a migliorare il proprio Sito e i servizi offerti.</li>
+                </ul>
+            </div>
+
+            <div id="processing-methods" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-cogs"></i>
+                    <h2>6. Modalità del Trattamento</h2>
+                </div>
+                <p>I dati personali sono trattati con strumenti automatizzati per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti. Specifiche misure di sicurezza sono osservate per prevenire la perdita dei dati, usi illeciti o non corretti ed accessi non autorizzati.</p>
+            </div>
+
+            <div id="recipients" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-users-cog"></i>
+                    <h2>7. Destinatari dei Dati</h2>
+                </div>
+                <p>I dati personali raccolti potranno essere trattati da soggetti che agiscono per conto del Titolare in qualità di responsabili del trattamento, quali:</p>
+                <ul>
+                    <li>Fornitori di servizi informatici e di hosting;</li>
+                    <li>Fornitori di servizi di analisi web (Google Inc.);</li>
+                    <li>Altri fornitori di servizi strumentali al perseguimento delle finalità specificate.</li>
+                </ul>
+                <p>I dati non saranno oggetto di diffusione.</p>
+            </div>
+
+            <div id="transfer" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-globe-europe"></i>
+                    <h2>8. Trasferimento dei Dati all'Estero</h2>
+                </div>
+                <p>I dati personali potrebbero essere trasferiti al di fuori dell'Unione Europea nel caso in cui il Titolare si avvalga di fornitori con sede o server ubicati in paesi extra-UE (es. Google Analytics). In tal caso, il Titolare assicura che il trasferimento avverrà in conformità alle disposizioni di legge applicabili, previa stipula delle clausole contrattuali standard previste dalla Commissione Europea.</p>
+            </div>
+
+            <div id="retention" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-history"></i>
+                    <h2>9. Periodo di Conservazione dei Dati</h2>
+                </div>
+                <p>I dati personali saranno conservati per i seguenti periodi:</p>
+                <ul>
+                    <li>Dati di navigazione: fino alla conclusione della sessione di navigazione;</li>
+                    <li>Dati forniti tramite modulo di preregistrazione: per il tempo necessario a evadere le richieste dell'utente e in ogni caso non oltre 24 mesi dalla raccolta;</li>
+                    <li>Dati analitici: in forma anonimizzata, per un periodo massimo di 26 mesi.</li>
+                </ul>
+            </div>
+
+            <div id="rights" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-check"></i>
+                    <h2>10. Diritti degli Interessati</h2>
+                </div>
+                <p>Gli interessati hanno il diritto di:</p>
+                <ul>
+                    <li>Accedere ai propri dati personali;</li>
+                    <li>Chiedere la rettifica dei dati inesatti o l'integrazione di quelli incompleti;</li>
+                    <li>Chiedere la cancellazione dei dati (nei casi previsti dalla normativa);</li>
+                    <li>Chiedere la limitazione del trattamento (nei casi previsti dalla normativa);</li>
+                    <li>Opporsi al trattamento per motivi connessi alla propria situazione particolare;</li>
+                    <li>Revocare il consenso prestato, senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca;</li>
+                    <li>Presentare reclamo al Garante per la protezione dei dati personali.</li>
+                </ul>
+                <p>Per esercitare i propri diritti, gli interessati possono rivolgersi al Titolare del trattamento utilizzando i seguenti contatti: [Tua email/telefono].</p>
+                 <p><em>(Nota: Ricorda di sostituire il segnaposto [Tua email/telefono] con le informazioni di contatto corrette.)</em></p>
+            </div>
+
+            <div id="changes" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-edit"></i>
+                    <h2>11. Modifiche alla Privacy Policy</h2>
+                </div>
+                <p>Il Titolare si riserva il diritto di modificare, aggiornare, aggiungere o rimuovere parti della presente Privacy Policy a propria discrezione e in qualsiasi momento. Le persone interessate sono tenute a verificare periodicamente le eventuali modifiche. Al fine di facilitare tale verifica, l'informativa conterrà l'indicazione della data di aggiornamento.</p>
+            </div>
+
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-calendar-alt"></i> Ultimo aggiornamento: 15 aprile 2025
+                </div>
+                <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+        /* Stile del contenuto dei Termini/Privacy (riutilizzato) */
+        .terms-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            margin: 3rem 0;
+        }
+
+        .terms-intro {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-intro p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .terms-section-title i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--secondary);
+        }
+
+        .terms-section-title h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--dark);
+        }
+
+        .terms-section p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Modifica per usare disc (pallino) per le liste della privacy policy */
+        .terms-section ul {
+            margin: 1rem 0 1.5rem 2rem;
+            list-style-type: disc; /* Cambiato da none a disc */
+        }
+
+        .terms-section ul li {
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+
+        /* Stile per eventuali h3 */
+        .terms-section h3 {
+            color: var(--text);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem; /* Leggermente più piccolo di h2 */
+             /* Reset trasformazione altezza ereditata */
+            transform: scaleY(1.0);
+            letter-spacing: normal;
+            font-family: 'Segoe UI', sans-serif; /* Puoi mantenere Unbounded se preferisci */
+             font-weight: 600;
+        }
+
+        .update-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Aggiunto per migliore responsive */
+            gap: 1rem; /* Spazio tra gli elementi in mobile */
+        }
+
+        .last-update {
+            font-style: italic;
+            color: #777;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            margin-left: auto; /* Spinge a destra in desktop */
+        }
+
+        .back-to-top i {
+            margin-left: 0.5rem;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Stile per il TOC se viene riattivato */
+        .toc {
+            background-color: rgba(180, 250, 205, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 3rem; /* Aumentato spazio sotto */
+            border-radius: 0 8px 8px 0;
+        }
+
+        .toc h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+             transform: scaleY(1.0); /* Reset trasformazione altezza */
+            letter-spacing: normal;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .toc ul {
+            list-style-type: none; /* Reimpostato a none per TOC */
+            margin-left: 0; /* Rimuovi margine sinistro per TOC */
+             padding-left: 0; /* Rimuovi padding sinistro per TOC */
+        }
+         .toc ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--secondary);
+            transition: color 0.3s ease;
+             font-weight: 500;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .terms-content {
+                padding: 1.5rem; /* Ridotto padding in mobile */
+            }
+
+            .terms-section-title h2 {
+                font-size: 1.5rem; /* Ridotto titolo sezione in mobile */
+            }
+             .terms-section h3 {
+                font-size: 1.15rem;
+            }
+
+             .update-info {
+                flex-direction: column; /* Impila gli elementi in mobile */
+                align-items: flex-start; /* Allinea a sinistra */
+            }
+             .back-to-top {
+                margin-left: 0; /* Rimuovi margine automatico */
+            }
+        }
+</style>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-blob">
+                        <img src="immagini/logo.png" alt="Strush Logo">
+                    </div>
+                    <h3 class="logo-text">Strush</h3>
+                </div>
+                <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+                <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Links Rapidi</h5>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#features">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Supporto</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contatti</a></li>
+                    <li><a href="#">Assistenza</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Legale</h5>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="t&c.html">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
+            <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
+        </div>
+    </div>    
+</footer>        
+
+<style>
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }    
+
+    .elevator-pitch {
+    color: rgb(255, 255, 255);
+    } 
+    
+    .footer-email {
+        color: white;
+        margin-top: 1rem;
+    }
+    
+    .footer-email a {
+        color: #8EDCA9;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-email a:hover {
+        text-decoration: underline;
+    }
+        
+    /* Updated logo styling to match navbar */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+} 
+
+/* Stile modificato per il contenitore blob del logo nel footer */
+.footer-logo .logo-blob {
+    width: 38px;
+    height: 38px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border-radius: 50%; /* Default è un cerchio */
+    background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
+    box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
+    /* Contorno aggiunto */
+    border: 2.5px solid #8C8DD4;
+}
+
+/* Animazione per il blob - non è attiva di default */
+@keyframes footer-blob-morph {
+    0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+    25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+    50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
+    75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
+    100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+}
+    
+.footer-logo img {
+    height: 38px;
+    width: 38px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    z-index: 1;
+    display: block;
+    margin: auto;
+    /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
+    transform: translateY(-2px);
+}
+
+/* Attiva l'animazione blob solo al passaggio del mouse */
+.footer-logo .logo-blob:hover {
+    animation: footer-blob-morph 3.5s linear infinite;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+}
+    
+    .footer-logo img:hover {
+        box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+        transform: scale(1.05);
+    }    
+    
+.footer-logo .logo-text {
+    color: #8C8DD4;
+    font-weight: 800;
+    margin-left: 8px;
+    margin-bottom: 0px;
+}
+    
+    /* Links sections */
+    .footer-links h5{
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
+        margin-bottom: 20px;
+    }    
+    
+    .footer-links h5::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+    }    
+    
+    .footer-links ul li {
+        margin-bottom: 18px;
+    }    
+    
+    /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 2px 4px;
+        display: inline-block;
+    }        
+    
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        bottom: 0;
+        left: 0;
+        background-color: #8EDCA9 ;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+        color: #8EDCA9;
+    }
+    
+    .footer-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    /* Social icons */
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 1.5rem;
+    }
+        
+    .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .footer-social a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-primary);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+    
+    .footer-social a:hover {
+        color: var(--dark);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
+    }
+    
+    .footer-social a:hover::before {
+        opacity: 1;
+    }
+    
+    /* Copyright section */
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Nuovo stile per le frasi nel copyright con più spazio */
+    .copyright .proudly-crafted {
+        margin-bottom: 15px;
+        color: white;
+    }
+    
+    .copyright .copyright-text {
+        margin-top: 0;
+        color: white;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }    
+        
+        .footer-logo {
+            justify-content: center;
+        }
+        
+        .footer-links h5 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Centra i link social nella versione mobile */
+        .footer-social {
+            justify-content: center;
+        }
+        
+        .footer-links a:hover {
+            transform: translateY(-2px);
+        }
+    }                
+</style>
+
+</body>
+</html>
