@@ -5,162 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strush | Termini e Condizioni</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <!-- Collegamento ai font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        /* Importazione del font Unbounded da Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
-
-        /* Variabili CSS */
-        :root {
-            --primary: #8EDCA9;
-            --secondary: #8C8DD4;
-            --text: #2b2d42;
-            --text2: #555555;
-            --light: #f8f9fa;
-            --dark: #222222;
-            --accent: #FF85B3;
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        /* Reset CSS di base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Stili di base del corpo */
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            /* *** AGGIUNTO QUI: Padding per la navbar fissa *** */
-            padding-top: 70px; /* Match navbar height */
-        }
-
-        /* Utilizzo del font Unbounded per i titoli con pesi diversi */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Unbounded', sans-serif;
-            line-height: 1.4;
-            transform: scaleY(1.2); /* Distende il font in altezza */
-            letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
-        }
-
-        h1 {
-            font-weight: 900; /* Light */
-        }
-
-        h2 {
-            font-weight: 700; /* Bold */
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            font-weight: 500; /* Medium */
-            margin-bottom: 1rem;
-            font-size: 1.15rem;
-        }
-
-        h4 {
-            font-weight: 500; /* Medium */
-            font-size: 1.1rem;
-        }
-
-        h5 {
-            font-weight: 400; /* Medium */
-            font-size: 0.85rem;
-        }
-
-        h6 {
-            font-weight: 300; /* Light */
-            margin-bottom: 1rem;
-            font-size: 0.75rem;
-        }
-
-
-        a {
-            text-decoration: none;
-            color: #2b2d42;
-            font-size: 1rem;
-        }
-
+<style>
+    /* Importazione del font Unbounded da Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+    
+    /* Variabili CSS */
+    :root {
+        --primary: #8EDCA9;
+        --secondary: #8C8DD4;
+        --text: #2b2d42;
+        --text2: #555555;
+        --light: #f8f9fa;
+        --dark: #222222;
+        --accent: #FF85B3;
+        --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+    
+    /* Reset CSS di base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Stili di base del corpo */
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        /* La dimensione del font di base viene ridotta qui, influenzando le unità rem */
+        font-size: 90%; /* Puoi aggiustare questo valore (es. 85%, 95%) per scalare tutto */
+    }
+    
+    /* Utilizzo del font Unbounded per i titoli con pesi diversi */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Unbounded', sans-serif;
+        line-height: 1.4;
+        transform: scaleY(1.2); /* Distende il font in altezza */
+        letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
+    }
+    
+    h1 {
+        font-weight: 900; /* Light */
+            /* La dimensione effettiva sarà influenzata dal font-size del body */
+    }
+    
+    h2 {
+        font-weight: 700; /* Bold */
+        font-size: 2.25rem; /* Ridotto da 2.5rem */
+        padding-bottom: 10px;
+    }
+    
+    h3 {
+        font-weight: 500; /* Medium */
+        margin-bottom: 1rem;
+        font-size: 1.04rem; /* Ridotto da 1.15rem */
+    }
+    
+    h4 {
+        font-weight: 500; /* Medium */
+        font-size: 0.99rem; /* Ridotto da 1.1rem */
+    }
+    
+    h5 {
+        font-weight: 400; /* Medium */
+        font-size: 0.77rem; /* Ridotto da 0.85rem */
+    }
+    
+    h6 {
+        font-weight: 300; /* Light */
+        margin-bottom: 1rem;
+        font-size: 0.68rem; /* Ridotto da 0.75rem */
+    }
+    
+    
+    a {
+        text-decoration: none;
+        color: #2b2d42;
+        font-size: 0.9rem; /* Ridotto da 1rem */
+    }
+    
+    p {
+        color: #555555;
+        line-height: 1.5;
+        font-size: 0.99rem; /* Ridotto da 1.1rem */
+    
+    }
+    
+    @media (max-width: 768px) {
         p {
-            color: #555555;
-            line-height: 1.5;
-            font-size: 1.1rem;
-
+            /* La regola precedente (0.99rem) è già applicata, quindi questa è ridondante se uguale */
+            /* Se avesse un valore diverso, andrebbe scalato proporzionalmente */
+            font-size: 0.99rem; /* Mantenuto coerente con la riduzione */
         }
-
-        @media (max-width: 768px) {
-            p {
-            font-size: 1.1rem;
-            }
-
-            h2 {
-            font-size: 1.8rem;
-            }
-
+    
+        h2 {
+            font-size: 1.62rem; /* Ridotto da 1.8rem */
         }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0rem 0 0rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* Section base style */
+    
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0rem 0 0rem;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    /* Section base style */
+    .section {
+        padding: 6rem 0 6rem;
+    }
+    
+    @media (max-width: 768px) {
         .section {
-            padding: 6rem 0 6rem;
+            padding: 5rem 0 5rem;
         }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 5rem 0 5rem;
-            }
-        }
-
-        /* Section sub-titles */
+    }
+    
+    /* Section sub-titles */
+    .section-subtitles {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        color: #2b2d42;
+        font-size: 1.13rem; /* Ridotto da 1.25rem */
+    }
+    
+    @media (max-width: 768px) {
         .section-subtitles {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: #2b2d42;
-            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-size: 1.08rem; /* Ridotto da 1.2rem */
         }
-
-        @media (max-width: 768px) {
-            .section-subtitles {
-                margin-bottom: 2rem;
-                font-size: 1.2rem;
-            }
-        }
-        </style>
+    }
+</style>
 
 </head>
 
 <body>
 
     <!-- Cursore Animation Pallino viola + Blob-->
-    <div id="blob"></div>
-    <div id="violet-cursor"></div>
+<div id="blob"></div>
+<div id="violet-cursor"></div>
             
 <style>
     /* Global cursor removal */
@@ -203,83 +204,117 @@
     }
 </style>
             
-    <script>
-                const blob = document.getElementById('blob');
-                const violetCursor = document.getElementById('violet-cursor');
-                let lastX = 0;
-                let lastY = 0;
-                let velocityX = 0;
-                let velocityY = 0;
-            
-                function isMobileDevice() {
-                    return window.innerWidth < 768;
-                }
-            
-                document.addEventListener('mousemove', (e) => {
-                    if (isMobileDevice()) return;
-            
-                    const x = e.clientX;
-                    const y = e.clientY;
-            
-                    // Check if mouse is over a nav element
-                    const isOverNav = e.target.closest('nav') !== null;
-            
-                    // Always move the violet cursor everywhere
-                    violetCursor.style.left = `${x}px`;
-                    violetCursor.style.top = `${y}px`;
-                    violetCursor.style.display = 'block';
-            
-                    // Calculate velocity
-                    velocityX = x - lastX;
-                    velocityY = y - lastY;
-            
-                    if (isOverNav) {
-                        // In nav: hide blob
-                        blob.style.display = 'none';
-                    } else {
-                        // Outside nav: full blob animation
-                        blob.style.display = 'flex';
-                        blob.style.left = `${x}px`;
-                        blob.style.top = `${y}px`;
-            
-                        // Deformation based on velocity
-                        const maxDeformation = 1.5;
-                        const minDeformation = 0.8;
-            
-                        const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
-                        const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
-            
-                        // Calculate rotation angle
-                        const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
-            
-                        // Apply deformation and rotation
-                        blob.style.transform = `
-                            translate(-50%, -50%)
-                            scaleX(${deformationX})
-                            scaleY(${deformationY})
-                            rotate(${angle}deg)
-                        `;
-                    }
-            
-                    lastX = x;
-                    lastY = y;
-                });
-            
-                // Hide both cursor elements when mouse leaves the screen
-                document.addEventListener('mouseleave', () => {
-                    if (!isMobileDevice()) {
-                        blob.style.display = 'none';
-                        violetCursor.style.display = 'none';
-                    }
-                });
-    </script>
+<script>
+    const blob = document.getElementById('blob');
+    const violetCursor = document.getElementById('violet-cursor');
+    let lastX = 0;
+    let lastY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
 
-    <!-- Navbar -->
+    function isMobileDevice() {
+        return window.innerWidth < 768;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        if (isMobileDevice()) return;
+
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Check if mouse is over a nav element
+        const isOverNav = e.target.closest('nav') !== null;
+
+        // Always move the violet cursor everywhere
+        violetCursor.style.left = `${x}px`;
+        violetCursor.style.top = `${y}px`;
+        violetCursor.style.display = 'block';
+
+        // Calculate velocity
+        velocityX = x - lastX;
+        velocityY = y - lastY;
+
+        if (isOverNav) {
+            // In nav: hide blob
+            blob.style.display = 'none';
+        } else {
+            // Outside nav: full blob animation
+            blob.style.display = 'flex';
+            blob.style.left = `${x}px`;
+            blob.style.top = `${y}px`;
+
+            // Deformation based on velocity
+            const maxDeformation = 1.5;
+            const minDeformation = 0.8;
+
+            const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
+            const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
+
+            // Calculate rotation angle
+            const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
+
+            // Apply deformation and rotation
+            blob.style.transform = `
+                translate(-50%, -50%)
+                scaleX(${deformationX})
+                scaleY(${deformationY})
+                rotate(${angle}deg)
+            `;
+        }
+
+        lastX = x;
+        lastY = y;
+    });
+
+    // Hide both cursor elements when mouse leaves the screen
+    document.addEventListener('mouseleave', () => {
+        if (!isMobileDevice()) {
+            blob.style.display = 'none';
+            violetCursor.style.display = 'none';
+        }
+    });
+</script>
+
+
+<!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
+
     <div class="strush-container">
-            <div class="strush-nav-container">
-                <!-- Logo sempre visibile e centrato in mobile -->
-                <div class="strush-logo-mobile">
+        <div class="strush-nav-container">
+            <!-- Logo sempre visibile e centrato in mobile -->
+            <div class="strush-logo-mobile">
+                <a href="index.html#hero" class="strush-logo-container">
+                    <div class="strush-logo">
+                        <div class="strush-logo-blob">
+                            <img src="immagini/logo.png" alt="Strush Logo">
+                        </div>
+                        <h3 class="strush-logo-text">Strush</h3>
+                    </div>
+                </a>
+            </div>
+    
+            <!-- Menu hamburger a destra -->
+            <div class="strush-menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <!-- Menu dropdown per mobile -->
+            <div class="strush-mobile-dropdown" id="mobileDropdown">
+                <ul class="strush-mobile-links">
+                    <li><a href="index.html#features-mobile">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+    
+            <!-- Menu desktop -->
+            <div class="strush-nav-links-container" id="navLinksContainer">
+                <!-- Logo per versione desktop -->
+                <div class="strush-logo-nav-item">
                     <a href="index.html#hero" class="strush-logo-container">
                         <div class="strush-logo">
                             <div class="strush-logo-blob">
@@ -289,767 +324,703 @@
                         </div>
                     </a>
                 </div>
-
-                <!-- Menu hamburger a destra -->
-                <div class="strush-menu-btn" id="menuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <!-- Menu dropdown per mobile -->
-                <div class="strush-mobile-dropdown" id="mobileDropdown">
-                    <ul class="strush-mobile-links">
-                        <li><a href="index.html#features-mobile">Caratteristiche</a></li>
-                        <li><a href="index.html#avatar-evolution">Avatar</a></li>
-                        <li><a href="index.html#how-it-works">Tutorial</a></li>
-                        <li><a href="index.html#testimonials">Testimonianze</a></li>
-                        <li><a href="index.html#team">Team</a></li>
-                    </ul>
-                </div>
-
-                <!-- Menu desktop -->
-                <div class="strush-nav-links-container" id="navLinksContainer">
-                    <!-- Logo per versione desktop -->
-                    <div class="strush-logo-nav-item">
-                        <a href="index.html#hero" class="strush-logo-container">
-                            <div class="strush-logo">
-                                <div class="strush-logo-blob">
-                                    <img src="immagini/logo.png" alt="Strush Logo">
-                                </div>
-                                <h3 class="strush-logo-text">Strush</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <ul class="strush-nav-links">
-                        <li><a href="index.html#features-desktop">Caratteristiche</a></li>
-                        <li><a href="index.html#avatar-evolution">Avatar</a></li>
-                        <li><a href="index.html#how-it-works">Tutorial</a></li>
-                        <li><a href="index.html#testimonials">Testimonianze</a></li>
-                        <li><a href="index.html#team">Team</a></li>
-                    </ul>
-                </div>
+    
+                <ul class="strush-nav-links">
+                    <li><a href="index.html#features-desktop">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
             </div>
+        </div>
     </div>
-
-    <!-- *** Stile della Navbar (la regola body { padding-top: 70px; } è stata spostata in <head>) *** -->
+    
     <style>
-            /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
+        /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
+        .strush-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999; /* Reduced from 1000 */
+            padding: 0;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            /* height: auto; Removed */
+            min-height: 70px; /* Set minimum height for the navbar */
+            display: flex; /* Use flexbox to help center content vertically */
+            align-items: center; /* Center content vertically */
+        }
+    
+        /* Add padding to body to prevent navbar from covering content */
+        body {
+            /* Ensure padding matches the minimum navbar height */
+            padding-top: 70px;
+        }
+    
+        /* Scrolled state for navbar */
+        .strush-navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+    
+        .strush-container {
+            width: 96%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0;
+            /* Allow container to take full width needed */
+            width: 100%;
+        }
+    
+        .strush-nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centered links on desktop */
+            width: 100%;
+            padding: 5px 0; /* Adjusted padding slightly for vertical centering within 70px */
+            position: relative;
+            min-height: 60px; /* Allow content to define height, but ensure enough space */
+        }
+    
+        /* Logo per versione mobile (inizialmente nascosto in desktop) */
+        .strush-logo-mobile {
+            display: none;
+        }
+    
+        /* --- MODIFICA DROPDOWN MOBILE --- */
+        .strush-mobile-dropdown {
+            display: none; /* Inizialmente nascosto, controllato da JS e @media */
+            position: absolute;
+            top: 70px; /* Ensure this matches the navbar height */
+            left: 0;
+            width: 100%;
+            /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
+            background-color: rgba(10, 10, 15, 0.95);
+            /* Blur dello SFONDO DIETRO il menu */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 998; /* Lower than navbar */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
+            padding: 20px 0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
+            transform: translateY(-20px);
+            opacity: 0;
+            height: auto;
+            max-height: 0;
+            overflow: hidden; /* Necessario per max-height transition */
+            /* Ensure positioning context for pseudo-elements */
+            position: absolute;
+        }
+    
+        /* Sottile linea viola per evidenziare il bordo superiore */
+        .strush-mobile-dropdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
+            z-index: 1; /* Sopra il glow */
+        }
+    
+        /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
+        .strush-mobile-dropdown::after {
+            content: '';
+            position: absolute;
+            /* Posizionamento leggermente espanso per un glow più ampio */
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            /* Gradient con i colori del brand e trasparenza per il glow */
+            background: radial-gradient(ellipse at center,
+                rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
+                rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
+                rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
+            );
+            filter: blur(35px);
+            z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
+            opacity: 0; /* Inizialmente invisibile */
+            transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
+            pointer-events: none; /* Non interagibile */
+            border-radius: 50%; /* Mantiene forma ellittica/rotonda */
+        }
+    
+        /* Quando il dropdown è attivo */
+        .strush-mobile-dropdown.active {
+            transform: translateY(0);
+            opacity: 1;
+            max-height: 400px; /* Abbastanza alto per i link */
+        }
+    
+        /* Rendi visibile il glow quando il dropdown è attivo */
+        .strush-mobile-dropdown.active::after {
+            opacity: 1;
+        }
+        /* --- FINE MODIFICA DROPDOWN MOBILE --- */
+    
+        .strush-mobile-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Posizionamento relativo per essere sopra lo sfondo e il glow */
+            position: relative;
+            z-index: 1;
+        }
+    
+        .strush-mobile-links li {
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition-delay: calc(0.05s * var(--i, 0));
+        }
+    
+        .strush-mobile-dropdown.active .strush-mobile-links li {
+            opacity: 1;
+            transform: translateY(0);
+            /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
+            transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
+        }
+    
+        .strush-mobile-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            /* Aggiunto per migliore leggibilità su sfondi complessi */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    
+        .strush-mobile-links a:hover {
+            color: #8EDCA9;
+            /* Effetto leggero anche sull'hover del link */
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    
+        /* Resto del CSS invariato... */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+        .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
+        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+        .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
+        .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
+        .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
+        .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
+        .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
+        .strush-logo { display: flex; align-items: center; }
+        .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
+        @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
+        .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
+        .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
+        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
+        .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
+        .strush-nav-links li { margin: 0 3px; }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a:hover { color: #8EDCA9; }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links a:hover::after { width: 80%; }
+        .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
+        .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+        .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    
+        /* Media query unificata per dispositivi mobili */
+        @media screen and (max-width: 768px) {
+            /* Navbar struttura */
             .strush-navbar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 999; /* Reduced from 1000 */
-                padding: 0;
-                transition: all 0.3s ease;
-                background-color: rgba(0, 0, 0, 0.9);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-                height: auto;
-            }
-
-            /* Add padding to body to prevent navbar from covering content - SPOSTATA IN HEAD */
-            /*
-            body {
-                padding-top: 70px;
-            }
-            */
-
-            /* Scrolled state for navbar */
-            .strush-navbar.scrolled {
-                background-color: rgba(0, 0, 0, 0.95);
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-            }
-
-            .strush-container {
-                width: 96%;
-                max-width: 1140px;
-                margin: 0 auto;
-                padding: 0;
-            }
-
-            .strush-nav-container {
+                background-color: black;
+                /* Explicitly set height to 70px on mobile */
+                height: 70px;
+                min-height: 70px; /* Ensure consistency */
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                /* Ensure vertical centering is still applied */
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                width: 100%;
-                padding: 10px 0;
-                position: relative;
             }
-
-            /* Logo per versione mobile (inizialmente nascosto in desktop) */
+    
+            .strush-nav-container {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                padding: 0;
+                /* Ensure container fills the mobile navbar height */
+                height: 70px;
+                align-items: center;
+                    /* Override desktop justify-content */
+                justify-content: space-between;
+            }
+    
+            /* Logo mobile */
             .strush-logo-mobile {
+                display: block;
+                z-index: 999;
+                grid-column: 2;
+                text-align: center;
+                padding: 0 15px;
+                margin-top: 0; /* Removed margin-top for better centering */
+            }
+    
+            .strush-logo-mobile .strush-logo-blob {
+                width: 34px;
+                height: 34px;
+            }
+    
+            .strush-logo-mobile .strush-logo img {
+                height: 34px;
+                width: 34px;
+                transform: translateY(-2px);
+            }
+    
+            .strush-logo-mobile .strush-logo-text {
+                margin-bottom: 0px;
+                transition: all 0.3s ease;
+            }
+    
+            /* Stati attivi */
+            .menu-active .strush-logo-mobile .strush-logo-text {
+                opacity: 0;
+                width: 0;
+                margin-left: 0;
+                overflow: hidden;
+            }
+    
+            .menu-active .strush-logo-mobile .strush-logo {
+                justify-content: center;
+            }
+    
+            .menu-active .strush-logo-mobile .strush-logo-blob {
+                animation: blob-morph 3.5s linear infinite;
+            }
+    
+            /* Navigazione */
+            .strush-nav-links-container {
                 display: none;
             }
-
-            /* --- MODIFICA DROPDOWN MOBILE --- */
+    
             .strush-mobile-dropdown {
-                display: none; /* Inizialmente nascosto, controllato da JS e @media */
-                position: absolute;
-                top: 70px; /* Altezza navbar mobile */
-                left: 0;
-                width: 100%;
-                /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
-                background-color: rgba(10, 10, 15, 0.95);
-                /* Blur dello SFONDO DIETRO il menu */
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                z-index: 998; /* Lower than navbar */
-                transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
-                padding: 20px 0;
-                border-radius: 0 0 15px 15px;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
-                transform: translateY(-20px);
-                opacity: 0;
-                height: auto;
-                max-height: 0;
-                overflow: hidden; /* Necessario per max-height transition */
-                /* Ensure positioning context for pseudo-elements */
-                position: absolute;
-            }
-
-            /* Sottile linea viola per evidenziare il bordo superiore */
-            .strush-mobile-dropdown::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 1px;
-                background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
-                z-index: 1; /* Sopra il glow */
-            }
-
-            /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
-            .strush-mobile-dropdown::after {
-                content: '';
-                position: absolute;
-                /* Posizionamento leggermente espanso per un glow più ampio */
-                top: -30px;
-                left: -30px;
-                right: -30px;
-                bottom: -30px;
-                /* Gradient con i colori del brand e trasparenza per il glow */
-                background: radial-gradient(ellipse at center,
-                    rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
-                    rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
-                    rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
-                );
-                filter: blur(35px);
-                z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
-                opacity: 0; /* Inizialmente invisibile */
-                transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
-                pointer-events: none; /* Non interagibile */
-                border-radius: 50%; /* Mantiene forma ellittica/rotonda */
-            }
-
-            /* Quando il dropdown è attivo */
-            .strush-mobile-dropdown.active {
-                transform: translateY(0);
-                opacity: 1;
-                max-height: 400px; /* Abbastanza alto per i link */
-            }
-
-            /* Rendi visibile il glow quando il dropdown è attivo */
-            .strush-mobile-dropdown.active::after {
-                opacity: 1;
-            }
-            /* --- FINE MODIFICA DROPDOWN MOBILE --- */
-
-            .strush-mobile-links {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                /* Posizionamento relativo per essere sopra lo sfondo e il glow */
-                position: relative;
-                z-index: 1;
-            }
-
-            .strush-mobile-links li {
-                margin: 10px 0;
-                width: 100%;
-                text-align: center;
-                opacity: 0;
-                transform: translateY(-10px);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                transition-delay: calc(0.05s * var(--i, 0));
-            }
-
-            .strush-mobile-dropdown.active .strush-mobile-links li {
-                opacity: 1;
-                transform: translateY(0);
-                /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
-                transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
-            }
-
-            .strush-mobile-links a {
-                text-decoration: none;
-                color: white;
-                font-size: 18px;
-                padding: 12px 20px;
                 display: block;
-                width: 100%;
-                max-width: 250px;
-                margin: 0 auto;
-                border-radius: 20px;
-                transition: all 0.3s ease;
-                position: relative;
-                /* Aggiunto per migliore leggibilità su sfondi complessi */
-                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+                top: 70px; /* Match mobile navbar height */
             }
-
-            .strush-mobile-links a:hover {
-                color: #8EDCA9;
-                /* Effetto leggero anche sull'hover del link */
-                background-color: rgba(255, 255, 255, 0.05);
+    
+            .strush-mobile-dropdown::after {
+                filter: blur(25px);
+                top: -20px;
+                left: -20px;
+                right: -20px;
+                bottom: -20px;
             }
-
-            /* Resto del CSS invariato... */
-            .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
-            .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
-            @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
-            .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
-            .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
-            .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
-            .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
-            .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
-            .strush-logo { display: flex; align-items: center; }
-            .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
-            @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
-            .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
-            .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
-            .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
-            .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
-            .strush-nav-links li { margin: 0 3px; }
-            .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.93rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-            .strush-nav-links a:hover { color: #8EDCA9; }
-            .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
-            .strush-nav-links a:hover::after { width: 80%; }
-            .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
-            .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
-            .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-            .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
-            .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
-            /* Media query unificata per dispositivi mobili */
-            @media screen and (max-width: 768px) {
-                /* Navbar struttura */
-                .strush-navbar {
-                    background-color: black;
-                    height: 70px;
-                    backdrop-filter: none;
-                    -webkit-backdrop-filter: none;
-                }
-
-                .strush-nav-container {
-                    display: grid;
-                    grid-template-columns: 1fr auto 1fr;
-                    padding: 0;
-                    height: 70px;
-                    align-items: center;
-                }
-
-                /* Logo mobile */
-                .strush-logo-mobile {
-                    display: block;
-                    z-index: 999;
-                    grid-column: 2;
-                    text-align: center;
-                    padding: 0 15px;
-                    margin-top: 5px;
-                }
-
-                .strush-logo-mobile .strush-logo-blob {
-                    width: 34px;
-                    height: 34px;
-                }
-
-                .strush-logo-mobile .strush-logo img {
-                    height: 34px;
-                    width: 34px;
-                    transform: translateY(-2px);
-                }
-
-                .strush-logo-mobile .strush-logo-text {
-                    margin-bottom: 0px;
-                    transition: all 0.3s ease;
-                }
-
-                /* Stati attivi */
-                .menu-active .strush-logo-mobile .strush-logo-text {
-                    opacity: 0;
-                    width: 0;
-                    margin-left: 0;
-                    overflow: hidden;
-                }
-
-                .menu-active .strush-logo-mobile .strush-logo {
-                    justify-content: center;
-                }
-
-                .menu-active .strush-logo-mobile .strush-logo-blob {
-                    animation: blob-morph 3.5s linear infinite;
-                }
-
-                /* Navigazione */
-                .strush-nav-links-container {
-                    display: none;
-                }
-
-                .strush-mobile-dropdown {
-                    display: block;
-                }
-
-                .strush-mobile-dropdown::after {
-                    filter: blur(25px);
-                    top: -20px;
-                    left: -20px;
-                    right: -20px;
-                    bottom: -20px;
-                }
-
-                /* Pulsante menu */
-                .strush-menu-btn {
-                    display: block;
-                    z-index: 999;
-                    grid-column: 3;
-                    justify-self: end;
-                    margin-right: 20px;
-                }
-
-                .strush-menu-btn.open span,
-                .strush-menu-btn.active span {
-                    background-color: #8C8DD4;
-                }
-
-                /* Container */
-                .strush-container {
-                    width: 98%;
-                }
+    
+            /* Pulsante menu */
+            .strush-menu-btn {
+                display: block;
+                z-index: 999;
+                grid-column: 3;
+                justify-self: end;
+                margin-right: 20px;
             }
+    
+            .strush-menu-btn.open span,
+            .strush-menu-btn.active span {
+                background-color: #8C8DD4;
+            }
+    
+            /* Container */
+            .strush-container {
+                width: 100%; /* Use full width within navbar */
+                max-width: 1140px; /* Keep max-width constrain */
+                padding: 0 15px; /* Add some horizontal padding */
+                box-sizing: border-box; /* Include padding in width */
+            }
+        }
     </style>
-
+    
     <script>
-        // Script rimane invariato...
-            document.addEventListener('DOMContentLoaded', function() {
-                // Ottieni riferimenti agli elementi
-                const menuBtn = document.getElementById('menuBtn');
-                const mobileDropdown = document.getElementById('mobileDropdown');
-                const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
-                const navbar = document.getElementById('mainNav');
-
-                // Aggiungi attributi per l'animazione sequenziale
-                document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
-                    item.style.setProperty('--i', index);
-                });
-
-                // Toggle menu su click del pulsante hamburger
-                menuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Previene la propagazione dell'evento
-                    menuBtn.classList.toggle('open');
-                    menuBtn.classList.toggle('active');
-                    mobileDropdown.classList.toggle('active');
-
-                    // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
-                    document.body.classList.toggle('menu-active');
-                });
-
-                // Chiudi menu quando viene cliccato un link
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuBtn.classList.remove('open');
-                        menuBtn.classList.remove('active');
-                        mobileDropdown.classList.remove('active');
-                        document.body.classList.remove('menu-active'); // Rimuovi anche qui
-                    });
-                });
-
-                // Chiudi menu quando si clicca fuori
-                document.addEventListener('click', function(e) {
-                    if (mobileDropdown.classList.contains('active') &&
-                        !mobileDropdown.contains(e.target) &&
-                        e.target !== menuBtn &&
-                        !menuBtn.contains(e.target)) {
-                        menuBtn.classList.remove('open');
-                        menuBtn.classList.remove('active');
-                        mobileDropdown.classList.remove('active');
-                        document.body.classList.remove('menu-active'); // Rimuovi anche qui
-                    }
-                });
-
-                // Effetto scroll per navbar
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ottieni riferimenti agli elementi
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileDropdown = document.getElementById('mobileDropdown');
+            const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
+            const navbar = document.getElementById('mainNav');
+    
+            // Aggiungi attributi per l'animazione sequenziale
+            document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
+                item.style.setProperty('--i', index);
+            });
+    
+            // Toggle menu su click del pulsante hamburger
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Previene la propagazione dell'evento
+                menuBtn.classList.toggle('open');
+                menuBtn.classList.toggle('active');
+                mobileDropdown.classList.toggle('active');
+    
+                // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+                document.body.classList.toggle('menu-active');
+            });
+    
+            // Chiudi menu quando viene cliccato un link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
                 });
             });
+    
+            // Chiudi menu quando si clicca fuori
+            document.addEventListener('click', function(e) {
+                // Check if the dropdown is active AND the click was outside the dropdown AND outside the menu button
+                if (mobileDropdown.classList.contains('active') &&
+                    !mobileDropdown.contains(e.target) &&
+                    !menuBtn.contains(e.target)) { // Simplified check for the button
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                }
+            });
+    
+    
+            // Effetto scroll per navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
     </script>
-
+    
 </nav>
+
 
     <!-- Header principale -->
 <header class="main-header">
     <div class="container">
         <div class="header-content">
-            <h1>Termini e Condizioni</h1>
+            <h2>Termini e Condizioni</h2>
             <p>Scopri le regole che definiscono l'utilizzo dell'app Strush e come proteggiamo te e i tuoi dati</p>
         </div>
     </div>
 </header>
 
-<!-- Header -->
 <style>
     /* Header principale */
     .main-header {
-        background: var(--gradient-primary);
-        padding: 7rem 0 5rem;
-        /* margin-top: 0; Assicurati che non ci sia margin-top qui */
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: var(--gradient-primary); /* Usa la variabile gradiente definita in :root */
+    padding: 4rem 0rem;
+    margin-top: 0; /* Rimosso il margin-top che causava lo spazio bianco */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .main-header:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('pattern.png'); /* Assicurati che il pattern esista o rimuovi */
-        opacity: 0.1;
-        z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('pattern.png'); /* Assicurati che il pattern esista o rimuovi */
+    opacity: 0.1;
+    z-index: 0;
     }
 
     .main-header .container {
-        position: relative;
-        z-index: 2;
+    position: relative;
+    z-index: 2;
     }
 
     .header-content {
-        max-width: 800px;
-        margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
     }
 
-    .main-header h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
-        font-weight: 800;
+    .main-header h2 {
+    margin-bottom: 1.5rem;
+    color: var(--dark); /* Testo scuro su sfondo chiaro gradiente */
     }
 
     .main-header p {
-        font-size: 1.25rem;
-        margin-bottom: 2rem;
-        color: var(--dark);
-        opacity: 0.9;
+    margin-bottom: 2rem;
+    color: var(--dark);
+    opacity: 0.9;
     }
-
-    /* --- REGOLE RIMOSSE DA QUI --- */
-    /*
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    .navbar {
-        margin-bottom: 0;
-    }
-    */
 
     @media (max-width: 768px) {
-        .main-header {
-            padding: 5rem 0 3rem;
-            /* margin-top: 60px; RIMOSSO - gestito da body padding */
-        }
-
-        .main-header h1 {
-            font-size: 2.5rem;
+    .main-header {
+            padding: 3rem 0;
         }
     }
 </style>
 
 
     <!-- Contenuto principale -->
-    <main>
-        <div class="container">
-            <div class="terms-content">
-                <div class="terms-intro">
-                    <h2>Benvenuto ai Termini e Condizioni di Strush</h2>
-                    <p>Questi Termini e Condizioni regolano l'utilizzo dell'applicazione mobile Strush e del sito web correlato. Utilizzando i nostri servizi, accetti integralmente questi termini. Ti preghiamo di leggerli attentamente prima di procedere.</p>
-                    <p>L'ultimo aggiornamento di questi termini risale al <strong>18 marzo 2025</strong>.</p>
-                </div>
+<main>
+    <div class="container">
+        <div class="terms-content">
+            <div class="terms-intro">
+                <h3>Benvenuto ai Termini e Condizioni di Strush</h3>
+                <p>Questi Termini e Condizioni regolano l'utilizzo dell'applicazione mobile Strush e del sito web correlato. Utilizzando i nostri servizi, accetti integralmente questi termini. Ti preghiamo di leggerli attentamente prima di procedere.</p>
+                <p>L'ultimo aggiornamento di questi termini risale al <strong>18 marzo 2025</strong>.</p>
+            </div>
 
-                <div class="toc">
-                    <h3>Indice dei contenuti</h3>
-                    <ul>
-                        <li><a href="#definitions">Definizioni</a></li>
-                        <li><a href="#registration">Registrazione e Account</a></li>
-                        <li><a href="#privacy">Privacy e Dati Personali</a></li>
-                        <li><a href="#sync">Sincronizzazione Conti e Sicurezza</a></li>
-                        <li><a href="#social">Funzionalità Social</a></li>
-                        <li><a href="#license">Licenza d'Uso</a></li>
-                        <li><a href="#liability">Limitazioni di Responsabilità</a></li>
-                        <li><a href="#changes">Modifiche ai Termini</a></li>
-                        <li><a href="#termination">Risoluzione</a></li>
-                        <li><a href="#law">Legge Applicabile</a></li>
-                    </ul>
-                </div>
+            <div class="toc">
+                <h3>Indice dei contenuti</h3>
+                <ul>
+                    <li><a href="#definitions">Definizioni</a></li>
+                    <li><a href="#registration">Registrazione e Account</a></li>
+                    <li><a href="#privacy">Privacy e Dati Personali</a></li>
+                    <li><a href="#sync">Sincronizzazione Conti e Sicurezza</a></li>
+                    <li><a href="#social">Funzionalità Social</a></li>
+                    <li><a href="#license">Licenza d'Uso</a></li>
+                    <li><a href="#liability">Limitazioni di Responsabilità</a></li>
+                    <li><a href="#changes">Modifiche ai Termini</a></li>
+                    <li><a href="#termination">Risoluzione</a></li>
+                    <li><a href="#law">Legge Applicabile</a></li>
+                </ul>
+            </div>
 
-                <div id="definitions" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-book"></i>
-                        <h2>1. Definizioni</h2>
-                    </div>
-                    <p>"Strush", "noi", "nostro" si riferiscono all'applicazione Strush, al sito web e ai servizi correlati.</p>
-                    <p>"Utente", "tu", "tuo" si riferiscono a qualsiasi persona che accede o utilizza i nostri servizi.</p>
-                    <p>"Servizi" si riferisce all'app mobile Strush, al sito web, e a tutte le funzionalità offerte.</p>
+            <div id="definitions" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-book"></i>
+                    <h3>1. Definizioni</h3>
                 </div>
+                <p>"Strush", "noi", "nostro" si riferiscono all'applicazione Strush, al sito web e ai servizi correlati.</p>
+                <p>"Utente", "tu", "tuo" si riferiscono a qualsiasi persona che accede o utilizza i nostri servizi.</p>
+                <p>"Servizi" si riferisce all'app mobile Strush, al sito web, e a tutte le funzionalità offerte.</p>
+            </div>
 
-                <div id="registration" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-user-plus"></i>
-                        <h2>2. Registrazione e Account</h2>
-                    </div>
-                    <p>Per utilizzare pienamente i nostri servizi, dovrai creare un account. Sei responsabile della sicurezza delle tue credenziali e di tutte le attività che avvengono sul tuo account. Devi fornire informazioni accurate e complete durante la registrazione e mantenerle aggiornate.</p>
-                    <p>L'età minima per creare un account è di 16 anni. Se hai meno di 18 anni, dovresti ottenere il consenso di un genitore o tutore prima di utilizzare i nostri servizi.</p>
-                    <p>Ti impegni a:</p>
-                    <ul>
-                        <li>Fornire informazioni accurate e complete</li>
-                        <li>Mantenere la sicurezza della tua password</li>
-                        <li>Notificare immediatamente qualsiasi accesso non autorizzato</li>
-                        <li>Essere responsabile di tutte le attività sul tuo account</li>
-                    </ul>
+            <div id="registration" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>2. Registrazione e Account</h3>
                 </div>
+                <p>Per utilizzare pienamente i nostri servizi, dovrai creare un account. Sei responsabile della sicurezza delle tue credenziali e di tutte le attività che avvengono sul tuo account. Devi fornire informazioni accurate e complete durante la registrazione e mantenerle aggiornate.</p>
+                <p>L'età minima per creare un account è di 16 anni. Se hai meno di 18 anni, dovresti ottenere il consenso di un genitore o tutore prima di utilizzare i nostri servizi.</p>
+                <p>Ti impegni a:</p>
+                <p>- Fornire informazioni accurate e complete</p>
+                <p>- Mantenere la sicurezza della tua password</p>
+                <p>- Notificare immediatamente qualsiasi accesso non autorizzato</p>
+                <p>- Essere responsabile di tutte le attività sul tuo account</p>
+            </div>
 
-                <div id="privacy" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-shield-alt"></i>
-                        <h2>3. Privacy e Dati Personali</h2>
-                    </div>
-                    <p>La raccolta e l'utilizzo dei tuoi dati personali sono regolati dalla nostra Informativa sulla Privacy. Utilizzando i nostri servizi, acconsenti alla raccolta e all'elaborazione dei tuoi dati come descritto nell'Informativa.</p>
-                    <p>Adottiamo misure tecniche e organizzative appropriate per proteggere i tuoi dati personali da perdita, uso improprio e accesso non autorizzato. Tuttavia, nessun sistema è completamente sicuro, pertanto non possiamo garantire la sicurezza assoluta dei tuoi dati.</p>
+            <div id="privacy" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>3. Privacy e Dati Personali</h3>
                 </div>
+                <p>La raccolta e l'utilizzo dei tuoi dati personali sono regolati dalla nostra Informativa sulla Privacy. Utilizzando i nostri servizi, acconsenti alla raccolta e all'elaborazione dei tuoi dati come descritto nell'Informativa.</p>
+                <p>Adottiamo misure tecniche e organizzative appropriate per proteggere i tuoi dati personali da perdita, uso improprio e accesso non autorizzato. Tuttavia, nessun sistema è completamente sicuro, pertanto non possiamo garantire la sicurezza assoluta dei tuoi dati.</p>
+            </div>
 
-                <div id="sync" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-sync-alt"></i>
-                        <h2>4. Sincronizzazione Conti e Sicurezza</h2>
-                    </div>
-                    <p>Strush offre la possibilità di sincronizzare i tuoi conti finanziari tramite connessioni sicure. Comprendiamo la sensibilità di queste informazioni e adottiamo misure di sicurezza avanzate per proteggere i tuoi dati. Tuttavia, non possiamo garantire una sicurezza assoluta e l'utilizzo di queste funzionalità avviene a tuo rischio.</p>
-                    <p>Utilizziamo la crittografia end-to-end per proteggere le tue credenziali bancarie e non memorizziamo mai le tue password in formato non crittografato. Le connessioni sono stabilite tramite protocolli sicuri e certificati SSL.</p>
+            <div id="sync" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>4. Sincronizzazione Conti e Sicurezza</h3>
                 </div>
+                <p>Strush offre la possibilità di sincronizzare i tuoi conti finanziari tramite connessioni sicure. Comprendiamo la sensibilità di queste informazioni e adottiamo misure di sicurezza avanzate per proteggere i tuoi dati. Tuttavia, non possiamo garantire una sicurezza assoluta e l'utilizzo di queste funzionalità avviene a tuo rischio.</p>
+                <p>Utilizziamo la crittografia end-to-end per proteggere le tue credenziali bancarie e non memorizziamo mai le tue password in formato non crittografato. Le connessioni sono stabilite tramite protocolli sicuri e certificati SSL.</p>
+            </div>
 
-                <div id="social" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-users"></i>
-                        <h2>5. Funzionalità Social</h2>
-                    </div>
-                    <p>Le funzionalità social di Strush ti permettono di interagire con altri utenti. Sei responsabile dei contenuti che condividi e delle interazioni con altri utenti. Ci riserviamo il diritto di rimuovere contenuti inappropriati e di sospendere account che violano questi termini.</p>
-                    <p>Non è consentito:</p>
-                    <ul>
-                        <li>Condividere contenuti offensivi, discriminatori o illegali</li>
-                        <li>Molestare o intimidire altri utenti</li>
-                        <li>Violare la privacy di altri utenti</li>
-                        <li>Diffondere informazioni false o fuorvianti</li>
-                    </ul>
+            <div id="social" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-users"></i>
+                    <h3>5. Funzionalità Social</h3>
                 </div>
+                <p>Le funzionalità social di Strush ti permettono di interagire con altri utenti. Sei responsabile dei contenuti che condividi e delle interazioni con altri utenti. Ci riserviamo il diritto di rimuovere contenuti inappropriati e di sospendere account che violano questi termini.</p>
+                <p>Non è consentito:</p>
+                <p>- Condividere contenuti offensivi, discriminatori o illegali</p>
+                <p>- Molestare o intimidire altri utenti</p>
+                <p>- Violare la privacy di altri utenti</p>
+                <p>- Diffondere informazioni false o fuorvianti</p>
+            </div>
 
-                <div id="license" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-certificate"></i>
-                        <h2>6. Licenza d'Uso</h2>
-                    </div>
-                    <p>Ti concediamo una licenza limitata, non esclusiva e non trasferibile per utilizzare i nostri servizi per scopi personali e non commerciali. Non puoi riprodurre, modificare, distribuire o creare opere derivate dai nostri contenuti senza autorizzazione esplicita.</p>
-                    <p>Tutti i diritti di proprietà intellettuale relativi ai nostri servizi sono di proprietà di Strush o dei suoi licenziatari. Nulla in questi termini ti conferisce il diritto di utilizzare nomi commerciali, marchi o loghi di Strush.</p>
+            <div id="license" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-certificate"></i>
+                    <h3>6. Licenza d'Uso</h3>
                 </div>
+                <p>Ti concediamo una licenza limitata, non esclusiva e non trasferibile per utilizzare i nostri servizi per scopi personali e non commerciali. Non puoi riprodurre, modificare, distribuire o creare opere derivate dai nostri contenuti senza autorizzazione esplicita.</p>
+                <p>Tutti i diritti di proprietà intellettuale relativi ai nostri servizi sono di proprietà di Strush o dei suoi licenziatari. Nulla in questi termini ti conferisce il diritto di utilizzare nomi commerciali, marchi o loghi di Strush.</p>
+            </div>
 
-                <div id="liability" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h2>7. Limitazioni di Responsabilità</h2>
-                    </div>
-                    <p>Strush fornisce strumenti per la gestione finanziaria ma non offre consulenza finanziaria professionale. Le decisioni finanziarie sono di tua esclusiva responsabilità. I nostri servizi sono forniti "così come sono" e decliniamo qualsiasi garanzia implicita o esplicita.</p>
-                    <p>Nei limiti consentiti dalla legge, non saremo responsabili per danni indiretti, incidentali, speciali, consequenziali o punitivi, o per qualsiasi perdita di profitti o ricavi, derivanti dall'utilizzo dei nostri servizi.</p>
+            <div id="liability" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>7. Limitazioni di Responsabilità</h3>
                 </div>
+                <p>Strush fornisce strumenti per la gestione finanziaria ma non offre consulenza finanziaria professionale. Le decisioni finanziarie sono di tua esclusiva responsabilità. I nostri servizi sono forniti "così come sono" e decliniamo qualsiasi garanzia implicita o esplicita.</p>
+                <p>Nei limiti consentiti dalla legge, non saremo responsabili per danni indiretti, incidentali, speciali, consequenziali o punitivi, o per qualsiasi perdita di profitti o ricavi, derivanti dall'utilizzo dei nostri servizi.</p>
+            </div>
 
-                <div id="changes" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-edit"></i>
-                        <h2>8. Modifiche ai Termini</h2>
-                    </div>
-                    <p>Ci riserviamo il diritto di modificare questi termini in qualsiasi momento. Le modifiche saranno effettive dopo la pubblicazione dei termini aggiornati. L'uso continuato dei nostri servizi dopo tali modifiche costituisce accettazione dei nuovi termini.</p>
-                    <p>Ti informeremo delle modifiche sostanziali tramite email o notifica all'interno dell'app. È tua responsabilità rivedere periodicamente questi termini per eventuali aggiornamenti.</p>
+            <div id="changes" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-edit"></i>
+                    <h3>8. Modifiche ai Termini</h3>
                 </div>
+                <p>Ci riserviamo il diritto di modificare questi termini in qualsiasi momento. Le modifiche saranno effettive dopo la pubblicazione dei termini aggiornati. L'uso continuato dei nostri servizi dopo tali modifiche costituisce accettazione dei nuovi termini.</p>
+                <p>Ti informeremo delle modifiche sostanziali tramite email o notifica all'interno dell'app. È tua responsabilità rivedere periodicamente questi termini per eventuali aggiornamenti.</p>
+            </div>
 
-                <div id="termination" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-door-open"></i>
-                        <h2>9. Risoluzione</h2>
-                    </div>
-                    <p>Puoi interrompere l'utilizzo dei nostri servizi in qualsiasi momento. Ci riserviamo il diritto di sospendere o terminare il tuo accesso ai servizi, con o senza preavviso, in caso di violazione di questi termini o per qualsiasi altro motivo a nostra discrezione.</p>
-                    <p>Alla risoluzione, il tuo diritto di accedere e utilizzare i nostri servizi cesserà immediatamente. Le disposizioni che per loro natura dovrebbero sopravvivere alla risoluzione, sopravviveranno, incluse ma non limitate a: proprietà intellettuale, indennizzi, limitazioni di responsabilità.</p>
+            <div id="termination" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-door-open"></i>
+                    <h3>9. Risoluzione</h3>
                 </div>
+                <p>Puoi interrompere l'utilizzo dei nostri servizi in qualsiasi momento. Ci riserviamo il diritto di sospendere o terminare il tuo accesso ai servizi, con o senza preavviso, in caso di violazione di questi termini o per qualsiasi altro motivo a nostra discrezione.</p>
+                <p>Alla risoluzione, il tuo diritto di accedere e utilizzare i nostri servizi cesserà immediatamente. Le disposizioni che per loro natura dovrebbero sopravvivere alla risoluzione, sopravviveranno, incluse ma non limitate a: proprietà intellettuale, indennizzi, limitazioni di responsabilità.</p>
+            </div>
 
-                <div id="law" class="terms-section">
-                    <div class="terms-section-title">
-                        <i class="fas fa-gavel"></i>
-                        <h2>10. Legge Applicabile</h2>
-                    </div>
-                    <p>Questi termini sono regolati e interpretati in conformità con le leggi italiane. Qualsiasi controversia relativa a questi termini sarà soggetta alla giurisdizione esclusiva dei tribunali italiani.</p>
-                    <p>Se una disposizione di questi termini è ritenuta non valida o inapplicabile, le restanti disposizioni rimarranno in vigore. Una rinuncia da parte nostra a far valere qualsiasi disposizione di questi termini non costituirà una rinuncia a far valere tale disposizione in futuro.</p>
+            <div id="law" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-gavel"></i>
+                    <h3>10. Legge Applicabile</h3>
                 </div>
+                <p>Questi termini sono regolati e interpretati in conformità con le leggi italiane. Qualsiasi controversia relativa a questi termini sarà soggetta alla giurisdizione esclusiva dei tribunali italiani.</p>
+                <p>Se una disposizione di questi termini è ritenuta non valida o inapplicabile, le restanti disposizioni rimarranno in vigore. Una rinuncia da parte nostra a far valere qualsiasi disposizione di questi termini non costituirà una rinuncia a far valere tale disposizione in futuro.</p>
+            </div>
 
-                <div class="update-info">
-                    <div class="last-update">
-                        <i class="far fa-calendar-alt"></i> Ultimo aggiornamento: 18 marzo 2025
-                    </div>
-                    <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-calendar-alt"></i> Ultimo aggiornamento: 18 marzo 2025
                 </div>
+                <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
+    </div>
 </main>
 
-    <style>
-        /* Stile del contenuto dei Termini */
+<style>
+    /* Stile del contenuto dei Termini */
+    .terms-content {
+        background-color: white;
+        border-radius: 15px;
+        padding: 3rem;
+        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        margin: 3rem 0;
+    }
+
+    .terms-intro {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .terms-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .terms-section-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .terms-section-title i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: var(--secondary); /* Icone con colore secondario */
+        width: 25px; /* Larghezza fissa per allineamento */
+        text-align: center;
+    }
+
+    .terms-section-title h3 {
+        margin-bottom: 0;
+    }
+
+    .terms-section p {
+        margin-bottom: 1rem; /* Applica a tutti i paragrafi, inclusi quelli che erano li */
+    }
+
+    .update-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .last-update {
+        font-style: italic;
+        color: var(--text2);
+    }
+
+    .back-to-top {
+        display: inline-flex;
+        align-items: center;
+        color: var(--secondary);
+        font-weight: 600;
+        transition: transform 0.3s ease;
+    }
+
+    .back-to-top i {
+        margin-left: 0.5rem;
+    }
+
+    .toc {
+        background-color: rgba(180, 250, 205, 0.1);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .toc ul {
+        list-style-type: decimal;
+        margin-left: 1.5rem;
+    }
+
+    .toc a {
+        color: var(--secondary);
+        transition: color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+
         .terms-content {
-            background-color: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-            margin: 3rem 0;
-        }
-
-        .terms-intro {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .terms-intro p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .terms-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .terms-section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .terms-section-title i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: var(--secondary);
-        }
-
-        .terms-section-title h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0;
-            color: var(--dark);
-        }
-
-        .terms-section p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            color: #444;
-            line-height: 1.7;
-        }
-
-        .terms-section ul {
-            margin: 1rem 0 1.5rem 2rem;
-            list-style-type: disc;
-        }
-
-        .terms-section ul li {
-            margin-bottom: 0.5rem;
-            color: #444;
-        }
-
-        .update-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .last-update {
-            font-style: italic;
-            color: #777;
-        }
-
-        .back-to-top {
-            display: inline-flex;
-            align-items: center;
-            color: var(--secondary);
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-
-        .back-to-top i {
-            margin-left: 0.5rem;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
-        }
-
-        .toc {
-            background-color: rgba(180, 250, 205, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .toc h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .toc ul {
-            list-style-type: decimal;
-            margin-left: 1.5rem;
-        }
-
-        .toc a {
-            color: var(--secondary);
-            transition: color 0.3s ease;
-        }
-
-        .toc a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            /* Regole responsive per il contenuto main */
-            /* .main-header regole spostate nel blocco style dell'header */
-
-            .terms-content {
-                padding: 2rem;
+                padding: 2rem; /* Ridotto padding in mobile */
+                margin: 1.5rem 0;
             }
 
-            /* Rimossa regola .nav-links perché non pertinente qui */
+        .terms-section-title i {
+                font-size: 1.3rem; /* Icone leggermente più piccole */
+                margin-right: 0.8rem;
+            }
+
+        .update-info {
+            flex-direction: column; /* Impila gli elementi in mobile */
+            align-items: flex-start; /* Allinea a sinistra */
         }
-    </style>
+    }
+</style>
 
     <!-- Footer -->
 <footer>
@@ -1353,4 +1324,4 @@
 </style>
 
 </body>
-            </html>
+</html>
