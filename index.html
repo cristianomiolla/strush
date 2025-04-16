@@ -64,8 +64,8 @@
     
     h1 {
         font-weight: 900; /* Light */
-            /* La dimensione effettiva sarà influenzata dal font-size del body */
-    }
+        font-size: 2.7rem;
+        }
     
     h2 {
         font-weight: 700; /* Bold */
@@ -112,9 +112,13 @@
         p {
             font-size: 1.1rem; /* Mantenuto coerente con la riduzione */
         }
+
+        h1 {
+            font-size: 1.6rem; 
+        }
     
         h2 {
-            font-size: 1.7rem; 
+            font-size: 1.6rem; 
         }
 
         h3 {
@@ -152,41 +156,16 @@
     }
     
     /* Section base style */
+
     .section {
         padding: 6rem 0 6rem;
     }
     
-    @media (max-width: 768px) {
-        .section {
-            padding: 5rem 0 5rem;
-        }
-    }
-    
-    /* Section sub-titles */
-    .section-subtitles {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        color: #2b2d42;
-        font-size: 1.2rem;
-    }
-    
-    @media (max-width: 768px) {
-        .section-subtitles {
-            margin-bottom: 2rem;
-            font-size: 1.2rem; 
-        }
-    }
-</style>
 
-
-    <!-- Animazione sui titoli -->
-<style>
-    /* Stili per i titoli */
+        /* Stili per i titoli */
     .section-title {
         text-align: center;
-        margin-bottom: 3rem;
-        margin-top: 3rem;
+        margin: 48px;
         position: relative;
         color: #2b2d42;
         font-weight: bold;
@@ -225,8 +204,35 @@
         transform: translateX(-50%) scaleX(1);
     }
 
+
+    /* Section sub-titles */
+    .section-subtitles {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        color: #2b2d42;
+        font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+        
+        .section {
+            padding: 5rem 0 5rem;
+        }
+
+        .section-title {
+            margin: 32px;
+        }
+        .section-subtitles {
+            margin-bottom: 32px;
+            font-size: 1.2rem; 
+        }
+
+    }
 </style>
 
+
+    <!-- Animazione sui titoli -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const sectionTitles = document.querySelectorAll('.section-title');
@@ -1372,7 +1378,7 @@
         }
 
         .strush-mobile-links li {
-            margin: 10px 0;
+            margin: 8px 0;
             width: 100%;
             text-align: center;
             opacity: 0;
@@ -1392,7 +1398,7 @@
             text-decoration: none;
             color: white;
             font-size: 17.6px;
-            padding: 12px 20px;
+            padding: 8px 20px;
             display: block;
             width: 100%;
             max-width: 250px;
@@ -1898,10 +1904,8 @@
             box-sizing: border-box; /* Added for consistency */
         }
 
-        .hero-title {
-            font-size: 2.7rem;
-            font-weight: 800;
-            margin-bottom: 30px;
+        h1 {
+            margin-bottom: 32px;
             line-height: 1.2;
             background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
             -webkit-background-clip: text;
@@ -1912,7 +1916,7 @@
 
         .hero-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
             color: rgba(255, 255, 255, 0.8);
 
         }
@@ -2260,8 +2264,7 @@
 
     /* --- Media Query for Mobile --- */
     @media screen and (max-width: 768px) {
-        /* .hero height is already set to 100dvh which should work better on mobile */
-
+        
         .hero .container {
             flex-direction: column;
             justify-content: space-evenly; /* Changed from center for better spacing */
@@ -2287,10 +2290,6 @@
             height: auto; /* Let content dictate height */
             /* max-height: 50vh; /* Reduced max height */
                 flex-shrink: 0; /* Prevent shrinking */
-        }
-
-        .hero-title {
-            font-size: 1.6rem; 
         }
 
         .hero-subtitle {
@@ -3130,7 +3129,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 30px 20px;
+            padding: 24px 24px;
             border-top: 4px solid var(--primary-purple);
             /* min-height: 550px; */
         }
@@ -3141,7 +3140,6 @@
             padding: 0 10px;
             text-align: center;
              /* Aggiunto per separare dal video, come nel CSS originale implicitamente presente */
-            margin-bottom: 20px;
         }
 
         #features-mobile .feature-media {
@@ -3149,8 +3147,8 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            padding-top: 20px; /* Mantenuto dall'originale */
-            padding-bottom: 20px; /* Mantenuto dall'originale */
+            padding-top: 24px; /* Mantenuto dall'originale */
+            padding-bottom: 24px; /* Mantenuto dall'originale */
         }
 
         #features-mobile .feature-video {
@@ -3723,7 +3721,7 @@
 
     /* Card info section */
     .card-info {
-        padding: 1.2rem;
+        padding: 24px;
         text-align: center;
         background: white;
         flex-grow: 1;
@@ -3766,7 +3764,6 @@
     @media (max-width: 768px) {
         .avatar-selection-container {
             gap: 20px;
-            padding: 15px;
         }
         
         .avatar-card {
@@ -4825,7 +4822,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </svg>
                         </div>
                         <div class="testimonial-content">
-                            <p>Non pensavo che risparmiare potesse diventare una specie di gioco! Tenere sotto controllo le mie finanze è diventato qualcosa che voglio fare, non che devo fare.</p>
+                            <p>È una specie di gioco! Tenere sotto controllo le spese è diventato qualcosa che voglio fare, non che devo fare.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="avatar-blob avatar-shape-1">
@@ -4849,7 +4846,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </svg>
                         </div>
                         <div class="testimonial-content">
-                            <p>L'app più intuitiva che abbia mai usato. Ogni volta che sblocco un badge su Strush mi sento tipo livello 10 del risparmio.</p>
+                            <p>L'app più intuitiva che abbia mai usato. Ogni volta che sblocco un badge mi sento tipo livello 10 del risparmio.</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="avatar-blob avatar-shape-2">
@@ -4873,7 +4870,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </svg>
                         </div>
                         <div class="testimonial-content">
-                            <p>Chi l’avrebbe mai detto che mi sarei gasato per aver messo da parte 5 euro? Strush ha tirato fuori il gamer che c'è in me… ma con i soldi.</p>
+                            <p>Chi l’avrebbe mai detto che mi sarei gasato per aver messo da parte 5 euro?</p>
                         </div>
                         <div class="testimonial-author">
                             <div class="avatar-blob avatar-shape-3">
@@ -4992,7 +4989,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .story-inner {
             background: rgb(255, 255, 255);
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 32px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -5032,14 +5029,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         /* Quote icon styles */
         .quote-icon {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             position: relative;
             z-index: 1;
         }
         
         /* Testimonial content styles */
         .testimonial-content {
-            margin-bottom: 30px;
+            margin-bottom: 32px;
             flex-grow: 1;
             position: relative;
             z-index: 1;
@@ -5145,11 +5142,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             .story-inner {
-                padding: 1.2rem;
+                padding: 24px;
             }
             
             .testimonial-content {
-                margin-bottom: 15px;
+                margin-bottom: 16px;
             }
             
             .stories-content {
@@ -5158,11 +5155,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             /* Contenuto testimonial */
             .testimonial-content p {
-                font-size: 1.05rem;
+                font-size: 1.1rem;
             }
             
             .quote-icon {
-                margin-bottom: 10px;
+                margin-bottom: 16px;
             }
             
             .quote-icon svg {
@@ -5606,7 +5603,7 @@ document.addEventListener('DOMContentLoaded', function() {
             margin-bottom: 1rem;
             display: inline-block;
             background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 20px;
         }
     
@@ -5765,7 +5762,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;             
             justify-content: center;             
             gap: 3rem;             
-            margin-top: 2rem;         
+            margin-top: 24px;         
         }          
         .store-btn {             
             display: flex;             
@@ -5914,6 +5911,7 @@ document.addEventListener('DOMContentLoaded', function() {
         color: #8EDCA9;
         text-decoration: none;
         transition: all 0.3s ease;
+        font-size: 16px;
     }
     
     .footer-email a:hover {
@@ -5989,7 +5987,7 @@ document.addEventListener('DOMContentLoaded', function() {
         position: relative;
         padding-bottom: 10px;
         display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
-        margin-bottom: 20px;
+        margin-bottom: 24px;
     }    
     
     .footer-links h5::after {
@@ -6004,7 +6002,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
     
     .footer-links ul li {
-        margin-bottom: 18px;
+        margin-bottom: 24px;
     }    
     
     /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
@@ -6013,7 +6011,6 @@ document.addEventListener('DOMContentLoaded', function() {
         text-decoration: none;
         transition: all 0.3s ease;
         position: relative;
-        padding: 2px 4px;
         display: inline-block;
     }        
     
@@ -6092,13 +6089,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /* Nuovo stile per le frasi nel copyright con più spazio */
     .copyright .proudly-crafted {
-        margin-bottom: 15px;
+        margin-bottom: 16px;
         color: white;
     }
     
     .copyright .copyright-text {
         margin-top: 0;
-        color: white;
+        margin-bottom: 0px;
     }
     
     /* Responsive adjustments */
@@ -6121,6 +6118,9 @@ document.addEventListener('DOMContentLoaded', function() {
             margin-right: auto;
         }
         
+        .footer-email a {
+        font-size: 17.6px;
+        }
         /* Centra i link social nella versione mobile */
         .footer-social {
             justify-content: center;
@@ -6138,4 +6138,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 
-</html>
+        </html>
