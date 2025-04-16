@@ -1177,14 +1177,14 @@
                     </div>
                 </a>
             </div>
-    
+
             <!-- Menu hamburger a destra -->
             <div class="strush-menu-btn" id="menuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-    
+
             <!-- Menu dropdown per mobile -->
             <div class="strush-mobile-dropdown" id="mobileDropdown">
                 <ul class="strush-mobile-links">
@@ -1195,7 +1195,7 @@
                     <li><a href="index.html#team">Team</a></li>
                 </ul>
             </div>
-    
+
             <!-- Menu desktop -->
             <div class="strush-nav-links-container" id="navLinksContainer">
                 <!-- Logo per versione desktop -->
@@ -1209,7 +1209,7 @@
                         </div>
                     </a>
                 </div>
-    
+
                 <ul class="strush-nav-links">
                     <li><a href="index.html#features-desktop">Caratteristiche</a></li>
                     <li><a href="index.html#avatar-evolution">Avatar</a></li>
@@ -1220,7 +1220,7 @@
             </div>
         </div>
     </div>
-    
+
     <style>
         /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
         .strush-navbar {
@@ -1235,24 +1235,23 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-            /* height: auto; Removed */
             min-height: 70px; /* Set minimum height for the navbar */
             display: flex; /* Use flexbox to help center content vertically */
             align-items: center; /* Center content vertically */
         }
-    
+
         /* Add padding to body to prevent navbar from covering content */
         body {
             /* Ensure padding matches the minimum navbar height */
             padding-top: 70px;
         }
-    
+
         /* Scrolled state for navbar */
         .strush-navbar.scrolled {
             background-color: rgba(0, 0, 0, 0.95);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
-    
+
         .strush-container {
             width: 96%;
             max-width: 1140px;
@@ -1261,7 +1260,7 @@
             /* Allow container to take full width needed */
             width: 100%;
         }
-    
+
         .strush-nav-container {
             display: flex;
             align-items: center;
@@ -1271,12 +1270,12 @@
             position: relative;
             min-height: 60px; /* Allow content to define height, but ensure enough space */
         }
-    
+
         /* Logo per versione mobile (inizialmente nascosto in desktop) */
         .strush-logo-mobile {
             display: none;
         }
-    
+
         /* --- MODIFICA DROPDOWN MOBILE --- */
         .strush-mobile-dropdown {
             display: none; /* Inizialmente nascosto, controllato da JS e @media */
@@ -1302,7 +1301,7 @@
             /* Ensure positioning context for pseudo-elements */
             position: absolute;
         }
-    
+
         /* Sottile linea viola per evidenziare il bordo superiore */
         .strush-mobile-dropdown::before {
             content: '';
@@ -1314,7 +1313,7 @@
             background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
             z-index: 1; /* Sopra il glow */
         }
-    
+
         /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
         .strush-mobile-dropdown::after {
             content: '';
@@ -1337,20 +1336,20 @@
             pointer-events: none; /* Non interagibile */
             border-radius: 50%; /* Mantiene forma ellittica/rotonda */
         }
-    
+
         /* Quando il dropdown è attivo */
         .strush-mobile-dropdown.active {
             transform: translateY(0);
             opacity: 1;
             max-height: 400px; /* Abbastanza alto per i link */
         }
-    
+
         /* Rendi visibile il glow quando il dropdown è attivo */
         .strush-mobile-dropdown.active::after {
             opacity: 1;
         }
         /* --- FINE MODIFICA DROPDOWN MOBILE --- */
-    
+
         .strush-mobile-links {
             list-style: none;
             padding: 0;
@@ -1362,7 +1361,7 @@
             position: relative;
             z-index: 1;
         }
-    
+
         .strush-mobile-links li {
             margin: 10px 0;
             width: 100%;
@@ -1372,14 +1371,14 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
             transition-delay: calc(0.05s * var(--i, 0));
         }
-    
+
         .strush-mobile-dropdown.active .strush-mobile-links li {
             opacity: 1;
             transform: translateY(0);
             /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
             transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
         }
-    
+
         .strush-mobile-links a {
             text-decoration: none;
             color: white;
@@ -1395,14 +1394,14 @@
             /* Aggiunto per migliore leggibilità su sfondi complessi */
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
-    
+
         .strush-mobile-links a:hover {
             color: #8EDCA9;
             /* Effetto leggero anche sull'hover del link */
             background-color: rgba(255, 255, 255, 0.05);
         }
-    
-        /* Resto del CSS invariato... */
+
+        /* Resto del CSS desktop invariato... */
         .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
         @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
@@ -1428,32 +1427,41 @@
         .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
         .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
         .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-    
+
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
             /* Navbar struttura */
             .strush-navbar {
+                /* --- MODIFICA --- Assicurato sfondo nero solido */
                 background-color: black;
-                height: 70px;
-                min-height: 70px; /* Ensure consistency */
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
-                /* Ensure vertical centering is still applied */
+                /* --- FINE MODIFICA --- */
+                height: 70px;
+                min-height: 70px; /* Ensure consistency */
                 display: flex;
                 align-items: center;
             }
-    
+
+            /* --- NUOVA REGOLA --- Assicurati che lo sfondo rimanga solido anche allo scroll in mobile */
+            .strush-navbar.scrolled {
+                background-color: black; /* Mantiene lo sfondo solido */
+                /* Puoi mantenere o rimuovere l'ombra se desiderato */
+                 box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            }
+            /* --- FINE NUOVA REGOLA --- */
+
+
             .strush-nav-container {
                 display: grid;
                 grid-template-columns: 1fr auto 1fr;
                 padding: 0;
-                /* Ensure container fills the mobile navbar height */
                 height: 70px;
                 align-items: center;
-                    /* Override desktop justify-content */
-                justify-content: space-between;
+                justify-content: space-between; /* Override desktop justify-content */
+                /* Lo sfondo è controllato da .strush-navbar */
             }
-    
+
             /* Logo mobile */
             .strush-logo-mobile {
                 display: block;
@@ -1463,24 +1471,13 @@
                 padding: 0 15px;
                 margin-top: 0; /* Removed margin-top for better centering */
             }
-    
-            .strush-logo-mobile .strush-logo-blob {
-                width: 34px;
-                height: 34px;
-            }
-    
-            .strush-logo-mobile .strush-logo img {
-                height: 34px;
-                width: 34px;
-                transform: translateY(-2px);
-            }
-    
+
             .strush-logo-mobile .strush-logo-text {
                 margin-bottom: 0px;
                 transition: all 0.3s ease;
                 font-size: 20px;
             }
-    
+
             /* Stati attivi */
             .menu-active .strush-logo-mobile .strush-logo-text {
                 opacity: 0;
@@ -1488,25 +1485,25 @@
                 margin-left: 0;
                 overflow: hidden;
             }
-    
+
             .menu-active .strush-logo-mobile .strush-logo {
                 justify-content: center;
             }
-    
+
             .menu-active .strush-logo-mobile .strush-logo-blob {
                 animation: blob-morph 3.5s linear infinite;
             }
-    
+
             /* Navigazione */
             .strush-nav-links-container {
                 display: none;
             }
-    
+
             .strush-mobile-dropdown {
                 display: block;
                 top: 70px; /* Match mobile navbar height */
             }
-    
+
             .strush-mobile-dropdown::after {
                 filter: blur(25px);
                 top: -20px;
@@ -1514,7 +1511,7 @@
                 right: -20px;
                 bottom: -20px;
             }
-    
+
             /* Pulsante menu */
             .strush-menu-btn {
                 display: block;
@@ -1523,12 +1520,12 @@
                 justify-self: end;
                 margin-right: 20px;
             }
-    
+
             .strush-menu-btn.open span,
             .strush-menu-btn.active span {
                 background-color: #8C8DD4;
             }
-    
+
             /* Container */
             .strush-container {
                 width: 100%; /* Use full width within navbar */
@@ -1538,7 +1535,7 @@
             }
         }
     </style>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Ottieni riferimenti agli elementi
@@ -1546,23 +1543,23 @@
             const mobileDropdown = document.getElementById('mobileDropdown');
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
-    
+
             // Aggiungi attributi per l'animazione sequenziale
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
             });
-    
+
             // Toggle menu su click del pulsante hamburger
             menuBtn.addEventListener('click', function(e) {
                 e.stopPropagation(); // Previene la propagazione dell'evento
                 menuBtn.classList.toggle('open');
                 menuBtn.classList.toggle('active');
                 mobileDropdown.classList.toggle('active');
-    
+
                 // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
                 document.body.classList.toggle('menu-active');
             });
-    
+
             // Chiudi menu quando viene cliccato un link
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -1572,7 +1569,7 @@
                     document.body.classList.remove('menu-active'); // Rimuovi anche qui
                 });
             });
-    
+
             // Chiudi menu quando si clicca fuori
             document.addEventListener('click', function(e) {
                 // Check if the dropdown is active AND the click was outside the dropdown AND outside the menu button
@@ -1585,8 +1582,8 @@
                     document.body.classList.remove('menu-active'); // Rimuovi anche qui
                 }
             });
-    
-    
+
+
             // Effetto scroll per navbar
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -1597,7 +1594,7 @@
             });
         });
     </script>
-    
+
 </nav>
 
     <!-- Barra di avanzamento orizzontale migliorata sotto la navbar -->
@@ -5951,4 +5948,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 
-</html>
+    </html>
