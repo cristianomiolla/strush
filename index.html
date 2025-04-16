@@ -51,7 +51,6 @@
         font-family: 'Segoe UI', sans-serif;
         color: var(--text);
         line-height: 1.6;
-        /* La dimensione del font di base viene ridotta qui, influenzando le unità rem */
         font-size: 90%; /* Puoi aggiustare questo valore (es. 85%, 95%) per scalare tutto */
     }
     
@@ -105,20 +104,25 @@
     
     p {
         color: #555555;
-        line-height: 1.5;
-        font-size: 0.99rem; /* Ridotto da 1.1rem */
+        font-size: 1rem; /* Ridotto da 1.1rem */
     
     }
     
     @media (max-width: 768px) {
         p {
-            /* La regola precedente (0.99rem) è già applicata, quindi questa è ridondante se uguale */
-            /* Se avesse un valore diverso, andrebbe scalato proporzionalmente */
-            font-size: 0.99rem; /* Mantenuto coerente con la riduzione */
+            font-size: 1.1rem; /* Mantenuto coerente con la riduzione */
         }
     
         h2 {
-            font-size: 1.62rem; /* Ridotto da 1.8rem */
+            font-size: 1.7rem; 
+        }
+
+        h3 {
+            font-size: 1.1rem; 
+        }
+
+        a {
+            font-size: 1rem;
         }
     
     }
@@ -159,13 +163,13 @@
         max-width: 700px;
         margin: 0 auto 3rem;
         color: #2b2d42;
-        font-size: 1.13rem; /* Ridotto da 1.25rem */
+        font-size: 1.2rem;
     }
     
     @media (max-width: 768px) {
         .section-subtitles {
             margin-bottom: 2rem;
-            font-size: 1.08rem; /* Ridotto da 1.2rem */
+            font-size: 1.2rem; 
         }
     }
 </style>
@@ -1518,7 +1522,7 @@
                 z-index: 999;
                 grid-column: 3;
                 justify-self: end;
-                margin-right: 20px;
+                margin-right: 10px;
             }
 
             .strush-menu-btn.open span,
@@ -1892,7 +1896,7 @@
         .hero-title {
             font-size: 2.7rem;
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             line-height: 1.2;
             background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
             -webkit-background-clip: text;
@@ -1903,7 +1907,7 @@
 
         .hero-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.8);
 
         }
@@ -2269,7 +2273,6 @@
             text-align: center;
             padding: 0;
             order: 1; /* Text below image */
-            margin-bottom: 20px; /* Space below text */
         }
 
         .hero-image {
@@ -2279,17 +2282,14 @@
             height: auto; /* Let content dictate height */
             /* max-height: 50vh; /* Reduced max height */
                 flex-shrink: 0; /* Prevent shrinking */
-                margin-top: 10px; /* Space above image */
         }
 
         .hero-title {
-            font-size: 1.9rem; /* Slightly larger */
-                margin-bottom: 15px;
+            font-size: 1.6rem; 
         }
 
         .hero-subtitle {
-            font-size: 1.05rem; /* Slightly larger */
-            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
         .hero-buttons {
@@ -2320,14 +2320,6 @@
             transform: scale(0.9); /* Scale down slightly */
         }
     }
-
-    /* Optional: Adjustments for very small screens */
-        @media screen and (max-height: 500px) and (max-width: 768px) {
-            .hero-title { font-size: 1.6rem; }
-            .hero-subtitle { font-size: 0.9rem; }
-            .dino-avatar-container { transform: scale(0.75); max-height: 280px; }
-            .hero .container { padding-top: calc(var(--nav-height, 40px) + 10px); }
-        }
 
     </style>
 
@@ -2553,426 +2545,426 @@
 </section>
 
     <!-- Desktop Feature -->
-    <section id="features-desktop">
-        <div id="features-container-desktop" class="features-main-section section desktop-only">
-            <div class="container">
-                <h2 class="section-title">Caratteristiche Principali</h2>
+<section id="features-desktop">
+    <div id="features-container-desktop" class="features-main-section section desktop-only">
+        <div class="container">
+            <h2 class="section-title">Caratteristiche Principali</h2>
 
-                <!-- Container per tutte le features -->
-                <div class="features-list" id="features-carousel-desktop">
-                    <!-- Feature 1 -->
-                    <div id="feature-desktop-1" class="feature-parallax-container">
-                        <div class="feature-container">
-                            <div class="feature-half feature-half-left">
-                                <div class="feature-card">
-                                    <div class="feature-icon-wrapper">
-                                        <div class="feature-icon">
-                                            <i class="fas fa-wallet"></i>
-                                        </div>
+            <!-- Container per tutte le features -->
+            <div class="features-list" id="features-carousel-desktop">
+                <!-- Feature 1 -->
+                <div id="feature-desktop-1" class="feature-parallax-container">
+                    <div class="feature-container">
+                        <div class="feature-half feature-half-left">
+                            <div class="feature-card">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-wallet"></i>
                                     </div>
-                                    <h3 class="feature-title">Unica Dashboard</h3>
-                                    <p>Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
                                 </div>
+                                <h3 class="feature-title">Unica Dashboard</h3>
+                                <p>Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
                             </div>
+                        </div>
 
-                            <div class="center-divider"></div>
+                        <div class="center-divider"></div>
 
-                            <div class="feature-half feature-half-right">
-                                <div class="video-perspective-container">
-                                    <!-- Added preload="metadata" -->
-                                    <video id="parallax-video-desktop-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
-                                </div>
+                        <div class="feature-half feature-half-right">
+                            <div class="video-perspective-container">
+                                <!-- Added preload="metadata" -->
+                                <video id="parallax-video-desktop-1" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Feature 2 (Invertita) -->
-                    <div id="feature-desktop-2" class="feature-parallax-container">
-                        <div class="feature-container">
-                            <div class="feature-half feature-half-left">
-                                <div class="video-perspective-container">
-                                    <!-- Added preload="metadata" -->
-                                    <video id="parallax-video-desktop-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
-                                </div>
+                <!-- Feature 2 (Invertita) -->
+                <div id="feature-desktop-2" class="feature-parallax-container">
+                    <div class="feature-container">
+                        <div class="feature-half feature-half-left">
+                            <div class="video-perspective-container">
+                                <!-- Added preload="metadata" -->
+                                <video id="parallax-video-desktop-2" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
                             </div>
+                        </div>
 
-                            <div class="center-divider"></div>
+                        <div class="center-divider"></div>
 
-                            <div class="feature-half feature-half-right">
-                                <div class="feature-card">
-                                    <div class="feature-icon-wrapper">
-                                        <div class="feature-icon">
-                                            <i class="fas fa-users"></i>
-                                        </div>
+                        <div class="feature-half feature-half-right">
+                            <div class="feature-card">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-users"></i>
                                     </div>
-                                    <h3 class="feature-title">Collaborativa e Smart</h3>
-                                    <p>Connettiti con i tuoi amici e tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi.</p>
                                 </div>
+                                <h3 class="feature-title">Collaborativa e Smart</h3>
+                                <p>Connettiti con i tuoi amici e tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Feature 3 -->
-                    <div id="feature-desktop-3" class="feature-parallax-container">
-                        <div class="feature-container">
-                            <div class="feature-half feature-half-left">
-                                <div class="feature-card">
-                                    <div class="feature-icon-wrapper">
-                                        <div class="feature-icon">
-                                            <i class="fas fa-calendar-alt"></i> <!-- Icona per Insight Intelligenti -->
-                                        </div>
+                <!-- Feature 3 -->
+                <div id="feature-desktop-3" class="feature-parallax-container">
+                    <div class="feature-container">
+                        <div class="feature-half feature-half-left">
+                            <div class="feature-card">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-calendar-alt"></i> <!-- Icona per Insight Intelligenti -->
                                     </div>
-                                    <h3 class="feature-title">Insight Intelligenti</h3>
-                                    <p>Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
                                 </div>
+                                <h3 class="feature-title">Insight Intelligenti</h3>
+                                <p>Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
                             </div>
+                        </div>
 
-                            <div class="center-divider"></div>
+                        <div class="center-divider"></div>
 
-                            <div class="feature-half feature-half-right">
-                                <div class="video-perspective-container">
-                                    <!-- Added preload="metadata" -->
-                                    <video id="parallax-video-desktop-3" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
-                                </div>
+                        <div class="feature-half feature-half-right">
+                            <div class="video-perspective-container">
+                                <!-- Added preload="metadata" -->
+                                <video id="parallax-video-desktop-3" class="parallax-video" src="immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <style>
-            /* Stili per la versione desktop */
-            :root {
-                --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
-                --primary-purple: #8C8DD4;
-                --primary-green: #8EDCA9;
-                --border-thickness: 3px;
-                /* --card-hover-lift: -8px; */ /* Rimosso o commentato - non più usato */
-                --video-hover-scale: 1.05; /* Variable for video scale */
-                --video-base-z: 10px;
-                --video-hover-z: 15px;
+    <style>
+        /* Stili per la versione desktop */
+        :root {
+            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            --primary-purple: #8C8DD4;
+            --primary-green: #8EDCA9;
+            --border-thickness: 3px;
+            /* --card-hover-lift: -8px; */ /* Rimosso o commentato - non più usato */
+            --video-hover-scale: 1.05; /* Variable for video scale */
+            --video-base-z: 10px;
+            --video-hover-z: 15px;
+        }
+
+        /* Nascondi su mobile */
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none !important;
+            }
+        }
+
+        #features-container-desktop {
+            background-color: white;
+            position: relative;
+        }
+
+        /* Curva inferiore */
+        #features-container-desktop::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; /* Adjust if needed based on curve size */
+            left: 0;
+            width: 100%;
+            height: 30px; /* Adjust if needed */
+            background: #ffffff;
+            border-radius: 0 0 50% 50% / 0 0 100% 100%;
+            z-index: 2;
+        }
+
+        #features-container-desktop .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem; /* Spacing between features */
+            width: 100%;
+        }
+
+        #features-container-desktop .feature-parallax-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #features-container-desktop .feature-container {
+            display: flex;
+            align-items: stretch; /* Make halves equal height */
+            justify-content: center;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+            min-height: 450px; /* Maintain minimum height */
+        }
+
+        /* Metà del container */
+        #features-container-desktop .feature-half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 1rem; /* Add slight padding */
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Added transitions for exit anim */
+        }
+
+        /* Allinea la card verso il divider */
+        #features-container-desktop .feature-half-left {
+            justify-content: flex-end;
+            padding-right: 0; /* Align closer to divider */
+        }
+
+        /* Allinea il video verso il divider */
+        #features-container-desktop .feature-half-right {
+            justify-content: flex-start;
+            padding-left: 0; /* Align closer to divider */
+        }
+
+        /* Adjust alignment for inverted layout (Feature 2) */
+        #feature-desktop-2 .feature-half-left {
+            justify-content: flex-end; /* Video aligned right */
+                padding-left: 1rem; /* Reset padding */
+                padding-right: 0;
+        }
+        #feature-desktop-2 .feature-half-right {
+            justify-content: flex-start; /* Card aligned left */
+            padding-right: 1rem; /* Reset padding */
+            padding-left: 0;
+        }
+
+
+        /* Center divider */
+        #features-container-desktop .center-divider {
+            width: 2px;
+            height: 450px; 
+            background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
+            margin: 0 60px; 
+            flex-shrink: 0;
+            transition: opacity 0.5s ease-out; 
+        }
+
+        #features-container-desktop .video-perspective-container {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        #features-container-desktop .parallax-video {
+            width: 253px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 18px; 
+            box-shadow: 0 8px 25px rgba(93, 92, 179, 0.2); 
+            display: block;
+            margin: 0 auto; 
+            transform: translateZ(var(--video-base-z));
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+        }
+
+        #features-container-desktop .video-perspective-container:hover .parallax-video {
+            transform: scale(var(--video-hover-scale)) translateZ(var(--video-hover-z));
+            box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+        }
+
+        #features-container-desktop .feature-card {
+            background: white;
+            border-radius: 18px; /* Match video radius */
+            padding: 2rem 1.8rem; /* Adjusted padding */
+            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            transition: border-top-color 0.35s ease, box-shadow 0.35s ease-out;
+            border-top: 4px solid #8C8DD4; /* Lighter initial border */
+            text-align: center;
+            max-width: 320px; /* Slightly wider */
+            margin: 0; /* Reset margin if needed */
+            position: relative; /* Needed for potential pseudo-elements */
+            z-index: 1; /* Ensure card is clickable over other elements */
+        }
+
+        #features-container-desktop .feature-card:hover {
+            /* MODIFIED: Removed transform: translateY(...) */
+            /* Highlight border */
+            border-top-color: var(--primary-green); /* Green border stays */
+            box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+        }
+
+        /* Wrapper per la forma irregolare */
+        #features-container-desktop .feature-icon-wrapper {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Icona con forma inizialmente tonda */
+        #features-container-desktop .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
+            border-radius: 50%; /* Inizia come un cerchio perfetto */
+
+            /* Blob shapes preimpostate ma non applicate inizialmente */
+            --blob1: 71% 29% 65% 35% / 33% 56% 44% 67%; /* Shape per Feature 1 */
+            --blob2: 41% 59% 27% 73% / 58% 28% 72% 42%; /* Shape per Feature 2 */
+            --blob3: 58% 42% 65% 35% / 42% 58% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
+        }
+
+        #features-container-desktop .feature-icon i {
+            font-size: 1.8rem;
+            color: rgb(0, 0, 0); /* Better contrast on gradient */
+            transition: transform 0.4s ease;
+        }
+
+            /* Icon hover state */
+        #features-container-desktop .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
+            transform: scale(1.1); /* Increased scale slightly */
+            box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
+            border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
+        }
+
+            /* Optional: Rotate the icon itself slightly on hover */
+            #features-container-desktop .feature-card:hover .feature-icon i {
+                transform: rotate(5deg) scale(0.95); /* Rotate and slightly shrink icon */
             }
 
-            /* Nascondi su mobile */
-            @media (max-width: 768px) {
-                .desktop-only {
-                    display: none !important;
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Assegna a ciascuna icona una forma di blob predefinita (ma non applicarla subito)
+            const featureIcons = document.querySelectorAll('#features-container-desktop .feature-icon');
+                // --- NOTA: I VALORI EFFETTIVI sono definiti nel CSS ora ---
+            const blobShapes = [ 'var(--blob1)', 'var(--blob2)', 'var(--blob3)' ];
+
+            featureIcons.forEach((icon, index) => {
+                // Assicura che ci sia una forma definita per questo indice, altrimenti usa l'ultima
+                const blobShapeVar = blobShapes[index < blobShapes.length ? index : blobShapes.length - 1];
+                icon.style.setProperty('--blob-shape', blobShapeVar);
+            });
+
+            // Inizializzazione per desktop
+            initializeDesktopFeature('feature-desktop-1', 'parallax-video-desktop-1');
+            initializeDesktopFeature('feature-desktop-2', 'parallax-video-desktop-2');
+            initializeDesktopFeature('feature-desktop-3', 'parallax-video-desktop-3');
+
+            function initializeDesktopFeature(featureId, videoId) {
+                const featureSection = document.getElementById(featureId);
+                if (!featureSection) return;
+
+                const parallaxVideo = document.getElementById(videoId);
+                const centerDivider = featureSection.querySelector('.center-divider');
+                const leftHalf = featureSection.querySelector('.feature-half-left');
+                const rightHalf = featureSection.querySelector('.feature-half-right');
+                const videoContainer = featureSection.querySelector('.video-perspective-container'); // Define videoContainer here
+
+                // --- Parameters for Mouse Effect (Adjust as needed) ---
+                const MOUSE_ROTATION_FACTOR = 10; // Slightly reduced rotation for subtlety with scale
+                const MOUSE_TRANSLATE_Z = 45;     // Increased Z translation for more pop
+                const VIDEO_HOVER_SCALE = 1.05;   // Get scale from CSS variable or define here
+
+                if (parallaxVideo) {
+                    parallaxVideo.loop = true;
+                    parallaxVideo.muted = true; // Ensure it's muted
+                    parallaxVideo.playsInline = true; // Good practice
                 }
-            }
 
-            #features-container-desktop {
-                background-color: white;
-                position: relative;
-            }
+                const mapRange = (value, in_min, in_max, out_min, out_max) => {
+                        const clampedValue = Math.max(in_min, Math.min(value, in_max));
+                        return (clampedValue - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+                };
 
-            /* Curva inferiore */
-            #features-container-desktop::after {
-                content: '';
-                position: absolute;
-                bottom: -30px; /* Adjust if needed based on curve size */
-                left: 0;
-                width: 100%;
-                height: 30px; /* Adjust if needed */
-                background: #ffffff;
-                border-radius: 0 0 50% 50% / 0 0 100% 100%;
-                z-index: 2;
-            }
+                // Imposta le posizioni iniziali
+                if (leftHalf) { leftHalf.style.transform = 'translateX(0)'; leftHalf.style.opacity = '1'; }
+                if (rightHalf) { rightHalf.style.transform = 'translateX(0)'; rightHalf.style.opacity = '1'; }
+                if (centerDivider) { centerDivider.style.opacity = '1'; }
 
-            #features-container-desktop .features-list {
-                display: flex;
-                flex-direction: column;
-                gap: 6rem; /* Spacing between features */
-                width: 100%;
-            }
+                // --- Parallax 3D effect on mousemove ---
+                if (videoContainer && parallaxVideo) {
+                    videoContainer.addEventListener('mousemove', (e) => {
+                        const rect = videoContainer.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width; // 0 to 1
+                        const y = (e.clientY - rect.top) / rect.height; // 0 to 1
 
-            #features-container-desktop .feature-parallax-container {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
+                        const rotateX = mapRange(y, 0, 1, MOUSE_ROTATION_FACTOR, -MOUSE_ROTATION_FACTOR);
+                        const rotateY = mapRange(x, 0, 1, -MOUSE_ROTATION_FACTOR, MOUSE_ROTATION_FACTOR);
 
-            #features-container-desktop .feature-container {
-                display: flex;
-                align-items: stretch; /* Make halves equal height */
-                justify-content: center;
-                width: 90%;
-                max-width: 1200px;
-                position: relative;
-                min-height: 450px; /* Maintain minimum height */
-            }
+                        // Apply rotation, dynamic Z, AND the hover scale via inline style
+                        // This overrides the CSS :hover transform temporarily while moving
+                        parallaxVideo.style.transform = `scale(${VIDEO_HOVER_SCALE}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${MOUSE_TRANSLATE_Z}px)`;
+                    });
 
-            /* Metà del container */
-            #features-container-desktop .feature-half {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                padding: 1rem; /* Add slight padding */
-                transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Added transitions for exit anim */
-            }
+                    videoContainer.addEventListener('mouseleave', () => {
+                        // *** KEY CHANGE ***
+                        // Remove the inline style entirely. This allows the CSS :hover state
+                        // (which includes the scale and base hover Z) or the base CSS state
+                        // (which includes the base Z) to take effect smoothly.
+                        parallaxVideo.style.transform = '';
+                    });
+                }
 
-            /* Allinea la card verso il divider */
-            #features-container-desktop .feature-half-left {
-                justify-content: flex-end;
-                padding-right: 0; /* Align closer to divider */
-            }
+                // Scroll animation logic (remains largely the same)
+                let isVisible = false;
+                const updateAnimation = () => {
+                    if (window.innerWidth <= 768) return; // Only run on desktop
 
-            /* Allinea il video verso il divider */
-            #features-container-desktop .feature-half-right {
-                justify-content: flex-start;
-                padding-left: 0; /* Align closer to divider */
-            }
+                    const rect = featureSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    const navbarHeight = 70; // Or get dynamically if possible
 
-            /* Adjust alignment for inverted layout (Feature 2) */
-            #feature-desktop-2 .feature-half-left {
-                justify-content: flex-end; /* Video aligned right */
-                 padding-left: 1rem; /* Reset padding */
-                 padding-right: 0;
-            }
-            #feature-desktop-2 .feature-half-right {
-                justify-content: flex-start; /* Card aligned left */
-                padding-right: 1rem; /* Reset padding */
-                padding-left: 0;
-            }
+                    const isInView = rect.top < windowHeight && rect.bottom > navbarHeight; // Ensure bottom is below navbar too
+                    const hasReachedNavbar = rect.top <= navbarHeight;
 
+                    const exitPercentage = hasReachedNavbar
+                        ? Math.min(1, (navbarHeight - rect.top) / (rect.height / 1.5)) // Make exit slightly faster
+                        : 0;
 
-            /* Center divider */
-            #features-container-desktop .center-divider {
-                width: 2px;
-                height: 450px; 
-                background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
-                margin: 0 60px; 
-                flex-shrink: 0;
-                transition: opacity 0.5s ease-out; 
-            }
+                        // Play/Pause logic refined
+                        if (parallaxVideo) {
+                        const shouldBePlaying = isInView && !hasReachedNavbar; // Play only when fully visible before exit starts
 
-            #features-container-desktop .video-perspective-container {
-                perspective: 1200px;
-                transform-style: preserve-3d;
-            }
+                        if (shouldBePlaying && !isVisible) {
+                                parallaxVideo.play().catch(e => { /* console.error("Video play failed:", e) */ });
+                                isVisible = true;
+                            } else if (!shouldBePlaying && isVisible) {
+                                parallaxVideo.pause();
+                                isVisible = false;
+                            }
+                        }
 
-            #features-container-desktop .parallax-video {
-                width: 253px;
-                height: 450px;
-                object-fit: cover;
-                border-radius: 18px; 
-                box-shadow: 0 8px 25px rgba(93, 92, 179, 0.2); 
-                display: block;
-                margin: 0 auto; 
-                transform: translateZ(var(--video-base-z));
-                transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
-            }
+                        // Apply exit animation styles
+                        if (hasReachedNavbar) {
+                            const opacity = Math.max(0, 1 - exitPercentage * 1.5); // Faster fade out
+                            const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150); // Slide out
 
-            #features-container-desktop .video-perspective-container:hover .parallax-video {
-                transform: scale(var(--video-hover-scale)) translateZ(var(--video-hover-z));
-                box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
-            }
-
-            #features-container-desktop .feature-card {
-                background: white;
-                border-radius: 18px; /* Match video radius */
-                padding: 2rem 1.8rem; /* Adjusted padding */
-                box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-                transition: border-top-color 0.35s ease, box-shadow 0.35s ease-out;
-                border-top: 4px solid #8C8DD4; /* Lighter initial border */
-                text-align: center;
-                max-width: 320px; /* Slightly wider */
-                margin: 0; /* Reset margin if needed */
-                position: relative; /* Needed for potential pseudo-elements */
-                z-index: 1; /* Ensure card is clickable over other elements */
-            }
-
-            #features-container-desktop .feature-card:hover {
-                /* MODIFIED: Removed transform: translateY(...) */
-                /* Highlight border */
-                border-top-color: var(--primary-green); /* Green border stays */
-                box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
-            }
-
-            /* Wrapper per la forma irregolare */
-            #features-container-desktop .feature-icon-wrapper {
-                position: relative;
-                width: 90px;
-                height: 90px;
-                margin: 0 auto 1.5rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* Icona con forma inizialmente tonda */
-            #features-container-desktop .feature-icon {
-                width: 70px;
-                height: 70px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--gradient-primary);
-                transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
-                border-radius: 50%; /* Inizia come un cerchio perfetto */
-
-                /* Blob shapes preimpostate ma non applicate inizialmente */
-                --blob1: 71% 29% 65% 35% / 33% 56% 44% 67%; /* Shape per Feature 1 */
-                --blob2: 41% 59% 27% 73% / 58% 28% 72% 42%; /* Shape per Feature 2 */
-                --blob3: 58% 42% 65% 35% / 42% 58% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
-            }
-
-            #features-container-desktop .feature-icon i {
-                font-size: 1.8rem;
-                color: rgb(0, 0, 0); /* Better contrast on gradient */
-                transition: transform 0.4s ease;
-            }
-
-             /* Icon hover state */
-            #features-container-desktop .feature-card:hover .feature-icon {
-                background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
-                transform: scale(1.1); /* Increased scale slightly */
-                box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
-                border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
-            }
-
-             /* Optional: Rotate the icon itself slightly on hover */
-             #features-container-desktop .feature-card:hover .feature-icon i {
-                 transform: rotate(5deg) scale(0.95); /* Rotate and slightly shrink icon */
-             }
-
-        </style>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Assegna a ciascuna icona una forma di blob predefinita (ma non applicarla subito)
-                const featureIcons = document.querySelectorAll('#features-container-desktop .feature-icon');
-                 // --- NOTA: I VALORI EFFETTIVI sono definiti nel CSS ora ---
-                const blobShapes = [ 'var(--blob1)', 'var(--blob2)', 'var(--blob3)' ];
-
-                featureIcons.forEach((icon, index) => {
-                    // Assicura che ci sia una forma definita per questo indice, altrimenti usa l'ultima
-                    const blobShapeVar = blobShapes[index < blobShapes.length ? index : blobShapes.length - 1];
-                    icon.style.setProperty('--blob-shape', blobShapeVar);
-                });
-
-                // Inizializzazione per desktop
-                initializeDesktopFeature('feature-desktop-1', 'parallax-video-desktop-1');
-                initializeDesktopFeature('feature-desktop-2', 'parallax-video-desktop-2');
-                initializeDesktopFeature('feature-desktop-3', 'parallax-video-desktop-3');
-
-                function initializeDesktopFeature(featureId, videoId) {
-                    const featureSection = document.getElementById(featureId);
-                    if (!featureSection) return;
-
-                    const parallaxVideo = document.getElementById(videoId);
-                    const centerDivider = featureSection.querySelector('.center-divider');
-                    const leftHalf = featureSection.querySelector('.feature-half-left');
-                    const rightHalf = featureSection.querySelector('.feature-half-right');
-                    const videoContainer = featureSection.querySelector('.video-perspective-container'); // Define videoContainer here
-
-                    // --- Parameters for Mouse Effect (Adjust as needed) ---
-                    const MOUSE_ROTATION_FACTOR = 10; // Slightly reduced rotation for subtlety with scale
-                    const MOUSE_TRANSLATE_Z = 45;     // Increased Z translation for more pop
-                    const VIDEO_HOVER_SCALE = 1.05;   // Get scale from CSS variable or define here
-
-                    if (parallaxVideo) {
-                        parallaxVideo.loop = true;
-                        parallaxVideo.muted = true; // Ensure it's muted
-                        parallaxVideo.playsInline = true; // Good practice
-                    }
-
-                    const mapRange = (value, in_min, in_max, out_min, out_max) => {
-                         const clampedValue = Math.max(in_min, Math.min(value, in_max));
-                         return (clampedValue - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+                            if (leftHalf) {
+                                leftHalf.style.opacity = opacity;
+                                const hasVideo = leftHalf.querySelector('.video-perspective-container');
+                                leftHalf.style.transform = `translateX(${hasVideo ? '-' : ''}${translateAmount}px)`;
+                            }
+                            if (rightHalf) {
+                                rightHalf.style.opacity = opacity;
+                                const hasVideo = rightHalf.querySelector('.video-perspective-container');
+                                rightHalf.style.transform = `translateX(${hasVideo ? '' : '-'}${translateAmount}px)`;
+                            }
+                            if (centerDivider) {
+                                centerDivider.style.opacity = opacity;
+                            }
+                        } else {
+                            // Reset styles if element scrolls back into view fully
+                            if (leftHalf) { leftHalf.style.transform = 'translateX(0)'; leftHalf.style.opacity = '1'; }
+                            if (rightHalf) { rightHalf.style.transform = 'translateX(0)'; rightHalf.style.opacity = '1'; }
+                            if (centerDivider) { centerDivider.style.opacity = '1'; }
+                        }
                     };
 
-                    // Imposta le posizioni iniziali
-                    if (leftHalf) { leftHalf.style.transform = 'translateX(0)'; leftHalf.style.opacity = '1'; }
-                    if (rightHalf) { rightHalf.style.transform = 'translateX(0)'; rightHalf.style.opacity = '1'; }
-                    if (centerDivider) { centerDivider.style.opacity = '1'; }
-
-                    // --- Parallax 3D effect on mousemove ---
-                    if (videoContainer && parallaxVideo) {
-                        videoContainer.addEventListener('mousemove', (e) => {
-                            const rect = videoContainer.getBoundingClientRect();
-                            const x = (e.clientX - rect.left) / rect.width; // 0 to 1
-                            const y = (e.clientY - rect.top) / rect.height; // 0 to 1
-
-                            const rotateX = mapRange(y, 0, 1, MOUSE_ROTATION_FACTOR, -MOUSE_ROTATION_FACTOR);
-                            const rotateY = mapRange(x, 0, 1, -MOUSE_ROTATION_FACTOR, MOUSE_ROTATION_FACTOR);
-
-                            // Apply rotation, dynamic Z, AND the hover scale via inline style
-                            // This overrides the CSS :hover transform temporarily while moving
-                            parallaxVideo.style.transform = `scale(${VIDEO_HOVER_SCALE}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${MOUSE_TRANSLATE_Z}px)`;
-                        });
-
-                        videoContainer.addEventListener('mouseleave', () => {
-                            // *** KEY CHANGE ***
-                            // Remove the inline style entirely. This allows the CSS :hover state
-                            // (which includes the scale and base hover Z) or the base CSS state
-                            // (which includes the base Z) to take effect smoothly.
-                            parallaxVideo.style.transform = '';
-                        });
-                    }
-
-                    // Scroll animation logic (remains largely the same)
-                    let isVisible = false;
-                    const updateAnimation = () => {
-                        if (window.innerWidth <= 768) return; // Only run on desktop
-
-                        const rect = featureSection.getBoundingClientRect();
-                        const windowHeight = window.innerHeight;
-                        const navbarHeight = 70; // Or get dynamically if possible
-
-                        const isInView = rect.top < windowHeight && rect.bottom > navbarHeight; // Ensure bottom is below navbar too
-                        const hasReachedNavbar = rect.top <= navbarHeight;
-
-                        const exitPercentage = hasReachedNavbar
-                            ? Math.min(1, (navbarHeight - rect.top) / (rect.height / 1.5)) // Make exit slightly faster
-                            : 0;
-
-                         // Play/Pause logic refined
-                         if (parallaxVideo) {
-                            const shouldBePlaying = isInView && !hasReachedNavbar; // Play only when fully visible before exit starts
-
-                            if (shouldBePlaying && !isVisible) {
-                                 parallaxVideo.play().catch(e => { /* console.error("Video play failed:", e) */ });
-                                 isVisible = true;
-                             } else if (!shouldBePlaying && isVisible) {
-                                 parallaxVideo.pause();
-                                 isVisible = false;
-                             }
-                         }
-
-                         // Apply exit animation styles
-                         if (hasReachedNavbar) {
-                             const opacity = Math.max(0, 1 - exitPercentage * 1.5); // Faster fade out
-                             const translateAmount = mapRange(exitPercentage, 0, 1, 0, 150); // Slide out
-
-                             if (leftHalf) {
-                                 leftHalf.style.opacity = opacity;
-                                 const hasVideo = leftHalf.querySelector('.video-perspective-container');
-                                 leftHalf.style.transform = `translateX(${hasVideo ? '-' : ''}${translateAmount}px)`;
-                             }
-                             if (rightHalf) {
-                                 rightHalf.style.opacity = opacity;
-                                 const hasVideo = rightHalf.querySelector('.video-perspective-container');
-                                 rightHalf.style.transform = `translateX(${hasVideo ? '' : '-'}${translateAmount}px)`;
-                             }
-                             if (centerDivider) {
-                                 centerDivider.style.opacity = opacity;
-                             }
-                         } else {
-                             // Reset styles if element scrolls back into view fully
-                             if (leftHalf) { leftHalf.style.transform = 'translateX(0)'; leftHalf.style.opacity = '1'; }
-                             if (rightHalf) { rightHalf.style.transform = 'translateX(0)'; rightHalf.style.opacity = '1'; }
-                             if (centerDivider) { centerDivider.style.opacity = '1'; }
-                         }
-                     };
-
-                    window.addEventListener('scroll', updateAnimation, { passive: true });
-                    updateAnimation(); // Initial check
-                }
-            });
-        </script>
+                window.addEventListener('scroll', updateAnimation, { passive: true });
+                updateAnimation(); // Initial check
+            }
+        });
+    </script>
 
 </section>
 
@@ -3662,7 +3654,7 @@
     /* Avatar container background */
     .avatar-container {
         width: 100%;
-        height: 175px;
+        height: 180px;
         position: relative;
         overflow: hidden;
         background: var(--gradient-primary);
@@ -4630,7 +4622,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
             }
 
-            .step-description { margin-top: 0; margin-bottom: 0.5rem; color: #333; }
+            .step-description { margin-top: 0; color: #333; }
             .timeline-content p { margin-bottom: 0; color: #555; }
 
             /* Curva inferiore */
