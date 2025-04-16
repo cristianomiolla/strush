@@ -12,7 +12,7 @@
 <style>
   /* Importazione del font Unbounded da Google Fonts */
   @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
-
+  
   /* Variabili CSS */
   :root {
       --primary: #8EDCA9;
@@ -24,22 +24,23 @@
       --accent: #FF85B3;
       --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   }
-
+  
   /* Reset CSS di base */
   * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
   }
-
+  
   /* Stili di base del corpo */
   body {
       font-family: 'Segoe UI', sans-serif;
       color: var(--text);
       line-height: 1.6;
-        padding-top: 70px; /* Match navbar height - Assicurati che sia definito qui o nella sezione navbar */
+      /* La dimensione del font di base viene ridotta qui, influenzando le unità rem */
+      font-size: 90%; /* Puoi aggiustare questo valore (es. 85%, 95%) per scalare tutto */
   }
-
+  
   /* Utilizzo del font Unbounded per i titoli con pesi diversi */
   h1, h2, h3, h4, h5, h6 {
       font-family: 'Unbounded', sans-serif;
@@ -47,106 +48,110 @@
       transform: scaleY(1.2); /* Distende il font in altezza */
       letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
   }
-
+  
   h1 {
       font-weight: 900; /* Light */
+          /* La dimensione effettiva sarà influenzata dal font-size del body */
   }
-
+  
   h2 {
       font-weight: 700; /* Bold */
-      font-size: 2.5rem;
+      font-size: 2.25rem; /* Ridotto da 2.5rem */
+      padding-bottom: 10px;
   }
-
+  
   h3 {
       font-weight: 500; /* Medium */
       margin-bottom: 1rem;
-      font-size: 1.15rem;
+      font-size: 1.04rem; /* Ridotto da 1.15rem */
   }
-
+  
   h4 {
       font-weight: 500; /* Medium */
-      font-size: 1.1rem;
+      font-size: 0.99rem; /* Ridotto da 1.1rem */
   }
-
+  
   h5 {
       font-weight: 400; /* Medium */
-      font-size: 0.85rem;
+      font-size: 0.77rem; /* Ridotto da 0.85rem */
   }
-
+  
   h6 {
       font-weight: 300; /* Light */
       margin-bottom: 1rem;
-      font-size: 0.75rem;
+      font-size: 0.68rem; /* Ridotto da 0.75rem */
   }
-
-
+  
+  
   a {
       text-decoration: none;
       color: #2b2d42;
-      font-size: 1rem;
+      font-size: 0.9rem; /* Ridotto da 1rem */
   }
-
+  
   p {
       color: #555555;
       line-height: 1.5;
-      font-size: 1.1rem;
-
+      font-size: 0.99rem; /* Ridotto da 1.1rem */
+  
   }
-
+  
   @media (max-width: 768px) {
       p {
-      font-size: 1.1rem;
+          /* La regola precedente (0.99rem) è già applicata, quindi questa è ridondante se uguale */
+          /* Se avesse un valore diverso, andrebbe scalato proporzionalmente */
+          font-size: 0.99rem; /* Mantenuto coerente con la riduzione */
       }
-
+  
       h2 {
-      font-size: 1.8rem;
+          font-size: 1.62rem; /* Ridotto da 1.8rem */
       }
-
+  
   }
-
+  
   ul {
       list-style: none;
   }
-
+  
   img {
       max-width: 100%;
   }
-
+  
   .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0rem 0 0rem;
   }
-
+  
   .text-center {
       text-align: center;
   }
-
+  
   /* Section base style */
   .section {
       padding: 6rem 0 6rem;
   }
-
+  
   @media (max-width: 768px) {
       .section {
           padding: 5rem 0 5rem;
       }
   }
-
+  
   /* Section sub-titles */
   .section-subtitles {
       text-align: center;
       max-width: 700px;
       margin: 0 auto 3rem;
       color: #2b2d42;
-      font-size: 1.25rem;
+      font-size: 1.13rem; /* Ridotto da 1.25rem */
   }
-
+  
   @media (max-width: 768px) {
       .section-subtitles {
           margin-bottom: 2rem;
-          font-size: 1.2rem;
+          font-size: 1.08rem; /* Ridotto da 1.2rem */
       }
   }
 </style>
@@ -275,7 +280,7 @@
 
 <body>
 
-    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
 <div class="strush-container">
@@ -353,9 +358,9 @@
   }
 
   /* Add padding to body to prevent navbar from covering content */
-  /* body {
-      padding-top: 70px; /* Match navbar height - Moved to global body style for better organization */
-  /* } */
+  body {
+      padding-top: 70px; /* Match navbar height */
+  }
 
   /* Scrolled state for navbar */
   .strush-navbar.scrolled {
@@ -526,7 +531,7 @@
   .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
   .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
   .strush-nav-links li { margin: 0 3px; }
-  .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.93rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+  .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
   .strush-nav-links a:hover { color: #8EDCA9; }
   .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
   .strush-nav-links a:hover::after { width: 80%; }
@@ -546,156 +551,156 @@
           -webkit-backdrop-filter: none;
       }
 
-      .strush-nav-container {
-          display: grid;
-          grid-template-columns: 1fr auto 1fr;
-          padding: 0;
-          height: 70px;
-          align-items: center;
+      .strush-nav-container { 
+          display: grid; 
+          grid-template-columns: 1fr auto 1fr; 
+          padding: 0; 
+          height: 70px; 
+          align-items: center; 
       }
-
+      
       /* Logo mobile */
-      .strush-logo-mobile {
-          display: block;
-          z-index: 999;
-          grid-column: 2;
-          text-align: center;
-          padding: 0 15px;
-          margin-top: 5px;
+      .strush-logo-mobile { 
+          display: block; 
+          z-index: 999; 
+          grid-column: 2; 
+          text-align: center; 
+          padding: 0 15px; 
+          margin-top: 5px; 
       }
-
-      .strush-logo-mobile .strush-logo-blob {
-          width: 34px;
-          height: 34px;
+      
+      .strush-logo-mobile .strush-logo-blob { 
+          width: 34px; 
+          height: 34px; 
       }
-
-      .strush-logo-mobile .strush-logo img {
-          height: 34px;
-          width: 34px;
-          transform: translateY(-2px);
+      
+      .strush-logo-mobile .strush-logo img { 
+          height: 34px; 
+          width: 34px; 
+          transform: translateY(-2px); 
       }
-
-      .strush-logo-mobile .strush-logo-text {
-          margin-bottom: 0px;
-          transition: all 0.3s ease;
+      
+      .strush-logo-mobile .strush-logo-text { 
+          margin-bottom: 0px; 
+          transition: all 0.3s ease; 
       }
-
+      
       /* Stati attivi */
-      .menu-active .strush-logo-mobile .strush-logo-text {
-          opacity: 0;
-          width: 0;
-          margin-left: 0;
-          overflow: hidden;
+      .menu-active .strush-logo-mobile .strush-logo-text { 
+          opacity: 0; 
+          width: 0; 
+          margin-left: 0; 
+          overflow: hidden; 
       }
-
-      .menu-active .strush-logo-mobile .strush-logo {
-          justify-content: center;
+      
+      .menu-active .strush-logo-mobile .strush-logo { 
+          justify-content: center; 
       }
-
-      .menu-active .strush-logo-mobile .strush-logo-blob {
-          animation: blob-morph 3.5s linear infinite;
+      
+      .menu-active .strush-logo-mobile .strush-logo-blob { 
+          animation: blob-morph 3.5s linear infinite; 
       }
-
+      
       /* Navigazione */
-      .strush-nav-links-container {
-          display: none;
+      .strush-nav-links-container { 
+          display: none; 
       }
-
-      .strush-mobile-dropdown {
-          display: block;
+      
+      .strush-mobile-dropdown { 
+          display: block; 
       }
-
+      
       .strush-mobile-dropdown::after {
           filter: blur(25px);
-          top: -20px;
-          left: -20px;
-          right: -20px;
+          top: -20px; 
+          left: -20px; 
+          right: -20px; 
           bottom: -20px;
       }
-
+      
       /* Pulsante menu */
-      .strush-menu-btn {
-          display: block;
-          z-index: 999;
-          grid-column: 3;
-          justify-self: end;
-          margin-right: 20px;
+      .strush-menu-btn { 
+          display: block; 
+          z-index: 999; 
+          grid-column: 3; 
+          justify-self: end; 
+          margin-right: 20px; 
       }
-
-      .strush-menu-btn.open span,
-      .strush-menu-btn.active span {
-          background-color: #8C8DD4;
+      
+      .strush-menu-btn.open span, 
+      .strush-menu-btn.active span { 
+          background-color: #8C8DD4; 
       }
-
+      
       /* Container */
-      .strush-container {
-          width: 98%;
+      .strush-container { 
+          width: 98%; 
       }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Ottieni riferimenti agli elementi
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileDropdown = document.getElementById('mobileDropdown');
-    const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
-    const navbar = document.getElementById('mainNav');
+      // Ottieni riferimenti agli elementi
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileDropdown = document.getElementById('mobileDropdown');
+      const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
+      const navbar = document.getElementById('mainNav');
 
-    // Aggiungi attributi per l'animazione sequenziale
-    document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
-        item.style.setProperty('--i', index);
-    });
+      // Aggiungi attributi per l'animazione sequenziale
+      document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
+          item.style.setProperty('--i', index);
+      });
 
-    // Toggle menu su click del pulsante hamburger
-    menuBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // Previene la propagazione dell'evento
-        menuBtn.classList.toggle('open');
-        menuBtn.classList.toggle('active');
-        mobileDropdown.classList.toggle('active');
+      // Toggle menu su click del pulsante hamburger
+      menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation(); // Previene la propagazione dell'evento
+          menuBtn.classList.toggle('open');
+          menuBtn.classList.toggle('active');
+          mobileDropdown.classList.toggle('active');
 
-        // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
-        document.body.classList.toggle('menu-active');
-    });
+          // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+          document.body.classList.toggle('menu-active');
+      });
 
-    // Chiudi menu quando viene cliccato un link
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuBtn.classList.remove('open');
-            menuBtn.classList.remove('active');
-            mobileDropdown.classList.remove('active');
-            document.body.classList.remove('menu-active'); // Rimuovi anche qui
-        });
-    });
+      // Chiudi menu quando viene cliccato un link
+      mobileLinks.forEach(link => {
+          link.addEventListener('click', function() {
+              menuBtn.classList.remove('open');
+              menuBtn.classList.remove('active');
+              mobileDropdown.classList.remove('active');
+              document.body.classList.remove('menu-active'); // Rimuovi anche qui
+          });
+      });
 
-    // Chiudi menu quando si clicca fuori
-    document.addEventListener('click', function(e) {
-        if (mobileDropdown.classList.contains('active') &&
-            !mobileDropdown.contains(e.target) &&
-            e.target !== menuBtn &&
-            !menuBtn.contains(e.target)) {
-            menuBtn.classList.remove('open');
-            menuBtn.classList.remove('active');
-            mobileDropdown.classList.remove('active');
-            document.body.classList.remove('menu-active'); // Rimuovi anche qui
-        }
-    });
+      // Chiudi menu quando si clicca fuori
+      document.addEventListener('click', function(e) {
+          if (mobileDropdown.classList.contains('active') &&
+              !mobileDropdown.contains(e.target) &&
+              e.target !== menuBtn &&
+              !menuBtn.contains(e.target)) {
+              menuBtn.classList.remove('open');
+              menuBtn.classList.remove('active');
+              mobileDropdown.classList.remove('active');
+              document.body.classList.remove('menu-active'); // Rimuovi anche qui
+          }
+      });
 
-    // Effetto scroll per navbar
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+      // Effetto scroll per navbar
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+              navbar.classList.add('scrolled');
+          } else {
+              navbar.classList.remove('scrolled');
+          }
+      });
   });
 </script>
 
 </nav>
 
 
-   <!-- MAIN CONTENT SECTION -->
+  <!-- MAIN CONTENT SECTION -->
 <div class="app-development-section section">
   <!-- Background shapes -->
   <div class="bg-shapes">
@@ -768,19 +773,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Il background ora si estenderà fino sotto la navbar */
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 70px - 10rem);
+    /* min-height: calc(100vh - 70px - 10rem); */ /* Manteniamo la logica originale del min-height */
+    min-height: calc(100vh - 10rem); /* Ricalcolato se la navbar è FUORI da questo calcolo */
+    /* Oppure, se min-height deve considerare lo spazio SOTTO la navbar: */
+    /* min-height: calc(100vh - 10rem); */ /* O mantenere l'originale se la logica è corretta */
     box-sizing: border-box;
     padding-left: 20px;
     padding-right: 20px;
+    /* margin-top: 70px; */ /* RIMOSSO: Questo causava il problema */
+    padding-top: 70px;  /* AGGIUNTO: Crea spazio interno per la navbar fissa */
   }
+
 
   .bg-shapes {
     position: absolute;
-    top: 0;
+    top: 0; /* Ora si allinea correttamente con l'inizio della sezione (sotto la navbar) */
     left: 0;
     width: 100%;
     height: 100%;
@@ -982,6 +992,7 @@
       vertical-align: middle;
   }
 
+  /* --- Dino styles rimangono invariati --- */
   .strush-dino { position: absolute; width: 60px; height: 40px; left: 50px; top: 83px; z-index: 10; }
   .strush-dino.running { animation: bounce 0.8s infinite alternate; }
   .strush-dino.jumping { animation: none; }
@@ -1013,7 +1024,8 @@
 
   @media (max-width: 768px) {
       .app-development-section {
-          min-height: calc(100vh - 70px - 8rem);
+          /* padding-top: 70px; sarà ereditato dalla regola base */
+          min-height: calc(100vh - 70px - 8rem); /* La logica originale del min-height è mantenuta */
           padding-left: 15px;
           padding-right: 15px;
       }
@@ -1067,6 +1079,7 @@
 </style>
 
 <script>
+  // Lo script JS rimane invariato
   (function() {
     const canvas = document.getElementById('dino-game');
     if (!canvas) return;
@@ -1278,7 +1291,13 @@
       if (!privacyCheckbox.checked) {
         statusDiv.innerHTML = 'Devi accettare la Privacy Policy per registrarti.';
         statusDiv.className = 'form-status error';
-        privacyCheckbox.reportValidity();
+        // Trigger browser's native validation UI for the checkbox
+        if (typeof privacyCheckbox.reportValidity === 'function') {
+            privacyCheckbox.reportValidity();
+        } else {
+            // Fallback for older browsers
+            privacyCheckbox.focus();
+        }
         return;
       }
 
@@ -1298,28 +1317,32 @@
 
       fetch(scriptURL, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'no-cors', // Important: Google Apps Script needs 'no-cors' for simple POST requests from web pages
         body: formData
       })
       .then(response => {
+        // With 'no-cors', we can't read the actual response, but a successful network request implies the data was likely sent.
         console.log('Richiesta inviata (no-cors). Assumendo successo.');
         button.classList.remove('loading');
         statusDiv.innerHTML = 'Grazie! Registrazione avvenuta con successo.';
         statusDiv.className = 'form-status success';
-        form.reset();
+        form.reset(); // Clear the form fields
         button.disabled = false;
         privacyCheckbox.disabled = false;
         document.getElementById('userEmail').disabled = false;
 
+          // Clear the success message after a few seconds
           setTimeout(() => {
               statusDiv.innerHTML = '';
               statusDiv.className = 'form-status';
           }, 5000);
       })
       .catch(error => {
+        // This catch block usually triggers for network errors (e.g., no internet)
+        // It might not catch script execution errors on the Google Apps Script side due to 'no-cors'.
         console.error('Errore di rete o fetch:', error);
         button.classList.remove('loading');
-        statusDiv.innerHTML = 'Errore di connessione. Riprova.';
+        statusDiv.innerHTML = 'Errore durante la registrazione. Riprova.'; // More generic error message
         statusDiv.className = 'form-status error';
         button.disabled = false;
         privacyCheckbox.disabled = false;
@@ -1329,27 +1352,28 @@
   });
 </script>
 
-
     <!-- Footer -->
 <footer>
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-about">
-          <div class="footer-logo">
-              <div class="logo-blob">
-                  <img src="immagini/logo.png" alt="Strush Logo">
+      <div class="footer-content">
+          <div class="footer-about">
+              <div class="footer-logo">
+                  <div class="logo-blob">
+                      <img src="immagini/logo.png" alt="Strush Logo">
+                  </div>
+                  <h3 class="logo-text">Strush</h3>
               </div>
-              <h3 class="logo-text">Strush</h3>
+              <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+              <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
+              <div class="footer-social">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
           </div>
-          <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
-          <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
-          <div class="footer-social">
-              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <!-- Changed icon -->
-              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> <!-- Changed icon -->
-          </div>
-        </div>
+
+          
 
           <div class="footer-links">
               <h5 class="links-rapidi">Links Rapidi</h5>
@@ -1375,18 +1399,18 @@
           <div class="footer-links">
               <h5 class="links-rapidi">Legale</h5>
               <ul>
-                  <li><a href="privacy.html">Privacy Policy</a></li> <!-- Link verificato -->
-                  <li><a href="t&c.html">Termini e Condizioni</a></li> <!-- Assicurati che t&c.html esista -->
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="t&c.html">Termini e Condizioni</a></li>
               </ul>
           </div>
-    </div>
+      </div>
 
       <div class="copyright">
-          <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
-          <h6 class="copyright-text">© 2025 Strush - Tutti i diritti riservati</h6>
+          <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
+          <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
       </div>
-  </div>
-</footer>
+  </div>    
+</footer>        
 
 <style>
   footer {
@@ -1394,74 +1418,121 @@
       color: white;
       padding: 4rem 0 2rem;
   }
-
+  
   .footer-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3rem;
       margin-bottom: 3rem;
-  }
+  }    
 
   .elevator-pitch {
-    color: rgba(255, 255, 255, 0.9); /* Slightly less bright white */
-    font-size: 1rem; /* Match link size */
-  }
-
+  color: rgb(255, 255, 255);
+  } 
+  
   .footer-email {
       color: white;
       margin-top: 1rem;
-      font-size: 1rem; /* Match link size */
   }
-
+  
   .footer-email a {
       color: #8EDCA9;
       text-decoration: none;
       transition: all 0.3s ease;
   }
-
+  
   .footer-email a:hover {
       text-decoration: underline;
-      color: var(--primary); /* Use primary color on hover */
   }
-
+      
   /* Updated logo styling to match navbar */
-  .footer-logo { display: flex; align-items: center; margin-bottom: 1rem; }
-  .footer-logo .logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 0 10px rgba(177, 172, 250, 0.3); border: 2.5px solid #8C8DD4; }
-  @keyframes footer-blob-morph { 0%{border-radius:42% 56% 72% 28% / 42% 42% 56% 48%} 25%{border-radius:40% 60% 54% 46% / 49% 60% 40% 51%} 50%{border-radius:52% 48% 47% 53% / 38% 52% 48% 62%} 75%{border-radius:45% 55% 62% 38% / 53% 45% 55% 47%} 100%{border-radius:42% 56% 72% 28% / 42% 42% 56% 48%} }
-  .footer-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
-  .footer-logo .logo-blob:hover { animation: footer-blob-morph 3.5s linear infinite; transform: scale(1.05); box-shadow: 0 0 15px rgba(177, 172, 250, 0.5); }
-  /* .footer-logo img:hover { box-shadow: 0 0 15px rgba(177, 172, 250, 0.5); transform: scale(1.05); } /* Hover effect on blob is better */
-  .footer-logo .logo-text { color: #8C8DD4; font-weight: 800; margin-left: 8px; margin-bottom: 0px; /* Override h3 margin */ transform: scaleY(1.2); letter-spacing: 0.01em; font-family: 'Unbounded', sans-serif; font-size: 1.15rem; /* Match h3 */ }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+} 
 
+/* Stile modificato per il contenitore blob del logo nel footer */
+.footer-logo .logo-blob {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: 50%; /* Default è un cerchio */
+  background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
+  box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
+  /* Contorno aggiunto */
+  border: 2.5px solid #8C8DD4;
+}
+
+/* Animazione per il blob - non è attiva di default */
+@keyframes footer-blob-morph {
+  0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+  25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
+  75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
+  100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+}
+  
+.footer-logo img {
+  height: 38px;
+  width: 38px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  z-index: 1;
+  display: block;
+  margin: auto;
+  /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
+  transform: translateY(-2px);
+}
+
+/* Attiva l'animazione blob solo al passaggio del mouse */
+.footer-logo .logo-blob:hover {
+  animation: footer-blob-morph 3.5s linear infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+}
+  
+  .footer-logo img:hover {
+      box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
+      transform: scale(1.05);
+  }    
+  
+.footer-logo .logo-text {
+  color: #8C8DD4;
+  font-weight: 800;
+  margin-left: 8px;
+  margin-bottom: 0px;
+}
+  
   /* Links sections */
-  .footer-links h5.links-rapidi { /* Added class selector for specificity */
+  .footer-links h5{
       position: relative;
       padding-bottom: 10px;
-      display: inline-block;
+      display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
       margin-bottom: 20px;
-      color: white; /* Ensure white color */
-      /* Apply font styles directly if needed, or inherit from h5 */
-      font-family: 'Unbounded', sans-serif;
-      font-weight: 400; /* Match h5 weight */
-      font-size: 0.85rem; /* Match h5 size */
-      transform: scaleY(1.2); /* Match h5 transform */
-      letter-spacing: 0.01em; /* Match h5 spacing */
-  }
-
-  .footer-links h5.links-rapidi::after {
+  }    
+  
+  .footer-links h5::after {
       content: '';
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 100%;
+      width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
       height: 3px;
       background: var(--gradient-primary);
       border-radius: 2px;
-  }
-
-  .footer-links ul { padding-left: 0; /* Remove default padding */ }
-  .footer-links ul li { margin-bottom: 18px; }
-
+  }    
+  
+  .footer-links ul li {
+      margin-bottom: 18px;
+  }    
+  
+  /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
   .footer-links a {
       color: white;
       text-decoration: none;
@@ -1469,10 +1540,8 @@
       position: relative;
       padding: 2px 4px;
       display: inline-block;
-      font-size: 1rem; /* Explicitly set font size */
-      font-family: 'Segoe UI', sans-serif; /* Ensure standard font */
-  }
-
+  }        
+  
   .footer-links a::after {
       content: '';
       position: absolute;
@@ -1485,45 +1554,105 @@
       transform-origin: center;
       transition: transform 0.3s ease;
   }
-
-  .footer-links a:hover { color: #8EDCA9; }
-  .footer-links a:hover::after { transform: scaleX(1); }
-
-  /* Social icons */
-  .footer-social { display: flex; gap: 15px; margin-top: 1.5rem; }
-  .footer-social a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
-  .footer-social a i { font-size: 1.1rem; /* Adjust icon size */ }
-  .footer-social a::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-primary); opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
-  .footer-social a:hover { color: var(--dark); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4); }
-  .footer-social a:hover::before { opacity: 1; }
-
-  /* Copyright section */
-  .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-  .copyright h6 { /* Apply h6 styles consistently */
-      font-family: 'Unbounded', sans-serif;
-      font-weight: 300; /* Match h6 weight */
-      font-size: 0.75rem; /* Match h6 size */
-      transform: scaleY(1.2); /* Match h6 transform */
-      letter-spacing: 0.01em; /* Match h6 spacing */
-      line-height: 1.4; /* Match h6 line-height */
-      color: rgba(255, 255, 255, 0.7); /* Lighter white */
+  
+  .footer-links a:hover {
+      color: #8EDCA9;
   }
-  .copyright .proudly-crafted { margin-bottom: 10px; } /* Reduced margin */
-  .copyright .copyright-text { margin-top: 0; margin-bottom: 0; /* Remove default h6 margin */ }
-
+  
+  .footer-links a:hover::after {
+      transform: scaleX(1);
+  }
+  
+  /* Social icons */
+  .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 1.5rem;
+  }
+      
+  .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+  }
+  
+  .footer-social a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+  }
+  
+  .footer-social a:hover {
+      color: var(--dark);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
+  }
+  
+  .footer-social a:hover::before {
+      opacity: 1;
+  }
+  
+  /* Copyright section */
+  .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Nuovo stile per le frasi nel copyright con più spazio */
+  .copyright .proudly-crafted {
+      margin-bottom: 15px;
+      color: white;
+  }
+  
+  .copyright .copyright-text {
+      margin-top: 0;
+      color: white;
+  }
+  
   /* Responsive adjustments */
   @media (max-width: 768px) {
-      footer { padding: 3rem 0 1.5rem; }
-      .footer-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-      .footer-logo { justify-content: center; }
-      .footer-links h5.links-rapidi { margin-left: auto; margin-right: auto; }
-      .footer-social { justify-content: center; }
-      .footer-links ul li { margin-bottom: 15px; }
-      .footer-links a:hover { transform: none; } /* Disable hover transform on mobile */
-      .footer-links a:hover::after { transform: scaleX(0); } /* Disable underline effect on mobile if desired */
-      .copyright { padding-top: 1.5rem; }
-  }
+      .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+      }    
+      
+      .footer-logo {
+          justify-content: center;
+      }
+      
+      .footer-links h5 {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+      /* Centra i link social nella versione mobile */
+      .footer-social {
+          justify-content: center;
+      }
+      
+      .footer-links a:hover {
+          transform: translateY(-2px);
+      }
+  }                
 </style>
+  
 
 </body>
 </html>
