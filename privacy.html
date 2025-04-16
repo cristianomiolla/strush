@@ -50,8 +50,8 @@
     
     h1 {
         font-weight: 900; /* Light */
-            /* La dimensione effettiva sarà influenzata dal font-size del body */
-    }
+        font-size: 2.7rem;
+        }
     
     h2 {
         font-weight: 700; /* Bold */
@@ -99,8 +99,12 @@
             font-size: 1.1rem; /* Mantenuto coerente con la riduzione */
         }
     
+        h1 {
+            font-size: 1.6rem; 
+        }
+    
         h2 {
-            font-size: 1.7rem; 
+            font-size: 1.6rem; 
         }
     
         h3 {
@@ -138,15 +142,54 @@
     }
     
     /* Section base style */
+    
     .section {
         padding: 6rem 0 6rem;
     }
     
-    @media (max-width: 768px) {
-        .section {
-            padding: 5rem 0 5rem;
-        }
+    
+        /* Stili per i titoli */
+    .section-title {
+        text-align: center;
+        margin: 48px;
+        position: relative;
+        color: #2b2d42;
+        font-weight: bold;
+        overflow: hidden;
     }
+    
+    .section-title .title-wrapper {
+        display: inline-block;
+        position: relative;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    /* Effetto di rivelazione */
+    .section-title.reveal .title-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Animazione della barra di sottolineatura */
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%) scaleX(0);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        border-radius: 2px;
+        transition: transform 0.6s ease 0.4s;
+    }
+    
+    .section-title.reveal::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+    
     
     /* Section sub-titles */
     .section-subtitles {
@@ -158,10 +201,19 @@
     }
     
     @media (max-width: 768px) {
+        
+        .section {
+            padding: 5rem 0 5rem;
+        }
+    
+        .section-title {
+            margin: 32px;
+        }
         .section-subtitles {
-            margin-bottom: 2rem;
+            margin-bottom: 32px;
             font-size: 1.2rem; 
         }
+    
     }
 </style>
 
@@ -488,7 +540,7 @@
         }
 
         .strush-mobile-links li {
-            margin: 10px 0;
+            margin: 8px 0;
             width: 100%;
             text-align: center;
             opacity: 0;
@@ -508,7 +560,7 @@
             text-decoration: none;
             color: white;
             font-size: 17.6px;
-            padding: 12px 20px;
+            padding: 8px 20px;
             display: block;
             width: 100%;
             max-width: 250px;
@@ -737,7 +789,7 @@
     /* Header principale */
     .main-header {
     background: var(--gradient-primary); /* Usa la variabile gradiente definita in :root */
-    padding: 4rem 0rem;
+    padding: 48px 0px;
     margin-top: 0; /* Rimosso il margin-top che causava lo spazio bianco */
     text-align: center;
     position: relative;
@@ -769,6 +821,8 @@
 
     .main-header h2 {
     color: var(--dark); /* Testo scuro su sfondo chiaro gradiente */
+    padding: 0px;
+    margin-bottom: 32px;
     }
 
     .main-header p {
@@ -777,11 +831,10 @@
     opacity: 0.9;
     }
 
-    @media (max-width: 768px) {
-    .main-header {
-            padding: 3rem 0;
-        }
+    .section-title {
+    margin: 0px;
     }
+
 </style>
 
     <!-- Contenuto principale -->
@@ -1132,6 +1185,7 @@
         color: #8EDCA9;
         text-decoration: none;
         transition: all 0.3s ease;
+        font-size: 16px;
     }
     
     .footer-email a:hover {
@@ -1207,7 +1261,7 @@
         position: relative;
         padding-bottom: 10px;
         display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
-        margin-bottom: 20px;
+        margin-bottom: 24px;
     }    
     
     .footer-links h5::after {
@@ -1222,7 +1276,7 @@
     }    
     
     .footer-links ul li {
-        margin-bottom: 18px;
+        margin-bottom: 24px;
     }    
     
     /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
@@ -1231,7 +1285,6 @@
         text-decoration: none;
         transition: all 0.3s ease;
         position: relative;
-        padding: 2px 4px;
         display: inline-block;
     }        
     
@@ -1310,13 +1363,13 @@
     
     /* Nuovo stile per le frasi nel copyright con più spazio */
     .copyright .proudly-crafted {
-        margin-bottom: 15px;
+        margin-bottom: 16px;
         color: white;
     }
     
     .copyright .copyright-text {
         margin-top: 0;
-        color: white;
+        margin-bottom: 0px;
     }
     
     /* Responsive adjustments */
@@ -1339,6 +1392,9 @@
             margin-right: auto;
         }
         
+        .footer-email a {
+        font-size: 17.6px;
+        }
         /* Centra i link social nella versione mobile */
         .footer-social {
             justify-content: center;
@@ -1349,6 +1405,5 @@
         }
     }                
 </style>
-
 </body>
 </html>
