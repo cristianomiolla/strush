@@ -1161,7 +1161,7 @@
 </script>
 
 
-<!-- Navbar -->
+    <!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
@@ -1222,38 +1222,31 @@
     </div>
 
     <style>
-        /* --- BASE STYLES --- */
-        :root {
-            --strush-navbar-height: 70px; /* Define navbar height as a variable */
-            --strush-mobile-dropdown-bg: rgba(10, 10, 15, 0.95); /* Background for mobile dropdown */
-        }
-
+        /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
         .strush-navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 999;
+            z-index: 999; /* Reduced from 1000 */
             padding: 0;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-            min-height: var(--strush-navbar-height);
-            display: flex;
-            align-items: center;
+            min-height: 70px; /* Set minimum height for the navbar */
+            display: flex; /* Use flexbox to help center content vertically */
+            align-items: center; /* Center content vertically */
         }
 
+        /* Add padding to body to prevent navbar from covering content */
         body {
-            padding-top: var(--strush-navbar-height); /* Ensure padding matches navbar height */
+            /* Ensure padding matches the minimum navbar height */
+            padding-top: 70px;
         }
 
-        /* Style for preventing body scroll when mobile menu is open */
-        body.strush-no-scroll {
-            overflow: hidden;
-        }
-
+        /* Scrolled state for navbar */
         .strush-navbar.scrolled {
             background-color: rgba(0, 0, 0, 0.95);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
@@ -1264,7 +1257,8 @@
             max-width: 1140px;
             margin: 0 auto;
             padding: 0;
-            width: 100%; /* Use 100% within the constraints */
+            /* Allow container to take full width needed */
+            width: 100%;
         }
 
         .strush-nav-container {
@@ -1272,330 +1266,332 @@
             align-items: center;
             justify-content: center; /* Centered links on desktop */
             width: 100%;
-            padding: 5px 0;
+            padding: 5px 0; /* Adjusted padding slightly for vertical centering within 70px */
             position: relative;
-            min-height: calc(var(--strush-navbar-height) - 10px); /* Adjust based on padding */
+            min-height: 60px; /* Allow content to define height, but ensure enough space */
         }
 
-        /* --- LOGO STYLES (Shared & Specific) --- */
-        .strush-logo-mobile { display: none; } /* Hidden on desktop */
-        .strush-logo-nav-item { margin-right: 15px; transition: margin-right 0.3s ease; flex-shrink: 0; }
-        .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
-        .strush-logo { display: flex; align-items: center; }
-        .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 4px 15px rgba(93, 92, 179, 0.2); border: 2.5px solid #8C8DD4; }
-        .strush-logo img { height: 100%; width: 100%; object-fit: cover; transition: transform 0.3s ease; z-index: 1; display: block; transform: translateY(-2px); /* Slight adjustment for centering */ }
-        .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(93, 92, 179, 0.3); }
-        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: opacity 0.3s ease, width 0.3s ease, margin-left 0.3s ease; margin-left: 8px; margin-bottom: 0; display: inline-block; width: auto; font-size: 1.1rem; /* Consistent size */ white-space: nowrap; }
+        /* Logo per versione mobile (inizialmente nascosto in desktop) */
+        .strush-logo-mobile {
+            display: none;
+        }
 
-        @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
-
-        /* --- DESKTOP NAVIGATION --- */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: background-image 0.5s ease; width: auto; padding: 5px 15px; border-radius: 30px; margin: 0; position: relative; background-image: none; /* Start without background */ }
-        .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
-        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
-        .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
-        .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; }
-        .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite forwards; } /* Keep morphing on hover */
-        .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
-        .strush-nav-links li { margin: 0 3px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: color 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-        .strush-nav-links a:hover { color: #8EDCA9; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: width 0.3s ease; transform: translateX(-50%); }
-        .strush-nav-links a:hover::after { width: 80%; }
-
-        /* --- MOBILE MENU BUTTON --- */
-        .strush-menu-btn { display: none; /* Hidden on desktop */ cursor: pointer; z-index: 1000; /* Above dropdown */ position: relative; width: 25px; height: 21px; /* Fixed height for alignment */ }
-        .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; position: absolute; left: 0; }
-        .strush-menu-btn span:nth-child(1) { top: 0; }
-        .strush-menu-btn span:nth-child(2) { top: 9px; }
-        .strush-menu-btn span:nth-child(3) { top: 18px; }
-        /* 'Open' state animation */
-        .strush-menu-btn.open span:nth-child(1) { transform: rotate(45deg); top: 9px; background-color: #8C8DD4; }
-        .strush-menu-btn.open span:nth-child(2) { opacity: 0; }
-        .strush-menu-btn.open span:nth-child(3) { transform: rotate(-45deg); top: 9px; background-color: #8C8DD4; }
-
-        /* --- MOBILE DROPDOWN (Initial State - Hidden) --- */
+        /* --- MODIFICA DROPDOWN MOBILE --- */
         .strush-mobile-dropdown {
-            /* Initially hidden and prepared for transition */
-            display: none; /* Controlled by media query */
-            position: fixed; /* Changed for full screen */
-            top: 0; /* Changed */
-            left: 0; /* Changed */
+            display: none; /* Inizialmente nascosto, controllato da JS e @media */
+            position: absolute;
+            top: 70px; /* Ensure this matches the navbar height */
+            left: 0;
             width: 100%;
-            height: 100vh; /* Fallback */
-            height: 100dvh; /* Use dynamic viewport height */
-            background-color: var(--strush-mobile-dropdown-bg);
+            /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
+            background-color: rgba(10, 10, 15, 0.95);
+            /* Blur dello SFONDO DIETRO il menu */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            z-index: 998; /* Below navbar controls but above page */
-            transition: opacity 0.4s ease, visibility 0s linear 0.4s, transform 0.4s ease; /* Adjusted transition */
-            padding: 0; /* Remove default padding */
-            padding-top: var(--strush-navbar-height); /* Add padding for navbar */
-            box-sizing: border-box; /* Include padding in height */
-            border-radius: 0; /* Full screen, no radius needed */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            transform: translateY(-20px); /* Initial animation position */
+            z-index: 998; /* Lower than navbar */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
+            padding: 20px 0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
+            transform: translateY(-20px);
             opacity: 0;
-            visibility: hidden; /* Use visibility for accessibility and layout removal */
-            overflow-y: auto; /* Allow scrolling within the dropdown */
-            overflow-x: hidden;
+            height: auto;
+            max-height: 0;
+            overflow: hidden; /* Necessario per max-height transition */
+            /* Ensure positioning context for pseudo-elements */
+            position: absolute;
         }
 
-        /* Thin top border line */
+        /* Sottile linea viola per evidenziare il bordo superiore */
         .strush-mobile-dropdown::before {
             content: '';
             position: absolute;
-            top: var(--strush-navbar-height); /* Position below the navbar space */
+            top: 0;
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent);
-            z-index: 1;
+            background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
+            z-index: 1; /* Sopra il glow */
         }
 
-        /* Glow effect */
+        /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
         .strush-mobile-dropdown::after {
             content: '';
             position: absolute;
-            top: calc(var(--strush-navbar-height) - 30px); /* Adjust relative to padding */
+            /* Posizionamento leggermente espanso per un glow più ampio */
+            top: -30px;
             left: -30px;
             right: -30px;
             bottom: -30px;
-            background: radial-gradient(ellipse at center top, /* Start glow near top */
-                rgba(140, 141, 212, 0.2) 0%,
-                rgba(142, 220, 169, 0.1) 40%,
-                rgba(10, 10, 15, 0) 75%
+            /* Gradient con i colori del brand e trasparenza per il glow */
+            background: radial-gradient(ellipse at center,
+                rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
+                rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
+                rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
             );
             filter: blur(35px);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.2s;
-            pointer-events: none;
-            border-radius: 50%;
+            z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
+            opacity: 0; /* Inizialmente invisibile */
+            transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
+            pointer-events: none; /* Non interagibile */
+            border-radius: 50%; /* Mantiene forma ellittica/rotonda */
         }
 
-        /* Active state for dropdown */
+        /* Quando il dropdown è attivo */
         .strush-mobile-dropdown.active {
             transform: translateY(0);
             opacity: 1;
-            visibility: visible; /* Make it visible */
-            transition: opacity 0.4s ease, visibility 0s linear 0s, transform 0.4s ease; /* Adjust transition */
+            max-height: 400px; /* Abbastanza alto per i link */
         }
 
+        /* Rendi visibile il glow quando il dropdown è attivo */
         .strush-mobile-dropdown.active::after {
-            opacity: 1; /* Show glow */
+            opacity: 1;
         }
+        /* --- FINE MODIFICA DROPDOWN MOBILE --- */
 
-        /* Mobile links list */
         .strush-mobile-links {
             list-style: none;
-            padding: 20px 0; /* Add vertical padding for link spacing */
+            padding: 0;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative; /* Needed for z-index stacking */
-            z-index: 1; /* Above background/glow */
+            /* Posizionamento relativo per essere sopra lo sfondo e il glow */
+            position: relative;
+            z-index: 1;
         }
 
         .strush-mobile-links li {
-            margin: 8px 0; /* Reduced margin */
+            margin: 10px 0;
             width: 100%;
             text-align: center;
             opacity: 0;
             transform: translateY(-10px);
-            transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s; /* Delay slightly */
-            transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Stagger animation */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition-delay: calc(0.05s * var(--i, 0));
         }
 
         .strush-mobile-dropdown.active .strush-mobile-links li {
             opacity: 1;
             transform: translateY(0);
+            /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
+            transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
         }
 
         .strush-mobile-links a {
             text-decoration: none;
             color: white;
-            font-size: 1.1rem; /* Slightly larger */
+            font-size: 17.6px;
             padding: 12px 20px;
             display: block;
-            width: 90%; /* Use percentage */
-            max-width: 300px; /* Increase max width */
+            width: 100%;
+            max-width: 250px;
             margin: 0 auto;
-            border-radius: 25px; /* Slightly larger radius */
-            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            /* Aggiunto per migliore leggibilità su sfondi complessi */
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .strush-mobile-links a:hover,
-        .strush-mobile-links a:focus { /* Add focus style */
+        .strush-mobile-links a:hover {
             color: #8EDCA9;
-            background-color: rgba(255, 255, 255, 0.08); /* Slightly more visible hover */
-            outline: none; /* Remove default focus outline */
+            /* Effetto leggero anche sull'hover del link */
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* --- MEDIA QUERY FOR MOBILE --- */
+        /* Resto del CSS desktop invariato... */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+        .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
+        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+        .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
+        .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
+        .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
+        .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
+        .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
+        .strush-logo { display: flex; align-items: center; }
+        .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
+        @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
+        .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
+        .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
+        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
+        .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
+        .strush-nav-links li { margin: 0 3px; }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a:hover { color: #8EDCA9; }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links a:hover::after { width: 80%; }
+        .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
+        .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+        .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
+            /* Navbar struttura */
             .strush-navbar {
-                background-color: black; /* Solid background on mobile */
+                /* --- MODIFICA --- Assicurato sfondo nero solido */
+                background-color: black;
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
-                height: var(--strush-navbar-height);
-                min-height: var(--strush-navbar-height);
+                /* --- FINE MODIFICA --- */
+                height: 70px;
+                min-height: 70px; /* Ensure consistency */
+                display: flex;
+                align-items: center;
             }
 
+            /* --- NUOVA REGOLA --- Assicurati che lo sfondo rimanga solido anche allo scroll in mobile */
             .strush-navbar.scrolled {
-                background-color: black; /* Keep solid on scroll */
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+                background-color: black; /* Mantiene lo sfondo solido */
+                /* Puoi mantenere o rimuovere l'ombra se desiderato */
+                 box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
             }
+            /* --- FINE NUOVA REGOLA --- */
 
-            .strush-container {
-                padding: 0 15px; /* Add horizontal padding */
-                box-sizing: border-box;
-            }
 
             .strush-nav-container {
                 display: grid;
-                grid-template-columns: 1fr auto 1fr; /* Logo centered, button right */
-                height: var(--strush-navbar-height);
+                grid-template-columns: 1fr auto 1fr;
+                padding: 0;
+                height: 70px;
                 align-items: center;
-                justify-content: space-between;
-                padding: 0; /* No extra padding needed */
+                justify-content: space-between; /* Override desktop justify-content */
+                /* Lo sfondo è controllato da .strush-navbar */
             }
 
             /* Logo mobile */
             .strush-logo-mobile {
-                display: block; /* Show mobile logo */
-                grid-column: 2; /* Center column */
+                display: block;
+                z-index: 999;
+                grid-column: 2;
                 text-align: center;
-                padding: 0 5px; /* Reduced padding */
-                z-index: 1000; /* Above dropdown */
+                padding: 0 15px;
+                margin-top: 0; /* Removed margin-top for better centering */
             }
 
             .strush-logo-mobile .strush-logo-text {
-                font-size: 1.25rem; /* Slightly larger mobile logo text */
-                 margin-bottom: 0;
-                 transition: opacity 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
+                margin-bottom: 0px;
+                transition: all 0.3s ease;
+                font-size: 20px;
             }
-             /* Hide logo text when menu opens */
-            body.strush-menu-active .strush-logo-mobile .strush-logo-text {
+
+            /* Stati attivi */
+            .menu-active .strush-logo-mobile .strush-logo-text {
                 opacity: 0;
                 width: 0;
                 margin-left: 0;
                 overflow: hidden;
             }
-            body.strush-menu-active .strush-logo-mobile .strush-logo {
-                justify-content: center; /* Ensure blob stays centered */
-            }
-            body.strush-menu-active .strush-logo-mobile .strush-logo-blob {
-                 animation: blob-morph 3.5s linear infinite forwards;
+
+            .menu-active .strush-logo-mobile .strush-logo {
+                justify-content: center;
             }
 
+            .menu-active .strush-logo-mobile .strush-logo-blob {
+                animation: blob-morph 3.5s linear infinite;
+            }
 
-            /* Hide desktop nav */
+            /* Navigazione */
             .strush-nav-links-container {
                 display: none;
             }
 
-            /* Show and position mobile dropdown */
             .strush-mobile-dropdown {
-                display: block; /* Enable dropdown display */
-                /* Positioning/sizing handled in base dropdown styles now */
+                display: block;
+                top: 70px; /* Match mobile navbar height */
             }
 
-            /* Adjust glow size/position for mobile */
             .strush-mobile-dropdown::after {
                 filter: blur(25px);
-                top: calc(var(--strush-navbar-height) - 20px);
+                top: -20px;
                 left: -20px;
                 right: -20px;
                 bottom: -20px;
             }
 
-            /* Show and position menu button */
+            /* Pulsante menu */
             .strush-menu-btn {
-                display: block; /* Show button */
-                grid-column: 3; /* Right column */
-                justify-self: end; /* Align to the right end */
-                margin-right: 5px; /* Adjust margin if needed */
+                display: block;
+                z-index: 999;
+                grid-column: 3;
+                justify-self: end;
+                margin-right: 20px;
             }
 
+            .strush-menu-btn.open span,
+            .strush-menu-btn.active span {
+                background-color: #8C8DD4;
+            }
+
+            /* Container */
+            .strush-container {
+                width: 100%; /* Use full width within navbar */
+                max-width: 1140px; /* Keep max-width constrain */
+                padding: 0 15px; /* Add some horizontal padding */
+                box-sizing: border-box; /* Include padding in width */
+            }
         }
     </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Ottieni riferimenti agli elementi
             const menuBtn = document.getElementById('menuBtn');
             const mobileDropdown = document.getElementById('mobileDropdown');
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
-            const body = document.body;
 
-            // Add CSS variable index for staggered animation
+            // Aggiungi attributi per l'animazione sequenziale
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
             });
 
-            function openMenu() {
-                menuBtn.classList.add('open');
-                mobileDropdown.classList.add('active');
-                body.classList.add('strush-menu-active'); // Used for logo hiding
-                body.classList.add('strush-no-scroll'); // Prevent body scroll
-            }
-
-            function closeMenu() {
-                menuBtn.classList.remove('open');
-                mobileDropdown.classList.remove('active');
-                body.classList.remove('strush-menu-active'); // Used for logo hiding
-                body.classList.remove('strush-no-scroll'); // Allow body scroll
-            }
-
-            // Toggle menu on button click
+            // Toggle menu su click del pulsante hamburger
             menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent triggering document click listener
-                if (mobileDropdown.classList.contains('active')) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
+                e.stopPropagation(); // Previene la propagazione dell'evento
+                menuBtn.classList.toggle('open');
+                menuBtn.classList.toggle('active');
+                mobileDropdown.classList.toggle('active');
+
+                // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
+                document.body.classList.toggle('menu-active');
             });
 
-            // Close menu when a link is clicked
+            // Chiudi menu quando viene cliccato un link
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    // Add a small delay if needed for visual feedback before closing
-                    // setTimeout(closeMenu, 100);
-                    closeMenu();
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
                 });
             });
 
-            // Close menu when clicking outside the dropdown (but not on the button)
+            // Chiudi menu quando si clicca fuori
             document.addEventListener('click', function(e) {
-                // Check if the dropdown is active AND the click was outside the dropdown
-                if (mobileDropdown.classList.contains('active') && !mobileDropdown.contains(e.target) && !menuBtn.contains(e.target)) {
-                   closeMenu();
+                // Check if the dropdown is active AND the click was outside the dropdown AND outside the menu button
+                if (mobileDropdown.classList.contains('active') &&
+                    !mobileDropdown.contains(e.target) &&
+                    !menuBtn.contains(e.target)) { // Simplified check for the button
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
                 }
             });
 
-            // Close menu on Escape key press
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileDropdown.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
 
-
-            // Navbar scroll effect
-            let lastScrollTop = 0;
+            // Effetto scroll per navbar
             window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > 50) {
+                if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-            }, false);
+            });
         });
     </script>
 
@@ -1782,7 +1778,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="tech-overlay">
                     <div class="data-point p1"></div>
                     <div class="data-point p2"></div>
@@ -1795,7 +1791,7 @@
                     <div class="tech-circle c2"></div>
                     <div class="tech-circle c3"></div>
                 </div>
-    
+
                 <div class="particles">
                     <div class="particle p1"></div>
                     <div class="particle p2"></div>
@@ -1806,7 +1802,7 @@
                     <div class="particle p7"></div>
                     <div class="particle p8"></div>
                 </div>
-    
+
                 <div class="prehistoric-bg">
                     <div class="mountain m1"></div>
                     <div class="mountain m2"></div>
@@ -1817,7 +1813,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="scroll-indicator">
         <div class="mouse">
             <div class="wheel"></div>
@@ -1828,47 +1824,52 @@
             <span></span>
         </div>
     </div>
-    
+
     <style>
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            /* Avoid setting body height to 100% if not strictly needed,
+                let the .hero section define its own height relative to viewport */
         }
-    
+
         body {
             overflow-x: hidden;
-            overflow-y: auto;
+            overflow-y: auto; /* Keep auto or scroll if needed for content below hero */
         }
-    
+
         .hero {
             position: relative;
-            height: 100vh; /* This rule makes the section full viewport height */
+            /* Use dynamic viewport height (dvh) to account for mobile browser UI */
+            height: 100dvh; /* Changed from 100vh */
+            /* Add a fallback for older browsers that might not support dvh */
+            height: 100vh;
+            height: 100dvh; /* The last rule applies if supported */
             width: 100%;
             margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #080808 0%, #121218 100%);
-            overflow: hidden;
+            overflow: hidden; /* Keep hidden to prevent internal content from causing scrollbars */
             box-sizing: border-box;
         }
-    
-    
+
+
         .hero .container {
             position: relative;
             z-index: 1;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 100%;
+            height: 100%; /* Takes full height of parent (.hero) */
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: var(--nav-height, 70px);
+            padding-top: var(--nav-height, 70px); /* Adjust padding if needed */
             box-sizing: border-box;
         }
-    
+
         .hero::before {
             content: '';
             position: absolute;
@@ -1879,14 +1880,15 @@
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="none"/><circle cx="10" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="10" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/></svg>');
             opacity: 0.1;
         }
-    
+
         .hero-content {
             width: 50%;
             color: white;
             padding-right: 30px;
             animation: fadeInUp 1s ease-out;
+            box-sizing: border-box; /* Added for consistency */
         }
-    
+
         .hero-title {
             font-size: 2.7rem;
             font-weight: 800;
@@ -1898,20 +1900,20 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(177, 172, 250, 0.2);
         }
-    
+
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 25px;
             color: rgba(255, 255, 255, 0.8);
-    
+
         }
-    
+
         .hero-buttons {
             display: flex;
             gap: 30px;
             align-items: center;
         }
-    
+
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -1923,27 +1925,27 @@
             text-align: center;
             border: 2px solid transparent;
         }
-    
+
         .btn-primary {
             background: #8C8DD4;
             color: white;
             box-shadow: 0 4px 15px rgba(140, 141, 212, 0.4);
         }
-    
+
         .btn-primary:hover {
             background: #8EDCA9;
             color: rgb(0, 0, 0);
             box-shadow: 0 7px 20px rgba(142, 220, 169, 0.6);
             transform: translateY(-2px);
         }
-    
+
         .btn-secondary {
             background: transparent;
             color: #8C8DD4;
             border: 2px solid #8C8DD4;
             box-shadow: 0 4px 15px rgba(140, 141, 212, 0.4);
         }
-    
+
         .btn-secondary:hover {
             background: transparent; /* Mantiene sfondo trasparente */
             color: #8EDCA9; /* Colore testo verde */
@@ -1951,29 +1953,30 @@
             transform: translateY(-2px);
             box-shadow: 0 7px 20px rgba(142, 220, 169, 0.6); /* Ombra verde */
         }
-    
+
         .hero-image {
             width: 45%;
             position: relative;
-            height: 100%;
+            height: 100%; /* Takes full height of container */
             display: flex;
             align-items: center;
             justify-content: center;
             animation: fadeInRight 1s ease-out;
+            box-sizing: border-box; /* Added for consistency */
         }
-    
+
         .dino-avatar-container {
             position: relative;
             width: 100%;
-            height: 70vh;
-            max-height: 700px;
+            height: 70%; /* Adjusted to be relative to .hero-image height */
+            /* max-height: 700px; /* Max height can still be useful */
             display: flex;
             justify-content: center;
             align-items: center;
             perspective: 1200px;
             transform-style: preserve-3d;
         }
-    
+
         .dino-character {
             position: relative;
             width: 280px;
@@ -1982,7 +1985,7 @@
             animation: dinoFloat 4s infinite ease-in-out;
             z-index: 10;
         }
-    
+
         .dino-character::before {
             content: '';
             position: absolute;
@@ -1997,14 +2000,14 @@
             z-index: -1;
             animation: glowPulse 3s infinite;
         }
-    
+
         .dino-body {
             position: relative;
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
         }
-    
+
         .dino-head {
             position: absolute;
             top: 40px;
@@ -2017,7 +2020,7 @@
             z-index: 5;
             animation: dinoHead 5s infinite alternate;
         }
-    
+
         .dino-eye {
             position: absolute;
             top: 20px;
@@ -2028,7 +2031,7 @@
             border-radius: 50%;
             overflow: hidden;
         }
-    
+
         .dino-eye::after {
             content: '';
             position: absolute;
@@ -2040,7 +2043,7 @@
             border-radius: 50%;
             animation: dinoEye 4s infinite;
         }
-    
+
         .dino-snout {
             position: absolute;
             top: 35px;
@@ -2051,7 +2054,7 @@
             border-radius: 60% 80% 60% 40%;
             transform: rotate(-5deg);
         }
-    
+
         .dino-mouth {
             position: absolute;
             top: 45px;
@@ -2062,7 +2065,7 @@
             border-radius: 40% 40% 60% 60%;
             animation: dinoMouth 3s infinite;
         }
-    
+
         .dino-neck {
             position: absolute;
             top: 90px;
@@ -2074,7 +2077,7 @@
             transform: rotate(60deg);
             z-index: 4;
         }
-    
+
         .dino-torso {
             position: absolute;
             top: 120px;
@@ -2085,7 +2088,7 @@
             border-radius: 50% 40% 40% 50%;
             z-index: 3;
         }
-    
+
         .dino-arm {
             position: absolute;
             width: 35px;
@@ -2094,7 +2097,7 @@
             border-radius: 40% 40% 20% 20%;
             z-index: 2;
         }
-    
+
         .dino-arm.left {
             top: 136px;
             left: 190px;
@@ -2103,14 +2106,14 @@
             transform-origin: top center;
             animation: dinoArmRight 3s infinite alternate;
         }
-    
+
         .dino-arm.right {
             top: 130px;
             left: 140px;
             transform: rotate(-10deg);
             animation: dinoArmRight 3s infinite alternate;
         }
-    
+
         .dino-leg {
             position: absolute;
             width: 30px;
@@ -2119,19 +2122,19 @@
             border-radius: 30% 30% 20% 20%;
             z-index: 1;
         }
-    
+
         .dino-leg.left {
             top: 180px;
             left: 95px;
             animation: dinoLegLeft 3s infinite alternate;
         }
-    
+
         .dino-leg.right {
             top: 180px;
             left: 145px;
             animation: dinoLegRight 3s infinite alternate;
         }
-    
+
         .dino-tail {
             position: absolute;
             top: 140px;
@@ -2144,7 +2147,7 @@
             z-index: 2;
             animation: dinoTail 4s infinite alternate;
         }
-    
+
         .dino-spikes {
             position: absolute;
             top: 80px;
@@ -2154,7 +2157,7 @@
             z-index: 6;
             transform: rotate(0deg);
         }
-    
+
         .spike {
             position: absolute;
             width: 18px;
@@ -2163,13 +2166,13 @@
             border-radius: 50% 50% 0 0;
             transform-origin: bottom center;
         }
-    
+
         .spike.s1 { left: 0; top: 38px; animation: spikeWave 3s infinite ease-in-out; }
         .spike.s2 { left: 28.5px; top: 27px; animation: spikeWave 3s infinite ease-in-out 0.2s; }
         .spike.s3 { left: 57px; top: 19px; animation: spikeWave 3s infinite ease-in-out 0.4s; }
         .spike.s4 { left: 83px; top: 10px; animation: spikeWave 3s infinite ease-in-out 0.6s; }
         .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
-    
+
         .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
         .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0 10px #8C8DD4; opacity: 0; animation: dataPoint 4s infinite; }
         .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
@@ -2183,7 +2186,7 @@
         .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
         .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
         .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
-    
+
         .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
         .particle { position: absolute; width: 5px; height: 5px; background: rgba(177, 172, 250, 0.6); border-radius: 50%; filter: blur(1px); opacity: 0; animation: particleFloat 5s infinite linear; }
         .particle.p1 { top: 20%; left: 10%; animation-delay: 0.2s; }
@@ -2194,8 +2197,8 @@
         .particle.p6 { top: 80%; left: 40%; animation-delay: 2.7s; }
         .particle.p7 { top: 10%; left: 60%; animation-delay: 3.2s; }
         .particle.p8 { top: 50%; left: 90%; animation-delay: 3.7s; }
-    
-        .prehistoric-bg { position: absolute; bottom: 20%; left: 0; width: 100%; height: 30%; z-index: 1; }
+
+        .prehistoric-bg { position: absolute; bottom: 15%; /* Adjusted slightly */ left: 0; width: 100%; height: 30%; z-index: 1; }
         .mountain { position: absolute; bottom: 0; background: #2A3B37; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
         .mountain.m1 { left: 10%; width: 130px; height: 100px; opacity: 0.7; }
         .mountain.m2 { left: 30%; width: 200px; height: 150px; opacity: 0.5; }
@@ -2203,16 +2206,28 @@
         .tree { position: absolute; bottom: 0; }
         .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
         .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
-    
+
         .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0 15px rgba(177, 172, 250, 0.6); transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
-    
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; }
+
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; /* Ensure it's above other elements */ }
         .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
+        /* Wheel animation removed for simplicity/potential conflict */
+        .wheel {
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            animation: scroll 2s infinite; /* Keep scroll animation if desired */
+        }
         .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
         .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.6); transform: rotate(45deg); animation: arrow 2s infinite; }
         .arrow span:nth-child(2) { animation-delay: 0.2s; }
         .arrow span:nth-child(3) { animation-delay: 0.4s; }
-    
+
         @keyframes dinoFloat { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
         @keyframes dinoHead { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(15deg); } }
         @keyframes dinoEye { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(2px, 0); } 50% { transform: translate(0, 1px); } 75% { transform: translate(-1px, 0); } }
@@ -2233,123 +2248,308 @@
         @keyframes arrow { 0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); } 50% { opacity: 1; } 100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); } }
         @keyframes glowPulse { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }
         @keyframes energyWave { 0% { width: 10px; height: 10px; opacity: 1; } 100% { width: 300px; height: 300px; opacity: 0; } }
-    
+
+    /* --- Media Query for Mobile --- */
     @media screen and (max-width: 768px) {
-        /* Note: No rule here overrides .hero { height: 100vh; } */
+        /* .hero height is already set to 100dvh which should work better on mobile */
+
         .hero .container {
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-evenly; /* Changed from center for better spacing */
+            padding-top: calc(var(--nav-height, 50px) + 15px); /* Adjust top padding */
+            padding-bottom: 15px; /* Add some bottom padding */
+            height: 100%; /* Ensure container tries to fill hero */
+            overflow-y: auto; /* Allow container to scroll if content overflows */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
-    
-        .hero-content, .hero-image {
-            width: 100%;
+
+        .hero-content {
+            width: 95%; /* Use slightly less than 100% for padding */
+            max-width: 500px; /* Optional: constrain max width */
             text-align: center;
             padding: 0;
+            order: 1; /* Text below image */
+            margin-bottom: 20px; /* Space below text */
         }
-    
-        .hero-content {
-            order: 1;
-        }
-    
+
         .hero-image {
-            order: 0;
-            max-height: 40vh; /* Adjusts content inside hero, not hero itself */
+            width: 95%; /* Use slightly less than 100% for padding */
+            max-width: 400px; /* Optional: constrain max width */
+            order: 0; /* Image above text */
+            height: auto; /* Let content dictate height */
+            /* max-height: 50vh; /* Reduced max height */
+                flex-shrink: 0; /* Prevent shrinking */
+                margin-top: 10px; /* Space above image */
         }
-    
+
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem; /* Slightly larger */
+                margin-bottom: 15px;
         }
-    
+
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Slightly larger */
+            margin-bottom: 20px;
         }
-    
+
         .hero-buttons {
             justify-content: center;
+            gap: 20px; /* Reduced gap */
         }
-    
+
         .btn {
             padding: 12px 28px;
-            font-size: 1rem;
+            font-size: 0.95rem; /* Slightly smaller */
         }
-    
+
         .dino-avatar-container {
-            height: 40vh; /* Adjusts content inside hero, not hero itself */
-            max-height: 400px;
-            transform: scale(0.8);
-            bottom: -0%;
+            /* height: 40vh; /* Removed fixed vh height */
+            height: 100%; /* Fill available space in hero-image */
+            max-height: 350px; /* Adjust max height as needed */
+            transform: scale(0.85); /* Slightly larger scale */
+            bottom: 0; /* Align to bottom of its container */
+            margin-top: -20px; /* Pull up slightly if needed */
         }
-    
+
         .scroll-indicator {
-            display: none;
+            display: none; /* Keep hidden on mobile */
         }
-    
+
         .prehistoric-bg {
-            bottom: 0;
+            bottom: 5%; /* Adjust position */
+            transform: scale(0.9); /* Scale down slightly */
         }
     }
-    
+
+    /* Optional: Adjustments for very small screens */
+        @media screen and (max-height: 500px) and (max-width: 768px) {
+            .hero-title { font-size: 1.6rem; }
+            .hero-subtitle { font-size: 0.9rem; }
+            .dino-avatar-container { transform: scale(0.75); max-height: 280px; }
+            .hero .container { padding-top: calc(var(--nav-height, 40px) + 10px); }
+        }
+
     </style>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const config = { mouse: { x: 0, y: 0, lastX: 0, lastY: 0 }, autoAnimation: true, particleCount: 15, enableParallax: true };
-            const elements = { heroSection: document.querySelector('.hero'), dinoCharacter: document.querySelector('.dino-character'), particles: document.querySelectorAll('.particle'), dataPoints: document.querySelectorAll('.data-point'), scrollIndicator: document.querySelector('.scroll-indicator'), mountains: document.querySelectorAll('.mountain'), trees: document.querySelectorAll('.tree') };
+            const elements = { heroSection: document.querySelector('.hero'), dinoCharacter: document.querySelector('.dino-character'), particles: document.querySelectorAll('.particle'), dataPoints: document.querySelectorAll('.data-point'), scrollIndicator: document.querySelector('.scroll-indicator'), mountains: document.querySelectorAll('.mountain'), trees: document.querySelectorAll('.tree'), heroContainer: document.querySelector('.hero .container') }; // Added heroContainer
             const navbar = document.getElementById('mainNav');
             const navbarHeight = navbar ? navbar.offsetHeight : 70;
             document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+
+            // Throttle function definition
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                };
+            }
+
             const handleMouseMove = throttle(function(e) {
-                config.mouse.x = e.clientX / window.innerWidth - 0.5;
-                config.mouse.y = e.clientY / window.innerHeight - 0.5;
-                const speedX = Math.abs(config.mouse.x - config.mouse.lastX) * 100;
-                const speedY = Math.abs(config.mouse.y - config.mouse.lastY) * 100;
-                const speed = Math.min(Math.max(speedX + speedY, 0), 1);
-                config.mouse.lastX = config.mouse.x; config.mouse.lastY = config.mouse.y;
-                if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, `translateY(${-config.mouse.y * 20}px) rotateY(${config.mouse.x * 30}deg) rotateX(${-config.mouse.y * 15}deg) scale(${1 + speed * 0.05})`); }
-                elements.particles.forEach((particle, index) => { const depth = (index % 5) * 0.2 + 0.6; const xFactor = 40 * depth; const yFactor = 30 * depth; applyTransform( particle, `translate(${config.mouse.x * xFactor}px, ${config.mouse.y * yFactor}px) scale(${1 + speed * 0.1 * depth})`); });
-                elements.dataPoints.forEach((point, index) => { const delay = index * 50; const factor = (index % 3) + 1; setTimeout(() => { applyTransform( point, `translate(${config.mouse.x * 20 * factor}px, ${config.mouse.y * 20 * factor}px) rotate(${config.mouse.x * 5}deg)`); }, delay); });
-                if (config.enableParallax) { elements.mountains?.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); applyTransform(mountain, `translateX(${config.mouse.x * -30 * speed}px)`); }); elements.trees?.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); applyTransform(tree, `translateX(${config.mouse.x * -40 * speed}px)`); }); }
-            }, 16);
-            elements.heroSection.addEventListener('mousemove', handleMouseMove);
-            elements.heroSection.addEventListener('mousemove', function(e) { const x = e.clientX / window.innerWidth - 0.5; elements.mountains.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); mountain.style.transform = `translateX(${x * 30 * speed}px)`; }); elements.trees.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); tree.style.transform = `translateX(${x * 40 * speed}px)`; }); });
-            elements.heroSection.addEventListener('mouseleave', function() { if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, 'translateY(0) rotateY(0) rotateX(0)', true); } elements.particles.forEach((particle, index) => { const delay = index * 20; setTimeout(() => { applyTransform(particle, 'translate(0, 0)', true); }, delay); }); elements.dataPoints.forEach((point, index) => { const delay = index * 30; setTimeout(() => { applyTransform(point, 'translate(0, 0) rotate(0)', true); }, delay); }); if (config.enableParallax) { elements.mountains?.forEach(mountain => { applyTransform(mountain, 'translateX(0)', true); }); elements.trees?.forEach(tree => { applyTransform(tree, 'translateX(0)', true); }); } });
-            elements.dinoCharacter?.addEventListener('click', function(e) { createEnergyWave(e.clientX, e.clientY); const mouth = document.querySelector('.dino-mouth'); if (mouth) { mouth.classList.add('talking'); setTimeout(() => mouth.classList.remove('talking'), 800); } applyTransform(elements.dinoCharacter, 'translateY(-30px) scale(1.05)', true); setTimeout(() => { applyTransform(elements.dinoCharacter, 'translateY(0) scale(1)', true); }, 300); });
-            elements.scrollIndicator.addEventListener('click', function() { const nextSection = document.querySelector('#discover-more-btn')?.getAttribute('href') || document.querySelector('section:nth-of-type(2)'); if (nextSection) { const targetElement = document.querySelector(nextSection); if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); } } });
+                // Only run parallax/mouse effects if not on touch device or if screen width is large enough
+                if (!('ontouchstart' in window) || window.innerWidth > 768) {
+                    config.mouse.x = e.clientX / window.innerWidth - 0.5;
+                    config.mouse.y = e.clientY / window.innerHeight - 0.5;
+                    const speedX = Math.abs(config.mouse.x - config.mouse.lastX) * 100;
+                    const speedY = Math.abs(config.mouse.y - config.mouse.lastY) * 100;
+                    const speed = Math.min(Math.max(speedX + speedY, 0), 1);
+                    config.mouse.lastX = config.mouse.x; config.mouse.lastY = config.mouse.y;
+
+                    if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, `translateY(${-config.mouse.y * 20}px) rotateY(${config.mouse.x * 30}deg) rotateX(${-config.mouse.y * 15}deg) scale(${1 + speed * 0.05})`); }
+                    elements.particles.forEach((particle, index) => { const depth = (index % 5) * 0.2 + 0.6; const xFactor = 40 * depth; const yFactor = 30 * depth; applyTransform( particle, `translate(${config.mouse.x * xFactor}px, ${config.mouse.y * yFactor}px) scale(${1 + speed * 0.1 * depth})`); });
+                    elements.dataPoints.forEach((point, index) => { const delay = index * 50; const factor = (index % 3) + 1; setTimeout(() => { applyTransform( point, `translate(${config.mouse.x * 20 * factor}px, ${config.mouse.y * 20 * factor}px) rotate(${config.mouse.x * 5}deg)`); }, delay); });
+                    if (config.enableParallax) {
+                            elements.mountains?.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); applyTransform(mountain, `translateX(${config.mouse.x * -30 * speed}px)`); });
+                            elements.trees?.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); applyTransform(tree, `translateX(${config.mouse.x * -40 * speed}px)`); });
+                        }
+                    }
+            }, 16); // 16ms throttle (~60fps)
+
+            // Simpler parallax on mouse move (less intensive, fallback for complex one)
+            // elements.heroSection.addEventListener('mousemove', function(e) {
+            //     if (!('ontouchstart' in window) || window.innerWidth > 768) {
+            //         const x = e.clientX / window.innerWidth - 0.5;
+            //         elements.mountains?.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); mountain.style.transform = `translateX(${x * 30 * speed}px)`; });
+            //         elements.trees?.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); tree.style.transform = `translateX(${x * 40 * speed}px)`; });
+            //     }
+            // });
+
+                elements.heroSection.addEventListener('mousemove', handleMouseMove);
+
+            elements.heroSection.addEventListener('mouseleave', function() {
+                    if (!('ontouchstart' in window) || window.innerWidth > 768) {
+                    if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, 'translateY(0) rotateY(0) rotateX(0)', true); }
+                    elements.particles.forEach((particle, index) => { const delay = index * 20; setTimeout(() => { applyTransform(particle, 'translate(0, 0)', true); }, delay); });
+                    elements.dataPoints.forEach((point, index) => { const delay = index * 30; setTimeout(() => { applyTransform(point, 'translate(0, 0) rotate(0)', true); }, delay); });
+                    if (config.enableParallax) {
+                            elements.mountains?.forEach(mountain => { applyTransform(mountain, 'translateX(0)', true); });
+                            elements.trees?.forEach(tree => { applyTransform(tree, 'translateX(0)', true); });
+                        }
+                    }
+            });
+
+            elements.dinoCharacter?.addEventListener('click', function(e) {
+                createEnergyWave(e.clientX, e.clientY);
+                const mouth = document.querySelector('.dino-mouth');
+                if (mouth) { mouth.classList.add('talking'); setTimeout(() => mouth.classList.remove('talking'), 800); }
+                applyTransform(elements.dinoCharacter, 'translateY(-30px) scale(1.05)', true);
+                setTimeout(() => { applyTransform(elements.dinoCharacter, 'translateY(0) scale(1)', true); }, 300);
+            });
+
+            // Make scroll indicator click scroll smoothly
+            elements.scrollIndicator?.addEventListener('click', function() {
+                const discoverMoreBtn = document.getElementById('discover-more-btn');
+                if (discoverMoreBtn) {
+                    const targetId = discoverMoreBtn.getAttribute('href'); // Get the href value
+                    if (targetId && targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            console.warn('Scroll target not found:', targetId);
+                            // Fallback: scroll down by viewport height
+                            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                        }
+                    } else {
+                            // Fallback if no valid href
+                            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                    }
+                    } else {
+                        // Fallback if button itself not found
+                        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                    }
+            });
+
+
             if (config.autoAnimation) { startAutoAnimation(); }
             if (elements.particles.length < config.particleCount) { createParticles(config.particleCount - elements.particles.length); }
             elements.heroSection.addEventListener('click', function(e) { if (!e.target.closest('.dino-character')) { createEnergyWave(e.clientX, e.clientY); } });
-            function createEnergyWave(x, y) { const wave = document.createElement('div'); wave.className = 'energy-wave'; wave.style.top = y + 'px'; wave.style.left = x + 'px'; elements.heroSection.appendChild(wave); setTimeout(() => { wave.remove(); }, 1000); }
-            function createParticles(count) { const container = document.createElement('div'); container.className = 'particles-container'; for (let i = 0; i < count; i++) { const particle = document.createElement('div'); particle.className = 'particle'; particle.style.top = `${Math.random() * 100}%`; particle.style.left = `${Math.random() * 100}%`; particle.style.opacity = Math.random() * 0.5 + 0.1; particle.style.width = `${Math.random() * 6 + 2}px`; particle.style.height = particle.style.width; container.appendChild(particle); } elements.heroSection.appendChild(container); elements.particles = document.querySelectorAll('.particle'); }
-            function applyTransform(element, transform, withTransition = false) { if (withTransition) { element.style.transition = 'transform 0.5s ease-out'; setTimeout(() => { element.style.transition = ''; }, 500); } element.style.transform = transform; }
-            function startAutoAnimation() { let t = 0; const animate = () => { if (!elements.heroSection.matches(':hover')) { t += 0.01; const x = Math.sin(t) * 0.1; const y = Math.cos(t * 1.3) * 0.05; config.mouse.x = x; config.mouse.y = y; if (elements.dinoCharacter) { applyTransform( elements.dinoCharacter, `translateY(${-y * 15}px) rotateY(${x * 20}deg) rotateX(${-y * 10}deg)`); } elements.particles.forEach((particle, index) => { const factor = (index % 3) + 1; const offsetX = Math.sin(t + index * 0.2) * 10 * factor; const offsetY = Math.cos(t + index * 0.2) * 8 * factor; applyTransform(particle, `translate(${offsetX}px, ${offsetY}px)`); }); } requestAnimationFrame(animate); }; animate(); }
-            function throttle(func, limit) { let inThrottle; return function() { const args = arguments; const context = this; if (!inThrottle) { func.apply(context, args); inThrottle = true; setTimeout(() => inThrottle = false, limit); } }; }
-    
+
+            function createEnergyWave(x, y) {
+                    // Add wave relative to the hero section, not the whole page
+                    const rect = elements.heroSection.getBoundingClientRect();
+                    const wave = document.createElement('div');
+                    wave.className = 'energy-wave';
+                    // Calculate position relative to the hero section
+                    wave.style.top = (y - rect.top) + 'px';
+                    wave.style.left = (x - rect.left) + 'px';
+                    elements.heroSection.appendChild(wave);
+                    setTimeout(() => { wave.remove(); }, 1000);
+            }
+
+            function createParticles(count) {
+                    // Ensure particles are added within the hero section
+                    const container = document.querySelector('.particles') || document.createElement('div');
+                    if (!container.classList.contains('particles')) {
+                        container.className = 'particles';
+                        elements.heroSection.appendChild(container); // Append inside hero if not already there
+                    }
+
+                    for (let i = 0; i < count; i++) {
+                        const particle = document.createElement('div');
+                        particle.className = 'particle'; // Use existing class
+                        particle.style.top = `${Math.random() * 100}%`;
+                        particle.style.left = `${Math.random() * 100}%`;
+                        // Apply existing styles from CSS for consistency if needed
+                        // particle.style.opacity = Math.random() * 0.5 + 0.1;
+                        // particle.style.width = `${Math.random() * 6 + 2}px`;
+                        // particle.style.height = particle.style.width;
+                        container.appendChild(particle);
+                    }
+                    // Update the elements list after creation
+                    elements.particles = elements.heroSection.querySelectorAll('.particle');
+            }
+
+
+            function applyTransform(element, transform, withTransition = false) {
+                if (!element) return; // Add safety check
+                if (withTransition) {
+                    element.style.transition = 'transform 0.5s ease-out';
+                    // Use requestAnimationFrame to clear transition after next paint
+                    requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                if (element) element.style.transition = '';
+                            }, 0); // Clear transition slightly after setting it, ensures it applies
+                    });
+                } else {
+                    // Ensure no transition is active if not requested
+                    element.style.transition = 'none';
+                    }
+                    element.style.transform = transform;
+            }
+
+            function startAutoAnimation() {
+                    let t = 0;
+                    const animate = () => {
+                        // Only run if mouse is not over hero and not on touch device or large screen
+                    if (!elements.heroSection.matches(':hover') && (!('ontouchstart' in window) || window.innerWidth > 768)) {
+                            t += 0.005; // Slower animation speed
+                            const x = Math.sin(t) * 0.1;
+                            const y = Math.cos(t * 1.3) * 0.05;
+                            // Update mouse position for consistency if needed, but maybe not required
+                            // config.mouse.x = x;
+                            // config.mouse.y = y;
+
+                            if (elements.dinoCharacter) {
+                                applyTransform( elements.dinoCharacter, `translateY(${-y * 15}px) rotateY(${x * 20}deg) rotateX(${-y * 10}deg)`);
+                            }
+                            // Subtle particle movement
+                        elements.particles.forEach((particle, index) => {
+                                const factor = (index % 3) * 0.5 + 0.5; // Smaller factor
+                                const offsetX = Math.sin(t * 0.5 + index * 0.3) * 5 * factor; // Smaller movement
+                                const offsetY = Math.cos(t * 0.5 + index * 0.3) * 4 * factor; // Smaller movement
+                                applyTransform(particle, `translate(${offsetX}px, ${offsetY}px)`);
+                            });
+                        }
+                        requestAnimationFrame(animate);
+                    };
+                    animate();
+            }
+
+
+            // --- Discover More Button Link Update ---
             const discoverMoreBtn = document.getElementById('discover-more-btn');
             const mobileBreakpoint = 768;
-    
+
             function updateDiscoverMoreLink() {
                 if (!discoverMoreBtn) return;
-    
+
                 if (window.innerWidth <= mobileBreakpoint) {
-                    discoverMoreBtn.href = '#features-mobile';
+                    discoverMoreBtn.href = '#features-mobile'; // Assuming you have a section with id="features-mobile"
                 } else {
-                    discoverMoreBtn.href = '#features-desktop';
+                    discoverMoreBtn.href = '#features-desktop'; // Assuming you have id="features-desktop"
                 }
             }
-    
+
+            // Initial call
             updateDiscoverMoreLink();
-    
-                let resizeTimer;
-                window.addEventListener('resize', () => {
+
+            // Update on resize (throttled)
+            let resizeTimer;
+            window.addEventListener('resize', () => {
                     clearTimeout(resizeTimer);
-                    resizeTimer = setTimeout(updateDiscoverMoreLink, 150);
-                }, { passive: true });
-    
-                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-            document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+                    resizeTimer = setTimeout(() => {
+                        updateDiscoverMoreLink();
+                        // Also recalculate navbar height if needed
+                        const newNavbarHeight = navbar ? navbar.offsetHeight : 70;
+                        document.documentElement.style.setProperty('--nav-height', newNavbarHeight + 'px');
+                    }, 150);
+            }, { passive: true });
+
+            // --- Scrollbar Width --- (Generally not needed with overflow:hidden on body/html unless specific layout demands it)
+            // const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            // document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
         });
     </script>
-    
+
 </section>
 
     <!-- Desktop Feature -->
