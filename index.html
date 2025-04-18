@@ -1096,7 +1096,7 @@
         /* Core variables */
         :root {
             --primary: #8C8DD4;
-            --secondary: #79C192;
+            --secondary: #79C192; /* Green color */
             --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             --border-radius-lg: 18px;
             --border-radius-full: 50%;
@@ -1287,18 +1287,17 @@
         }
         .chatbot-option:hover { background-color: #f2f2f2cd; color: #000; }
 
-        /* --- Share Button styling (kept as is, applied within JS where needed) --- */
+        /* --- MODIFIED Share Button styling --- */
         .chatbot-share-button {
-            position: relative; /* Needed for ::before */
-            background-color: #fff;
-            color: #333;
+            /* No position: relative or z-index needed as ::before is removed */
+            background-color: var(--secondary); /* Green background */
+            color: white; /* White text for contrast */
             padding: 10px 15px; /* Padding for the button content */
             cursor: pointer;
             text-align: center;
             border-radius: var(--border-radius-lg);
-            transition: all 0.3s ease;
-            border: none; /* Actual border is created by ::before */
-            z-index: 1; /* Ensure content is above pseudo-element */
+            transition: none; /* Remove transition for no hover effect */
+            border: none; /* No actual border */
             font-size: 0.9em;
             margin-top: 10px; /* Default space above */
             margin-bottom: 10px; /* Default space below */
@@ -1307,28 +1306,26 @@
             display: block; /* Takes block space for centering/margin */
             /* Inline style in JS overrides margin if needed */
         }
-        /* Gradient border for share button */
-        .chatbot-share-button::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: var(--border-radius-lg); /* Match button's border-radius */
-            padding: 2px; /* This creates the border thickness */
-            background: linear-gradient(135deg, #8C8DD4, #79C192);
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box, /* Keep the content area transparent */
-                linear-gradient(#fff 0 0); /* Mask the entire area */
-            mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; /* Older Safari */
-            mask-composite: exclude; /* Standard */
-            z-index: -1; /* Place the border behind the content */
+        /* REMOVED .chatbot-share-button::before rule */
+        /* REMOVED .chatbot-share-button:hover rule */
+
+
+        /* --- NEW Action Button styling (for Preregister) --- */
+        .chatbot-action-button {
+            background-color: var(--secondary); /* Green background */
+            color: white; /* White text */
+            padding: 10px 15px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: var(--border-radius-lg);
+            transition: none; /* No hover effect */
+            border: none;
+            font-size: 0.9em;
+            display: inline-block; /* Allow placement within text */
+            margin: 5px 0; /* Adjust vertical spacing as needed */
         }
-        .chatbot-share-button:hover {
-            background-color: #f2f2f2cd; /* Slight background change on hover */
-            color: #000; /* Darker text on hover */
-         }
+        /* No hover state needed */
+
 
         /* Footer with input area */
         .chatbot-footer {
@@ -1352,7 +1349,8 @@
             .chatbot-header:hover { background-color: var(--primary); }
             .chatbot-send:hover { background-color: var(--primary); }
             .chatbot-option:hover { background-color: #fff; color: #333; }
-            .chatbot-share-button:hover { background-color: #fff; color: #333; } /* Share button mobile hover */
+            /* .chatbot-share-button hover already removed */
+            /* .chatbot-action-button has no hover */
 
             /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
             .chatbot-icon:hover {
@@ -1384,7 +1382,10 @@
                 preregister: {
                     text: 'Voglio preregistrarmi all\'alpha',
                     action: () => {
-                        addMessage('Ah, un visionario! 😎<br><a href="download.html" target="_blank" style="color: #8C8DD4;font-size: 16px;">Clicca qui per preregistrarti</a> e ricevere news esclusive (niente spam, giuriamo).', true);
+                        // MODIFIED: Message includes the styled button
+                        const messageHTML = 'Ah, un visionario! 😎(niente spam, giuriamo).<br>' +
+                                            '<button class="chatbot-action-button" onclick="window.open(\'download.html\', \'_blank\');" style="margin-top: 10px; margin-bottom: 5px;">Preregistrati</button>';
+                        addMessage(messageHTML, true);
                         setTimeout(() => {
                             askForMoreHelp([optionsDefinition.ideas, optionsDefinition.scroccone]); // Show other two options
                         }, 3500);
@@ -1393,7 +1394,7 @@
                 ideas: {
                     text: 'Ho delle idee geniali (forse 😅) da condividere',
                     action: () => {
-                        addMessage('Oooh, mi piacciono le menti creative! 🧠 Spara pure le tue idee qui sotto — anche quelle strane (mai dire mai).<br>Il tuo feedback è oro colato per noi!', true);
+                        addMessage('Oooh, mi piacciono le menti creative! 🧠 Spara pure le tue idee qui sotto — anche quelle strane (mai dire mai).', true);
                         // Let user type, don't immediately ask for more help here.
                         // It will be asked after they send a message via sendMessage()
                     }
@@ -1417,9 +1418,10 @@
 
                             // Aggiungiamo il pulsante di condivisione direttamente nel messaggio
                             const shareButton = document.createElement('button');
-                            shareButton.classList.add('chatbot-share-button'); // Usa la classe CSS definita
+                            // MODIFIED: Uses the .chatbot-share-button class which is now styled green with no border/hover
+                            shareButton.classList.add('chatbot-share-button');
                             shareButton.style.margin = '10px 0 5px 0'; // Override margini per questo contesto specifico
-                            shareButton.textContent = '🔗 Condividi Link';
+                            shareButton.textContent = '🔗 Strush';
                             shareButton.onclick = async () => {
                                 try {
                                     if (navigator.share) {
@@ -1494,7 +1496,7 @@
 
                 if (isBot) {
                     messageElement.classList.add('bot-message');
-                    messageElement.innerHTML = message; // Use innerHTML for links/formatting
+                    messageElement.innerHTML = message; // Use innerHTML for links/formatting/buttons
 
                     // Add typing indicator only BEFORE bot message appears
                     const typingIndicator = showTypingIndicator();
@@ -1516,16 +1518,9 @@
              // --- Function to add the Share Button (DEPRECATED as standalone, now inline) ---
              // Kept here for reference or potential future use, but not called directly anymore.
              function addShareButton_Standalone() {
-                 const existingShareButton = chatbotMessages.querySelector('.chatbot-share-button:not(.inline-share-button)'); // Target only standalone ones
-                 if (existingShareButton) existingShareButton.remove();
-
-                 const shareButton = document.createElement('button');
-                 shareButton.classList.add('chatbot-share-button'); // Use the CSS class
-                 shareButton.textContent = '🔗 Condividi Link';
-                 shareButton.onclick = async () => { /* ... share logic ... */ }; // Logic is now in scroccone action
-
-                 chatbotMessages.appendChild(shareButton);
-                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                 // This function is not actively used as the share button is now integrated
+                 // into the message in the 'scroccone' action.
+                 console.warn("addShareButton_Standalone is deprecated and not used.");
              }
 
 
@@ -1535,17 +1530,19 @@
                  const existingOptionsContainer = chatbotMessages.querySelector('.chatbot-options');
                  if (existingOptionsContainer) existingOptionsContainer.remove();
 
-                 // NON rimuovere i pulsanti di condivisione INLINEA
-                 const standaloneShareButton = chatbotMessages.querySelector('.chatbot-share-button:not([style*="margin"])'); // Heuristic: inline button has specific margin
-                 if (standaloneShareButton) standaloneShareButton.remove();
-
+                 // Remove standalone share buttons (though unlikely to exist with current flow)
+                 // Using a more specific selector just in case
+                 const standaloneShareButton = chatbotMessages.querySelector('button.chatbot-share-button:not([style*="margin"])');
+                 if (standaloneShareButton && standaloneShareButton.parentElement === chatbotMessages) {
+                     standaloneShareButton.remove();
+                 }
 
                  const optionsContainer = document.createElement('div');
                  optionsContainer.classList.add('chatbot-options');
 
                  options.forEach(option => {
                      const optionElement = document.createElement('button');
-                     optionElement.classList.add('chatbot-option');
+                     optionElement.classList.add('chatbot-option'); // These still use the original gradient border style
                      optionElement.textContent = option.text;
                      optionElement.onclick = () => {
                          addMessage(option.text, false); // Add user choice as message
@@ -1686,15 +1683,17 @@
                     const existingOptions = chatbotMessages.querySelector('.chatbot-options');
                     if (existingOptions) existingOptions.remove();
 
-                    // Remove only standalone share buttons if any exist
-                    const standaloneShareButton = chatbotMessages.querySelector('.chatbot-share-button:not([style*="margin"])');
-                    if (standaloneShareButton) standaloneShareButton.remove();
+                    // Remove only standalone share buttons if any exist (again, unlikely but safe)
+                    const standaloneShareButton = chatbotMessages.querySelector('button.chatbot-share-button:not([style*="margin"])');
+                     if (standaloneShareButton && standaloneShareButton.parentElement === chatbotMessages) {
+                        standaloneShareButton.remove();
+                    }
 
 
                     // Generic "received" message after user input
                     setTimeout(() => {
                         addMessage('✅ Input ricevuto. Se non lo usiamo, è solo perché il mondo non è ancora pronto. 🌍', true);
-                         // *** CHANGE HERE: Show all three options after receiving input ***
+                         // Show all three options after receiving input
                          askForMoreHelp([
                              optionsDefinition.preregister,
                              optionsDefinition.ideas, // Included this option
@@ -6532,4 +6531,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 
-</html>
+            </html>
