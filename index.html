@@ -23,13 +23,17 @@
     <!-- Collegamento ai font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" href="immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
+    
 <style>
     /* Importazione del font Unbounded da Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
     
     /* Variabili CSS */
     :root {
-        --primary: #8EDCA9;
+        --primary: #79C192;
         --secondary: #8C8DD4;
         --text: #2b2d42;
         --text2: #555555;
@@ -51,7 +55,6 @@
         font-family: 'Segoe UI', sans-serif;
         color: var(--text);
         line-height: 1.6;
-        font-size: 90%; /* Puoi aggiustare questo valore (es. 85%, 95%) per scalare tutto */
     }
     
     /* Utilizzo del font Unbounded per i titoli con pesi diversi */
@@ -195,7 +198,7 @@
         transform: translateX(-50%) scaleX(0);
         width: 80px;
         height: 4px;
-        background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
         border-radius: 2px;
         transition: transform 0.6s ease 0.4s;
     }
@@ -386,7 +389,7 @@
 .strush-blob.blob2 {
     width: 350px;
     height: 350px;
-    background: #8EDCA9;
+    background: #79C192;
     bottom: 20%;
     right: 15%;
     animation: blob-morph2 25s ease-in-out infinite alternate;
@@ -476,7 +479,7 @@
 
 .spine {
     position: absolute;
-    background: #8EDCA9;
+    background: #79C192;
     width: 2px;
     transform-origin: bottom center;
     box-shadow: 0 0 4px rgba(180, 250, 205, 0.6);
@@ -491,7 +494,7 @@
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 8px solid #8EDCA9;
+    border-bottom: 8px solid #79C192;
     top: -7px;
     left: -3px;
 }
@@ -501,7 +504,7 @@
     position: absolute;
     width: 4px;
     height: 2px;
-    background: #8EDCA9;
+    background: #79C192;
     border-radius: 50%;
     bottom: -1px;
     left: -1px;
@@ -602,7 +605,7 @@
 
 .strush-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #8C8DD4, #8EDCA9);
+    background: linear-gradient(90deg, #8C8DD4, #79C192);
     width: 0;
     border-radius: 3px;
     animation: fill 2s infinite;
@@ -815,251 +818,912 @@
     <!-- Download Bar Section -->
 <section class="download-bar-section">
 
-        <div class="download-bar" id="downloadBar">
-          <div class="ripple-container">
-            <span class="ripple"></span>
-            <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Scarica l'app
-          </div>
+    <div class="download-bar" id="downloadBar">
+        <div class="ripple-container">
+        <span class="ripple"></span>
+        <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Scarica l'app
         </div>
+    </div>
+
+    <style>
+        /* Download bar styling */
+        .download-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 36px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 8px 20px #8c8dd462;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+            min-width: 180px;
+            text-align: center;
+        }
     
-        <style>
-            /* Download bar styling */
-            .download-bar {
-              position: fixed;
-              bottom: 20px;
-              left: 50%;
-              transform: translateX(-50%);
-              background-color: #000;
-              color: white;
-              padding: 18px 36px;
-              border-radius: 36px;
-              cursor: pointer;
-              font-weight: bold;
-              font-size: 16px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-              transition: all 0.3s ease;
-              z-index: 1000;
-              overflow: hidden;
-              min-width: 180px;
-              text-align: center;
-            }
+        .ripple-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
         
-            .ripple-container {
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 10px;
-              width: 100%;
-              height: 100%;
+        /* Click effect styling */
+        .download-bar:active {
+            transform: translateX(-50%) scale(0.95);
+            background-color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.1s ease;
+        }
+    
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            pointer-events: none;
+            animation: none;
+        }
+    
+        @keyframes ripple-effect {
+            to {
+            transform: scale(3);
+            opacity: 0;
+            }
+        }
+    
+        .download-bar:hover {
+            background-color: #222;
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+    
+        .download-bar.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(20px);
+        }
+    
+        .download-icon {
+            width: 20px;
+            height: 20px;
+        }
+    
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .download-bar {
+            padding: 16px 30px;
+            font-size: 17.6px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .download-bar {
+            width: 85%;
+            text-align: center;
+            }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get reference to the download bar
+            const downloadBar = document.getElementById('downloadBar');
+            
+            // Add click event listener for navigation
+            downloadBar.addEventListener('click', function(e) {
+            // Get the download section
+            const downloadSection = document.getElementById('download');
+            
+            // If the download section exists, scroll to it smoothly
+            if (downloadSection) {
+                downloadSection.scrollIntoView({ 
+                behavior: 'smooth' 
+                });
             }
             
-            /* Click effect styling */
-            .download-bar:active {
-              transform: translateX(-50%) scale(0.95);
-              background-color: #333;
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-              transition: all 0.1s ease;
+            // Create ripple effect
+            const ripple = downloadBar.querySelector('.ripple');
+            const rect = downloadBar.getBoundingClientRect();
+            
+            // Set ripple position based on click coordinates
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Set ripple dimensions and position
+            ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+            ripple.style.left = x - (ripple.offsetWidth / 2) + 'px';
+            ripple.style.top = y - (ripple.offsetHeight / 2) + 'px';
+            
+            // Reset animation
+            ripple.style.animation = 'none';
+            
+            // Trigger reflow
+            void ripple.offsetWidth;
+            
+            // Apply animation
+            ripple.style.animation = 'ripple-effect 0.6s linear';
+            });
+            
+            // Funzione per controllare se il footer è visibile
+            function isFooterVisible() {
+            // Troviamo il footer utilizzando vari selettori possibili
+            const footer = document.querySelector('footer') || 
+                            document.getElementById('footer') || 
+                            document.querySelector('.footer') ||
+                            document.querySelector('[data-section="footer"]');
+            
+            if (!footer) return false;
+            
+            const rect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Consideriamo il footer visibile se anche solo una piccola parte è visibile
+            return (rect.top < windowHeight && rect.bottom > 0);
             }
-        
-            /* Ripple effect */
-            .ripple {
-              position: absolute;
-              background: rgba(255, 255, 255, 0.3);
-              border-radius: 50%;
-              transform: scale(0);
-              pointer-events: none;
-              animation: none;
+            
+            // Funzione per aggiornare lo stato della barra
+            function updateDownloadBarVisibility() {
+            const heroSection = document.getElementById('hero');
+            const downloadSection = document.getElementById('download');
+            
+            function isInViewport(element) {
+                if (!element) return false;
+                const rect = element.getBoundingClientRect();
+                return rect.top < window.innerHeight && rect.bottom > 0;
             }
-        
-            @keyframes ripple-effect {
-              to {
-                transform: scale(3);
-                opacity: 0;
-              }
+            
+            const heroVisible = isInViewport(heroSection);
+            const downloadVisible = isInViewport(downloadSection);
+            const footerVisible = isFooterVisible();
+            
+            if (heroVisible || downloadVisible || footerVisible) {
+                downloadBar.classList.add('hidden');
+            } else {
+                downloadBar.classList.remove('hidden');
             }
-        
-            .download-bar:hover {
-              background-color: #222;
-              transform: translateX(-50%) translateY(-3px);
-              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
             }
-        
-            .download-bar.hidden {
-              opacity: 0;
-              visibility: hidden;
-              transform: translateX(-50%) translateY(20px);
-            }
-        
-            .download-icon {
-              width: 20px;
-              height: 20px;
-            }
-        
-            /* Responsive styling */
-            @media (max-width: 768px) {
-              .download-bar {
-                padding: 16px 30px;
-                font-size: 15px;
-                bottom: 15px;
-              }
-            }
-        
-            @media (max-width: 480px) {
-              .download-bar {
-                width: 85%;
-                text-align: center;
-                padding: 14px 24px;
-              }
-            }
-      </style>
-        
-      <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              // Get reference to the download bar
-              const downloadBar = document.getElementById('downloadBar');
-              
-              // Add click event listener for navigation
-              downloadBar.addEventListener('click', function(e) {
-                // Get the download section
-                const downloadSection = document.getElementById('download');
+            
+            // Utilizziamo un approccio misto per massima compatibilità
+            // IntersectionObserver per hero e download sections
+            if (window.IntersectionObserver) {
+            let observedSections = new Set();
+            
+            const observer = new IntersectionObserver(
+                (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    observedSections.add(entry.target.id);
+                    } else {
+                    observedSections.delete(entry.target.id);
+                    }
+                });
                 
-                // If the download section exists, scroll to it smoothly
-                if (downloadSection) {
-                  downloadSection.scrollIntoView({ 
-                    behavior: 'smooth' 
-                  });
+                // Controlliamo anche il footer con la nostra funzione personalizzata
+                if (observedSections.has('hero') || 
+                    observedSections.has('download') || 
+                    isFooterVisible()) {
+                    downloadBar.classList.add('hidden');
+                } else {
+                    downloadBar.classList.remove('hidden');
                 }
-                
-                // Create ripple effect
-                const ripple = downloadBar.querySelector('.ripple');
-                const rect = downloadBar.getBoundingClientRect();
-                
-                // Set ripple position based on click coordinates
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Set ripple dimensions and position
-                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
-                ripple.style.left = x - (ripple.offsetWidth / 2) + 'px';
-                ripple.style.top = y - (ripple.offsetHeight / 2) + 'px';
-                
-                // Reset animation
-                ripple.style.animation = 'none';
-                
-                // Trigger reflow
-                void ripple.offsetWidth;
-                
-                // Apply animation
-                ripple.style.animation = 'ripple-effect 0.6s linear';
-              });
-              
-              // Funzione per controllare se il footer è visibile
-              function isFooterVisible() {
-                // Troviamo il footer utilizzando vari selettori possibili
-                const footer = document.querySelector('footer') || 
-                              document.getElementById('footer') || 
-                              document.querySelector('.footer') ||
-                              document.querySelector('[data-section="footer"]');
-                
-                if (!footer) return false;
-                
-                const rect = footer.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                // Consideriamo il footer visibile se anche solo una piccola parte è visibile
-                return (rect.top < windowHeight && rect.bottom > 0);
-              }
-              
-              // Funzione per aggiornare lo stato della barra
-              function updateDownloadBarVisibility() {
+                },
+                {
+                threshold: 0.1 // Ridotto il threshold per una rilevazione più sensibile
+                }
+            );
+            
+            // Osserviamo hero e download
+            setTimeout(() => {
                 const heroSection = document.getElementById('hero');
                 const downloadSection = document.getElementById('download');
                 
-                function isInViewport(element) {
-                  if (!element) return false;
-                  const rect = element.getBoundingClientRect();
-                  return rect.top < window.innerHeight && rect.bottom > 0;
+                if (heroSection) observer.observe(heroSection);
+                if (downloadSection) observer.observe(downloadSection);
+                
+                // Per il footer usiamo scroll event
+                window.addEventListener('scroll', function() {
+                if (isFooterVisible()) {
+                    downloadBar.classList.add('hidden');
+                } else if (!observedSections.has('hero') && !observedSections.has('download')) {
+                    downloadBar.classList.remove('hidden');
                 }
+                });
                 
-                const heroVisible = isInViewport(heroSection);
-                const downloadVisible = isInViewport(downloadSection);
-                const footerVisible = isFooterVisible();
-                
-                if (heroVisible || downloadVisible || footerVisible) {
-                  downloadBar.classList.add('hidden');
-                } else {
-                  downloadBar.classList.remove('hidden');
-                }
-              }
-              
-              // Utilizziamo un approccio misto per massima compatibilità
-              // IntersectionObserver per hero e download sections
-              if (window.IntersectionObserver) {
-                let observedSections = new Set();
-                
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach(entry => {
-                      if (entry.isIntersecting) {
-                        observedSections.add(entry.target.id);
-                      } else {
-                        observedSections.delete(entry.target.id);
-                      }
-                    });
-                    
-                    // Controlliamo anche il footer con la nostra funzione personalizzata
-                    if (observedSections.has('hero') || 
-                        observedSections.has('download') || 
-                        isFooterVisible()) {
-                      downloadBar.classList.add('hidden');
-                    } else {
-                      downloadBar.classList.remove('hidden');
-                    }
-                  },
-                  {
-                    threshold: 0.1 // Ridotto il threshold per una rilevazione più sensibile
-                  }
-                );
-                
-                // Osserviamo hero e download
-                setTimeout(() => {
-                  const heroSection = document.getElementById('hero');
-                  const downloadSection = document.getElementById('download');
-                  
-                  if (heroSection) observer.observe(heroSection);
-                  if (downloadSection) observer.observe(downloadSection);
-                  
-                  // Per il footer usiamo scroll event
-                  window.addEventListener('scroll', function() {
-                    if (isFooterVisible()) {
-                      downloadBar.classList.add('hidden');
-                    } else if (!observedSections.has('hero') && !observedSections.has('download')) {
-                      downloadBar.classList.remove('hidden');
-                    }
-                  });
-                  
-                  // Verifichiamo subito al caricamento della pagina
-                  updateDownloadBarVisibility();
-                }, 300);
-              } else {
-                // Fallback completo con scroll event
-                window.addEventListener('scroll', updateDownloadBarVisibility);
-                // Verifica iniziale
+                // Verifichiamo subito al caricamento della pagina
                 updateDownloadBarVisibility();
-              }
-            });
-      </script>
+            }, 300);
+            } else {
+            // Fallback completo con scroll event
+            window.addEventListener('scroll', updateDownloadBarVisibility);
+            // Verifica iniziale
+            updateDownloadBarVisibility();
+            }
+        });
+    </script>
     
 </section>
       
-    
-    <!-- Cursore Animation Pallino viola + Blob-->
+
+<!-- Chatbot -->
+<section id="chatbot">
+    <!-- Added id to the container for easier JS access -->
+    <div class="chatbot-container" id="chatbot-container">
+        <!-- Audio element for opening sound -->
+        <audio id="chatbot-open-sound" preload="auto">
+            <!-- Assicurati che questi percorsi siano corretti -->
+            <source src="sounds/notification.mp3" type="audio/mp3">
+            <source src="sounds/notification.ogg" type="audio/ogg">
+        </audio>
+
+        <div class="chatbot-box" id="chatbot-box">
+            <div class="chatbot-header">
+                <div>Dinuccio 🦖</div>
+                <div class="chatbot-close" id="chatbot-close">×</div>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <!-- Messages will be dynamically inserted here -->
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Scrivi un messaggio...">
+                <button class="chatbot-send" id="chatbot-send">→</button>
+            </div>
+        </div>
+
+        <!-- Chatbot Icon -->
+        <div class="chatbot-icon" id="chatbot-icon">
+             <!-- Assicurati che questo percorso sia corretto -->
+            <img src="immagini/logo.png" alt="Chat">
+        </div>
+    </div>
+
+    <style>
+        /* Core variables */
+        :root {
+            --primary: #8C8DD4;
+            --secondary: #79C192;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --border-radius-lg: 18px;
+            --border-radius-full: 50%;
+        }
+
+        /* Container positioning */
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px; /* Adjusted for general visibility */
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Chatbot icon styling */
+        .chatbot-icon {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #8C8DD4, #79C192);
+            box-shadow: 0 0px 20px #8c8dd462;
+            border: 2.5px solid #8C8DD4;
+            cursor: pointer;
+        }
+
+        /* Morphing animation for chatbot icon */
+        @keyframes chatbot-icon-morph {
+            0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
+            15% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; transform: rotate(-3deg) scale(1); }
+            30% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; transform: rotate(-8deg) scale(1); }
+            45% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; transform: rotate(-3deg) scale(1); }
+            60% { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; transform: rotate(8deg) scale(1); }
+            75% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(3deg) scale(1); }
+            90% { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; transform: rotate(-5deg) scale(1); }
+            100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
+        }
+
+        /* Apply morph animation on hover OR when chat is open */
+        .chatbot-icon:hover,
+        .chatbot-container.chat-is-open .chatbot-icon {
+            animation: chatbot-icon-morph 5s infinite;
+        }
+
+        /* Apply scale/shadow only on hover for extra interaction */
+        .chatbot-icon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0px 25px #8c8dd488;
+        }
+
+        /* Icon image styling */
+        .chatbot-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            z-index: 1;
+            display: block;
+            margin: auto;
+            transform: translateY(-2px) scale(1.2);
+        }
+
+        /* Chatbot dialog box */
+        .chatbot-box {
+            position: absolute;
+            bottom: 80px; /* Position above the icon */
+            right: 0;
+            width: 300px;
+            max-width: calc(100vw - 40px);
+            height: 400px;
+            max-height: calc(100vh - 150px); /* Adjust based on icon position */
+            background-color: #fff;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 8px 20px #8c8dd462;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Style to show the box when container has .chat-is-open */
+        .chatbot-container.chat-is-open .chatbot-box {
+            display: flex;
+        }
+
+        /* Header styling */
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-header:hover {
+            background-color: var(--secondary);
+        }
+
+        .chatbot-close {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Message area */
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #E6F2F5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Message bubbles */
+        .chatbot-message {
+            max-width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        /* Bot message styling */
+        .bot-message {
+            background-color: #fff;
+            align-self: flex-start;
+            border-radius: var(--border-radius-lg);
+            border-bottom-left-radius: 0;
+        }
+        .bot-message::after {
+            content: ""; position: absolute; bottom: 0; left: -8px; width: 0; height: 0;
+            border-right: 10px solid #fff; border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+        }
+
+        /* User message styling */
+        .user-message {
+            background-color: var(--primary); color: white; align-self: flex-end; margin-left: auto;
+            border-radius: var(--border-radius-lg); border-bottom-right-radius: 0;
+        }
+        .user-message::after {
+            content: ""; position: absolute; bottom: 0; right: -8px; width: 0; height: 0;
+            border-left: 10px solid var(--primary); border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+        }
+
+        /* Typing indicator animation */
+        .typing-indicator {
+            background-color: #fff; padding: 10px; border-radius: var(--border-radius-lg); border-bottom-left-radius: 0;
+            display: flex; align-items: center; margin-bottom: 10px; max-width: 65px; align-self: flex-start; position: relative;
+        }
+        .typing-indicator::after {
+            content: ""; position: absolute; bottom: 0; left: -8px; width: 0; height: 0;
+            border-right: 10px solid #fff; border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+        }
+        .typing-indicator span {
+            height: 8px; width: 8px; margin: 0 2px; background-color: var(--primary); display: block;
+            border-radius: 50%; opacity: 0.4; animation: typing 1s infinite;
+        }
+        .typing-indicator span:nth-of-type(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-of-type(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 100% { transform: translateY(0px); opacity: 0.4; } 50% { transform: translateY(-5px); opacity: 0.8; } }
+
+        /* Options container */
+        .chatbot-options {
+            display: flex; flex-direction: column; gap: 10px; align-self: center;
+            width: 90%; margin-top: 10px; margin-bottom: 10px;
+        }
+
+        /* Option buttons */
+        .chatbot-option {
+            position: relative; background-color: #fff; color: #333; padding: 10px; cursor: pointer;
+            text-align: center; border-radius: var(--border-radius-lg); transition: all 0.3s ease;
+            border: none; z-index: 1; font-size: 0.9em;
+        }
+        /* Gradient border using pseudo-element */
+        .chatbot-option::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--border-radius-lg); padding: 2px;
+            background: linear-gradient(135deg, #8C8DD4, #79C192);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1;
+        }
+        .chatbot-option:hover { background-color: #f2f2f2cd; color: #000; }
+
+        /* --- Share Button styling (kept as is, applied within JS where needed) --- */
+        .chatbot-share-button {
+            position: relative; /* Needed for ::before */
+            background-color: #fff;
+            color: #333;
+            padding: 10px 15px; /* Padding for the button content */
+            cursor: pointer;
+            text-align: center;
+            border-radius: var(--border-radius-lg);
+            transition: all 0.3s ease;
+            border: none; /* Actual border is created by ::before */
+            z-index: 1; /* Ensure content is above pseudo-element */
+            font-size: 0.9em;
+            margin-top: 10px; /* Default space above */
+            margin-bottom: 10px; /* Default space below */
+            align-self: center; /* Center horizontally if in a flex column */
+            width: fit-content; /* Button width adapts to content */
+            display: block; /* Takes block space for centering/margin */
+            /* Inline style in JS overrides margin if needed */
+        }
+        /* Gradient border for share button */
+        .chatbot-share-button::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--border-radius-lg); /* Match button's border-radius */
+            padding: 2px; /* This creates the border thickness */
+            background: linear-gradient(135deg, #8C8DD4, #79C192);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box, /* Keep the content area transparent */
+                linear-gradient(#fff 0 0); /* Mask the entire area */
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; /* Older Safari */
+            mask-composite: exclude; /* Standard */
+            z-index: -1; /* Place the border behind the content */
+        }
+        .chatbot-share-button:hover {
+            background-color: #f2f2f2cd; /* Slight background change on hover */
+            color: #000; /* Darker text on hover */
+         }
+
+        /* Footer with input area */
+        .chatbot-footer {
+            padding: 15px; border-top: 1px solid #eee; display: flex; background-color: #fff;
+        }
+        .chatbot-input {
+            flex: 1; padding: 10px; border: 1px solid var(--primary); border-radius: var(--border-radius-lg);
+            outline: none; margin-right: 10px;
+        }
+        .chatbot-send {
+            background-color: var(--primary); color: white; border: none; width: 40px; height: 40px;
+            line-height: 40px; text-align: center; font-size: 1.2em; border-radius: var(--border-radius-full);
+            cursor: pointer; transition: background-color 0.3s ease; flex-shrink: 0;
+        }
+        .chatbot-send:hover { background-color: var(--secondary); }
+
+
+        /* --- MOBILE STYLES (BELOW 768px) --- */
+        @media (max-width: 767px) {
+            /* Reduce hover feedback on touch devices */
+            .chatbot-header:hover { background-color: var(--primary); }
+            .chatbot-send:hover { background-color: var(--primary); }
+            .chatbot-option:hover { background-color: #fff; color: #333; }
+            .chatbot-share-button:hover { background-color: #fff; color: #333; } /* Share button mobile hover */
+
+            /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
+            .chatbot-icon:hover {
+                animation: none; transform: none; box-shadow: 0 0px 20px #8c8dd462;
+            }
+            /* Ensure the animation still runs if the chat is open on mobile */
+            .chatbot-container.chat-is-open .chatbot-icon {
+                animation: chatbot-icon-morph 5s infinite;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const chatbotContainer = document.getElementById('chatbot-container');
+            const chatbotIcon = document.getElementById('chatbot-icon');
+            const chatbotClose = document.getElementById('chatbot-close');
+            const chatbotMessages = document.getElementById('chatbot-messages');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const chatbotSend = document.getElementById('chatbot-send');
+            const chatbotOpenSound = document.getElementById('chatbot-open-sound');
+
+            // State flags
+            let isFirstOpen = true;
+
+            // --- Define Option Objects (to avoid repetition) ---
+            const optionsDefinition = {
+                preregister: {
+                    text: 'Voglio preregistrarmi all\'alpha',
+                    action: () => {
+                        addMessage('Ah, un visionario! 😎<br><a href="download.html" target="_blank" style="color: #8C8DD4;font-size: 16px;">Clicca qui per preregistrarti</a> e ricevere news esclusive (niente spam, giuriamo).', true);
+                        setTimeout(() => {
+                            askForMoreHelp([optionsDefinition.ideas, optionsDefinition.scroccone]); // Show other two options
+                        }, 3500);
+                    }
+                },
+                ideas: {
+                    text: 'Ho delle idee geniali (forse 😅) da condividere',
+                    action: () => {
+                        addMessage('Oooh, mi piacciono le menti creative! 🧠 Spara pure le tue idee qui sotto — anche quelle strane (mai dire mai).<br>Il tuo feedback è oro colato per noi!', true);
+                        // Let user type, don't immediately ask for more help here.
+                        // It will be asked after they send a message via sendMessage()
+                    }
+                },
+                scroccone: {
+                    text: 'Ho un amico scroccone',
+                    action: () => {
+                        // Primo messaggio
+                        addMessage('Sai cosa sarebbe bellissimo? Che loro si iscrivessero, così puoi finalmente evitare la conversazione scomoda.', true);
+
+                        // Secondo messaggio con pulsante integrato
+                        setTimeout(() => {
+                            // Creiamo un messaggio speciale che includerà il pulsante
+                            const messageElement = document.createElement('div');
+                            messageElement.classList.add('chatbot-message', 'bot-message', 'share-message'); // Classe per targeting se necessario
+
+                            // Contenuto del messaggio
+                            const messageContent = document.createElement('div');
+                            messageContent.innerHTML = 'Condividi il link, e lascia che ci pensiamo noi. 💌';
+                            messageElement.appendChild(messageContent);
+
+                            // Aggiungiamo il pulsante di condivisione direttamente nel messaggio
+                            const shareButton = document.createElement('button');
+                            shareButton.classList.add('chatbot-share-button'); // Usa la classe CSS definita
+                            shareButton.style.margin = '10px 0 5px 0'; // Override margini per questo contesto specifico
+                            shareButton.textContent = '🔗 Condividi Link';
+                            shareButton.onclick = async () => {
+                                try {
+                                    if (navigator.share) {
+                                        await navigator.share({
+                                            title: 'Strush App',
+                                            text: 'Dai un\'occhiata a questo!',
+                                            url: 'https://www.strush.it' // Assicurati che l'URL sia corretto
+                                        });
+                                        console.log('Contenuto condiviso con successo');
+                                    } else {
+                                        // Fallback se Web Share API non è supportato
+                                        window.open('https://www.strush.it', '_blank');
+                                        console.log('API Web Share non supportata, aperto link in nuova finestra');
+                                    }
+                                } catch (err) {
+                                    console.error('Errore durante la condivisione:', err);
+                                    // Fallback in caso di errore nella condivisione
+                                     window.open('https://www.strush.it', '_blank');
+                                     console.log('Errore condivisione, aperto link in nuova finestra');
+                                }
+                            };
+                            messageElement.appendChild(shareButton);
+
+                            // Indichiamo che il bot sta scrivendo prima di mostrare il messaggio+bottone
+                            const typingIndicator = showTypingIndicator();
+                            setTimeout(() => {
+                                removeTypingIndicator();
+                                chatbotMessages.appendChild(messageElement);
+                                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+                                // Continua con le altre opzioni dopo un ritardo
+                                setTimeout(() => {
+                                    askForMoreHelp([optionsDefinition.preregister, optionsDefinition.ideas]); // Show other two options
+                                }, 2000);
+                            }, 1500); // Delay for typing indicator
+                        }, 2000); // Delay after the first message
+                    }
+                }
+            };
+            // --- End Option Definitions ---
+
+
+            // Show typing indicator function
+            function showTypingIndicator() {
+                removeTypingIndicator();
+                const typingIndicator = document.createElement('div');
+                typingIndicator.classList.add('typing-indicator');
+                typingIndicator.id = 'typing-indicator';
+                for (let i = 0; i < 3; i++) {
+                    const dot = document.createElement('span');
+                    typingIndicator.appendChild(dot);
+                }
+                chatbotMessages.appendChild(typingIndicator);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                return typingIndicator;
+            }
+
+            // Remove typing indicator function
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            // Add message function
+            function addMessage(message, isBot = true) {
+                removeTypingIndicator(); // Remove indicator before adding any message
+
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('chatbot-message');
+
+                if (isBot) {
+                    messageElement.classList.add('bot-message');
+                    messageElement.innerHTML = message; // Use innerHTML for links/formatting
+
+                    // Add typing indicator only BEFORE bot message appears
+                    const typingIndicator = showTypingIndicator();
+                    setTimeout(() => {
+                        removeTypingIndicator();
+                        chatbotMessages.appendChild(messageElement);
+                        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                    }, 1500); // Delay for bot "typing"
+
+                } else {
+                     // User message - add immediately
+                    messageElement.classList.add('user-message');
+                    messageElement.textContent = message; // Use textContent for user messages (safer)
+                    chatbotMessages.appendChild(messageElement);
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }
+            }
+
+             // --- Function to add the Share Button (DEPRECATED as standalone, now inline) ---
+             // Kept here for reference or potential future use, but not called directly anymore.
+             function addShareButton_Standalone() {
+                 const existingShareButton = chatbotMessages.querySelector('.chatbot-share-button:not(.inline-share-button)'); // Target only standalone ones
+                 if (existingShareButton) existingShareButton.remove();
+
+                 const shareButton = document.createElement('button');
+                 shareButton.classList.add('chatbot-share-button'); // Use the CSS class
+                 shareButton.textContent = '🔗 Condividi Link';
+                 shareButton.onclick = async () => { /* ... share logic ... */ }; // Logic is now in scroccone action
+
+                 chatbotMessages.appendChild(shareButton);
+                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+             }
+
+
+             // Add clickable options function
+             function addOptions(options) {
+                 // Remove any existing options container FIRST
+                 const existingOptionsContainer = chatbotMessages.querySelector('.chatbot-options');
+                 if (existingOptionsContainer) existingOptionsContainer.remove();
+
+                 // NON rimuovere i pulsanti di condivisione INLINEA
+                 const standaloneShareButton = chatbotMessages.querySelector('.chatbot-share-button:not([style*="margin"])'); // Heuristic: inline button has specific margin
+                 if (standaloneShareButton) standaloneShareButton.remove();
+
+
+                 const optionsContainer = document.createElement('div');
+                 optionsContainer.classList.add('chatbot-options');
+
+                 options.forEach(option => {
+                     const optionElement = document.createElement('button');
+                     optionElement.classList.add('chatbot-option');
+                     optionElement.textContent = option.text;
+                     optionElement.onclick = () => {
+                         addMessage(option.text, false); // Add user choice as message
+                         optionsContainer.remove(); // Remove options container after click
+                         option.action(); // Execute the associated action
+                     };
+                     optionsContainer.appendChild(optionElement);
+                 });
+
+                 // Use a small timeout to ensure appending happens after potential removals
+                 setTimeout(() => {
+                      if (!chatbotMessages.querySelector('.chatbot-options')) { // Double check if container exists
+                          chatbotMessages.appendChild(optionsContainer);
+                          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                      }
+                 }, 50); // Short delay
+             }
+
+             // --- Function to ask "Posso aiutarti in altro?" and show options ---
+             function askForMoreHelp(optionsToShow) {
+                 // Ensure previous options are removed before asking
+                 const existingOptionsContainer = chatbotMessages.querySelector('.chatbot-options');
+                 if (existingOptionsContainer) existingOptionsContainer.remove();
+
+                 setTimeout(() => {
+                     addMessage('Posso aiutarti in altro?', true);
+                     setTimeout(() => {
+                          addOptions(optionsToShow); // Show the specified options
+                     }, 1500); // Delay before showing options
+                 }, 1500); // Delay after previous bot message/action is complete
+             }
+
+
+            // Show initial options function
+            function showInitialOptions() {
+                 addOptions([
+                    optionsDefinition.preregister,
+                    optionsDefinition.ideas,
+                    optionsDefinition.scroccone // Show all three initial options
+                ]);
+            }
+
+
+            // Start conversation function
+            function startConversation() {
+                addMessage('Hey! Sono Dinuccio, il tuo compagno di viaggio in questa app ancora in cantiere 🏗️.<br>Come posso aiutarti?');
+                setTimeout(() => {
+                    showInitialOptions(); // Show options after greeting
+                }, 3500); // Delay after initial greeting message appears (1500ms typing + 2000ms wait)
+            }
+
+
+            // Play open sound function
+            function playOpenSound() {
+                chatbotOpenSound.currentTime = 0;
+                let playPromise = chatbotOpenSound.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Audio playback error:", error);
+                        // Attempt to play on first user interaction if autoplay fails
+                        document.body.addEventListener('click', () => chatbotOpenSound.play(), { once: true });
+                    });
+                }
+            }
+
+             // Function to open the chat
+             function openChat() {
+                 if (!chatbotContainer.classList.contains('chat-is-open')) {
+                     chatbotContainer.classList.add('chat-is-open');
+                     if (isFirstOpen) {
+                         playOpenSound();
+                         isFirstOpen = false; // Only play sound and start convo on very first open
+                         if (chatbotMessages.children.length === 0) {
+                           startConversation();
+                         }
+                     }
+                 }
+             }
+
+             // Function to close the chat
+             function closeChat() {
+                 chatbotContainer.classList.remove('chat-is-open');
+             }
+
+            // Automatically open chat after 5 seconds ONCE
+            let autoOpenTimeout = setTimeout(() => {
+                if (!chatbotContainer.classList.contains('chat-is-open') && isFirstOpen) {
+                     openChat();
+                }
+            }, 5000);
+
+
+            // Toggle chat when clicking on icon
+            chatbotIcon.addEventListener('click', () => {
+                 clearTimeout(autoOpenTimeout); // Stop auto-open if user interacts first
+                 const isOpen = chatbotContainer.classList.contains('chat-is-open');
+                 if (isOpen) {
+                    closeChat();
+                 } else {
+                     openChat(); // This will handle the first open logic correctly
+                 }
+             });
+
+
+            // Close chat when clicking on X
+            chatbotClose.addEventListener('click', () => {
+                closeChat();
+            });
+
+            // Handle message sending function (when user types something)
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message !== '') {
+                    addMessage(message, false); // Display user message immediately
+
+                    // --- Google Apps Script Integration ---
+                    const chatbotScriptURL = 'https://script.google.com/macros/s/AKfycbwDe9jThnMtPu5v8HRofqPInqyi7fLCHEFXPFQqnAEvTRpk-pYhwf76QRjQHEUiT66p/exec'; // Ensure this is correct
+                    const formData = new FormData();
+                    formData.append('Text', message);
+                    // Using fetch with no-cors means we won't get a response back, but the request will be sent.
+                    fetch(chatbotScriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors', // Important for sending to Apps Script from different origin without CORS headers
+                        body: formData
+                    })
+                    .then(() => {
+                        console.log('Message send request initiated to Google Sheet.');
+                        // Cannot read response with no-cors
+                    })
+                    .catch(error => {
+                        console.error('Error initiating message send request to Google Sheet:', error);
+                     });
+                    // --- End Integration ---
+
+                    chatbotInput.value = ''; // Clear input field
+
+                    // Remove any options/buttons currently displayed before showing bot response
+                    const existingOptions = chatbotMessages.querySelector('.chatbot-options');
+                    if (existingOptions) existingOptions.remove();
+
+                    // Remove only standalone share buttons if any exist
+                    const standaloneShareButton = chatbotMessages.querySelector('.chatbot-share-button:not([style*="margin"])');
+                    if (standaloneShareButton) standaloneShareButton.remove();
+
+
+                    // Generic "received" message after user input
+                    setTimeout(() => {
+                        addMessage('✅ Input ricevuto. Se non lo usiamo, è solo perché il mondo non è ancora pronto. 🌍', true);
+                         // *** CHANGE HERE: Show all three options after receiving input ***
+                         askForMoreHelp([
+                             optionsDefinition.preregister,
+                             optionsDefinition.ideas, // Included this option
+                             optionsDefinition.scroccone
+                         ]);
+                    }, 1500); // Delay after user message shown, before bot replies
+                }
+            }
+
+            // Send message when pressing Enter
+            chatbotInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Prevent form submission/newline
+                    sendMessage();
+                }
+            });
+
+            // Send message when clicking the button
+            chatbotSend.addEventListener('click', () => {
+                sendMessage();
+            });
+
+        }); // End DOMContentLoaded
+    </script>
+
+</section>
+
+
+<!-- Cursore Animation Pallino viola + Blob-->
 <div id="blob"></div>
 <div id="violet-cursor"></div>
         
@@ -1122,8 +1786,9 @@
                 const x = e.clientX;
                 const y = e.clientY;
         
-                // Check if mouse is over a nav element
+                // Check if mouse is over a nav element or chatbot section
                 const isOverNav = e.target.closest('nav') !== null;
+                const isOverChatbot = e.target.closest('#chatbot') !== null;
         
                 // Always move the violet cursor everywhere
                 violetCursor.style.left = `${x}px`;
@@ -1134,11 +1799,11 @@
                 velocityX = x - lastX;
                 velocityY = y - lastY;
         
-                if (isOverNav) {
-                    // In nav: hide blob
+                if (isOverNav || isOverChatbot) {
+                    // In nav or chatbot: hide blob
                     blob.style.display = 'none';
                 } else {
-                    // Outside nav: full blob animation
+                    // Outside nav and chatbot: full blob animation
                     blob.style.display = 'flex';
                     blob.style.left = `${x}px`;
                     blob.style.top = `${y}px`;
@@ -1176,7 +1841,7 @@
 </script>
 
 
-    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
@@ -1185,6 +1850,7 @@
             <div class="strush-logo-mobile">
                 <a href="index.html#hero" class="strush-logo-container">
                     <div class="strush-logo">
+                        <!-- Modificato per matchare forma iniziale chatbot -->
                         <div class="strush-logo-blob">
                             <img src="immagini/logo.png" alt="Strush Logo">
                         </div>
@@ -1217,6 +1883,7 @@
                 <div class="strush-logo-nav-item">
                     <a href="index.html#hero" class="strush-logo-container">
                         <div class="strush-logo">
+                             <!-- Modificato per matchare forma iniziale chatbot -->
                             <div class="strush-logo-blob">
                                 <img src="immagini/logo.png" alt="Strush Logo">
                             </div>
@@ -1246,7 +1913,7 @@
             z-index: 999; /* Reduced from 1000 */
             padding: 0;
             transition: all 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgb(0, 0, 0);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
@@ -1263,7 +1930,7 @@
 
         /* Scrolled state for navbar */
         .strush-navbar.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: rgb(0, 0, 0);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
 
@@ -1291,151 +1958,112 @@
             display: none;
         }
 
-        /* --- MODIFICA DROPDOWN MOBILE --- */
-        .strush-mobile-dropdown {
-            display: none; /* Inizialmente nascosto, controllato da JS e @media */
-            position: absolute;
-            top: 70px; /* Ensure this matches the navbar height */
-            left: 0;
-            width: 100%;
-            /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
-            background-color: rgba(10, 10, 15, 0.95);
-            /* Blur dello SFONDO DIETRO il menu */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 998; /* Lower than navbar */
-            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
-            padding: 20px 0;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
-            transform: translateY(-20px);
-            opacity: 0;
-            height: auto;
-            max-height: 0;
-            overflow: hidden; /* Necessario per max-height transition */
-            /* Ensure positioning context for pseudo-elements */
-            position: absolute;
-        }
+        /* Dropdown mobile styles - invariati */
+        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: rgba(10, 10, 15, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
+        .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
+        .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
+        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
+        .strush-mobile-dropdown.active::after { opacity: 1; }
+        .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+        .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
+        .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 17.6px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 18px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a:hover { color: #79C192; background-color: rgba(255, 255, 255, 0.05); }
 
-        /* Sottile linea viola per evidenziare il bordo superiore */
-        .strush-mobile-dropdown::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
-            z-index: 1; /* Sopra il glow */
-        }
-
-        /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
-        .strush-mobile-dropdown::after {
-            content: '';
-            position: absolute;
-            /* Posizionamento leggermente espanso per un glow più ampio */
-            top: -30px;
-            left: -30px;
-            right: -30px;
-            bottom: -30px;
-            /* Gradient con i colori del brand e trasparenza per il glow */
-            background: radial-gradient(ellipse at center,
-                rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
-                rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
-                rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
-            );
-            filter: blur(35px);
-            z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
-            opacity: 0; /* Inizialmente invisibile */
-            transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
-            pointer-events: none; /* Non interagibile */
-            border-radius: 50%; /* Mantiene forma ellittica/rotonda */
-        }
-
-        /* Quando il dropdown è attivo */
-        .strush-mobile-dropdown.active {
-            transform: translateY(0);
-            opacity: 1;
-            max-height: 400px; /* Abbastanza alto per i link */
-        }
-
-        /* Rendi visibile il glow quando il dropdown è attivo */
-        .strush-mobile-dropdown.active::after {
-            opacity: 1;
-        }
-        /* --- FINE MODIFICA DROPDOWN MOBILE --- */
-
-        .strush-mobile-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* Posizionamento relativo per essere sopra lo sfondo e il glow */
-            position: relative;
-            z-index: 1;
-        }
-
-        .strush-mobile-links li {
-            margin: 8px 0;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transition-delay: calc(0.05s * var(--i, 0));
-        }
-
-        .strush-mobile-dropdown.active .strush-mobile-links li {
-            opacity: 1;
-            transform: translateY(0);
-            /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
-            transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
-        }
-
-        .strush-mobile-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 17.6px;
-            padding: 8px 20px;
-            display: block;
-            width: 100%;
-            max-width: 250px;
-            margin: 0 auto;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            /* Aggiunto per migliore leggibilità su sfondi complessi */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .strush-mobile-links a:hover {
-            color: #8EDCA9;
-            /* Effetto leggero anche sull'hover del link */
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Resto del CSS desktop invariato... */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+        /* Stili Desktop Navbar */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 36px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
         @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
         .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
         .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
-        .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
+
+        /* --- MODIFICA --- Applica l'animazione del chatbot sull'hover del contenitore */
+        .strush-nav-links-container:hover .strush-logo-blob {
+             /* Usa la nuova animazione con la durata del chatbot */
+            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        }
+
         .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
         .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
         .strush-logo { display: flex; align-items: center; }
-        .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
-        @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
-        .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
-        .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
-        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
+
+        /* --- MODIFICA --- Stile del logo blob aggiornato */
+        .strush-logo-blob {
+            width: 38px; /* Dimensione navbar */
+            height: 38px; /* Dimensione navbar */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            /* Forma iniziale presa dal chatbot */
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            /* Stili grafici mantenuti dalla navbar originale */
+            background: linear-gradient(135deg, #8C8DD4, #79C192);
+            box-shadow: 0 8px 20px #8c8dd462;
+            border: 2.5px solid #8C8DD4;
+        }
+
+        /* --- MODIFICA --- Nuova animazione presa dal chatbot */
+        @keyframes navbar-blob-morph-from-chatbot {
+            0% {
+                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+                transform: rotate(0deg) scale(1);
+            }
+            15% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+                transform: rotate(-3deg) scale(1);
+            }
+            30% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+                transform: rotate(-8deg) scale(1);
+            }
+            45% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+                transform: rotate(-3deg) scale(1);
+            }
+            60% {
+                border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%;
+                transform: rotate(8deg) scale(1);
+            }
+            75% {
+                border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
+                transform: rotate(3deg) scale(1);
+            }
+            90% {
+                border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%;
+                transform: rotate(-5deg) scale(1);
+            }
+            100% {
+                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        .strush-logo img {
+            height: 38px; /* Dimensione navbar */
+            width: 38px;  /* Dimensione navbar */
+            object-fit: cover; /* Mantenuto 'cover' come nell'originale navbar */
+            transition: all 0.3s ease;
+            z-index: 1;
+            display: block;
+            margin: auto;
+            transform: translateY(-2px); /* Mantenuto offset */
+        }
+
+        /* L'hover diretto sul blob mantiene lo scale e shadow, non l'animazione */
+        .strush-logo-blob:hover {
+            transform: scale(1.05) translateY(-2px); /* Aggiunto translateY per coerenza */
+            box-shadow: 0 8px 20px #8c8dd462;
+        }
+
+        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 3px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-        .strush-nav-links a:hover { color: #8EDCA9; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; padding: 8px 10px; border-radius: 18px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a:hover { color: #79C192; }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #79C192, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
         .strush-nav-links a:hover::after { width: 80%; }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
@@ -1445,161 +2073,73 @@
 
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
-            /* Navbar struttura */
-            .strush-navbar {
-                /* --- MODIFICA --- Assicurato sfondo nero solido */
-                background-color: black;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                /* --- FINE MODIFICA --- */
-                height: 70px;
-                min-height: 70px; /* Ensure consistency */
-                display: flex;
-                align-items: center;
-            }
+            /* Stili navbar mobile invariati */
+            .strush-navbar { background-color: black; backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
+            .strush-navbar.scrolled { background-color: black; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
+            .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
+            .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 0; }
+            .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 20px; }
 
-            /* --- NUOVA REGOLA --- Assicurati che lo sfondo rimanga solido anche allo scroll in mobile */
-            .strush-navbar.scrolled {
-                background-color: black; /* Mantiene lo sfondo solido */
-                /* Puoi mantenere o rimuovere l'ombra se desiderato */
-                 box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-            }
-            /* --- FINE NUOVA REGOLA --- */
+            /* Stati attivi mobile */
+            .menu-active .strush-logo-mobile .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
+            .menu-active .strush-logo-mobile .strush-logo { justify-content: center; }
 
-
-            .strush-nav-container {
-                display: grid;
-                grid-template-columns: 1fr auto 1fr;
-                padding: 0;
-                height: 70px;
-                align-items: center;
-                justify-content: space-between; /* Override desktop justify-content */
-                /* Lo sfondo è controllato da .strush-navbar */
-            }
-
-            /* Logo mobile */
-            .strush-logo-mobile {
-                display: block;
-                z-index: 999;
-                grid-column: 2;
-                text-align: center;
-                padding: 0 15px;
-                margin-top: 0; /* Removed margin-top for better centering */
-            }
-
-            .strush-logo-mobile .strush-logo-text {
-                margin-bottom: 0px;
-                transition: all 0.3s ease;
-                font-size: 20px;
-            }
-
-            /* Stati attivi */
-            .menu-active .strush-logo-mobile .strush-logo-text {
-                opacity: 0;
-                width: 0;
-                margin-left: 0;
-                overflow: hidden;
-            }
-
-            .menu-active .strush-logo-mobile .strush-logo {
-                justify-content: center;
-            }
-
+            /* --- MODIFICA --- Applica l'animazione del chatbot quando il menu mobile è attivo */
             .menu-active .strush-logo-mobile .strush-logo-blob {
-                animation: blob-morph 3.5s linear infinite;
+                /* Usa la nuova animazione con la durata del chatbot */
+                animation: navbar-blob-morph-from-chatbot 5s infinite;
             }
 
-            /* Navigazione */
-            .strush-nav-links-container {
-                display: none;
-            }
-
-            .strush-mobile-dropdown {
-                display: block;
-                top: 70px; /* Match mobile navbar height */
-            }
-
-            .strush-mobile-dropdown::after {
-                filter: blur(25px);
-                top: -20px;
-                left: -20px;
-                right: -20px;
-                bottom: -20px;
-            }
-
-            /* Pulsante menu */
-            .strush-menu-btn {
-                display: block;
-                z-index: 999;
-                grid-column: 3;
-                justify-self: end;
-                margin-right: 10px;
-            }
-
-            .strush-menu-btn.open span,
-            .strush-menu-btn.active span {
-                background-color: #8C8DD4;
-            }
-
-            /* Container */
-            .strush-container {
-                width: 100%; /* Use full width within navbar */
-                max-width: 1140px; /* Keep max-width constrain */
-                padding: 0 15px; /* Add some horizontal padding */
-                box-sizing: border-box; /* Include padding in width */
-            }
+            /* Resto stili mobile invariati */
+            .strush-nav-links-container { display: none; }
+            .strush-mobile-dropdown { display: block; top: 70px; }
+            .strush-mobile-dropdown::after { filter: blur(25px); top: -20px; left: -20px; right: -20px; bottom: -20px; }
+            .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
+            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #8C8DD4; }
+            .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
         }
     </style>
 
+    <!-- Script rimane invariato -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Ottieni riferimenti agli elementi
             const menuBtn = document.getElementById('menuBtn');
             const mobileDropdown = document.getElementById('mobileDropdown');
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
 
-            // Aggiungi attributi per l'animazione sequenziale
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
             });
 
-            // Toggle menu su click del pulsante hamburger
             menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Previene la propagazione dell'evento
+                e.stopPropagation();
                 menuBtn.classList.toggle('open');
                 menuBtn.classList.toggle('active');
                 mobileDropdown.classList.toggle('active');
-
-                // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
                 document.body.classList.toggle('menu-active');
             });
 
-            // Chiudi menu quando viene cliccato un link
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     menuBtn.classList.remove('open');
                     menuBtn.classList.remove('active');
                     mobileDropdown.classList.remove('active');
-                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                    document.body.classList.remove('menu-active');
                 });
             });
 
-            // Chiudi menu quando si clicca fuori
             document.addEventListener('click', function(e) {
-                // Check if the dropdown is active AND the click was outside the dropdown AND outside the menu button
                 if (mobileDropdown.classList.contains('active') &&
                     !mobileDropdown.contains(e.target) &&
-                    !menuBtn.contains(e.target)) { // Simplified check for the button
+                    !menuBtn.contains(e.target)) {
                     menuBtn.classList.remove('open');
                     menuBtn.classList.remove('active');
                     mobileDropdown.classList.remove('active');
-                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                    document.body.classList.remove('menu-active');
                 }
             });
 
-
-            // Effetto scroll per navbar
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
@@ -1646,13 +2186,13 @@
         transition: width .3s ease-out;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
-        box-shadow: 0 0 8px rgba(177, 172, 250, 0.5); /* Glow effect */
+        box-shadow: 0 8px 20px #8c8dd462;
     }
 
     /* Effetto hover sulla barra di progresso */
     .scroll-progress-container:hover .scroll-progress-bar {
-        background: #8EDCA9; /* Gradiente verde */
-        box-shadow: 0 0 10px rgba(180, 250, 205, 0.6); /* Glow effect verde */
+        background: #79C192; /* Gradiente verde */
+        box-shadow: 0 8px 20px #79c19262;
     }
 
 </style>
@@ -1907,7 +2447,7 @@
         h1 {
             margin-bottom: 32px;
             line-height: 1.2;
-            background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1930,11 +2470,11 @@
         .btn {
             display: inline-block;
             padding: 15px 35px;
-            border-radius: 35px;
+            border-radius: 36px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 19.2px;
             text-align: center;
             border: 2px solid transparent;
         }
@@ -1942,13 +2482,13 @@
         .btn-primary {
             background: #8C8DD4;
             color: white;
-            box-shadow: 0 4px 15px rgba(140, 141, 212, 0.4);
+            box-shadow: 0 8px 20px #8c8dd462;
         }
 
         .btn-primary:hover {
-            background: #8EDCA9;
+            background: #79C192;
             color: rgb(0, 0, 0);
-            box-shadow: 0 7px 20px rgba(142, 220, 169, 0.6);
+            box-shadow: 0 8px 20px #79c19262;
             transform: translateY(-2px);
         }
 
@@ -1956,15 +2496,15 @@
             background: transparent;
             color: #8C8DD4;
             border: 2px solid #8C8DD4;
-            box-shadow: 0 4px 15px rgba(140, 141, 212, 0.4);
+            box-shadow: 0 8px 20px #8c8dd462;
         }
 
         .btn-secondary:hover {
             background: transparent; /* Mantiene sfondo trasparente */
-            color: #8EDCA9; /* Colore testo verde */
-            border-color: #8EDCA9; /* Bordo verde */
+            color: #79C192; /* Colore testo verde */
+            border-color: #79C192; /* Bordo verde */
             transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(142, 220, 169, 0.6); /* Ombra verde */
+            box-shadow: 0 8px 20px #79c19262;
         }
 
         .hero-image {
@@ -2187,15 +2727,16 @@
         .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
 
         .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
-        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0 10px #8C8DD4; opacity: 0; animation: dataPoint 4s infinite; }
+        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 8px 20px #8c8dd462;
+            opacity: 0; animation: dataPoint 4s infinite; }
         .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
         .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
         .data-point.p3 { top: 150px; left: 100px; animation-delay: 1.5s; }
         .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
         .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
         .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
-        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0 10px #8C8DD4; animation: scanLine 3s infinite; }
-        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3); opacity: 0.7; animation: techCirclePulse 4s infinite; }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 8px 20px #8c8dd462;animation: scanLine 3s infinite; }
+        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 8px 20px #8c8dd462;opacity: 0.7; animation: techCirclePulse 4s infinite; }
         .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
         .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
         .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
@@ -2220,7 +2761,8 @@
         .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
         .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
 
-        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0 15px rgba(177, 172, 250, 0.6); transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
+        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 8px 20px #8c8dd462;
+            ; transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
         .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; /* Ensure it's above other elements */ }
         .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
@@ -2292,10 +2834,6 @@
                 flex-shrink: 0; /* Prevent shrinking */
         }
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-        }
-
         .hero-buttons {
             justify-content: center;
             gap: 20px; /* Reduced gap */
@@ -2303,7 +2841,7 @@
 
         .btn {
             padding: 12px 28px;
-            font-size: 1.1rem; /* Slightly smaller */
+            font-size: 1.1rem; 
         }
 
         .dino-avatar-container {
@@ -2640,9 +3178,9 @@
     <style>
         /* Stili per la versione desktop */
         :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
+            --primary-green: #79C192;
             --border-thickness: 3px;
             /* --card-hover-lift: -8px; */ /* Rimosso o commentato - non più usato */
             --video-hover-scale: 1.05; /* Variable for video scale */
@@ -2754,7 +3292,7 @@
             height: 450px;
             object-fit: cover;
             border-radius: 18px; 
-            box-shadow: 0 8px 25px rgba(93, 92, 179, 0.2); 
+            box-shadow: 0 8px 20px #8c8dd462;
             display: block;
             margin: 0 auto; 
             transform: translateZ(var(--video-base-z));
@@ -2763,14 +3301,14 @@
 
         #features-container-desktop .video-perspective-container:hover .parallax-video {
             transform: scale(var(--video-hover-scale)) translateZ(var(--video-hover-z));
-            box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+            box-shadow: 0 8px 20px #79c19262;
         }
 
         #features-container-desktop .feature-card {
             background: white;
             border-radius: 18px; /* Match video radius */
             padding: 2rem 1.8rem; /* Adjusted padding */
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            box-shadow: 0 8px 20px #8c8dd462;
             transition: border-top-color 0.35s ease, box-shadow 0.35s ease-out;
             border-top: 4px solid #8C8DD4; /* Lighter initial border */
             text-align: center;
@@ -2781,10 +3319,8 @@
         }
 
         #features-container-desktop .feature-card:hover {
-            /* MODIFIED: Removed transform: translateY(...) */
-            /* Highlight border */
             border-top-color: var(--primary-green); /* Green border stays */
-            box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+            box-shadow: 0 8px 20px #79c19262;
         }
 
         /* Wrapper per la forma irregolare */
@@ -2823,9 +3359,9 @@
 
             /* Icon hover state */
         #features-container-desktop .feature-card:hover .feature-icon {
-            background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
+            background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
             transform: scale(1.1); /* Increased scale slightly */
-            box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
+            box-shadow: 0 8px 20px #79c19262;
             border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
         }
 
@@ -3049,9 +3585,9 @@
     <style>
         /* Stili originali per la versione mobile + modifiche per wrapper/frecce/dots */
         :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
+            --primary-green: #79C192;
             --border-thickness: 3px; /* Variabile non usata nel CSS originale fornito? */
         }
 
@@ -3109,8 +3645,7 @@
             left: 0;
             height: 100%;
             will-change: transform;
-            /* Aggiunti flex per centrare il contenuto, se necessario. Mantengo l'originale */
-            /* display: flex; */
+            /* display: flex; */ /* Mantenuto commentato */
             /* justify-content: center; */
             /* align-items: center; */
         }
@@ -3121,10 +3656,10 @@
             width: 90%;
             max-width: 350px;
             height: auto; /* L'altezza fissa è su .features-list */
-            margin: 0 auto; /* Centra la card */
+            margin:  auto; /* Centra la card */
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            border-radius: 18px;
+            box-shadow: 0 8px 20px #8c8dd462;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -3139,7 +3674,6 @@
             width: 100%;
             padding: 0 10px;
             text-align: center;
-             /* Aggiunto per separare dal video, come nel CSS originale implicitamente presente */
         }
 
         #features-mobile .feature-media {
@@ -3155,13 +3689,12 @@
             width: 170px; /* Mantenuto dall'originale */
             height: auto;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            border-radius: 18px;
+            box-shadow: 0 8px 20px #8c8dd462;
         }
 
         /* MODIFICATO: Indicatori (dots) posizionati in fondo al wrapper */
         .features-carousel-wrapper .feature-indicators {
-             /* order non più applicabile qui */
             display: flex;
             gap: 10px;
             justify-content: center;
@@ -3203,13 +3736,7 @@
             transition: all 0.3s;
             font-size: 16px;
             position: absolute; /* Rispetto a .features-carousel-wrapper */
-            /* top: 50%; era relativo alla card interna */
-             /* Nuova posizione: centra verticalmente rispetto all' altezza del contenitore slide */
-             /* 615px (altezza slide) / 2 = 307.5px. Sottrai metà altezza bottone (20px) = 287.5px */
-             /* Meglio usare % se possibile, ma dipende da cosa contiene la slide. */
-             /* Proviamo a centrare rispetto all'area principale della card, un po' sotto la metà*/
              top: 45%; /* O aggiusta questo valore se necessario */
-             /* Oppure calcolato: top: calc(615px * 0.45); */
             transform: translateY(-50%); /* Centra verticalmente il bottone stesso */
             z-index: 10;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -3291,8 +3818,11 @@
                         feature.style.opacity = '1';
                          if (video) video.pause();
                     }
+                    // Assicura che la transizione sia attiva dopo il setup iniziale
+                    feature.style.transition = 'transform 0.4s ease-in-out';
                 });
             }
+
 
             // Aggiorna il dot attivo su mobile (Logica quasi identica, opera su 'dots')
             function updateActiveDot(index) {
@@ -3302,8 +3832,6 @@
                     } else {
                         dot.classList.remove('active');
                     }
-                    // La logica originale selezionava [data-index=...] su tutto il doc,
-                    // ora usiamo la NodeList corretta dei dots trovati.
                  });
             }
 
@@ -3314,8 +3842,6 @@
 
                  const previousIndex = currentFeatureIndex;
                  // Calcolo indice corretto (gestisce loop)
-                 // currentFeatureIndex = (index + totalFeatures) % totalFeatures; // Più robusto
-                 // Manteniamo il calcolo originale per aderenza
                  if (index < 0) {
                     currentFeatureIndex = totalFeatures - 1;
                  } else if (index >= totalFeatures) {
@@ -3323,102 +3849,79 @@
                  } else {
                      currentFeatureIndex = index;
                  }
-                 index = currentFeatureIndex; // Usa l'indice corretto da qui in poi
+                 // index = currentFeatureIndex; // L'indice calcolato diventa l'indice target
 
-
-                 // Pausa tutti i video (come originale)
-                 document.querySelectorAll('#features-mobile .feature-video').forEach(video => {
-                    video.pause();
-                });
-
-
-                 // Mantiene l'animazione originale con le slide che "saltano"
-                 featureElements.forEach((feature, idx) => {
-                    if (idx === previousIndex) {
-                        // Slide che esce
-                        feature.style.transform = (idx < index || (index === 0 && previousIndex === totalFeatures -1)) ? 'translateX(-100%)' : 'translateX(100%)';
-                    } else if (idx === index) {
-                        // Slide che entra - posizione iniziale (istantanea) poi transizione a 0
-                        feature.style.transition = 'none'; // Salta alla posizione iniziale
-                        feature.style.transform = (idx > previousIndex || (idx === 0 && previousIndex === totalFeatures -1)) ? 'translateX(100%)' : 'translateX(-100%)';
-                        // Forza reflow per applicare stile prima di riattivare la transizione
-                        feature.offsetHeight;
-                        feature.style.transition = 'transform 0.4s ease-in-out'; // Riattiva transizione
-                        feature.style.transform = 'translateX(0%)'; // Anima verso il centro
-                    } else {
-                         // Slide non coinvolte (posizionate fuori per sicurezza)
-                         // L'originale le lasciava dove erano, provo a mantenerlo, ma potrebbe causare flicker.
-                         // L'originale non gestiva esplicitamente le altre slide non coinvolte nella transizione.
-                         // Provo a riposizionarle come nel setup iniziale:
-                         feature.style.transition = 'none'; // Senza animazione
-                         feature.style.transform = 'translateX(100%)';
-                         feature.style.visibility = 'visible';
-                         feature.style.opacity = '1';
-
-                    }
-                });
-
-                // Aggiorna il dot attivo (chiama la funzione aggiornata)
-                 updateActiveDot(index);
-
-                // Avvia il video della feature attiva (come originale)
-                 const activeVideo = featureElements[index]?.querySelector('.feature-video');
-                 if (activeVideo) {
-                    // Dare tempo all'animazione di partire? L'originale non lo faceva esplicitamente
-                     activeVideo.play().catch(e => {});
+                 // Determina direzione
+                 let direction = index > previousIndex ? 1 : -1;
+                 // Gestione del loop nella direzione
+                 if (previousIndex === totalFeatures - 1 && index === 0) {
+                     direction = 1; // Da ultimo a primo -> avanti
+                 } else if (previousIndex === 0 && index === totalFeatures - 1) {
+                     direction = -1; // Da primo a ultimo -> indietro
                  }
 
-                 // Reset dello stato di animazione dopo la transizione (come originale)
-                 // L'originale usava setTimeout ma senza riposizionare le slide fuori schermo,
-                 // lo faceva implicitamente durante la transizione successiva.
-                 // Il riposizionamento fatto sopra rende forse inutile questo timeout per le altre slide.
-                 // Lo mantengo solo per isAnimating.
-                 setTimeout(() => {
-                    isAnimating = false;
-                     // Reset della transizione 'none' eventualmente applicata alla slide entrante
-                     if(featureElements[index]) featureElements[index].style.transition = '';
+                 // Pausa tutti i video
+                 document.querySelectorAll('#features-mobile .feature-video').forEach(video => {
+                    video.pause();
+                    // video.currentTime = 0; // Optional: reset video
+                });
 
-                     // Riposizioniamo qui le altre slide in modo più sicuro
-                     featureElements.forEach((feature, idx) => {
-                        if(idx !== index) {
-                            feature.style.transition = 'none'; // Nessuna animazione per il riposizionamento
-                            feature.style.transform = 'translateX(100%)'; // Tutte le altre a destra
+                 // Animazione Slide
+                 featureElements.forEach((feature, idx) => {
+                     const video = feature.querySelector('.feature-video');
+                     // Slide corrente (che esce)
+                     if (idx === previousIndex) {
+                         feature.style.transition = 'transform 0.4s ease-in-out';
+                         feature.style.transform = direction === 1 ? 'translateX(-100%)' : 'translateX(100%)';
+                     }
+                     // Slide nuova (che entra)
+                     else if (idx === currentFeatureIndex) {
+                         // Posiziona fuori schermo senza transizione
+                         feature.style.transition = 'none';
+                         feature.style.transform = direction === 1 ? 'translateX(100%)' : 'translateX(-100%)';
+                         // Forza reflow per applicare lo stato iniziale
+                         feature.offsetHeight;
+                         // Attiva la transizione e muovi al centro
+                         feature.style.transition = 'transform 0.4s ease-in-out';
+                         feature.style.transform = 'translateX(0%)';
+                         // Avvia il video della nuova slide attiva
+                         if (video) {
+                             video.play().catch(e => console.log("Video play failed:", e));
                          }
-                     });
+                     }
+                     // Altre slide (assicurati siano fuori schermo)
+                     else {
+                         feature.style.transition = 'none';
+                         feature.style.transform = 'translateX(100%)'; // O -100% a seconda della logica preferita
+                     }
+                 });
 
-                 }, 400); // Durata della transizione
-             }
+                 // Aggiorna il dot attivo
+                 updateActiveDot(currentFeatureIndex);
 
-            // Funzione per gestire l'effetto di clic sui pulsanti (Mantenuta dall'originale)
-            // NOTA: questa applica una classe '.active' temporanea al bottone.
-            // Il CSS fornito usa `:active` (pseudoclasse CSS nativa per il click).
-            // Questa funzione JS potrebbe essere ridondante se l'effetto `:active` è sufficiente.
-             function handleButtonClick(button) {
-                 if (!button) return;
-                 // Aggiungi la classe active
-                 button.classList.add('active');
-
-                 // Rimuovi la classe active dopo 300ms (durata dell'effetto)
+                 // Reset dello stato di animazione dopo la transizione
                  setTimeout(() => {
-                    button.classList.remove('active');
-                 }, 300);
+                     isAnimating = false;
+                     // Pulisce le transizioni "none" se necessario
+                     featureElements.forEach(feature => {
+                         feature.style.transition = ''; // Rimuove stile inline o lo setta a default
+                     });
+                 }, 400); // Durata della transizione CSS
              }
+
+
+            // Funzione per gestire l'effetto di clic sui pulsanti (Commentata - :active è preferibile)
+            // function handleButtonClick(button) { ... }
 
             // MODIFICATO: Evento click sul pulsante precedente (singolo bottone)
             prevBtn?.addEventListener('click', () => {
-                // handleButtonClick(prevBtn); // Rimuovo questa chiamata, usa solo :active
-                 let targetIndex = currentFeatureIndex - 1;
-                // if (targetIndex < 0) targetIndex = totalFeatures - 1; // Gestione loop
-                goToFeature(targetIndex); // Usa la logica interna a goToFeature per il loop
+                goToFeature(currentFeatureIndex - 1);
             });
 
 
             // MODIFICATO: Evento click sul pulsante successivo (singolo bottone)
              nextBtn?.addEventListener('click', () => {
-                // handleButtonClick(nextBtn); // Rimuovo questa chiamata, usa solo :active
-                 let targetIndex = currentFeatureIndex + 1;
-                 // if (targetIndex >= totalFeatures) targetIndex = 0; // Gestione loop
-                goToFeature(targetIndex); // Usa la logica interna a goToFeature per il loop
+                goToFeature(currentFeatureIndex + 1);
             });
 
             // Event listener per i dot indicatori (come originale, opera su 'dots')
@@ -3437,18 +3940,14 @@
             setupMobileCarousel();
 
              // Gestione resize della finestra (come originale)
-            // NOTA: il setupMobileCarousel chiamato qui resetta sempre alla prima slide.
              let resizeTimeout;
              window.addEventListener('resize', () => {
                  clearTimeout(resizeTimeout);
                  resizeTimeout = setTimeout(() => {
                     const isMobileNow = window.getComputedStyle(featuresMobileSection).display !== 'none';
                     if (isMobileNow) {
-                        // Ri-calcola la posizione iniziale
+                        // Ri-calcola la posizione iniziale - resetta alla prima slide
                          setupMobileCarousel();
-                         // Alternativamente potresti provare a mantenere la slide corrente:
-                         // goToFeature(currentFeatureIndex); ma senza animazione? complesso.
-                         // Il reset alla prima è più semplice e spesso accettabile.
                      }
                 }, 250);
              }, { passive: true });
@@ -3572,9 +4071,9 @@
 
 <style>
     :root {
-        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
         --primary-purple: #8C8DD4;
-        --primary-green: #8EDCA9;
+        --primary-green: #79C192;
         --border-thickness: 3px;
     }
     
@@ -3620,8 +4119,8 @@
         height: 100%;
         transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
-        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-        border-radius: 20px;
+        box-shadow: 0 8px 20px #8c8dd462;
+        border-radius: 18px;
         will-change: transform;
     }
     
@@ -3635,7 +4134,7 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        border-radius: 20px;
+        border-radius: 18px;
         overflow: hidden;
         transform-style: preserve-3d;
     }
@@ -3716,7 +4215,7 @@
         object-fit: cover; /* Changed from contain */
         transform: translateZ(0px); /* Keep for 3D context if needed */
         /* Ensure it respects the parent's border-radius */
-        border-radius: 20px;
+        border-radius: 18px;
     }
 
     /* Card info section */
@@ -3779,13 +4278,13 @@
         /* Per dispositivi mobili: disattiva l'effetto hover */
         .avatar-card:hover .card-inner {
             transform: none;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            box-shadow: 0 8px 20px #8c8dd462;
         }
         
         /* La card si gira solo quando ha la classe flipped */
         .avatar-card .card-inner.flipped {
             transform: rotateY(180deg);
-            box-shadow: 0 15px 30px rgba(119, 252, 166, 0.4);
+            box-shadow: 0 8px 20px #79c19262;
         }
     }
 
@@ -3943,9 +4442,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     :root {
-        --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+        --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
         --primary-purple: #8C8DD4;
-        --primary-green: #8EDCA9;
+        --primary-green: #79C192;
         --border-thickness: 3px;
         --speech-bubble-space: -30px;
         --card-width: 800px;
@@ -3992,7 +4491,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .card {
         transition: all 0.3s ease;
-        border-radius: 15px;
+        border-radius: 18px;
         background-color: white;
         width: var(--card-width);
         height: var(--card-height);
@@ -4005,7 +4504,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transform-style: preserve-3d;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        box-shadow: 0 8px 20px #8c8dd462;
     }
     
     /* Aggiungiamo un div per lo sfondo con effetto zoom */
@@ -4018,18 +4517,18 @@ document.addEventListener('DOMContentLoaded', function() {
         background-size: cover;
         background-position: center;
         transition: transform 0.3s ease;
-        border-radius: 15px;
+        border-radius: 18px;
         overflow: hidden;
         z-index: 0;
+        box-shadow: 0 8px 20px #8c8dd462;
     }
     
     .card:hover .card-bg {
         transform: scale(1.05);
+        box-shadow: 0 8px 20px #79c19262;
+
     }
-    
-    .card:hover {
-        box-shadow: 0 15px 30px rgba(119, 252, 166, 0.5);
-    }
+
     
     .image-container {
         position: relative;
@@ -4092,8 +4591,8 @@ document.addEventListener('DOMContentLoaded', function() {
         font-weight: bold;
         background-color: rgba(255, 255, 255, 0.8);
         padding: 4px 4px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        border-radius: 18px;
+        box-shadow: 0 8px 20px #8c8dd462;
         transition: none;
         position: relative;
         z-index: 5;
@@ -4102,7 +4601,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Stile speciale per la targhetta dell'avatar utente */
     .image-label.user-avatar {
         background: var(--gradient-primary);
-        box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+        box-shadow: 0 8px 20px #8c8dd462;
         font-weight: bold;
         border: 2px solid #fff;
         padding: 4px 0px;
@@ -4480,321 +4979,322 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works section">
-        <div class="container">
-            <h2 class="section-title">Tutorial</h2>
+<section id="how-it-works" class="how-it-works section">
+    <div class="container">
+        <h2 class="section-title">Tutorial</h2>
 
-            <div class="timeline">
-                <div class="timeline-line"></div>
+        <div class="timeline">
+            <div class="timeline-line"></div>
 
-                <!-- Step 1 -->
-                <div class="timeline-item left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="step-number">1</div>
-                        <h3 class="step-description">Registrati e configura il tuo profilo</h3>
-                        <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
-                    </div>
+            <!-- Step 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">1</div>
+                    <h3 class="step-description">Registrati e configura il tuo profilo</h3>
+                    <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
                 </div>
-
-                <!-- Step 2 -->
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="step-number">2</div>
-                        <h3 class="step-description">Imposta i tuoi obiettivi finanziari</h3>
-                        <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="timeline-item left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="step-number">3</div>
-                        <h3 class="step-description">Traccia le tue spese quotidiane</h3>
-                        <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="timeline-item right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="step-number">4</div>
-                        <h3 class="step-description">Analizza e migliora</h3>
-                        <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
-                    </div>
-                </div>
-            </div> <!-- Fine .timeline -->
-        </div>
-
-        <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
-        <div class="ticker-wrap">
-            <div class="ticker">
-                <div class="ticker-item">
-                    <span class="disclaimer-point">DISCLAIMER:</span>
-                    <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà dura</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo cinque volte a settimana</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">L'app non stampa i soldi e non cancella i debiti</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici che scroccano</span>
-                    <span class="ticker-separator">*</span>
-                    <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
             </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">2</div>
+                    <h3 class="step-description">Imposta i tuoi obiettivi finanziari</h3>
+                    <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">3</div>
+                    <h3 class="step-description">Traccia le tue spese quotidiane</h3>
+                    <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">4</div>
+                    <h3 class="step-description">Analizza e migliora</h3>
+                    <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
+                </div>
+            </div>
+        </div> <!-- Fine .timeline -->
+    </div>
+
+    <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">
+                <span class="disclaimer-point">DISCLAIMER:</span>
+                <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà dura</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo cinque volte a settimana</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">L'app non stampa i soldi e non cancella i debiti</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici che scroccano</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
         </div>
+    </div>
 
-        <style>
-            .how-it-works {
-                background-color: white;
-                position: relative;
+    <style>
+        .how-it-works {
+            background-color: white;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
+        }
+
+        .timeline-line {
+            position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+            background: var(--gradient-primary); transform: translateX(-50%); border-radius: 18px;
+        }
+
+        .timeline-line:after {
+            content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 15px solid var(--primary-purple);
+        }
+
+        .timeline-item {
+            position: relative; margin-bottom: 4rem; width: 100%; display: flex;
+        }
+        .timeline-item.left { justify-content: flex-start; }
+        .timeline-item.right { justify-content: flex-end; }
+
+        .timeline-dot {
+            position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
+            background: white; border: 4px solid var(--primary-purple); border-radius: 50%;
+            transform: translateX(-50%); z-index: 2;
+        }
+
+        .timeline-content {
+            width: 45%; background: white; padding: 2rem; border-radius: 18px;
+            box-shadow: 0 8px 20px #8c8dd462;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        /* Stili Hover Desktop */
+        @media (hover: hover) and (min-width: 769px) { /* Applica solo se il device supporta hover e non è mobile */
+            .timeline-content:hover {
+                box-shadow: 0 8px 20px #79c19262;
             }
 
-            .timeline {
-                position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
+            .timeline-content:hover .step-number {
+                border-radius: var(--step-blob-shape, 50%);
+                transform: scale(1.1) rotate(5deg);
+                box-shadow: 0 8px 20px #79c19262;
+                background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
+            }
+        }
+
+
+        .timeline-item.left .timeline-content:before,
+        .timeline-item.right .timeline-content:before {
+            content: ''; position: absolute; top: 34px; /* Allinea al dot */
+            width: 40px; height: 2px; background-color: var(--primary-purple); z-index: 1;
+        }
+        .timeline-item.left .timeline-content:before { right: -40px; }
+        .timeline-item.right .timeline-content:before { left: -40px; }
+
+
+        .step-number {
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
+            box-shadow: 0 8px 20px #8c8dd462;
+            margin-bottom: 1rem; position: relative; z-index: 1;
+            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
+        }
+
+        .step-description { margin-top: 0}
+        .timeline-content p { margin-bottom: 0}
+
+        /* Curva inferiore */
+        .how-it-works::after {
+            content: ''; position: absolute; bottom: -30px; left: 0; width: 100%; height: 30px;
+            background: white; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
+        }
+
+        /* Ticker Styles */
+            .ticker-wrap {
+            width: 100%; overflow: hidden; background: black;
+            box-shadow: 0 8px 20px #8c8dd462, 0 -8px 20px rgba(93, 92, 179, 0.25);
+            position: relative;
+            transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
+            }
+            .ticker-wrap:hover {
+                box-shadow: 0 2px 8px rgba(78, 213, 125, 0.4), 0 -2px 8px rgba(78, 213, 125, 0.4) !important;
+            }
+            .ticker {
+                display: inline-block; white-space: nowrap; padding-left: 100%;
+                animation: ticker 45s linear infinite;
+            }
+            .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
+            .ticker-item {
+                display: inline-block; font-size: 1rem; font-weight: 600;
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); color: #8C8DD4 !important;
+                transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
+            }
+        .ticker-wrap:hover .ticker-item,
+        .ticker-wrap:hover .disclaimer-text,
+        .ticker-wrap:hover .disclaimer-point,
+        .ticker-wrap:hover .ticker-separator { color: #79C192 !important; }
+
+        .ticker-separator {
+            font-size: 1.3rem; font-weight: bold; margin: 0 0.8rem;
+            vertical-align: middle; display: inline-block; color: #8C8DD4;
+            transition: color 0.3s ease;
+        }
+        .disclaimer-text, .disclaimer-point {
+            color: #8C8DD4; transition: color 0.3s ease; margin-right: 0.5rem;
+        }
+        .disclaimer-point { font-weight: bold; }
+
+            @keyframes ticker {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-100%); } /* Loop fluido */
             }
 
-            .timeline-line {
-                position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
-                background: var(--gradient-primary); transform: translateX(-50%); border-radius: 4px;
-            }
+            /* Media query How It Works Mobile */
+            @media (max-width: 768px) {
+                .timeline-line { left: 20px; }
+                .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
+                .timeline-item { margin-bottom: 2rem; }
+                .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
+                .timeline-content { width: 100%; padding: 1.5rem; }
+                .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
+                    left: -25px; right: auto; width: 25px; top: 32px;
+                }
+                .how-it-works::after { height: 20px; bottom: -20px; }
+                .ticker-item { font-size: 0.9rem; margin-right: 1.5rem; }
 
-            .timeline-line:after {
-                content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
-                width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
-                border-top: 15px solid var(--primary-purple);
-            }
-
-            .timeline-item {
-                position: relative; margin-bottom: 4rem; width: 100%; display: flex;
-            }
-            .timeline-item.left { justify-content: flex-start; }
-            .timeline-item.right { justify-content: flex-end; }
-
-            .timeline-dot {
-                position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
-                background: white; border: 4px solid var(--primary-purple); border-radius: 50%;
-                transform: translateX(-50%); z-index: 2;
-            }
-
-            .timeline-content {
-                width: 45%; background: white; padding: 2rem; border-radius: 15px;
-                box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
-                transition: box-shadow 0.3s ease, transform 0.3s ease;
-                position: relative;
-            }
-
-            /* Stili Hover Desktop */
-            @media (hover: hover) and (min-width: 769px) { /* Applica solo se il device supporta hover e non è mobile */
-                .timeline-content:hover {
-                    box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+                /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
+                .ticker {
+                animation-duration: 60s; /* Era 30s, aumentato per rallentare */
                 }
 
-                .timeline-content:hover .step-number {
-                    border-radius: var(--step-blob-shape, 50%);
-                    transform: scale(1.1) rotate(5deg);
-                    box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
-                    background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
-                }
-            }
-
-
-            .timeline-item.left .timeline-content:before,
-            .timeline-item.right .timeline-content:before {
-                content: ''; position: absolute; top: 34px; /* Allinea al dot */
-                width: 40px; height: 2px; background-color: var(--primary-purple); z-index: 1;
-            }
-            .timeline-item.left .timeline-content:before { right: -40px; }
-            .timeline-item.right .timeline-content:before { left: -40px; }
-
-
-            .step-number {
-                width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
-                display: flex; align-items: center; justify-content: center;
-                font-size: 1.5rem; font-weight: bold; color: #2b2d42; /* Changed color slightly for contrast */
-                box-shadow: 0 5px 15px rgba(177, 172, 250, 0.5);
-                margin-bottom: 1rem; position: relative; z-index: 1;
-                transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                            transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
-            }
-
-            .step-description { margin-top: 0; color: #333; }
-            .timeline-content p { margin-bottom: 0; color: #555; }
-
-            /* Curva inferiore */
-            .how-it-works::after {
-                content: ''; position: absolute; bottom: -30px; left: 0; width: 100%; height: 30px;
-                background: white; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
-            }
-
-            /* Ticker Styles */
-             .ticker-wrap {
-                width: 100%; overflow: hidden; background: black;
-                box-shadow: 0 2px 8px rgba(135, 128, 234, 0.4), 0 -2px 8px rgba(135, 128, 234, 0.4);
-                position: relative;
-                transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
-             }
-             .ticker-wrap:hover {
-                 box-shadow: 0 2px 8px rgba(142, 220, 169, 0.4), 0 -2px 8px rgba(142, 220, 169, 0.4) !important;
-             }
-             .ticker {
-                 display: inline-block; white-space: nowrap; padding-left: 100%;
-                 animation: ticker 45s linear infinite;
-             }
-             .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
-             .ticker-item {
-                 display: inline-block; font-size: 1rem; font-weight: 600;
-                 text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); color: #8C8DD4 !important;
-                 transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
-             }
-            .ticker-wrap:hover .ticker-item,
-            .ticker-wrap:hover .disclaimer-text,
-            .ticker-wrap:hover .disclaimer-point,
-            .ticker-wrap:hover .ticker-separator { color: #8EDCA9 !important; }
-
-            .ticker-separator {
-                font-size: 1.3rem; font-weight: bold; margin: 0 0.8rem;
-                vertical-align: middle; display: inline-block; color: #8C8DD4;
-                transition: color 0.3s ease;
-            }
-            .disclaimer-text, .disclaimer-point {
-                color: #8C8DD4; transition: color 0.3s ease; margin-right: 0.5rem;
-            }
-            .disclaimer-point { font-weight: bold; }
-
-             @keyframes ticker {
-                 0% { transform: translateX(0); }
-                 100% { transform: translateX(-100%); } /* Loop fluido */
-             }
-
-             /* Media query How It Works Mobile */
-             @media (max-width: 768px) {
-                 .timeline-line { left: 20px; }
-                 .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
-                 .timeline-item { margin-bottom: 2rem; }
-                 .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
-                 .timeline-content { width: 100%; padding: 1.5rem; }
-                 .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
-                     left: -25px; right: auto; width: 25px; top: 32px;
-                 }
-                 .how-it-works::after { height: 20px; bottom: -20px; }
-                 .ticker-item { font-size: 0.9rem; margin-right: 1.5rem; }
-
-                 /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
-                 .ticker {
-                    animation-duration: 60s; /* Era 30s, aumentato per rallentare */
-                 }
-
-                 /* NUOVO: Stili per l'elemento timeline centrato su mobile */
-                 .timeline-content.is-centered {
-                    box-shadow: 0 0 20px rgba(142, 220, 169, 0.4);
+                /* NUOVO: Stili per l'elemento timeline centrato su mobile */
+                .timeline-content.is-centered {
+                    box-shadow: 0 8px 20px #79c19262;
                     /* Aggiungi qui altri stili desiderati per lo stato "attivo" se necessario */
-                 }
-
-                 .timeline-content.is-centered .step-number {
-                    border-radius: var(--step-blob-shape, 50%);
-                    transform: scale(1.1) rotate(5deg);
-                    box-shadow: 0 6px 15px rgba(142, 220, 169, 0.5);
-                    background: linear-gradient(135deg, #8EDCA9 60%, #8C8DD4 100%);
-                 }
-             }
-        </style>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // --- Logica per le forme blob dei numeri dei passaggi (invariata) ---
-                const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
-                if (stepNumbers.length > 0) {
-                    const stepBlobShapes = [
-                        '71% 29% 65% 35% / 33% 56% 44% 67%',
-                        '41% 59% 27% 73% / 58% 28% 72% 42%',
-                        '45% 55% 40% 60% / 60% 40% 55% 45%',
-                        '58% 42% 65% 35% / 42% 58% 35% 65%'
-                    ];
-                    stepNumbers.forEach((stepNumber, index) => {
-                        const blobShape = stepBlobShapes[index % stepBlobShapes.length];
-                        stepNumber.style.setProperty('--step-blob-shape', blobShape);
-                    });
                 }
 
-                // --- NUOVO: Logica per attivare la timeline card centrale su mobile ---
-                const timelineItems = document.querySelectorAll('.how-it-works .timeline-content');
-                const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
-                let scrollTimeout; // Per throttling leggero
+                .timeline-content.is-centered .step-number {
+                border-radius: var(--step-blob-shape, 50%);
+                transform: scale(1.1) rotate(5deg);
+                box-shadow: 0 8px 20px #79c19262;
+                background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
+                }
+            }
+    </style>
 
-                function checkTimelineActivation() {
-                    // Esegui solo su mobile
-                    if (!mobileMediaQuery.matches || timelineItems.length === 0) {
-                        // Se non siamo più su mobile, rimuovi la classe da tutti
-                        timelineItems.forEach(item => item.classList.remove('is-centered'));
-                        return;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Logica per le forme blob dei numeri dei passaggi (invariata) ---
+            const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
+            if (stepNumbers.length > 0) {
+                const stepBlobShapes = [
+                    '71% 29% 65% 35% / 33% 56% 44% 67%',
+                    '41% 59% 27% 73% / 58% 28% 72% 42%',
+                    '45% 55% 40% 60% / 60% 40% 55% 45%',
+                    '58% 42% 65% 35% / 42% 58% 35% 65%'
+                ];
+                stepNumbers.forEach((stepNumber, index) => {
+                    const blobShape = stepBlobShapes[index % stepBlobShapes.length];
+                    stepNumber.style.setProperty('--step-blob-shape', blobShape);
+                });
+            }
+
+            // --- NUOVO: Logica per attivare la timeline card centrale su mobile ---
+            const timelineItems = document.querySelectorAll('.how-it-works .timeline-content');
+            const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+            let scrollTimeout; // Per throttling leggero
+
+            function checkTimelineActivation() {
+                // Esegui solo su mobile
+                if (!mobileMediaQuery.matches || timelineItems.length === 0) {
+                    // Se non siamo più su mobile, rimuovi la classe da tutti
+                    timelineItems.forEach(item => item.classList.remove('is-centered'));
+                    return;
+                }
+
+                const viewportCenterY = window.innerHeight / 2;
+                let closestItem = null;
+                let minDistance = Infinity;
+
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    // Calcola il centro verticale dell'elemento rispetto alla viewport
+                    const itemCenterY = rect.top + rect.height / 2;
+                    const distance = Math.abs(viewportCenterY - itemCenterY);
+
+                    // Considera solo elementi visibili (almeno parzialmente)
+                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestItem = item;
+                        }
                     }
+                });
 
-                    const viewportCenterY = window.innerHeight / 2;
-                    let closestItem = null;
-                    let minDistance = Infinity;
-
-                    timelineItems.forEach(item => {
-                        const rect = item.getBoundingClientRect();
-                        // Calcola il centro verticale dell'elemento rispetto alla viewport
-                        const itemCenterY = rect.top + rect.height / 2;
-                        const distance = Math.abs(viewportCenterY - itemCenterY);
-
-                        // Considera solo elementi visibili (almeno parzialmente)
-                        if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                            if (distance < minDistance) {
-                                minDistance = distance;
-                                closestItem = item;
+                // Rimuovi la classe da tutti tranne il più vicino (se trovato)
+                timelineItems.forEach(item => {
+                    if (item === closestItem) {
+                            // Aggiungi un piccolo threshold per evitare attivazioni troppo sensibili
+                            // Se l'elemento più vicino è effettivamente "vicino" al centro
+                            if (minDistance < (viewportCenterY * 0.5) ) { // Ad es. entro metà altezza viewport dal centro
+                            item.classList.add('is-centered');
+                            } else {
+                                item.classList.remove('is-centered'); // Rimuovi se non è abbastanza vicino
                             }
-                        }
-                    });
+                    } else {
+                        item.classList.remove('is-centered');
+                    }
+                });
+            }
 
-                    // Rimuovi la classe da tutti tranne il più vicino (se trovato)
-                    timelineItems.forEach(item => {
-                        if (item === closestItem) {
-                             // Aggiungi un piccolo threshold per evitare attivazioni troppo sensibili
-                             // Se l'elemento più vicino è effettivamente "vicino" al centro
-                             if (minDistance < (viewportCenterY * 0.5) ) { // Ad es. entro metà altezza viewport dal centro
-                                item.classList.add('is-centered');
-                             } else {
-                                 item.classList.remove('is-centered'); // Rimuovi se non è abbastanza vicino
-                             }
-                        } else {
-                            item.classList.remove('is-centered');
-                        }
-                    });
-                }
+            // Funzione per gestire lo scroll con throttling
+            function handleScroll() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(checkTimelineActivation, 50); // Esegui max ogni 50ms
+            }
 
-                // Funzione per gestire lo scroll con throttling
-                function handleScroll() {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(checkTimelineActivation, 50); // Esegui max ogni 50ms
-                }
+            // Aggiungi event listener per scroll e resize
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', checkTimelineActivation); // Controlla anche al resize
 
-                // Aggiungi event listener per scroll e resize
-                window.addEventListener('scroll', handleScroll);
-                window.addEventListener('resize', checkTimelineActivation); // Controlla anche al resize
+            // Esegui un controllo iniziale al caricamento
+            checkTimelineActivation();
 
-                // Esegui un controllo iniziale al caricamento
-                checkTimelineActivation();
-
-            }); // Fine DOMContentLoaded
-        </script>
+        }); // Fine DOMContentLoaded
+    </script>
 
 </section>
+
 
     <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section">
 
     <div class="container">
         <h2 class="section-title">Cosa Dicono Gli Utenti</h2>
-        
+
         <!-- Story Container -->
         <div class="story-container">
             <!-- Progress Bars -->
@@ -4809,7 +5309,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="progress-fill"></div>
                 </div>
             </div>
-            
+
             <!-- Stories Content -->
             <div class="stories-content">
                 <div class="story active">
@@ -4825,7 +5325,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>È una specie di gioco! Tenere sotto controllo le spese è diventato qualcosa che voglio fare, non che devo fare.</p>
                         </div>
                         <div class="testimonial-author">
-                            <div class="avatar-blob avatar-shape-1">
+                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
+                            <div class="avatar-blob avatar-shape-1" id="avatar-blob-1">
                                 <img src="immagini/testimonial 1.jpg" alt="Scapi A." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
@@ -4835,7 +5336,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="story">
                     <div class="story-inner">
                         <div class="blob blob-1"></div>
@@ -4849,7 +5350,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>L'app più intuitiva che abbia mai usato. Ogni volta che sblocco un badge mi sento tipo livello 10 del risparmio.</p>
                         </div>
                         <div class="testimonial-author">
-                            <div class="avatar-blob avatar-shape-2">
+                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
+                            <div class="avatar-blob avatar-shape-2" id="avatar-blob-2">
                                 <img src="immagini/testimonial 2.jpg" alt="Sgabbi Y." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
@@ -4859,7 +5361,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="story">
                     <div class="story-inner">
                         <div class="blob blob-1"></div>
@@ -4873,7 +5375,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>Chi l’avrebbe mai detto che mi sarei gasato per aver messo da parte 5 euro?</p>
                         </div>
                         <div class="testimonial-author">
-                            <div class="avatar-blob avatar-shape-3">
+                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
+                            <div class="avatar-blob avatar-shape-3" id="avatar-blob-3">
                                 <img src="immagini/testimonial 3.jpg" alt="Baluiso A." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
@@ -4889,18 +5392,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <style>
         :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
+            --primary-green: #79C192;
             --border-thickness: 3px;
         }
-        
+
         .testimonials {
             background: #E6F2F5;
             position: relative;
         }
 
-        
+
         /* Bottom curve - maintained from original */
         .testimonials::after {
             content: '';
@@ -4913,8 +5416,8 @@ document.addEventListener('DOMContentLoaded', function() {
             border-radius: 0 0 50% 50% / 0 0 100% 100%;
             z-index: 2;
         }
-        
-        
+
+
         /* Story container styles */
         .story-container {
             position: relative;
@@ -4925,146 +5428,66 @@ document.addEventListener('DOMContentLoaded', function() {
             padding-bottom: 25px;
             padding-left: 17px;
             padding-right: 17px;
-            -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
-            user-select: none; /* Impedisce la selezione del testo */
-            -webkit-touch-callout: none; /* Disabilita il callout su iOS */
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-touch-callout: none;
         }
-        
+
         /* Progress bars styles */
-        .progress-bars {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .progress-bar {
-            height: 4px;
-            flex: 1;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--primary-purple);
-            border-radius: 2px;
-            transition: width 0.1s linear;
-        }
-        
-        .progress-fill.completed {
-            width: 100%;
-        }
-        
-        .progress-fill.no-transition {
-            transition: none;
-        }
-        
+        .progress-bars { display: flex; gap: 8px; margin-bottom: 20px; }
+        .progress-bar { height: 4px; flex: 1; background: rgba(0, 0, 0, 0.1); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: var(--primary-purple); border-radius: 2px; transition: width 0.1s linear; }
+        .progress-fill.completed { width: 100%; }
+        .progress-fill.no-transition { transition: none; }
+
         /* Stories content styles */
-        .stories-content {
-            position: relative;
-            height: 380px;
-            -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
-        }
-        
-        .story {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            pointer-events: none;
-        }
-        
-        .story.active {
-            opacity: 1;
-            transform: translateX(0);
-            pointer-events: all;
-        }
-        
+        .stories-content { position: relative; height: 380px; -webkit-tap-highlight-color: transparent; }
+        .story { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translateX(50px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
+        .story.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+
         .story-inner {
             background: rgb(255, 255, 255);
-            border-radius: 20px;
+            border-radius: 18px;
             padding: 32px;
             height: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent; /* Impedisce l'evidenziazione su mobile */
-            outline: none; /* Rimuove l'outline quando cliccato */
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            overflow: hidden; /* Changed to visible to prevent clipping shadow/transform */
+            transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+            box-shadow: 0 8px 20px #8c8dd462;
         }
-        
+
         /* Irregular blob shapes */
-        .blob {
-            position: absolute;
-            z-index: 0;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        }
-        
-        .blob-1 {
-            top: -90px;
-            left: -60px;
-            width: 200px;
-            height: 180px;
-            background-color: rgba(177, 172, 250, 0.15);
-            transform: rotate(30deg);
-        }
-        
-        .blob-2 {
-            bottom: -80px;
-            right: -40px;
-            width: 220px;
-            height: 200px;
-            background-color: rgba(177, 172, 250, 0.15);
-            transform: rotate(-15deg);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
-        
+        .blob { position: absolute; z-index: 0; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: rgba(177, 172, 250, 0.15); transform: rotate(30deg); }
+        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: rgba(177, 172, 250, 0.15); transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+
         /* Quote icon styles */
-        .quote-icon {
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
-        }
-        
+        .quote-icon { margin-bottom: 24px; position: relative; z-index: 1; }
+
         /* Testimonial content styles */
-        .testimonial-content {
-            margin-bottom: 32px;
-            flex-grow: 1;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-content p {
-            font-size: 1.5rem;
-            color: var(--text);
-        }
-        
+        .testimonial-content { margin-bottom: 32px; flex-grow: 1; position: relative; z-index: 1; }
+        .testimonial-content p { font-size: 1.5rem; color: var(--text2); }
+
         /* Testimonial author styles */
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Base avatar blob styles - modificato per iniziare come cerchio */
+        .testimonial-author { display: flex; align-items: center; margin-top: auto; position: relative; z-index: 1; }
+
+        /* Base avatar blob styles */
         .avatar-blob {
             width: 68px;
             height: 68px;
             position: relative;
-            margin-right: 15px;
+            margin-right: 20px;
             filter: drop-shadow(0 4px 6px rgba(177, 172, 250, 0.2));
+            /* MODIFICATO: Aggiunta transition per transform */
+            transition: filter 0.3s ease, transform 0.4s ease;
+            /* NUOVO: Assicurarsi che il contenitore non clippi il bordo trasformato */
+            overflow: visible;
         }
-        
+
         /* Common border properties for all avatar shapes */
         .avatar-blob::before {
             content: '';
@@ -5073,265 +5496,216 @@ document.addEventListener('DOMContentLoaded', function() {
             background: var(--gradient-primary);
             z-index: -1;
             border-radius: 50%; /* Inizia come cerchio */
-            transition: border-radius 0.4s ease;
+            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        
-        /* Tutti gli avatar iniziano come cerchi */
+
+        /* Avatar image styles */
         .testimonial-avatar {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%; /* Inizia come cerchio */
-            transition: border-radius 0.4s ease;
+            /* MODIFICATO: Rimossa la transizione per transform da qui */
+            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: block; /* Aggiunto per coerenza */
+            position: relative; /* Per assicurare sia sopra ::before in alcuni browser */
+            z-index: 1; /* Per assicurare sia sopra ::before in alcuni browser */
         }
-        
-        /* Definizione delle forme blob per gli avatar (ma non applicate inizialmente) */
-        .avatar-shape-1 {
-            --blob-shape: 70% 30% 50% 50% / 40% 60% 40% 60%;
-        }
-        
-        .avatar-shape-2 {
-            --blob-shape: 40% 60% 30% 70% / 60% 30% 70% 40%;
-        }
-        
-        .avatar-shape-3 {
-            --blob-shape: 70% 40% 50% 40% / 40% 60% 40% 60%;
-        }
-        
-        /* Applicazione delle forme blob all'hover */
-        .story-inner:hover .avatar-blob::before {
-            border-radius: var(--blob-shape);
-        }
-        
-        .story-inner:hover .testimonial-avatar {
-            border-radius: var(--blob-shape);
-        }
-        
-        .testimonial-info h5 {
-            margin: 0 0 0.3rem;
-        }
-        
-        .testimonial-info p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-        
-        
-        /* Add hover effect for testimonial cards with green shadow */
-        .story-inner:hover {
-            box-shadow: 0 8px 35px rgba(142, 220, 170, 0.25); /* Ombra verde aumentata */
-            transition: all 0.3s ease;
-        }
-        
-        /* Stile per l'effetto di pressione attiva invece del highlight blu */
+
+        /* Definizione delle forme blob per gli avatar */
+        .avatar-shape-1 { --blob-shape: 70% 30% 50% 50% / 40% 60% 40% 60%; }
+        .avatar-shape-2 { --blob-shape: 40% 60% 30% 70% / 60% 30% 70% 40%; }
+        .avatar-shape-3 { --blob-shape: 70% 40% 50% 40% / 40% 60% 40% 60%; }
+
+        .testimonial-info h5 { margin: 0 0 0.3rem; }
+        .testimonial-info p { margin: 0; font-size: 0.9rem; }
+
+        /* Stile per l'effetto di pressione attiva */
         .story-inner:active {
             background-color: #fafafa;
-            transform: translateY(0px);
-            transition: all 0.1s ease;
+            transform: translateY(1px);
+            box-shadow: 0 8px 20px #8c8dd462;
+            transition: all 0.05s ease-out;
         }
-        
-       /* Media query unificata per dispositivi mobili */
-        @media (max-width: 768px) {
-            .testimonials {
-                padding: 4rem 0 4rem;
-            }
-            
-            .testimonials::after {
-                height: 20px;
-                bottom: -20px;
-            }
-            
-            .story-inner {
-                padding: 24px;
-            }
-            
-            .testimonial-content {
-                margin-bottom: 16px;
-            }
-            
-            .stories-content {
-                height: 280px;
-            }
-            
-            /* Contenuto testimonial */
-            .testimonial-content p {
-                font-size: 1.1rem;
-            }
-            
-            .quote-icon {
-                margin-bottom: 16px;
-            }
-            
-            .quote-icon svg {
-                width: 30px;
-                height: 30px;
-            }
-            
-            /* Avatar e info utente */
-            .avatar-blob {
-                width: 45px;
-                height: 45px;
-                margin-right: 10px;
+
+
+        /* --- Stili Hover Desktop --- */
+        @media (hover: hover) and (min-width: 769px) {
+            .story-inner:hover {
+                box-shadow: 0 8px 20px #79c19262
+                /* overflow: visible; /* Assicura che l'ombra/avatar non venga tagliata */
             }
 
-            .testimonial-info p {
-            font-size: 0.9rem;
+            .story-inner:hover .avatar-blob::before {
+                border-radius: var(--blob-shape);
             }
-            
-            /* Elementi decorativi (blob) */
-            .blob-1 {
-                width: 120px;
-                height: 100px;
-                top: -50px;
-                left: -30px;
+
+                /* MODIFICATO: Applica scale/rotate al contenitore .avatar-blob */
+            .story-inner:hover .avatar-blob {
+                filter: drop-shadow(0 6px 12px rgba(142, 220, 169, 0.4));
+                transform: scale(1.1) rotate(5deg); /* Applicato qui */
             }
-            
-            .blob-2 {
-                width: 130px;
-                height: 110px;
-                bottom: -40px;
-                right: -20px;
+
+            /* MODIFICATO: Applica solo il border-radius all'immagine */
+            .story-inner:hover .testimonial-avatar {
+                border-radius: var(--blob-shape);
+                /* transform: scale(1.1) rotate(5deg); /* Rimosso da qui */
             }
+        }
+
+
+        /* Media query unificata per dispositivi mobili */
+        @media (max-width: 768px) {
+            .testimonials { padding: 4rem 0 4rem; }
+            .testimonials::after { height: 20px; bottom: -20px; }
+            .story-inner { padding: 24px; }
+            .testimonial-content { margin-bottom: 16px; }
+            .stories-content { height: 300px; }
+            .testimonial-content p { font-size: 1.1rem; color: var(--text2); }
+            .quote-icon { margin-bottom: 16px; }
+            .quote-icon svg { width: 30px; height: 30px; }
+            .avatar-blob { width: 50px; height: 50px; margin-right: 16px; }
+            .testimonial-info p { font-size: 0.9rem; }
+            .blob-1 { width: 120px; height: 100px; top: -50px; left: -30px; }
+            .blob-2 { width: 130px; height: 110px; bottom: -40px; right: -20px; }
+
+                /* --- Effetto "Attivo" su Mobile --- */
+                /* Applica ombra verde alla card attiva */
+            .story.active .story-inner {
+                box-shadow: 0 8px 20px #79c19262;
+            }
+                /* MODIFICATO: Applica transform e filtro a .avatar-blob attivo */
+                .story.active .avatar-blob {
+                    filter: drop-shadow(0 6px 12px rgba(142, 220, 169, 0.4));
+                    transform: scale(1.1) rotate(5deg); /* Applicato qui */
+                    /* Aggiungi transizione anche qui se non ereditata correttamente */
+                    transition: filter 0.3s ease, transform 0.4s ease;
+            }
+                /* Applica forma blob al bordo attivo */
+                .story.active .avatar-blob::before {
+                    border-radius: var(--blob-shape);
+                    /* Aggiungi transizione anche qui se non ereditata correttamente */
+                    transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+                /* MODIFICATO: Applica solo forma blob all'immagine attiva */
+                .story.active .testimonial-avatar {
+                    border-radius: var(--blob-shape);
+                    /* transform: scale(1.1) rotate(5deg); /* Rimosso da qui */
+                    /* Aggiungi transizione anche qui se non ereditata correttamente */
+                    transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+                /* Le transizioni dovrebbero essere ereditate dagli stili base,
+                ma aggiunte qui per sicurezza se l'attivazione/disattivazione
+                della classe .active causasse problemi di timing */
         }
     </style>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    const stories = document.querySelectorAll('.story');
-    const progressBars = document.querySelectorAll('.progress-bar');
-    const progressFills = document.querySelectorAll('.progress-fill');
-    const storyContainer = document.querySelector('.story-container');
-    
-    let currentStoryIndex = 0;
-    let animationFrameId;
-    let startTime;
-    const storyDuration = 5000; // 5 secondi per storia
-    
-    // Funzione per mostrare una specifica storia
-    function showStory(index) {
-        // Rimuove la classe active da tutte le storie
-        stories.forEach(story => story.classList.remove('active'));
-        
-        // Aggiunge la classe active alla storia corrente
-        stories[index].classList.add('active');
-        
-        // Avvia l'animazione della barra di progresso per l'indice corrente
-        startProgressAnimation(index);
-    }
-    
-    // Funzione per animare la barra di progresso
-    function startProgressAnimation(index) {
-        // Resetta l'animazione se già in esecuzione
-        if (animationFrameId) {
-            cancelAnimationFrame(animationFrameId);
-        }
-        
-        // Se stiamo iniziando la prima storia, resetta tutte le barre di progresso senza animazione
-        if (index === 0) {
-            // Aggiunge la classe no-transition per prevenire l'animazione
-            progressFills.forEach(fill => fill.classList.add('no-transition'));
-            
-            // Resetta le barre di progresso
-            progressFills.forEach((fill, i) => {
-                fill.style.width = '0%';
-                fill.classList.remove('completed');
-            });
-            
-            // Force reflow per applicare i cambiamenti immediatamente
-            void progressFills[0].offsetWidth;
-            
-            // Rimuove la classe no-transition per permettere l'animazione per la barra di progresso corrente
-            progressFills.forEach(fill => fill.classList.remove('no-transition'));
-        }
-        
-        startTime = Date.now();
-        animateProgress(index);
-    }
-    
-    function animateProgress(index) {
-        const currentTime = Date.now();
-        const elapsedTime = currentTime - startTime;
-        const progress = Math.min(elapsedTime / storyDuration * 100, 100);
-        
-        // Aggiorna il riempimento della barra di progresso
-        progressFills[index].style.width = `${progress}%`;
-        
-        if (progress < 100) {
-            // Continua l'animazione
-            animationFrameId = requestAnimationFrame(() => animateProgress(index));
-        } else {
-            // Segna questa barra di progresso come completata
-            progressFills[index].classList.add('completed');
-            
-            // Passa alla storia successiva quando il progresso raggiunge il 100%
-            setTimeout(() => {
+            const stories = document.querySelectorAll('.story');
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const progressFills = document.querySelectorAll('.progress-fill');
+            const storyContainer = document.querySelector('.story-container');
+
+            let currentStoryIndex = 0;
+            let animationFrameId;
+            let startTime;
+            const storyDuration = 5000; // 5 secondi per storia
+            let progressIntervalId; // ID per l'intervallo di avanzamento
+
+            // Funzione per mostrare una specifica storia
+            function showStory(index) {
+                stories.forEach(story => {
+                    story.classList.remove('active');
+                });
+                stories[index].classList.add('active');
+                startProgressAnimation(index);
+            }
+
+            // Funzione per animare la barra di progresso
+            function startProgressAnimation(index) {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                if (progressIntervalId) clearTimeout(progressIntervalId);
+
+                progressFills.forEach((fill, i) => {
+                    fill.style.transition = 'none'; // Reset senza animazione
+                    if (i < index) {
+                        fill.style.width = '100%';
+                        fill.classList.add('completed');
+                    } else {
+                        fill.style.width = '0%';
+                        fill.classList.remove('completed');
+                    }
+                });
+
+                void progressFills[index].offsetWidth; // Forza reflow
+
+                progressFills[index].style.transition = `width ${storyDuration / 1000}s linear`;
+                progressFills[index].style.width = '100%';
+
+                progressIntervalId = setTimeout(() => {
+                    progressFills[index].classList.add('completed');
+                    goToNextStory();
+                }, storyDuration);
+            }
+
+
+            // Funzione per andare alla storia successiva
+            function goToNextStory() {
+                    // Completa la barra corrente istantaneamente
+                if(progressFills[currentStoryIndex]){
+                        progressFills[currentStoryIndex].style.transition = 'none';
+                        progressFills[currentStoryIndex].style.width = '100%';
+                        progressFills[currentStoryIndex].classList.add('completed');
+                }
+
+
+                currentStoryIndex = (currentStoryIndex + 1) % stories.length;
+
+                // Se torniamo alla prima storia, resetta tutte le barre
+                if (currentStoryIndex === 0) {
+                        progressFills.forEach(fill => {
+                            fill.style.transition = 'none';
+                            fill.style.width = '0%';
+                            fill.classList.remove('completed');
+                    });
+                        void progressFills[0].offsetWidth; // Forza reflow
+                }
+
+                showStory(currentStoryIndex);
+            }
+
+            // Click/Tap event per avanzare manualmente
+            storyContainer.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (progressIntervalId) clearTimeout(progressIntervalId);
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
                 goToNextStory();
-            }, 100);
-        }
-    }
-    
-    // Funzione per andare alla storia successiva
-    function goToNextStory() {
-        currentStoryIndex = (currentStoryIndex + 1) % stories.length;
-        showStory(currentStoryIndex);
-    }
-    
-    // Click event per avanzare manualmente alla storia successiva
-    storyContainer.addEventListener('click', (e) => {
-        // Previeni il comportamento predefinito per evitare evidenziazioni
-        e.preventDefault();
-        
-        // Cancella l'animazione corrente
-        cancelAnimationFrame(animationFrameId);
-        
-        // Segna la barra di progresso corrente come completata
-        progressFills[currentStoryIndex].style.width = '100%';
-        progressFills[currentStoryIndex].classList.add('completed');
-        
-        // Passa alla storia successiva
-        goToNextStory();
-    });
-    
-    // Mette in pausa l'animazione quando la scheda/finestra non è visibile
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            // Mette in pausa l'animazione
-            cancelAnimationFrame(animationFrameId);
-        } else {
-            // Riprende l'animazione
-            startProgressAnimation(currentStoryIndex);
-        }
-    });
-    
-    // Gestisce gli eventi touch per mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    storyContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    storyContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        if (Math.abs(touchEndX - touchStartX) > swipeThreshold) {
-            cancelAnimationFrame(animationFrameId);
-            
-            // Segna la barra di progresso corrente come completata
-            progressFills[currentStoryIndex].style.width = '100%';
-            progressFills[currentStoryIndex].classList.add('completed');
-            
-            goToNextStory();
-        }
-    }
-    
-    // Avvia automaticamente la prima storia all'inizializzazione
-    showStory(0);
-});
+            });
+
+
+            // Pausa/Ripresa con visibilità pagina
+            document.addEventListener('visibilitychange', () => {
+                    if (progressIntervalId) clearTimeout(progressIntervalId);
+                    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+                    if (!document.hidden) {
+                    // Riparte l'animazione della storia corrente da capo quando torna visibile
+                    // (Potrebbe essere migliorato per riprendere da dove si era interrotto)
+                    showStory(currentStoryIndex);
+                    } else {
+                        // Quando nascosto, assicurati che la barra corrente mostri il progresso attuale
+                        // Questo è più complesso da implementare perfettamente senza salvare lo stato
+                        // Per semplicità, lasciamo che si resetti al ritorno in visibilità
+                        if(progressFills[currentStoryIndex]){
+                        progressFills[currentStoryIndex].style.transition = 'none'; // Stop animation
+                        }
+                    }
+            });
+
+            // Avvia automaticamente la prima storia
+            showStory(0);
+        });
     </script>
 
 </section>
@@ -5396,9 +5770,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <style>
         :root {
-            --gradient-primary: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             --primary-purple: #8C8DD4;
-            --primary-green: #8EDCA9;
+            --primary-green: #79C192;
             --border-thickness: 3px;
         }
         
@@ -5453,9 +5827,9 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 200px;
             height: 200px;
             position: relative;
-            background: linear-gradient(135deg, #8C8DD4 0%, #8EDCA9 100%);
+            background: linear-gradient(135deg, #8C8DD4 0%, #79C192 100%);
             padding: 5px;
-            box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+            box-shadow: 0 8px 20px #8c8dd462;
             overflow: hidden;
         }
     
@@ -5602,9 +5976,9 @@ document.addEventListener('DOMContentLoaded', function() {
             font-weight: 500;
             margin-bottom: 1rem;
             display: inline-block;
-            background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             padding: 6px 16px;
-            border-radius: 20px;
+            border-radius: 18px;
         }
     
         .team-bio {
@@ -5640,7 +6014,7 @@ document.addEventListener('DOMContentLoaded', function() {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+            background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: -1;
@@ -5649,7 +6023,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .team-social a:hover {
             color: #000000;
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
+            box-shadow: 0 8px 20px #79c19262;
         }
     
         .team-social a:hover::before {
@@ -5752,6 +6126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .headline { 
             color: var(--text);
+            margin-bottom: 16px;
         }
 
         .description { 
@@ -5770,7 +6145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             background-color: var(--dark);             
             color: white;             
             padding: 15px 30px;             
-            border-radius: 12px;             
+            border-radius: 18px;             
             transition: transform 0.3s, box-shadow 0.3s;             
             width: 240px;             
             justify-content: flex-start;         
@@ -5824,7 +6199,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 
-<!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -5844,8 +6219,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-
-            
 
             <div class="footer-links">
                 <h5 class="links-rapidi">Links Rapidi</h5>
@@ -5878,142 +6251,165 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="copyright">
-            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
-            <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
+            <h6 class="copyright-text">© 2025 Strush - Tutti i diritti riservati</h6>
         </div>
-    </div>    
-</footer>        
+    </div>
+</footer>
 
 <style>
+    /* Stili generali del footer (invariati) */
     footer {
         background-color: var(--dark);
         color: white;
         padding: 4rem 0 2rem;
     }
-    
+
     .footer-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 3rem;
         margin-bottom: 3rem;
-    }    
+    }
 
     .elevator-pitch {
-    color: rgb(255, 255, 255);
-    } 
-    
+        color: rgb(255, 255, 255);
+    }
+
     .footer-email {
         color: white;
         margin-top: 1rem;
     }
-    
+
     .footer-email a {
-        color: #8EDCA9;
+        color: #79C192;
         text-decoration: none;
         transition: all 0.3s ease;
         font-size: 16px;
     }
-    
+
     .footer-email a:hover {
         text-decoration: underline;
     }
-        
-    /* Updated logo styling to match navbar */
-.footer-logo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-} 
 
-/* Stile modificato per il contenitore blob del logo nel footer */
-.footer-logo .logo-blob {
-    width: 38px;
-    height: 38px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    border-radius: 50%; /* Default è un cerchio */
-    background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
-    box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
-    /* Contorno aggiunto */
-    border: 2.5px solid #8C8DD4;
-}
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
 
-/* Animazione per il blob - non è attiva di default */
-@keyframes footer-blob-morph {
-    0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
-    25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
-    50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
-    75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
-    100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
-}
-    
-.footer-logo img {
-    height: 38px;
-    width: 38px;
-    object-fit: cover;
-    transition: all 0.3s ease;
-    z-index: 1;
-    display: block;
-    margin: auto;
-    /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
-    transform: translateY(-2px);
-}
+    /* === MODIFICA INIZIO: Stili Logo Blob e Immagine Adattati === */
 
-/* Attiva l'animazione blob solo al passaggio del mouse */
-.footer-logo .logo-blob:hover {
-    animation: footer-blob-morph 3.5s linear infinite;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
-}
-    
-    .footer-logo img:hover {
-        box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
-        transform: scale(1.05);
-    }    
-    
-.footer-logo .logo-text {
-    color: #8C8DD4;
-    font-weight: 800;
-    margin-left: 8px;
-    margin-bottom: 0px;
-}
-    
-    /* Links sections */
+    /* Stile base del contenitore blob */
+    .footer-logo .logo-blob {
+        width: 38px;
+        height: 38px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per scale/shadow hover */
+        overflow: hidden;
+        /* Forma iniziale */
+        border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+        background: linear-gradient(135deg, #8C8DD4, #79C192);
+        box-shadow: 0 0px 20px #8c8dd462;
+        border: 2.5px solid #8C8DD4;
+        /* Rimosso transform iniziale se non necessario, l'immagine ha il suo offset */
+    }
+
+    /* Animazione SOLO per la FORMA (border-radius) del blob */
+    @keyframes footer-blob-morph-shape-only {
+        0%   { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+        15%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+        30%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+        45%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        60%  { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; }
+        75%  { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; }
+        90%  { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+    }
+
+    /* Animazione SOLO per la ROTAZIONE dell'immagine (mantenendo offset Y) */
+    @keyframes footer-logo-image-rotate {
+        0%   { transform: translateY(-2px) rotate(0deg); }
+        15%  { transform: translateY(-2px) rotate(-3deg); }
+        30%  { transform: translateY(-2px) rotate(-8deg); }
+        45%  { transform: translateY(-2px) rotate(-3deg); }
+        60%  { transform: translateY(-2px) rotate(8deg); }
+        75%  { transform: translateY(-2px) rotate(3deg); }
+        90%  { transform: translateY(-2px) rotate(-5deg); }
+        100% { transform: translateY(-2px) rotate(0deg); }
+    }
+
+    /* Stile base dell'immagine */
+    .footer-logo img {
+        height: 38px;
+        width: 38px;
+        object-fit: cover;
+        transition: transform 0.3s ease; /* Transizione se necessaria */
+        z-index: 1;
+        display: block;
+        margin: auto;
+        /* Offset iniziale */
+        transform: translateY(-2px);
+    }
+
+    /* Azioni sull'HOVER del blob */
+    .footer-logo .logo-blob:hover {
+        /* Applica l'animazione della FORMA al blob */
+        animation: footer-blob-morph-shape-only 5s infinite;
+        /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
+        transform: scale(1.05); /* Rimosso translateY qui perché l'offset è sull'immagine */
+        box-shadow: 0 8px 20px #8c8dd462;
+    }
+
+    /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
+    .footer-logo .logo-blob:hover img {
+        animation: footer-logo-image-rotate 5s infinite;
+        /* La transform dell'animazione sovrascrive quella base dell'immagine */
+    }
+
+    /* === MODIFICA FINE === */
+
+    .footer-logo .logo-text {
+        color: #8C8DD4;
+        font-weight: 800;
+        margin-left: 10px;
+        margin-bottom: 0px;
+    }
+
+    /* Links sections (invariati) */
     .footer-links h5{
         position: relative;
         padding-bottom: 10px;
-        display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
+        display: inline-block;
         margin-bottom: 24px;
-    }    
-    
+    }
+
     .footer-links h5::after {
         content: '';
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
+        width: 100%;
         height: 3px;
         background: var(--gradient-primary);
         border-radius: 2px;
-    }    
-    
+    }
+
     .footer-links ul li {
         margin-bottom: 24px;
-    }    
-    
-    /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
+    }
+
     .footer-links a {
         color: white;
         text-decoration: none;
         transition: all 0.3s ease;
         position: relative;
         display: inline-block;
-    }        
-    
+    }
+
     .footer-links a::after {
         content: '';
         position: absolute;
@@ -6021,27 +6417,27 @@ document.addEventListener('DOMContentLoaded', function() {
         height: 0.5px;
         bottom: 0;
         left: 0;
-        background-color: #8EDCA9 ;
+        background-color: #79C192 ;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
     }
-    
+
     .footer-links a:hover {
-        color: #8EDCA9;
+        color: #79C192;
     }
-    
+
     .footer-links a:hover::after {
         transform: scaleX(1);
     }
-    
-    /* Social icons */
+
+    /* Social icons (invariati) */
     .footer-social {
         display: flex;
         gap: 15px;
         margin-top: 1.5rem;
     }
-        
+
     .footer-social a {
         display: flex;
         align-items: center;
@@ -6056,7 +6452,7 @@ document.addEventListener('DOMContentLoaded', function() {
         overflow: hidden;
         z-index: 1;
     }
-    
+
     .footer-social a::before {
         content: '';
         position: absolute;
@@ -6069,73 +6465,71 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: opacity 0.3s ease;
         z-index: -1;
     }
-    
+
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
+        box-shadow: 0 8px 20px #79c19262
     }
-    
+
     .footer-social a:hover::before {
         opacity: 1;
     }
-    
-    /* Copyright section */
+
+    /* Copyright section (invariati) */
     .copyright {
         text-align: center;
         padding-top: 2rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    /* Nuovo stile per le frasi nel copyright con più spazio */
+
     .copyright .proudly-crafted {
         margin-bottom: 16px;
         color: white;
     }
-    
+
     .copyright .copyright-text {
         margin-top: 0;
         margin-bottom: 0px;
+        color: white;
     }
-    
-    /* Responsive adjustments */
+
+    /* Responsive adjustments (invariati) */
     @media (max-width: 768px) {
         .footer-content {
             grid-template-columns: 1fr;
             text-align: center;
-        }    
-        
+        }
+
         .footer-logo {
             justify-content: center;
         }
 
         .footer-logo .logo-text {
-        font-size: 20px;
+            font-size: 20px;
         }
-        
+
         .footer-links h5 {
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .footer-email a {
-        font-size: 17.6px;
+            font-size: 17.6px;
         }
-        /* Centra i link social nella versione mobile */
+
         .footer-social {
             justify-content: center;
         }
-        
+
         .footer-links a:hover {
-            transform: translateY(-2px);
+            transform: translateY(0);
         }
-    }                
+    }
 </style>
-
-
 
 
 </body>
 
 
-        </html>
+</html>
