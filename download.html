@@ -6,8 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Strush | Preregistrazione</title>
 
-   <!-- Collegamento ai font awesome -->
+    <!-- Collegamento ai font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
 
 <style>
   /* Importazione del font Unbounded da Google Fonts */
@@ -15,7 +19,7 @@
   
   /* Variabili CSS */
   :root {
-      --primary: #8EDCA9;
+      --primary: #79C192;
       --secondary: #8C8DD4;
       --text: #2b2d42;
       --text2: #555555;
@@ -181,7 +185,7 @@
       transform: translateX(-50%) scaleX(0);
       width: 80px;
       height: 4px;
-      background: linear-gradient(135deg, #8EDCA9 0%, #8C8DD4 100%);
+      background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
       border-radius: 2px;
       transition: transform 0.6s ease 0.4s;
   }
@@ -218,7 +222,7 @@
 </style>
 
 
-  <!-- Cursore Animation Pallino viola + Blob-->
+    <!-- Cursore Animation Pallino viola + Blob-->
 <div id="blob"></div>
 <div id="violet-cursor"></div>
 
@@ -342,9 +346,8 @@
 
 <body>
 
-
-    <!-- Navbar -->
-  <nav class="strush-navbar" id="mainNav">
+<!-- Navbar -->
+<nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
         <div class="strush-nav-container">
@@ -352,6 +355,7 @@
             <div class="strush-logo-mobile">
                 <a href="index.html#hero" class="strush-logo-container">
                     <div class="strush-logo">
+                        <!-- Modificato per matchare forma iniziale chatbot -->
                         <div class="strush-logo-blob">
                             <img src="immagini/logo.png" alt="Strush Logo">
                         </div>
@@ -384,6 +388,7 @@
                 <div class="strush-logo-nav-item">
                     <a href="index.html#hero" class="strush-logo-container">
                         <div class="strush-logo">
+                             <!-- Modificato per matchare forma iniziale chatbot -->
                             <div class="strush-logo-blob">
                                 <img src="immagini/logo.png" alt="Strush Logo">
                             </div>
@@ -413,7 +418,7 @@
             z-index: 999; /* Reduced from 1000 */
             padding: 0;
             transition: all 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgb(0, 0, 0);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
@@ -430,7 +435,7 @@
 
         /* Scrolled state for navbar */
         .strush-navbar.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: rgb(0, 0, 0);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
 
@@ -458,151 +463,112 @@
             display: none;
         }
 
-        /* --- MODIFICA DROPDOWN MOBILE --- */
-        .strush-mobile-dropdown {
-            display: none; /* Inizialmente nascosto, controllato da JS e @media */
-            position: absolute;
-            top: 70px; /* Ensure this matches the navbar height */
-            left: 0;
-            width: 100%;
-            /* Sfondo leggermente più scuro e bluastro per il contrasto del glow */
-            background-color: rgba(10, 10, 15, 0.95);
-            /* Blur dello SFONDO DIETRO il menu */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 998; /* Lower than navbar */
-            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; /* Separate transitions */
-            padding: 20px 0;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombra più pronunciata */
-            transform: translateY(-20px);
-            opacity: 0;
-            height: auto;
-            max-height: 0;
-            overflow: hidden; /* Necessario per max-height transition */
-            /* Ensure positioning context for pseudo-elements */
-            position: absolute;
-        }
+        /* Dropdown mobile styles - invariati */
+        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: rgba(10, 10, 15, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
+        .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
+        .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
+        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
+        .strush-mobile-dropdown.active::after { opacity: 1; }
+        .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+        .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
+        .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 17.6px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 18px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a:hover { color: #79C192; background-color: rgba(255, 255, 255, 0.05); }
 
-        /* Sottile linea viola per evidenziare il bordo superiore */
-        .strush-mobile-dropdown::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); /* Colore primario con trasparenza */
-            z-index: 1; /* Sopra il glow */
-        }
-
-        /* --- NUOVO: Pseudo-elemento per l'effetto Glow --- */
-        .strush-mobile-dropdown::after {
-            content: '';
-            position: absolute;
-            /* Posizionamento leggermente espanso per un glow più ampio */
-            top: -30px;
-            left: -30px;
-            right: -30px;
-            bottom: -30px;
-            /* Gradient con i colori del brand e trasparenza per il glow */
-            background: radial-gradient(ellipse at center,
-                rgba(140, 141, 212, 0.2) 0%,  /* #8C8DD4 */
-                rgba(142, 220, 169, 0.1) 40%, /* #8EDCA9 */
-                rgba(10, 10, 15, 0) 75%      /* Fade to transparent dark */
-            );
-            filter: blur(35px);
-            z-index: -1; /* Posizionato DIETRO il contenuto del dropdown */
-            opacity: 0; /* Inizialmente invisibile */
-            transition: opacity 0.6s ease 0.2s; /* Fade-in del glow (con leggero ritardo) */
-            pointer-events: none; /* Non interagibile */
-            border-radius: 50%; /* Mantiene forma ellittica/rotonda */
-        }
-
-        /* Quando il dropdown è attivo */
-        .strush-mobile-dropdown.active {
-            transform: translateY(0);
-            opacity: 1;
-            max-height: 400px; /* Abbastanza alto per i link */
-        }
-
-        /* Rendi visibile il glow quando il dropdown è attivo */
-        .strush-mobile-dropdown.active::after {
-            opacity: 1;
-        }
-        /* --- FINE MODIFICA DROPDOWN MOBILE --- */
-
-        .strush-mobile-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* Posizionamento relativo per essere sopra lo sfondo e il glow */
-            position: relative;
-            z-index: 1;
-        }
-
-        .strush-mobile-links li {
-            margin: 8px 0;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transition-delay: calc(0.05s * var(--i, 0));
-        }
-
-        .strush-mobile-dropdown.active .strush-mobile-links li {
-            opacity: 1;
-            transform: translateY(0);
-            /* Assicura che il ritardo dell'animazione parta dopo l'apertura */
-            transition-delay: calc(0.2s + (0.05s * var(--i, 0))); /* Aggiunge ritardo iniziale */
-        }
-
-        .strush-mobile-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 17.6px;
-            padding: 8px 20px;
-            display: block;
-            width: 100%;
-            max-width: 250px;
-            margin: 0 auto;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            /* Aggiunto per migliore leggibilità su sfondi complessi */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .strush-mobile-links a:hover {
-            color: #8EDCA9;
-            /* Effetto leggero anche sull'hover del link */
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Resto del CSS desktop invariato... */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 30px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+        /* Stili Desktop Navbar */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 36px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
         @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
         .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
         .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
-        .strush-nav-links-container:hover .strush-logo-blob { animation: blob-morph 3.5s linear infinite; }
+
+        /* --- MODIFICA --- Applica l'animazione del chatbot sull'hover del contenitore */
+        .strush-nav-links-container:hover .strush-logo-blob {
+             /* Usa la nuova animazione con la durata del chatbot */
+            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        }
+
         .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
         .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
         .strush-logo { display: flex; align-items: center; }
-        .strush-logo-blob { width: 38px; height: 38px; position: relative; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #8C8DD4, #8EDCA9); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); border: 2.5px solid #8C8DD4; }
-        @keyframes blob-morph { 0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } 25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; } 75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; } 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; } }
-        .strush-logo img { height: 38px; width: 38px; object-fit: cover; transition: all 0.3s ease; z-index: 1; display: block; margin: auto; transform: translateY(-2px); }
-        .strush-logo-blob:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25); }
-        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 8px; margin-bottom: 0px; display: inline-block; width: auto }
+
+        /* --- MODIFICA --- Stile del logo blob aggiornato */
+        .strush-logo-blob {
+            width: 38px; /* Dimensione navbar */
+            height: 38px; /* Dimensione navbar */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            /* Forma iniziale presa dal chatbot */
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            /* Stili grafici mantenuti dalla navbar originale */
+            background: linear-gradient(135deg, #8C8DD4, #79C192);
+            box-shadow: 0 8px 20px #8c8dd462;
+            border: 2.5px solid #8C8DD4;
+        }
+
+        /* --- MODIFICA --- Nuova animazione presa dal chatbot */
+        @keyframes navbar-blob-morph-from-chatbot {
+            0% {
+                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+                transform: rotate(0deg) scale(1);
+            }
+            15% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+                transform: rotate(-3deg) scale(1);
+            }
+            30% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+                transform: rotate(-8deg) scale(1);
+            }
+            45% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+                transform: rotate(-3deg) scale(1);
+            }
+            60% {
+                border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%;
+                transform: rotate(8deg) scale(1);
+            }
+            75% {
+                border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
+                transform: rotate(3deg) scale(1);
+            }
+            90% {
+                border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%;
+                transform: rotate(-5deg) scale(1);
+            }
+            100% {
+                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        .strush-logo img {
+            height: 38px; /* Dimensione navbar */
+            width: 38px;  /* Dimensione navbar */
+            object-fit: cover; /* Mantenuto 'cover' come nell'originale navbar */
+            transition: all 0.3s ease;
+            z-index: 1;
+            display: block;
+            margin: auto;
+            transform: translateY(-2px); /* Mantenuto offset */
+        }
+
+        /* L'hover diretto sul blob mantiene lo scale e shadow, non l'animazione */
+        .strush-logo-blob:hover {
+            transform: scale(1.05) translateY(-2px); /* Aggiunto translateY per coerenza */
+            box-shadow: 0 8px 20px #8c8dd462;
+        }
+
+        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 3px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.87rem; padding: 8px 10px; border-radius: 20px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-        .strush-nav-links a:hover { color: #8EDCA9; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #8EDCA9, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; padding: 8px 10px; border-radius: 18px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a:hover { color: #79C192; }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #79C192, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
         .strush-nav-links a:hover::after { width: 80%; }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
@@ -612,161 +578,73 @@
 
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
-            /* Navbar struttura */
-            .strush-navbar {
-                /* --- MODIFICA --- Assicurato sfondo nero solido */
-                background-color: black;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                /* --- FINE MODIFICA --- */
-                height: 70px;
-                min-height: 70px; /* Ensure consistency */
-                display: flex;
-                align-items: center;
-            }
+            /* Stili navbar mobile invariati */
+            .strush-navbar { background-color: black; backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
+            .strush-navbar.scrolled { background-color: black; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
+            .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
+            .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 0; }
+            .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 20px; }
 
-            /* --- NUOVA REGOLA --- Assicurati che lo sfondo rimanga solido anche allo scroll in mobile */
-            .strush-navbar.scrolled {
-                background-color: black; /* Mantiene lo sfondo solido */
-                /* Puoi mantenere o rimuovere l'ombra se desiderato */
-                  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-            }
-            /* --- FINE NUOVA REGOLA --- */
+            /* Stati attivi mobile */
+            .menu-active .strush-logo-mobile .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
+            .menu-active .strush-logo-mobile .strush-logo { justify-content: center; }
 
-
-            .strush-nav-container {
-                display: grid;
-                grid-template-columns: 1fr auto 1fr;
-                padding: 0;
-                height: 70px;
-                align-items: center;
-                justify-content: space-between; /* Override desktop justify-content */
-                /* Lo sfondo è controllato da .strush-navbar */
-            }
-
-            /* Logo mobile */
-            .strush-logo-mobile {
-                display: block;
-                z-index: 999;
-                grid-column: 2;
-                text-align: center;
-                padding: 0 15px;
-                margin-top: 0; /* Removed margin-top for better centering */
-            }
-
-            .strush-logo-mobile .strush-logo-text {
-                margin-bottom: 0px;
-                transition: all 0.3s ease;
-                font-size: 20px;
-            }
-
-            /* Stati attivi */
-            .menu-active .strush-logo-mobile .strush-logo-text {
-                opacity: 0;
-                width: 0;
-                margin-left: 0;
-                overflow: hidden;
-            }
-
-            .menu-active .strush-logo-mobile .strush-logo {
-                justify-content: center;
-            }
-
+            /* --- MODIFICA --- Applica l'animazione del chatbot quando il menu mobile è attivo */
             .menu-active .strush-logo-mobile .strush-logo-blob {
-                animation: blob-morph 3.5s linear infinite;
+                /* Usa la nuova animazione con la durata del chatbot */
+                animation: navbar-blob-morph-from-chatbot 5s infinite;
             }
 
-            /* Navigazione */
-            .strush-nav-links-container {
-                display: none;
-            }
-
-            .strush-mobile-dropdown {
-                display: block;
-                top: 70px; /* Match mobile navbar height */
-            }
-
-            .strush-mobile-dropdown::after {
-                filter: blur(25px);
-                top: -20px;
-                left: -20px;
-                right: -20px;
-                bottom: -20px;
-            }
-
-            /* Pulsante menu */
-            .strush-menu-btn {
-                display: block;
-                z-index: 999;
-                grid-column: 3;
-                justify-self: end;
-                margin-right: 10px;
-            }
-
-            .strush-menu-btn.open span,
-            .strush-menu-btn.active span {
-                background-color: #8C8DD4;
-            }
-
-            /* Container */
-            .strush-container {
-                width: 100%; /* Use full width within navbar */
-                max-width: 1140px; /* Keep max-width constrain */
-                padding: 0 15px; /* Add some horizontal padding */
-                box-sizing: border-box; /* Include padding in width */
-            }
+            /* Resto stili mobile invariati */
+            .strush-nav-links-container { display: none; }
+            .strush-mobile-dropdown { display: block; top: 70px; }
+            .strush-mobile-dropdown::after { filter: blur(25px); top: -20px; left: -20px; right: -20px; bottom: -20px; }
+            .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
+            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #8C8DD4; }
+            .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
         }
     </style>
 
+    <!-- Script rimane invariato -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Ottieni riferimenti agli elementi
             const menuBtn = document.getElementById('menuBtn');
             const mobileDropdown = document.getElementById('mobileDropdown');
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
 
-            // Aggiungi attributi per l'animazione sequenziale
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
             });
 
-            // Toggle menu su click del pulsante hamburger
             menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Previene la propagazione dell'evento
+                e.stopPropagation();
                 menuBtn.classList.toggle('open');
                 menuBtn.classList.toggle('active');
                 mobileDropdown.classList.toggle('active');
-
-                // Aggiungi/rimuovi la classe menu-active al body per gestire lo stile del logo
                 document.body.classList.toggle('menu-active');
             });
 
-            // Chiudi menu quando viene cliccato un link
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     menuBtn.classList.remove('open');
                     menuBtn.classList.remove('active');
                     mobileDropdown.classList.remove('active');
-                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                    document.body.classList.remove('menu-active');
                 });
             });
 
-            // Chiudi menu quando si clicca fuori
             document.addEventListener('click', function(e) {
-                // Check if the dropdown is active AND the click was outside the dropdown AND outside the menu button
                 if (mobileDropdown.classList.contains('active') &&
                     !mobileDropdown.contains(e.target) &&
-                    !menuBtn.contains(e.target)) { // Simplified check for the button
+                    !menuBtn.contains(e.target)) {
                     menuBtn.classList.remove('open');
                     menuBtn.classList.remove('active');
                     mobileDropdown.classList.remove('active');
-                    document.body.classList.remove('menu-active'); // Rimuovi anche qui
+                    document.body.classList.remove('menu-active');
                 }
             });
 
-
-            // Effetto scroll per navbar
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
@@ -779,7 +657,8 @@
 
 </nav>
 
-  <!-- MAIN CONTENT SECTION -->
+
+    <!-- MAIN CONTENT SECTION -->
 <div class="app-development-section section">
   <!-- Background shapes -->
   <div class="bg-shapes">
@@ -895,7 +774,7 @@
     width: 100%;
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(93, 92, 179, 0.25);
+    box-shadow: 0 8px 20px #8c8dd462;
     padding: 40px;
     text-align: center;
     position: relative;
@@ -931,7 +810,7 @@
   .dot { width: 10px; height: 10px; border-radius: 50%; }
   .dot-blue { background-color: #5f69af; animation: dotJump 1.2s infinite ease-in-out 0s; }
   .dot-gray { background-color: #a0a0a0; animation: dotJump 1.2s infinite ease-in-out 0.4s; }
-  .dot-green { background-color: #8EDCA9; animation: dotJump 1.2s infinite ease-in-out 0.8s; }
+  .dot-green { background-color: #79C192; animation: dotJump 1.2s infinite ease-in-out 0.8s; }
 
   @keyframes dotJump {
     0%, 40%, 100% { transform: translateY(0); }
@@ -957,6 +836,7 @@
     margin: 0 auto 15px;
     position: relative;
     flex-direction: row;
+    
   }
 
   .email-input {
@@ -1431,313 +1311,335 @@
   });
 </script>
 
+
 <!-- Footer -->
 <footer>
-  <div class="container">
-      <div class="footer-content">
-          <div class="footer-about">
-              <div class="footer-logo">
-                  <div class="logo-blob">
-                      <img src="immagini/logo.png" alt="Strush Logo">
-                  </div>
-                  <h3 class="logo-text">Strush</h3>
-              </div>
-              <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
-              <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
-              <div class="footer-social">
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
-              </div>
-          </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-blob">
+                        <img src="immagini/logo.png" alt="Strush Logo">
+                    </div>
+                    <h3 class="logo-text">Strush</h3>
+                </div>
+                <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+                <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
 
-          
+            <div class="footer-links">
+                <h5 class="links-rapidi">Links Rapidi</h5>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#features">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
 
-          <div class="footer-links">
-              <h5 class="links-rapidi">Links Rapidi</h5>
-              <ul>
-                  <li><a href="index.html#hero">Home</a></li>
-                  <li><a href="index.html#features">Caratteristiche</a></li>
-                  <li><a href="index.html#avatar-evolution">Avatar</a></li>
-                  <li><a href="index.html#how-it-works">Tutorial</a></li>
-                  <li><a href="index.html#testimonials">Testimonianze</a></li>
-                  <li><a href="index.html#team">Team</a></li>
-              </ul>
-          </div>
+            <div class="footer-links">
+                <h5 class="links-rapidi">Supporto</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contatti</a></li>
+                    <li><a href="#">Assistenza</a></li>
+                </ul>
+            </div>
 
-          <div class="footer-links">
-              <h5 class="links-rapidi">Supporto</h5>
-              <ul>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Contatti</a></li>
-                  <li><a href="#">Assistenza</a></li>
-              </ul>
-          </div>
+            <div class="footer-links">
+                <h5 class="links-rapidi">Legale</h5>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="t&c.html">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+        </div>
 
-          <div class="footer-links">
-              <h5 class="links-rapidi">Legale</h5>
-              <ul>
-                  <li><a href="privacy.html">Privacy Policy</a></li>
-                  <li><a href="t&c.html">Termini e Condizioni</a></li>
-              </ul>
-          </div>
-      </div>
-
-      <div class="copyright">
-          <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</p>
-          <h6 class="copyright-text">&copy; 2025 Strush - Tutti i diritti riservati</p>
-      </div>
-  </div>    
-</footer>        
+        <div class="copyright">
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
+            <h6 class="copyright-text">© 2025 Strush - Tutti i diritti riservati</h6>
+        </div>
+    </div>
+</footer>
 
 <style>
-  footer {
-      background-color: var(--dark);
-      color: white;
-      padding: 4rem 0 2rem;
-  }
-  
-  .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 3rem;
-  }    
+    /* Stili generali del footer (invariati) */
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
 
-  .elevator-pitch {
-  color: rgb(255, 255, 255);
-  } 
-  
-  .footer-email {
-      color: white;
-      margin-top: 1rem;
-  }
-  
-  .footer-email a {
-      color: #8EDCA9;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 16px;
-  }
-  
-  .footer-email a:hover {
-      text-decoration: underline;
-  }
-      
-  /* Updated logo styling to match navbar */
-.footer-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-} 
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
 
-/* Stile modificato per il contenitore blob del logo nel footer */
-.footer-logo .logo-blob {
-  width: 38px;
-  height: 38px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  border-radius: 50%; /* Default è un cerchio */
-  background: linear-gradient(135deg, #8C8DD4, #8EDCA9);
-  box-shadow: 0 0 10px rgba(177, 172, 250, 0.3);
-  /* Contorno aggiunto */
-  border: 2.5px solid #8C8DD4;
-}
+    .elevator-pitch {
+        color: rgb(255, 255, 255);
+    }
 
-/* Animazione per il blob - non è attiva di default */
-@keyframes footer-blob-morph {
-  0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
-  25% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
-  50% { border-radius: 52% 48% 47% 53% / 38% 52% 48% 62%; }
-  75% { border-radius: 45% 55% 62% 38% / 53% 45% 55% 47%; }
-  100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
-}
-  
-.footer-logo img {
-  height: 38px;
-  width: 38px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-  z-index: 1;
-  display: block;
-  margin: auto;
-  /* Sposta l'immagine leggermente più su mantenendo il blob nella stessa posizione */
-  transform: translateY(-2px);
-}
+    .footer-email {
+        color: white;
+        margin-top: 1rem;
+    }
 
-/* Attiva l'animazione blob solo al passaggio del mouse */
-.footer-logo .logo-blob:hover {
-  animation: footer-blob-morph 3.5s linear infinite;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
-}
-  
-  .footer-logo img:hover {
-      box-shadow: 0 0 15px rgba(177, 172, 250, 0.5);
-      transform: scale(1.05);
-  }    
-  
-.footer-logo .logo-text {
-  color: #8C8DD4;
-  font-weight: 800;
-  margin-left: 8px;
-  margin-bottom: 0px;
-}
-  
-  /* Links sections */
-  .footer-links h5{
-      position: relative;
-      padding-bottom: 10px;
-      display: inline-block; /* Per fare in modo che la larghezza si adatti al contenuto */
-      margin-bottom: 24px;
-  }    
-  
-  .footer-links h5::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%; /* Cambiato da 40px a 100% per estendere la barretta a tutta la larghezza del testo */
-      height: 3px;
-      background: var(--gradient-primary);
-      border-radius: 2px;
-  }    
-  
-  .footer-links ul li {
-      margin-bottom: 24px;
-  }    
-  
-  /* LINK STYLES UPDATED - Animazione dal centro verso i lati */
-  .footer-links a {
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      display: inline-block;
-  }        
-  
-  .footer-links a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 0.5px;
-      bottom: 0;
-      left: 0;
-      background-color: #8EDCA9 ;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-  }
-  
-  .footer-links a:hover {
-      color: #8EDCA9;
-  }
-  
-  .footer-links a:hover::after {
-      transform: scaleX(1);
-  }
-  
-  /* Social icons */
-  .footer-social {
-      display: flex;
-      gap: 15px;
-      margin-top: 1.5rem;
-  }
-      
-  .footer-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-  }
-  
-  .footer-social a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-primary);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-  }
-  
-  .footer-social a:hover {
-      color: var(--dark);
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(180, 250, 205, 0.4);
-  }
-  
-  .footer-social a:hover::before {
-      opacity: 1;
-  }
-  
-  /* Copyright section */
-  .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Nuovo stile per le frasi nel copyright con più spazio */
-  .copyright .proudly-crafted {
-      margin-bottom: 16px;
-      color: white;
-  }
-  
-  .copyright .copyright-text {
-      margin-top: 0;
-      margin-bottom: 0px;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-      .footer-content {
-          grid-template-columns: 1fr;
-          text-align: center;
-      }    
-      
-      .footer-logo {
-          justify-content: center;
-      }
+    .footer-email a {
+        color: #79C192;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 16px;
+    }
 
-      .footer-logo .logo-text {
-      font-size: 20px;
-      }
-      
-      .footer-links h5 {
-          margin-left: auto;
-          margin-right: auto;
-      }
-      
-      .footer-email a {
-      font-size: 17.6px;
-      }
-      /* Centra i link social nella versione mobile */
-      .footer-social {
-          justify-content: center;
-      }
-      
-      .footer-links a:hover {
-          transform: translateY(-2px);
-      }
-  }                
+    .footer-email a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    /* === MODIFICA INIZIO: Stili Logo Blob e Immagine Adattati === */
+
+    /* Stile base del contenitore blob */
+    .footer-logo .logo-blob {
+        width: 38px;
+        height: 38px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per scale/shadow hover */
+        overflow: hidden;
+        /* Forma iniziale */
+        border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+        background: linear-gradient(135deg, #8C8DD4, #79C192);
+        box-shadow: 0 8px 20px #8c8dd462;
+        border: 2.5px solid #8C8DD4;
+        /* Rimosso transform iniziale se non necessario, l'immagine ha il suo offset */
+    }
+
+    /* Animazione SOLO per la FORMA (border-radius) del blob */
+    @keyframes footer-blob-morph-shape-only {
+        0%   { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+        15%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+        30%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+        45%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        60%  { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; }
+        75%  { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; }
+        90%  { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+    }
+
+    /* Animazione SOLO per la ROTAZIONE dell'immagine (mantenendo offset Y) */
+    @keyframes footer-logo-image-rotate {
+        0%   { transform: translateY(-2px) rotate(0deg); }
+        15%  { transform: translateY(-2px) rotate(-3deg); }
+        30%  { transform: translateY(-2px) rotate(-8deg); }
+        45%  { transform: translateY(-2px) rotate(-3deg); }
+        60%  { transform: translateY(-2px) rotate(8deg); }
+        75%  { transform: translateY(-2px) rotate(3deg); }
+        90%  { transform: translateY(-2px) rotate(-5deg); }
+        100% { transform: translateY(-2px) rotate(0deg); }
+    }
+
+    /* Stile base dell'immagine */
+    .footer-logo img {
+        height: 38px;
+        width: 38px;
+        object-fit: cover;
+        transition: transform 0.3s ease; /* Transizione se necessaria */
+        z-index: 1;
+        display: block;
+        margin: auto;
+        /* Offset iniziale */
+        transform: translateY(-2px);
+    }
+
+    /* Azioni sull'HOVER del blob */
+    .footer-logo .logo-blob:hover {
+        /* Applica l'animazione della FORMA al blob */
+        animation: footer-blob-morph-shape-only 5s infinite;
+        /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
+        transform: scale(1.05); /* Rimosso translateY qui perché l'offset è sull'immagine */
+        box-shadow: 0 8px 20px #8c8dd462;
+    }
+
+    /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
+    .footer-logo .logo-blob:hover img {
+        animation: footer-logo-image-rotate 5s infinite;
+        /* La transform dell'animazione sovrascrive quella base dell'immagine */
+    }
+
+    /* === MODIFICA FINE === */
+
+    .footer-logo .logo-text {
+        color: #8C8DD4;
+        font-weight: 800;
+        margin-left: 10px;
+        margin-bottom: 0px;
+    }
+
+    /* Links sections (invariati) */
+    .footer-links h5{
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+        margin-bottom: 24px;
+    }
+
+    .footer-links h5::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 24px;
+    }
+
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        bottom: 0;
+        left: 0;
+        background-color: #79C192 ;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #79C192;
+    }
+
+    .footer-links a:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* Social icons (invariati) */
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 1.5rem;
+    }
+
+    .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .footer-social a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-primary);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .footer-social a:hover {
+        color: var(--dark);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px #79c19262    }
+
+    .footer-social a:hover::before {
+        opacity: 1;
+    }
+
+    /* Copyright section (invariati) */
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright .proudly-crafted {
+        margin-bottom: 16px;
+        color: white;
+    }
+
+    .copyright .copyright-text {
+        margin-top: 0;
+        margin-bottom: 0px;
+        color: white;
+    }
+
+    /* Responsive adjustments (invariati) */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .footer-logo {
+            justify-content: center;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 20px;
+        }
+
+        .footer-links h5 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-email a {
+            font-size: 17.6px;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(0);
+        }
+    }
 </style>
+
 
 </body>
 </html>
