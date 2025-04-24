@@ -9,7 +9,7 @@
     
     <!-- Meta tags per Open Graph (Facebook, LinkedIn, ecc.) -->
     <meta property="og:title" content="Strush | I soldi non crescono sugli alberi">
-    <meta property="og:description" content="Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.">
+    <meta property="og:description" content="Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio">
     <meta property="og:image" content="https://github.com/cristianomiolla/strush/blob/main/immagini/logo.png?raw=true">
     <meta property="og:url" content="https://cristianomiolla.github.io/strush/">
     <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
     <!-- Meta tags per Twitter Card (utili anche per altri servizi) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Strush | I soldi non crescono sugli alberi">
-    <meta name="twitter:description" content="Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.">
+    <meta name="twitter:description" content="Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio">
     <meta name="twitter:image" content="https://github.com/cristianomiolla/strush/blob/main/immagini/logo.png?raw=true">
     
     <!-- Collegamento ai font awesome -->
@@ -890,7 +890,6 @@
         .download-bar:hover {
             background-color: #222;
             transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
     
         .download-bar.hidden {
@@ -1225,36 +1224,47 @@
             word-wrap: break-word;
         }
 
-        /* Bot message styling */
+        /* --- MODIFIED Bot message styling --- */
         .bot-message {
-            background-color: #fff;
-            align-self: flex-start;
+            background-color: #fff; /* Keep background white */
+            align-self: flex-end; /* Move to the right */
+            margin-left: auto; /* Ensure it stays right */
             border-radius: var(--border-radius-lg);
-            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0; /* Sharp corner on bottom right */
         }
         .bot-message::after {
-            content: ""; position: absolute; bottom: 0; left: -8px; width: 0; height: 0;
-            border-right: 10px solid #fff; border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+            content: ""; position: absolute; bottom: 0; right: -8px; /* Position tail on the right */ width: 0; height: 0;
+            border-left: 10px solid #fff; /* Pointing right, white color */
+            border-top: 10px solid transparent; border-bottom: 0 solid transparent;
         }
 
-        /* User message styling */
+        /* --- MODIFIED User message styling --- */
         .user-message {
-            background-color: var(--primary); color: white; align-self: flex-end; margin-left: auto;
-            border-radius: var(--border-radius-lg); border-bottom-right-radius: 0;
+            background-color: var(--primary); color: white;
+            align-self: flex-start; /* Move to the left */
+            margin-right: auto; /* Ensure it stays left */
+            border-radius: var(--border-radius-lg);
+            border-bottom-left-radius: 0; /* Sharp corner on bottom left */
         }
         .user-message::after {
-            content: ""; position: absolute; bottom: 0; right: -8px; width: 0; height: 0;
-            border-left: 10px solid var(--primary); border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+            content: ""; position: absolute; bottom: 0; left: -8px; /* Position tail on the left */ width: 0; height: 0;
+            border-right: 10px solid var(--primary); /* Pointing left, primary color */
+            border-top: 10px solid transparent; border-bottom: 0 solid transparent;
         }
 
-        /* Typing indicator animation */
+        /* --- MODIFIED Typing indicator animation (to match new bot position) --- */
         .typing-indicator {
-            background-color: #fff; padding: 10px; border-radius: var(--border-radius-lg); border-bottom-left-radius: 0;
-            display: flex; align-items: center; margin-bottom: 10px; max-width: 65px; align-self: flex-start; position: relative;
+            background-color: #fff; padding: 10px; border-radius: var(--border-radius-lg);
+            border-bottom-right-radius: 0; /* Sharp corner bottom right */
+            display: flex; align-items: center; margin-bottom: 10px; max-width: 65px;
+            align-self: flex-end; /* Move to the right */
+            margin-left: auto; /* Ensure it stays right */
+            position: relative;
         }
         .typing-indicator::after {
-            content: ""; position: absolute; bottom: 0; left: -8px; width: 0; height: 0;
-            border-right: 10px solid #fff; border-top: 10px solid transparent; border-bottom: 0 solid transparent;
+            content: ""; position: absolute; bottom: 0; right: -8px; /* Tail on the right */ width: 0; height: 0;
+            border-left: 10px solid #fff; /* Pointing right, white */
+            border-top: 10px solid transparent; border-bottom: 0 solid transparent;
         }
         .typing-indicator span {
             height: 8px; width: 8px; margin: 0 2px; background-color: var(--primary); display: block;
@@ -1383,7 +1393,7 @@
                     text: 'Voglio preregistrarmi all\'alpha',
                     action: () => {
                         // MODIFIED: Message includes the styled button
-                        const messageHTML = 'Ah, un visionario! 😎(niente spam, giuriamo).<br>' +
+                        const messageHTML = 'Ah, un visionario! 😎 (niente spam, giuriamo).<br>' +
                                             '<button class="chatbot-action-button" onclick="window.open(\'download.html\', \'_blank\');" style="margin-top: 10px; margin-bottom: 5px;">Preregistrati</button>';
                         addMessage(messageHTML, true);
                         setTimeout(() => {
@@ -1468,7 +1478,7 @@
             function showTypingIndicator() {
                 removeTypingIndicator();
                 const typingIndicator = document.createElement('div');
-                typingIndicator.classList.add('typing-indicator');
+                typingIndicator.classList.add('typing-indicator'); // Class styling handles position now
                 typingIndicator.id = 'typing-indicator';
                 for (let i = 0; i < 3; i++) {
                     const dot = document.createElement('span');
@@ -1495,11 +1505,11 @@
                 messageElement.classList.add('chatbot-message');
 
                 if (isBot) {
-                    messageElement.classList.add('bot-message');
+                    messageElement.classList.add('bot-message'); // Uses the new bot style (right aligned)
                     messageElement.innerHTML = message; // Use innerHTML for links/formatting/buttons
 
                     // Add typing indicator only BEFORE bot message appears
-                    const typingIndicator = showTypingIndicator();
+                    const typingIndicator = showTypingIndicator(); // Indicator also follows bot style
                     setTimeout(() => {
                         removeTypingIndicator();
                         chatbotMessages.appendChild(messageElement);
@@ -1508,7 +1518,7 @@
 
                 } else {
                      // User message - add immediately
-                    messageElement.classList.add('user-message');
+                    messageElement.classList.add('user-message'); // Uses the new user style (left aligned)
                     messageElement.textContent = message; // Use textContent for user messages (safer)
                     chatbotMessages.appendChild(messageElement);
                     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -1538,14 +1548,14 @@
                  }
 
                  const optionsContainer = document.createElement('div');
-                 optionsContainer.classList.add('chatbot-options');
+                 optionsContainer.classList.add('chatbot-options'); // Options remain centered
 
                  options.forEach(option => {
                      const optionElement = document.createElement('button');
                      optionElement.classList.add('chatbot-option'); // These still use the original gradient border style
                      optionElement.textContent = option.text;
                      optionElement.onclick = () => {
-                         addMessage(option.text, false); // Add user choice as message
+                         addMessage(option.text, false); // Add user choice as message (now left-aligned)
                          optionsContainer.remove(); // Remove options container after click
                          option.action(); // Execute the associated action
                      };
@@ -1568,9 +1578,9 @@
                  if (existingOptionsContainer) existingOptionsContainer.remove();
 
                  setTimeout(() => {
-                     addMessage('Posso aiutarti in altro?', true);
+                     addMessage('Posso aiutarti in altro?', true); // Bot message now right-aligned
                      setTimeout(() => {
-                          addOptions(optionsToShow); // Show the specified options
+                          addOptions(optionsToShow); // Show the specified options (centered)
                      }, 1500); // Delay before showing options
                  }, 1500); // Delay after previous bot message/action is complete
              }
@@ -1588,7 +1598,7 @@
 
             // Start conversation function
             function startConversation() {
-                addMessage('Hey! Sono Dinuccio, il tuo compagno di viaggio in questa app ancora in cantiere 🏗️.<br>Come posso aiutarti?');
+                addMessage('Hey! Sono Dinuccio, il tuo compagno di viaggio in questa app ancora in cantiere 🏗️.<br>Come posso aiutarti?', true); // Bot message right-aligned
                 setTimeout(() => {
                     showInitialOptions(); // Show options after greeting
                 }, 3500); // Delay after initial greeting message appears (1500ms typing + 2000ms wait)
@@ -1656,7 +1666,7 @@
             function sendMessage() {
                 const message = chatbotInput.value.trim();
                 if (message !== '') {
-                    addMessage(message, false); // Display user message immediately
+                    addMessage(message, false); // Display user message immediately (now left-aligned)
 
                     // --- Google Apps Script Integration ---
                     const chatbotScriptURL = 'https://script.google.com/macros/s/AKfycbwDe9jThnMtPu5v8HRofqPInqyi7fLCHEFXPFQqnAEvTRpk-pYhwf76QRjQHEUiT66p/exec'; // Ensure this is correct
@@ -1692,7 +1702,7 @@
 
                     // Generic "received" message after user input
                     setTimeout(() => {
-                        addMessage('✅ Input ricevuto. Se non lo usiamo, è solo perché il mondo non è ancora pronto. 🌍', true);
+                        addMessage('✅ Input ricevuto. Se non lo usiamo, è solo perché il mondo non è ancora pronto. 🌍', true); // Bot message right-aligned
                          // Show all three options after receiving input
                          askForMoreHelp([
                              optionsDefinition.preregister,
@@ -2295,13 +2305,14 @@
     });
 </script>
 
-    <!-- Hero Section -->
+
+<!-- Hero Section -->
 <section class="hero" id="hero">
 
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">I soldi non crescono sugli alberi</h1>
-            <p class="hero-subtitle">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+            <p class="hero-subtitle">Spese pazze o amico fantasma al conto?<br>Con Strush si gioca sul serio</p>
             <div class="hero-buttons">
                 <a href="#download" class="btn btn-primary">Scarica ora</a>
                 <a href="#features-desktop" class="btn btn-secondary" id="discover-more-btn">Scopri di più</a>
@@ -2393,26 +2404,24 @@
         }
 
         .hero {
-            position: relative;
-            /* Use dynamic viewport height (dvh) to account for mobile browser UI */
-            height: 100dvh; /* Changed from 100vh */
-            /* Add a fallback for older browsers that might not support dvh */
-            height: 100vh;
-            height: 100dvh; /* The last rule applies if supported */
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #080808 0%, #121218 100%);
-            overflow: hidden; /* Keep hidden to prevent internal content from causing scrollbars */
-            box-sizing: border-box;
-        }
+    position: relative; /* Mantiene position: relative */
+    height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #080808 0%, #121218 100%);
+    /* overflow: hidden; */ /* <-- Rimuovi o commenta questa riga */
+    box-sizing: border-box;
+}
 
 
         .hero .container {
             position: relative;
-            z-index: 1;
+            z-index: 1; /* Ensures content is above the ::after curve */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -2433,7 +2442,25 @@
             height: 100%;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="none"/><circle cx="10" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="10" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/></svg>');
             opacity: 0.1;
+            z-index: 0; /* Ensure it's behind the content and the ::after curve */
         }
+
+        /* --- START: Added Curve CSS --- */
+        .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; /* O il valore che preferisci per posizionarlo sotto */
+    left: 0;
+    width: 100%;
+    height: 30px; /* Altezza della curva */
+    background: inherit; /* Il tuo colore */
+    border-radius: 0 0 50% 50% / 0 0 100% 100%; /* La tua curva */
+    z-index: 2; /* Assicurati che sia sopra lo sfondo ma sotto la sezione successiva se necessario */
+    pointer-events: none; /* Evita che intercetti il mouse */
+}
+
+
+        /* --- END: Added Curve CSS --- */
 
         .hero-content {
             width: 50%;
@@ -2441,9 +2468,11 @@
             padding-right: 30px;
             animation: fadeInUp 1s ease-out;
             box-sizing: border-box; /* Added for consistency */
+            position: relative; /* Ensure content stays above pseudo-elements */
+            z-index: 1;
         }
 
-        h1 {
+        h1.hero-title { /* More specific selector */
             margin-bottom: 32px;
             line-height: 1.2;
             background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
@@ -2485,8 +2514,6 @@
         }
 
         .btn-primary:hover {
-            background: #79C192;
-            color: rgb(0, 0, 0);
             box-shadow: 0 8px 20px #79c19262;
             transform: translateY(-2px);
         }
@@ -2499,9 +2526,7 @@
         }
 
         .btn-secondary:hover {
-            background: transparent; /* Mantiene sfondo trasparente */
-            color: #79C192; /* Colore testo verde */
-            border-color: #79C192; /* Bordo verde */
+
             transform: translateY(-2px);
             box-shadow: 0 8px 20px #79c19262;
         }
@@ -2515,6 +2540,7 @@
             justify-content: center;
             animation: fadeInRight 1s ease-out;
             box-sizing: border-box; /* Added for consistency */
+            z-index: 1; /* Ensure image elements are above the ::after curve */
         }
 
         .dino-avatar-container {
@@ -2656,7 +2682,7 @@
             height: 6%;
             transform: rotate(-30deg);
             transform-origin: top center;
-            animation: dinoArmRight 3s infinite alternate;
+            animation: dinoArmRight 3s infinite alternate; /* Mismatched name, assuming was intended right? */
         }
 
         .dino-arm.right {
@@ -2763,7 +2789,7 @@
         .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 8px 20px #8c8dd462;
             ; transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; /* Ensure it's above other elements */ }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; /* Ensure it's above other elements, including curve */ }
         .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
         /* Wheel animation removed for simplicity/potential conflict */
         .wheel {
@@ -2805,7 +2831,7 @@
 
     /* --- Media Query for Mobile --- */
     @media screen and (max-width: 768px) {
-        
+
         .hero .container {
             flex-direction: column;
             justify-content: space-evenly; /* Changed from center for better spacing */
@@ -2840,7 +2866,7 @@
 
         .btn {
             padding: 12px 28px;
-            font-size: 1.1rem; 
+            font-size: 1.1rem;
         }
 
         .dino-avatar-container {
@@ -2860,6 +2886,7 @@
             bottom: 5%; /* Adjust position */
             transform: scale(0.9); /* Scale down slightly */
         }
+
     }
 
     </style>
@@ -3084,6 +3111,7 @@
     </script>
 
 </section>
+
 
     <!-- Desktop Feature -->
 <section id="features-desktop">
@@ -6209,7 +6237,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <h3 class="logo-text">Strush</h3>
                 </div>
-                <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+                <p class="elevator-pitch">Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio</p>
                 <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -6531,4 +6559,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 
-            </html>
+</html>
