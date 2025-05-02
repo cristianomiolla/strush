@@ -57,6 +57,7 @@
     body {
         font-family: 'Segoe UI', sans-serif;
         color: var(--text);
+        background-color: #121218;
         line-height: 1.6;
     }
     
@@ -1813,6 +1814,146 @@
             });
 </script>
 
+    <!-- Barra di avanzamento orizzontale migliorata sotto la navbar -->
+<div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+</div>
+
+<style>
+    .scroll-progress-container {
+        position: fixed;
+        top: var(--navbar-height, 60px); /* Altezza navbar rilevata automaticamente */
+        left: 0;
+        width: 100%;
+        height: 4px;
+        z-index: 999;
+        overflow: hidden;
+        transition: height 0.3s ease; /* Transizione per l'hover */
+    }
+    
+    /* Effetto hover sulla barra container */
+    .scroll-progress-container:hover {
+        height: 8px; /* Si espande leggermente all'hover */
+    }
+
+    .scroll-progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background: #8C8DD4; /* Gradiente viola */
+        transition: width .3s ease-out;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    /* Effetto hover sulla barra di progresso */
+    .scroll-progress-container:hover .scroll-progress-bar {
+        background: #79C192; /* Gradiente verde */
+        box-shadow: 0 8px 20px #79c19262;
+    }
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cache degli elementi del DOM
+        const progressContainer = document.querySelector('.scroll-progress-container');
+        const progressBar = document.querySelector('.scroll-progress-bar');
+        const percentageDisplay = document.querySelector('.scroll-percentage');
+        
+        // Rileva l'altezza della navbar e imposta la variabile CSS
+        function detectNavbarHeight() {
+            // Cerca navbar in più posizioni (aumenta compatibilità)
+            const navbar = document.querySelector('nav, header, .navbar, .header, #navbar, #header');
+            if (navbar) {
+                const navbarHeight = navbar.getBoundingClientRect().height;
+                document.documentElement.style.setProperty('--navbar-height', navbarHeight + 'px');
+            }
+        }
+        
+        // Rileva inizialmente
+        detectNavbarHeight();
+        
+        // Funzione ottimizzata per calcolare e aggiornare il progresso
+        function updateScrollProgress() {
+            window.requestAnimationFrame(() => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                
+                // Calcola la percentuale di scroll
+                const scrollPercentage = Math.min(100, Math.round((scrollTop / (scrollHeight - clientHeight)) * 100));
+                
+                // Aggiorna la larghezza della barra di avanzamento
+                progressBar.style.width = scrollPercentage + '%';
+                
+                // Aggiorna il testo della percentuale
+                percentageDisplay.textContent = scrollPercentage + '%';
+                
+                // Aggiungi/rimuovi classe per 100%
+                if (scrollPercentage >= 100) {
+                    percentageDisplay.classList.add('complete');
+                } else {
+                    percentageDisplay.classList.remove('complete');
+                }
+                
+                // Mostra la percentuale quando c'è scroll
+                if (scrollTop > 50) {
+                    percentageDisplay.style.opacity = '1';
+                    percentageDisplay.style.transform = 'translateY(0)';
+                } else if (!progressContainer.matches(':hover')) {
+                    percentageDisplay.style.opacity = '0';
+                    percentageDisplay.style.transform = 'translateY(-5px)';
+                }
+            });
+        }
+        
+        // Throttle per la funzione di scroll per prestazioni migliori
+        let scrollThrottle;
+        window.addEventListener('scroll', function() {
+            if (!scrollThrottle) {
+                scrollThrottle = setTimeout(() => {
+                    updateScrollProgress();
+                    scrollThrottle = null;
+                }, 10);
+            }
+        });
+        
+        // Evento resize con debounce per migliorare le prestazioni
+        let resizeDebounce;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeDebounce);
+            resizeDebounce = setTimeout(() => {
+                detectNavbarHeight();
+                updateScrollProgress();
+            }, 100);
+        });
+        
+        // Gestisce cambiamenti del DOM che potrebbero modificare l'altezza della navbar
+        const observer = new MutationObserver(() => {
+            detectNavbarHeight();
+        });
+        
+        // Osserva il documento per cambiamenti
+        observer.observe(document.documentElement, { 
+            childList: true, 
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+        
+        // Aggiorna la barra all'inizializzazione della pagina
+        updateScrollProgress();
+        
+        // Aggiorna anche dopo il caricamento completo della pagina
+        window.addEventListener('load', function() {
+            detectNavbarHeight();
+            updateScrollProgress();
+        });
+    });
+</script>
 
 <!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
@@ -1898,7 +2039,8 @@
         /* Add padding to body to prevent navbar from covering content */
         body {
             /* Ensure padding matches the minimum navbar height */
-            padding-top: 70px;
+            /* MODIFICA: Usa la variabile CSS per coerenza, con fallback */
+            padding-top: var(--nav-height, 70px);
         }
 
         /* Scrolled state for navbar */
@@ -2079,6 +2221,17 @@
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
 
+            // Funzione per aggiornare l'altezza della navbar nel CSS
+            function updateNavbarHeight() {
+                const navbarHeight = navbar ? navbar.offsetHeight : 70; // Usa l'altezza effettiva o 70 come fallback
+                document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+                // Applica direttamente il padding al body anche qui, per sicurezza
+                document.body.style.paddingTop = navbarHeight + 'px';
+            }
+
+            // Esegui subito al caricamento
+            updateNavbarHeight();
+
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
             });
@@ -2118,764 +2271,634 @@
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // Aggiorna l'altezza anche al resize, se necessario
+            let resizeTimerNav;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimerNav);
+                resizeTimerNav = setTimeout(updateNavbarHeight, 150);
+            }, { passive: true });
         });
     </script>
 
 </nav>
 
-    <!-- Barra di avanzamento orizzontale migliorata sotto la navbar -->
-<div class="scroll-progress-container">
-    <div class="scroll-progress-bar"></div>
-</div>
+<!-- Hero Section -->
+<section class="hero" id="hero">
 
-<style>
-    .scroll-progress-container {
-        position: fixed;
-        top: var(--navbar-height, 60px); /* Altezza navbar rilevata automaticamente */
-        left: 0;
-        width: 100%;
-        height: 4px;
-        z-index: 999;
-        overflow: hidden;
-        transition: height 0.3s ease; /* Transizione per l'hover */
-    }
-    
-    /* Effetto hover sulla barra container */
-    .scroll-progress-container:hover {
-        height: 8px; /* Si espande leggermente all'hover */
-    }
-
-    .scroll-progress-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 0%;
-        background: #8C8DD4; /* Gradiente viola */
-        transition: width .3s ease-out;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
-    }
-
-    /* Effetto hover sulla barra di progresso */
-    .scroll-progress-container:hover .scroll-progress-bar {
-        background: #79C192; /* Gradiente verde */
-        box-shadow: 0 8px 20px #79c19262;
-    }
-
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Cache degli elementi del DOM
-        const progressContainer = document.querySelector('.scroll-progress-container');
-        const progressBar = document.querySelector('.scroll-progress-bar');
-        const percentageDisplay = document.querySelector('.scroll-percentage');
-        
-        // Rileva l'altezza della navbar e imposta la variabile CSS
-        function detectNavbarHeight() {
-            // Cerca navbar in più posizioni (aumenta compatibilità)
-            const navbar = document.querySelector('nav, header, .navbar, .header, #navbar, #header');
-            if (navbar) {
-                const navbarHeight = navbar.getBoundingClientRect().height;
-                document.documentElement.style.setProperty('--navbar-height', navbarHeight + 'px');
-            }
-        }
-        
-        // Rileva inizialmente
-        detectNavbarHeight();
-        
-        // Funzione ottimizzata per calcolare e aggiornare il progresso
-        function updateScrollProgress() {
-            window.requestAnimationFrame(() => {
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight;
-                const clientHeight = document.documentElement.clientHeight;
-                
-                // Calcola la percentuale di scroll
-                const scrollPercentage = Math.min(100, Math.round((scrollTop / (scrollHeight - clientHeight)) * 100));
-                
-                // Aggiorna la larghezza della barra di avanzamento
-                progressBar.style.width = scrollPercentage + '%';
-                
-                // Aggiorna il testo della percentuale
-                percentageDisplay.textContent = scrollPercentage + '%';
-                
-                // Aggiungi/rimuovi classe per 100%
-                if (scrollPercentage >= 100) {
-                    percentageDisplay.classList.add('complete');
-                } else {
-                    percentageDisplay.classList.remove('complete');
-                }
-                
-                // Mostra la percentuale quando c'è scroll
-                if (scrollTop > 50) {
-                    percentageDisplay.style.opacity = '1';
-                    percentageDisplay.style.transform = 'translateY(0)';
-                } else if (!progressContainer.matches(':hover')) {
-                    percentageDisplay.style.opacity = '0';
-                    percentageDisplay.style.transform = 'translateY(-5px)';
-                }
-            });
-        }
-        
-        // Throttle per la funzione di scroll per prestazioni migliori
-        let scrollThrottle;
-        window.addEventListener('scroll', function() {
-            if (!scrollThrottle) {
-                scrollThrottle = setTimeout(() => {
-                    updateScrollProgress();
-                    scrollThrottle = null;
-                }, 10);
-            }
-        });
-        
-        // Evento resize con debounce per migliorare le prestazioni
-        let resizeDebounce;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeDebounce);
-            resizeDebounce = setTimeout(() => {
-                detectNavbarHeight();
-                updateScrollProgress();
-            }, 100);
-        });
-        
-        // Gestisce cambiamenti del DOM che potrebbero modificare l'altezza della navbar
-        const observer = new MutationObserver(() => {
-            detectNavbarHeight();
-        });
-        
-        // Osserva il documento per cambiamenti
-        observer.observe(document.documentElement, { 
-            childList: true, 
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['style', 'class']
-        });
-        
-        // Aggiorna la barra all'inizializzazione della pagina
-        updateScrollProgress();
-        
-        // Aggiorna anche dopo il caricamento completo della pagina
-        window.addEventListener('load', function() {
-            detectNavbarHeight();
-            updateScrollProgress();
-        });
-    });
-</script>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">I soldi non crescono sugli alberi</h1>
-                <p class="hero-subtitle">Spese pazze o amico fantasma al conto?<br>Con Strush si gioca sul serio</p>
-                <div class="hero-buttons">
-                    <a href="#features-desktop" class="btn btn-secondary" id="discover-more-btn">Scopri di più</a>
-                    <a href="#download" class="btn btn-primary">Scarica ora</a>
-                </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">I soldi non crescono sugli alberi</h1>
+            <p class="hero-subtitle">Spese pazze o amico fantasma al conto?<br>Con Strush si gioca sul serio</p>
+            <div class="hero-buttons">
+                <a href="#features-desktop" class="btn btn-secondary" id="discover-more-btn">Scopri di più</a>
+                <a href="#download" class="btn btn-primary">Scarica ora</a>
             </div>
-            <div class="hero-image">
-                <!-- Nessun overflow: hidden qui -->
-                <div class="dino-avatar-container">
-                    <div class="dino-character">
-                        <div class="dino-body">
-                            <div class="dino-head">
-                                <div class="dino-eye"></div>
-                                <div class="dino-snout"></div>
-                                <div class="dino-mouth"></div>
-                            </div>
-                            <div class="dino-neck"></div>
-                            <div class="dino-torso"></div>
-                            <div class="dino-arm left"></div>
-                            <div class="dino-arm right"></div>
-                            <div class="dino-leg left"></div>
-                            <div class="dino-leg right"></div>
-                            <div class="dino-tail"></div>
-                            <div class="dino-spikes">
-                                <div class="spike s1"></div>
-                                <div class="spike s2"></div>
-                                <div class="spike s3"></div>
-                                <div class="spike s4"></div>
-                                <div class="spike s5"></div>
-                            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Nessun overflow: hidden qui -->
+            <div class="dino-avatar-container">
+                <div class="dino-character">
+                    <div class="dino-body">
+                        <div class="dino-head">
+                            <div class="dino-eye"></div>
+                            <div class="dino-snout"></div>
+                            <div class="dino-mouth"></div>
+                        </div>
+                        <div class="dino-neck"></div>
+                        <div class="dino-torso"></div>
+                        <div class="dino-arm left"></div>
+                        <div class="dino-arm right"></div>
+                        <div class="dino-leg left"></div>
+                        <div class="dino-leg right"></div>
+                        <div class="dino-tail"></div>
+                        <div class="dino-spikes">
+                            <div class="spike s1"></div>
+                            <div class="spike s2"></div>
+                            <div class="spike s3"></div>
+                            <div class="spike s4"></div>
+                            <div class="spike s5"></div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="tech-overlay">
-                        <div class="data-point p1"></div>
-                        <div class="data-point p2"></div>
-                        <div class="data-point p3"></div>
-                        <div class="data-point p4"></div>
-                        <div class="data-point p5"></div>
-                        <div class="data-point p6"></div>
-                        <div class="scan-line"></div>
-                        <div class="tech-circle c1"></div>
-                        <div class="tech-circle c2"></div>
-                        <div class="tech-circle c3"></div>
-                    </div>
+                <div class="tech-overlay">
+                    <div class="data-point p1"></div>
+                    <div class="data-point p2"></div>
+                    <div class="data-point p3"></div>
+                    <div class="data-point p4"></div>
+                    <div class="data-point p5"></div>
+                    <div class="data-point p6"></div>
+                    <div class="scan-line"></div>
+                    <div class="tech-circle c1"></div>
+                    <div class="tech-circle c2"></div>
+                    <div class="tech-circle c3"></div>
+                </div>
 
-                    <div class="particles">
-                        <div class="particle p1"></div>
-                        <div class="particle p2"></div>
-                        <div class="particle p3"></div>
-                        <div class="particle p4"></div>
-                        <div class="particle p5"></div>
-                        <div class="particle p6"></div>
-                        <div class="particle p7"></div>
-                        <div class="particle p8"></div>
-                    </div>
+                <div class="particles">
+                    <div class="particle p1"></div>
+                    <div class="particle p2"></div>
+                    <div class="particle p3"></div>
+                    <div class="particle p4"></div>
+                    <div class="particle p5"></div>
+                    <div class="particle p6"></div>
+                    <div class="particle p7"></div>
+                    <div class="particle p8"></div>
+                </div>
 
-                    <div class="prehistoric-bg">
-                        <div class="mountain m1"></div>
-                        <div class="mountain m2"></div>
-                        <div class="mountain m3"></div>
-                        <div class="tree t1"></div>
-                        <div class="tree t2"></div>
-                    </div>
+                <div class="prehistoric-bg">
+                    <div class="mountain m1"></div>
+                    <div class="mountain m2"></div>
+                    <div class="mountain m3"></div>
+                    <div class="tree t1"></div>
+                    <div class="tree t2"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <div class="scroll-indicator">
+        <div class="mouse">
+            <div class="wheel"></div>
         </div>
+        <div class="arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
-        <style>
-            /* --- MODIFICA CHIAVE --- */
-            html {
-                overflow-x: clip; /* Impedisce l'overflow orizzontale a livello radice senza tagliare elementi interni come ::after di .hero */
-                 /* Se 'clip' causa problemi (improbabile), prova con: overflow-x: hidden; */
-            }
-            /* --- FINE MODIFICA CHIAVE --- */
+    <style>
+        /* --- MODIFICA CHIAVE --- */
+        html {
+            overflow-x: clip; /* Impedisce l'overflow orizzontale a livello radice senza tagliare elementi interni come ::after di .hero */
+        }
+        /* --- FINE MODIFICA CHIAVE --- */
 
-            html, body {
-                margin: 0;
-                padding: 0;
-            }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
 
-            body {
-                /* overflow-x: hidden; <-- Puoi mantenerlo o rimuoverlo, html { overflow-x: clip; } dovrebbe essere sufficiente */
-                overflow-y: auto;
-            }
+        body {
+            /* overflow-x: hidden; <-- Puoi mantenerlo o rimuoverlo, html { overflow-x: clip; } dovrebbe essere sufficiente */
+            overflow-y: auto;
+            /* Padding-top è già gestito nello stile della navbar */
+        }
 
-            .hero {
-                position: relative;
-                height: 100dvh; /* Usa dvh per mobile se possibile */
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                background: #121218;
-                /* overflow: hidden; */ /* <-- Assicurati che NON ci sia qui */
-                box-sizing: border-box;
-            }
+        .hero {
+            position: relative;
+            /* MODIFICA: Calcola l'altezza sottraendo l'altezza della navbar */
+            height: calc(100dvh - var(--nav-height, 70px));
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            background: #121218;
+            /* overflow: hidden; <-- Assicurati che NON ci sia qui */
+            box-sizing: border-box; /* Importante quando si usa calc() con padding/border */
+        }
 
 
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%; /* Occupa l'intera altezza calcolata del genitore .hero */
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* MODIFICA: Rimosso padding-top qui, è gestito dal body */
+            /* padding-top: var(--nav-height, 70px); */
+            box-sizing: border-box;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="none"/><circle cx="10" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="10" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/></svg>');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: inherit;
+            border-radius: 0 0 50% 50% / 0 0 100% 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            width: 50%;
+            color: white;
+            padding-right: 30px;
+            animation: fadeInUp 1s ease-out;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1.hero-title {
+            margin-bottom: 32px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(177, 172, 250, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.8);
+
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 36px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 19.2px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: #8C8DD4;
+            color: white;
+            box-shadow: 0 8px 20px #8c8dd462;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 20px #79c19262;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8C8DD4;
+            border: 2px solid #8C8DD4;
+            box-shadow: 0 8px 20px #8c8dd462;
+        }
+
+        .btn-secondary:hover {
+
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px #79c19262;
+        }
+
+        .hero-image {
+            width: 45%;
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInRight 1s ease-out;
+            box-sizing: border-box;
+            z-index: 1;
+            /* overflow: hidden; */ /* <-- Assicurati che NON ci sia qui */
+        }
+
+        .dino-avatar-container {
+            position: relative;
+            width: 100%;
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            /* overflow: hidden; */ /* <-- Assicurati che NON ci sia qui */
+        }
+
+        .dino-character {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            transform-style: preserve-3d;
+            animation: dinoFloat 4s infinite ease-in-out;
+            z-index: 10;
+        }
+
+        .dino-character::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(177, 172, 250, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+            z-index: -1;
+            animation: glowPulse 3s infinite;
+        }
+
+        .dino-body { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+        .dino-head { position: absolute; top: 40px; left: 170px; width: 90px; height: 70px; background: #67AF9E; border-radius: 50% 70% 30% 30%; transform: rotate(10deg); z-index: 5; animation: dinoHead 5s infinite alternate; }
+        .dino-eye { position: absolute; top: 20px; left: 20px; width: 18px; height: 18px; background: white; border-radius: 50%; overflow: hidden; }
+        .dino-eye::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; background: #121218; border-radius: 50%; animation: dinoEye 4s infinite; }
+        .dino-snout { position: absolute; top: 35px; left: 45px; width: 50px; height: 25px; background: #5DA08F; border-radius: 60% 80% 60% 40%; transform: rotate(-5deg); }
+        .dino-mouth { position: absolute; top: 45px; left: 55px; width: 30px; height: 10px; background: #4A8272; border-radius: 40% 40% 60% 60%; animation: dinoMouth 3s infinite; }
+        .dino-neck { position: absolute; top: 90px; left: 150px; width: 50px; height: 70px; background: #67AF9E; border-radius: 30% 30% 50% 50%; transform: rotate(60deg); z-index: 4; }
+        .dino-torso { position: absolute; top: 120px; left: 80px; width: 120px; height: 80px; background: #67AF9E; border-radius: 50% 40% 40% 50%; z-index: 3; }
+        .dino-arm { position: absolute; width: 35px; height: 50px; background: #5DA08F; border-radius: 40% 40% 20% 20%; z-index: 2; }
+        .dino-arm.left { top: 136px; left: 190px; height: 6%; transform: rotate(-30deg); transform-origin: top center; animation: dinoArmRight 3s infinite alternate; }
+        .dino-arm.right { top: 130px; left: 140px; transform: rotate(-10deg); animation: dinoArmRight 3s infinite alternate; }
+        .dino-leg { position: absolute; width: 30px; height: 60px; background: #5DA08F; border-radius: 30% 30% 20% 20%; z-index: 1; }
+        .dino-leg.left { top: 180px; left: 95px; animation: dinoLegLeft 3s infinite alternate; }
+        .dino-leg.right { top: 180px; left: 145px; animation: dinoLegRight 3s infinite alternate; }
+        .dino-tail { position: absolute; top: 140px; left: 20px; width: 100px; height: 30px; background: #67AF9E; border-radius: 30% 30% 30% 30%; transform: rotate(-10deg); z-index: 2; animation: dinoTail 4s infinite alternate; }
+        .dino-spikes { position: absolute; top: 80px; left: 66px; width: 140px; height: 40px; z-index: 6; transform: rotate(0deg); }
+        .spike { position: absolute; width: 18px; height: 25px; background: #84C7B6; border-radius: 50% 50% 0 0; transform-origin: bottom center; }
+        .spike.s1 { left: 0; top: 38px; animation: spikeWave 3s infinite ease-in-out; }
+        .spike.s2 { left: 28.5px; top: 27px; animation: spikeWave 3s infinite ease-in-out 0.2s; }
+        .spike.s3 { left: 57px; top: 19px; animation: spikeWave 3s infinite ease-in-out 0.4s; }
+        .spike.s4 { left: 83px; top: 10px; animation: spikeWave 3s infinite ease-in-out 0.6s; }
+        .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
+
+        .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
+        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 8px 20px #8c8dd462;
+            opacity: 0; animation: dataPoint 4s infinite; }
+        .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
+        .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
+        .data-point.p3 { top: 150px; left: 100px; animation-delay: 1.5s; }
+        .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
+        .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
+        .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 8px 20px #8c8dd462;animation: scanLine 3s infinite; }
+        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 8px 20px #8c8dd462;opacity: 0.7; animation: techCirclePulse 4s infinite; }
+        .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
+        .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
+        .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
+
+        .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+        .particle { position: absolute; width: 5px; height: 5px; background: rgba(177, 172, 250, 0.6); border-radius: 50%; filter: blur(1px); opacity: 0; animation: particleFloat 5s infinite linear; }
+        .particle.p1 { top: 20%; left: 10%; animation-delay: 0.2s; }
+        .particle.p2 { top: 70%; left: 20%; animation-delay: 0.7s; }
+        .particle.p3 { top: 40%; left: 80%; animation-delay: 1.2s; }
+        .particle.p4 { top: 60%; left: 70%; animation-delay: 1.7s; }
+        .particle.p5 { top: 30%; left: 30%; animation-delay: 2.2s; }
+        .particle.p6 { top: 80%; left: 40%; animation-delay: 2.7s; }
+        .particle.p7 { top: 10%; left: 60%; animation-delay: 3.2s; }
+        .particle.p8 { top: 50%; left: 90%; animation-delay: 3.7s; }
+
+        .prehistoric-bg { position: absolute; bottom: 15%; left: 0; width: 100%; height: 30%; z-index: 1; }
+        .mountain { position: absolute; bottom: 0; background: #2A3B37; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+        .mountain.m1 { left: 10%; width: 130px; height: 100px; opacity: 0.7; }
+        .mountain.m2 { left: 30%; width: 200px; height: 150px; opacity: 0.5; }
+        .mountain.m3 { right: 20%; width: 180px; height: 120px; opacity: 0.6; }
+        .tree { position: absolute; bottom: 0; }
+        .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
+        .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
+
+        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 8px 20px #8c8dd462;
+            transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
+
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
+        .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
+        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background: rgba(255, 255, 255, 0.6); border-radius: 2px; animation: scroll 2s infinite; }
+        .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.6); transform: rotate(45deg); animation: arrow 2s infinite; }
+        .arrow span:nth-child(2) { animation-delay: 0.2s; }
+        .arrow span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* --- Keyframes (rimangono invariati) --- */
+        @keyframes dinoFloat { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
+        @keyframes dinoHead { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(15deg); } }
+        @keyframes dinoEye { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(2px, 0); } 50% { transform: translate(0, 1px); } 75% { transform: translate(-1px, 0); } }
+        @keyframes dinoMouth { 0%, 90%, 100% { height: 10px; } 95% { height: 15px; } }
+        @keyframes dinoArmLeft { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(20deg); } }
+        @keyframes dinoArmRight { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(-25deg); } }
+        @keyframes dinoLegLeft { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
+        @keyframes dinoLegRight { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+        @keyframes dinoTail { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(-20deg); } }
+        @keyframes spikeWave { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-15deg); } }
+        @keyframes dataPoint { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1); opacity: 1; } 70% { transform: scale(1); opacity: 1; } 100% { transform: scale(0); opacity: 0; } }
+        @keyframes scanLine { 0% { top: 0; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        @keyframes techCirclePulse { 0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; } 50% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; } }
+        @keyframes particleFloat { 0% { opacity: 0; transform: translateY(20px) rotate(0deg) scale(0.8); } 50% { opacity: 0.8; transform: translateY(-10px) rotate(180deg) scale(1.2); } 100% { opacity: 0; transform: translateY(-40px) rotate(360deg) scale(0.8); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scroll { 0% { opacity: 1; top: 7px; } 50% { opacity: 1; top: 20px; } 100% { opacity: 0; top: 20px; } }
+        @keyframes arrow { 0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); } 50% { opacity: 1; } 100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); } }
+        @keyframes glowPulse { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }
+        @keyframes energyWave { 0% { width: 10px; height: 10px; opacity: 1; } 100% { width: 300px; height: 300px; opacity: 0; } }
+
+        /* --- Media Query for Mobile (Nessuna modifica necessaria qui rispetto all'originale per questo problema) --- */
+        @media screen and (max-width: 768px) {
             .hero .container {
-                position: relative;
-                z-index: 1;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 100%;
-                width: 90%;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding-top: var(--nav-height, 70px);
-                box-sizing: border-box;
+                flex-direction: column;
+                justify-content: center; /* Centro il contenuto verticalmente ora che l'altezza è corretta */
+                padding-top: 0; /* Assicura che non ci sia padding extra qui */
             }
 
-            .hero::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
+            .hero-content, .hero-image {
                 width: 100%;
-                height: 100%;
-                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="none"/><circle cx="10" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="10" cy="30" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="30" cy="50" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="50" cy="70" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="70" cy="90" r="1" fill="%23B1ACFA" opacity="0.3"/><circle cx="90" cy="10" r="1" fill="%23B1ACFA" opacity="0.3"/></svg>');
-                opacity: 0.1;
-                z-index: 0;
-            }
-
-            .hero::after {
-                content: '';
-                position: absolute;
-                bottom: -30px;
-                left: 0;
-                width: 100%;
-                height: 30px;
-                background: inherit;
-                border-radius: 0 0 50% 50% / 0 0 100% 100%;
-                z-index: 2;
-                pointer-events: none;
+                text-align: center;
+                padding: 0;
             }
 
             .hero-content {
-                width: 50%;
-                color: white;
-                padding-right: 30px;
-                animation: fadeInUp 1s ease-out;
-                box-sizing: border-box;
-                position: relative;
-                z-index: 1;
-            }
-
-            h1.hero-title {
-                margin-bottom: 32px;
-                line-height: 1.2;
-                background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-shadow: 0 0 20px rgba(177, 172, 250, 0.2);
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-                margin-bottom: 32px;
-                color: rgba(255, 255, 255, 0.8);
-
-            }
-
-            .hero-buttons {
-                display: flex;
-                gap: 30px;
-                align-items: center;
-            }
-
-            .btn {
-                display: inline-block;
-                padding: 15px 35px;
-                border-radius: 36px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                font-size: 19.2px;
-                text-align: center;
-                border: 2px solid transparent;
-            }
-
-            .btn-primary {
-                background: #8C8DD4;
-                color: white;
-                box-shadow: 0 8px 20px #8c8dd462;
-            }
-
-            .btn-primary:hover {
-                box-shadow: 0 8px 20px #79c19262;
-                transform: translateY(-2px);
-            }
-
-            .btn-secondary {
-                background: transparent;
-                color: #8C8DD4;
-                border: 2px solid #8C8DD4;
-                box-shadow: 0 8px 20px #8c8dd462;
-            }
-
-            .btn-secondary:hover {
-
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px #79c19262;
+                margin-bottom: 80px;
+                order: 1;
             }
 
             .hero-image {
-                width: 45%;
-                position: relative;
-                height: 100%;
-                display: flex;
-                align-items: center;
+                order: 0;
+                /* Non limitiamo più l'altezza qui, lasciamo che il flex la gestisca */
+                /* max-height: 40vh; */
+                /* Nessun overflow: hidden qui */
+            }
+
+            .hero-title {
+                font-size: 1.8rem; /* Mantenuto */
+            }
+
+
+            .hero-buttons {
                 justify-content: center;
-                animation: fadeInRight 1s ease-out;
-                box-sizing: border-box;
-                z-index: 1;
-                /* overflow: hidden; */ /* <-- Assicurati che NON ci sia qui */
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 12px 28px;
             }
 
             .dino-avatar-container {
-                position: relative;
-                width: 100%;
-                height: 70%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                perspective: 1200px;
-                transform-style: preserve-3d;
-                /* overflow: hidden; */ /* <-- Assicurati che NON ci sia qui */
+                /* Non limitiamo l'altezza qui, adattiamo la scala se necessario */
+                /* height: 40vh; */
+                /* max-height: 400px; */
+                transform: scale(0.8);
+                /* Rimosso bottom: -0%; */
             }
 
-            .dino-character {
-                position: relative;
-                width: 280px;
-                height: 280px;
-                transform-style: preserve-3d;
-                animation: dinoFloat 4s infinite ease-in-out;
-                z-index: 10;
+            .scroll-indicator {
+                display: none;
             }
 
-            .dino-character::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 100%;
-                height: 100%;
-                transform: translate(-50%, -50%);
-                background: radial-gradient(circle, rgba(177, 172, 250, 0.2) 0%, transparent 70%);
-                border-radius: 50%;
-                filter: blur(20px);
-                z-index: -1;
-                animation: glowPulse 3s infinite;
+            .prehistoric-bg {
+                bottom: 0; /* Mantenuto */
+            }
+        }
+
+    </style>
+
+    <!-- Script rimane invariato (assicurarsi che imposti --nav-height) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const config = { mouse: { x: 0, y: 0, lastX: 0, lastY: 0 }, autoAnimation: true, particleCount: 15, enableParallax: true };
+            const elements = { heroSection: document.querySelector('.hero'), dinoCharacter: document.querySelector('.dino-character'), particles: document.querySelectorAll('.particle'), dataPoints: document.querySelectorAll('.data-point'), scrollIndicator: document.querySelector('.scroll-indicator'), mountains: document.querySelectorAll('.mountain'), trees: document.querySelectorAll('.tree'), heroContainer: document.querySelector('.hero .container') }; // Added heroContainer
+            // const navbar = document.getElementById('mainNav'); <-- Già definito nello script della navbar
+
+            // Rimuovo la ridefinizione della navbarHeight qui perché è già gestita nello script precedente
+            // const navbarHeight = navbar ? navbar.offsetHeight : 70;
+            // document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+
+            // Throttle function definition
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                };
             }
 
-            .dino-body { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
-            .dino-head { position: absolute; top: 40px; left: 170px; width: 90px; height: 70px; background: #67AF9E; border-radius: 50% 70% 30% 30%; transform: rotate(10deg); z-index: 5; animation: dinoHead 5s infinite alternate; }
-            .dino-eye { position: absolute; top: 20px; left: 20px; width: 18px; height: 18px; background: white; border-radius: 50%; overflow: hidden; }
-            .dino-eye::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; background: #121218; border-radius: 50%; animation: dinoEye 4s infinite; }
-            .dino-snout { position: absolute; top: 35px; left: 45px; width: 50px; height: 25px; background: #5DA08F; border-radius: 60% 80% 60% 40%; transform: rotate(-5deg); }
-            .dino-mouth { position: absolute; top: 45px; left: 55px; width: 30px; height: 10px; background: #4A8272; border-radius: 40% 40% 60% 60%; animation: dinoMouth 3s infinite; }
-            .dino-neck { position: absolute; top: 90px; left: 150px; width: 50px; height: 70px; background: #67AF9E; border-radius: 30% 30% 50% 50%; transform: rotate(60deg); z-index: 4; }
-            .dino-torso { position: absolute; top: 120px; left: 80px; width: 120px; height: 80px; background: #67AF9E; border-radius: 50% 40% 40% 50%; z-index: 3; }
-            .dino-arm { position: absolute; width: 35px; height: 50px; background: #5DA08F; border-radius: 40% 40% 20% 20%; z-index: 2; }
-            .dino-arm.left { top: 136px; left: 190px; height: 6%; transform: rotate(-30deg); transform-origin: top center; animation: dinoArmRight 3s infinite alternate; }
-            .dino-arm.right { top: 130px; left: 140px; transform: rotate(-10deg); animation: dinoArmRight 3s infinite alternate; }
-            .dino-leg { position: absolute; width: 30px; height: 60px; background: #5DA08F; border-radius: 30% 30% 20% 20%; z-index: 1; }
-            .dino-leg.left { top: 180px; left: 95px; animation: dinoLegLeft 3s infinite alternate; }
-            .dino-leg.right { top: 180px; left: 145px; animation: dinoLegRight 3s infinite alternate; }
-            .dino-tail { position: absolute; top: 140px; left: 20px; width: 100px; height: 30px; background: #67AF9E; border-radius: 30% 30% 30% 30%; transform: rotate(-10deg); z-index: 2; animation: dinoTail 4s infinite alternate; }
-            .dino-spikes { position: absolute; top: 80px; left: 66px; width: 140px; height: 40px; z-index: 6; transform: rotate(0deg); }
-            .spike { position: absolute; width: 18px; height: 25px; background: #84C7B6; border-radius: 50% 50% 0 0; transform-origin: bottom center; }
-            .spike.s1 { left: 0; top: 38px; animation: spikeWave 3s infinite ease-in-out; }
-            .spike.s2 { left: 28.5px; top: 27px; animation: spikeWave 3s infinite ease-in-out 0.2s; }
-            .spike.s3 { left: 57px; top: 19px; animation: spikeWave 3s infinite ease-in-out 0.4s; }
-            .spike.s4 { left: 83px; top: 10px; animation: spikeWave 3s infinite ease-in-out 0.6s; }
-            .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
+            const handleMouseMove = throttle(function(e) {
+                // Only run parallax/mouse effects if not on touch device or if screen width is large enough
+                if (!('ontouchstart' in window) || window.innerWidth > 768) {
+                    config.mouse.x = e.clientX / window.innerWidth - 0.5;
+                    config.mouse.y = e.clientY / window.innerHeight - 0.5;
+                    const speedX = Math.abs(config.mouse.x - config.mouse.lastX) * 100;
+                    const speedY = Math.abs(config.mouse.y - config.mouse.lastY) * 100;
+                    const speed = Math.min(Math.max(speedX + speedY, 0), 1);
+                    config.mouse.lastX = config.mouse.x; config.mouse.lastY = config.mouse.y;
 
-            .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
-            .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 8px 20px #8c8dd462;
-                opacity: 0; animation: dataPoint 4s infinite; }
-            .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
-            .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
-            .data-point.p3 { top: 150px; left: 100px; animation-delay: 1.5s; }
-            .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
-            .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
-            .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
-            .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 8px 20px #8c8dd462;animation: scanLine 3s infinite; }
-            .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 8px 20px #8c8dd462;opacity: 0.7; animation: techCirclePulse 4s infinite; }
-            .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
-            .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
-            .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
-
-            .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
-            .particle { position: absolute; width: 5px; height: 5px; background: rgba(177, 172, 250, 0.6); border-radius: 50%; filter: blur(1px); opacity: 0; animation: particleFloat 5s infinite linear; }
-            .particle.p1 { top: 20%; left: 10%; animation-delay: 0.2s; }
-            .particle.p2 { top: 70%; left: 20%; animation-delay: 0.7s; }
-            .particle.p3 { top: 40%; left: 80%; animation-delay: 1.2s; }
-            .particle.p4 { top: 60%; left: 70%; animation-delay: 1.7s; }
-            .particle.p5 { top: 30%; left: 30%; animation-delay: 2.2s; }
-            .particle.p6 { top: 80%; left: 40%; animation-delay: 2.7s; }
-            .particle.p7 { top: 10%; left: 60%; animation-delay: 3.2s; }
-            .particle.p8 { top: 50%; left: 90%; animation-delay: 3.7s; }
-
-            .prehistoric-bg { position: absolute; bottom: 15%; left: 0; width: 100%; height: 30%; z-index: 1; }
-            .mountain { position: absolute; bottom: 0; background: #2A3B37; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
-            .mountain.m1 { left: 10%; width: 130px; height: 100px; opacity: 0.7; }
-            .mountain.m2 { left: 30%; width: 200px; height: 150px; opacity: 0.5; }
-            .mountain.m3 { right: 20%; width: 180px; height: 120px; opacity: 0.6; }
-            .tree { position: absolute; bottom: 0; }
-            .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
-            .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
-
-            .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 8px 20px #8c8dd462;
-                transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
-
-            .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
-            .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
-            .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background: rgba(255, 255, 255, 0.6); border-radius: 2px; animation: scroll 2s infinite; }
-            .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-            .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.6); transform: rotate(45deg); animation: arrow 2s infinite; }
-            .arrow span:nth-child(2) { animation-delay: 0.2s; }
-            .arrow span:nth-child(3) { animation-delay: 0.4s; }
-
-            /* --- Keyframes (rimangono invariati) --- */
-            @keyframes dinoFloat { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
-            @keyframes dinoHead { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(15deg); } }
-            @keyframes dinoEye { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(2px, 0); } 50% { transform: translate(0, 1px); } 75% { transform: translate(-1px, 0); } }
-            @keyframes dinoMouth { 0%, 90%, 100% { height: 10px; } 95% { height: 15px; } }
-            @keyframes dinoArmLeft { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(20deg); } }
-            @keyframes dinoArmRight { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(-25deg); } }
-            @keyframes dinoLegLeft { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
-            @keyframes dinoLegRight { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
-            @keyframes dinoTail { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(-20deg); } }
-            @keyframes spikeWave { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-15deg); } }
-            @keyframes dataPoint { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1); opacity: 1; } 70% { transform: scale(1); opacity: 1; } 100% { transform: scale(0); opacity: 0; } }
-            @keyframes scanLine { 0% { top: 0; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-            @keyframes techCirclePulse { 0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; } 50% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; } }
-            @keyframes particleFloat { 0% { opacity: 0; transform: translateY(20px) rotate(0deg) scale(0.8); } 50% { opacity: 0.8; transform: translateY(-10px) rotate(180deg) scale(1.2); } 100% { opacity: 0; transform: translateY(-40px) rotate(360deg) scale(0.8); } }
-            @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-            @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-            @keyframes scroll { 0% { opacity: 1; top: 7px; } 50% { opacity: 1; top: 20px; } 100% { opacity: 0; top: 20px; } }
-            @keyframes arrow { 0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); } 50% { opacity: 1; } 100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); } }
-            @keyframes glowPulse { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }
-            @keyframes energyWave { 0% { width: 10px; height: 10px; opacity: 1; } 100% { width: 300px; height: 300px; opacity: 0; } }
-
-            /* --- Media Query for Mobile (Nessuna modifica necessaria qui rispetto all'originale per questo problema) --- */
-            @media screen and (max-width: 768px) {
-                .hero .container {
-                    flex-direction: column;
-                    justify-content: center;
-                }
-
-                .hero-content, .hero-image {
-                    width: 100%;
-                    text-align: center;
-                    padding: 0;
-                }
-
-                .hero-content {
-                    margin-bottom: 40px;
-                    order: 1;
-                }
-
-                .hero-image {
-                    order: 0;
-                    margin-bottom: 30px;
-                    max-height: 40vh;
-                     /* Nessun overflow: hidden qui */
-                }
-
-                .hero-title {
-                    font-size: 1.8rem;
-                }
-
-
-                .hero-buttons {
-                    justify-content: center;
-                    gap: 20px;
-                }
-
-                .btn {
-                    padding: 12px 28px;
-
-                }
-
-                .dino-avatar-container {
-                    height: 40vh;
-                    max-height: 400px;
-                    transform: scale(0.8);
-                    bottom: -0%;
-                     /* Nessun overflow: hidden qui */
-                }
-
-                .scroll-indicator {
-                    display: none;
-                }
-
-                .prehistoric-bg {
-                    bottom: 0;
-                }
-            }
-
-        </style>
-
-        <!-- Script rimane invariato -->
-        <script>
-           document.addEventListener('DOMContentLoaded', function() {
-                const config = { mouse: { x: 0, y: 0, lastX: 0, lastY: 0 }, autoAnimation: true, particleCount: 15, enableParallax: true };
-                const elements = { heroSection: document.querySelector('.hero'), dinoCharacter: document.querySelector('.dino-character'), particles: document.querySelectorAll('.particle'), dataPoints: document.querySelectorAll('.data-point'), scrollIndicator: document.querySelector('.scroll-indicator'), mountains: document.querySelectorAll('.mountain'), trees: document.querySelectorAll('.tree'), heroContainer: document.querySelector('.hero .container') }; // Added heroContainer
-                const navbar = document.getElementById('mainNav');
-                const navbarHeight = navbar ? navbar.offsetHeight : 70;
-                document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
-
-                // Throttle function definition
-                function throttle(func, limit) {
-                    let inThrottle;
-                    return function() {
-                        const args = arguments;
-                        const context = this;
-                        if (!inThrottle) {
-                            func.apply(context, args);
-                            inThrottle = true;
-                            setTimeout(() => inThrottle = false, limit);
+                    if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, `translateY(${-config.mouse.y * 20}px) rotateY(${config.mouse.x * 30}deg) rotateX(${-config.mouse.y * 15}deg) scale(${1 + speed * 0.05})`); }
+                    elements.particles.forEach((particle, index) => { const depth = (index % 5) * 0.2 + 0.6; const xFactor = 40 * depth; const yFactor = 30 * depth; applyTransform( particle, `translate(${config.mouse.x * xFactor}px, ${config.mouse.y * yFactor}px) scale(${1 + speed * 0.1 * depth})`); });
+                    elements.dataPoints.forEach((point, index) => { const delay = index * 50; const factor = (index % 3) + 1; setTimeout(() => { applyTransform( point, `translate(${config.mouse.x * 20 * factor}px, ${config.mouse.y * 20 * factor}px) rotate(${config.mouse.x * 5}deg)`); }, delay); });
+                    if (config.enableParallax) {
+                            elements.mountains?.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); applyTransform(mountain, `translateX(${config.mouse.x * -30 * speed}px)`); });
+                            elements.trees?.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); applyTransform(tree, `translateX(${config.mouse.x * -40 * speed}px)`); });
                         }
-                    };
-                }
+                    }
+            }, 16); // 16ms throttle (~60fps)
 
-                const handleMouseMove = throttle(function(e) {
-                    // Only run parallax/mouse effects if not on touch device or if screen width is large enough
+            elements.heroSection.addEventListener('mousemove', handleMouseMove);
+
+            elements.heroSection.addEventListener('mouseleave', function() {
                     if (!('ontouchstart' in window) || window.innerWidth > 768) {
-                        config.mouse.x = e.clientX / window.innerWidth - 0.5;
-                        config.mouse.y = e.clientY / window.innerHeight - 0.5;
-                        const speedX = Math.abs(config.mouse.x - config.mouse.lastX) * 100;
-                        const speedY = Math.abs(config.mouse.y - config.mouse.lastY) * 100;
-                        const speed = Math.min(Math.max(speedX + speedY, 0), 1);
-                        config.mouse.lastX = config.mouse.x; config.mouse.lastY = config.mouse.y;
-
-                        if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, `translateY(${-config.mouse.y * 20}px) rotateY(${config.mouse.x * 30}deg) rotateX(${-config.mouse.y * 15}deg) scale(${1 + speed * 0.05})`); }
-                        elements.particles.forEach((particle, index) => { const depth = (index % 5) * 0.2 + 0.6; const xFactor = 40 * depth; const yFactor = 30 * depth; applyTransform( particle, `translate(${config.mouse.x * xFactor}px, ${config.mouse.y * yFactor}px) scale(${1 + speed * 0.1 * depth})`); });
-                        elements.dataPoints.forEach((point, index) => { const delay = index * 50; const factor = (index % 3) + 1; setTimeout(() => { applyTransform( point, `translate(${config.mouse.x * 20 * factor}px, ${config.mouse.y * 20 * factor}px) rotate(${config.mouse.x * 5}deg)`); }, delay); });
-                        if (config.enableParallax) {
-                                elements.mountains?.forEach((mountain, index) => { const speed = 0.03 + (index * 0.01); applyTransform(mountain, `translateX(${config.mouse.x * -30 * speed}px)`); });
-                                elements.trees?.forEach((tree, index) => { const speed = 0.05 + (index * 0.02); applyTransform(tree, `translateX(${config.mouse.x * -40 * speed}px)`); });
-                            }
+                    if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, 'translateY(0) rotateY(0) rotateX(0)', true); }
+                    elements.particles.forEach((particle, index) => { const delay = index * 20; setTimeout(() => { applyTransform(particle, 'translate(0, 0)', true); }, delay); });
+                    elements.dataPoints.forEach((point, index) => { const delay = index * 30; setTimeout(() => { applyTransform(point, 'translate(0, 0) rotate(0)', true); }, delay); });
+                    if (config.enableParallax) {
+                            elements.mountains?.forEach(mountain => { applyTransform(mountain, 'translateX(0)', true); });
+                            elements.trees?.forEach(tree => { applyTransform(tree, 'translateX(0)', true); });
                         }
-                }, 16); // 16ms throttle (~60fps)
+                    }
+            });
 
-                elements.heroSection.addEventListener('mousemove', handleMouseMove);
+            elements.dinoCharacter?.addEventListener('click', function(e) {
+                createEnergyWave(e.clientX, e.clientY);
+                const mouth = document.querySelector('.dino-mouth');
+                if (mouth) { mouth.classList.add('talking'); setTimeout(() => mouth.classList.remove('talking'), 800); }
+                applyTransform(elements.dinoCharacter, 'translateY(-30px) scale(1.05)', true);
+                setTimeout(() => { applyTransform(elements.dinoCharacter, 'translateY(0) scale(1)', true); }, 300);
+            });
 
-                elements.heroSection.addEventListener('mouseleave', function() {
-                        if (!('ontouchstart' in window) || window.innerWidth > 768) {
-                        if (elements.dinoCharacter) { applyTransform(elements.dinoCharacter, 'translateY(0) rotateY(0) rotateX(0)', true); }
-                        elements.particles.forEach((particle, index) => { const delay = index * 20; setTimeout(() => { applyTransform(particle, 'translate(0, 0)', true); }, delay); });
-                        elements.dataPoints.forEach((point, index) => { const delay = index * 30; setTimeout(() => { applyTransform(point, 'translate(0, 0) rotate(0)', true); }, delay); });
-                        if (config.enableParallax) {
-                                elements.mountains?.forEach(mountain => { applyTransform(mountain, 'translateX(0)', true); });
-                                elements.trees?.forEach(tree => { applyTransform(tree, 'translateX(0)', true); });
-                            }
-                        }
-                });
-
-                elements.dinoCharacter?.addEventListener('click', function(e) {
-                    createEnergyWave(e.clientX, e.clientY);
-                    const mouth = document.querySelector('.dino-mouth');
-                    if (mouth) { mouth.classList.add('talking'); setTimeout(() => mouth.classList.remove('talking'), 800); }
-                    applyTransform(elements.dinoCharacter, 'translateY(-30px) scale(1.05)', true);
-                    setTimeout(() => { applyTransform(elements.dinoCharacter, 'translateY(0) scale(1)', true); }, 300);
-                });
-
-                elements.scrollIndicator?.addEventListener('click', function() {
-                    const discoverMoreBtn = document.getElementById('discover-more-btn');
-                    if (discoverMoreBtn) {
-                        const targetId = discoverMoreBtn.getAttribute('href'); // Get the href value
-                        if (targetId && targetId.startsWith('#')) {
-                            const targetElement = document.querySelector(targetId);
-                            if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            } else {
-                                console.warn('Scroll target not found:', targetId);
-                                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-                            }
+            elements.scrollIndicator?.addEventListener('click', function() {
+                const discoverMoreBtn = document.getElementById('discover-more-btn');
+                if (discoverMoreBtn) {
+                    const targetId = discoverMoreBtn.getAttribute('href'); // Get the href value
+                    if (targetId && targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
                         } else {
-                                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-                        }
-                        } else {
+                            console.warn('Scroll target not found:', targetId);
                             window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
                         }
-                });
-
-
-                if (config.autoAnimation) { startAutoAnimation(); }
-                if (elements.particles.length < config.particleCount) { createParticles(config.particleCount - elements.particles.length); }
-                elements.heroSection.addEventListener('click', function(e) { if (!e.target.closest('.dino-character')) { createEnergyWave(e.clientX, e.clientY); } });
-
-                function createEnergyWave(x, y) {
-                        const rect = elements.heroSection.getBoundingClientRect();
-                        const wave = document.createElement('div');
-                        wave.className = 'energy-wave';
-                        wave.style.top = (y - rect.top) + 'px';
-                        wave.style.left = (x - rect.left) + 'px';
-                        elements.heroSection.appendChild(wave);
-                        setTimeout(() => { wave.remove(); }, 1000);
-                }
-
-                function createParticles(count) {
-                        const container = document.querySelector('.particles') || document.createElement('div');
-                        if (!container.classList.contains('particles')) {
-                            container.className = 'particles';
-                            elements.heroSection.appendChild(container);
-                        }
-
-                        for (let i = 0; i < count; i++) {
-                            const particle = document.createElement('div');
-                            particle.className = 'particle';
-                            particle.style.top = `${Math.random() * 100}%`;
-                            particle.style.left = `${Math.random() * 100}%`;
-                            container.appendChild(particle);
-                        }
-                        elements.particles = elements.heroSection.querySelectorAll('.particle');
-                }
-
-
-                function applyTransform(element, transform, withTransition = false) {
-                    if (!element) return;
-                    if (withTransition) {
-                        element.style.transition = 'transform 0.5s ease-out';
-                        requestAnimationFrame(() => {
-                                setTimeout(() => {
-                                    if (element) element.style.transition = '';
-                                }, 0);
-                        });
                     } else {
-                        element.style.transition = 'none';
-                        }
-                        element.style.transform = transform;
-                }
-
-                function startAutoAnimation() {
-                        let t = 0;
-                        const animate = () => {
-                        if (!elements.heroSection.matches(':hover') && (!('ontouchstart' in window) || window.innerWidth > 768)) {
-                                t += 0.005;
-                                const x = Math.sin(t) * 0.1;
-                                const y = Math.cos(t * 1.3) * 0.05;
-
-                                if (elements.dinoCharacter) {
-                                    applyTransform( elements.dinoCharacter, `translateY(${-y * 15}px) rotateY(${x * 20}deg) rotateX(${-y * 10}deg)`);
-                                }
-                            elements.particles.forEach((particle, index) => {
-                                    const factor = (index % 3) * 0.5 + 0.5;
-                                    const offsetX = Math.sin(t * 0.5 + index * 0.3) * 5 * factor;
-                                    const offsetY = Math.cos(t * 0.5 + index * 0.3) * 4 * factor;
-                                    applyTransform(particle, `translate(${offsetX}px, ${offsetY}px)`);
-                                });
-                            }
-                            requestAnimationFrame(animate);
-                        };
-                        animate();
-                }
-
-
-                // --- Discover More Button Link Update ---
-                const discoverMoreBtn = document.getElementById('discover-more-btn');
-                const mobileBreakpoint = 768;
-
-                function updateDiscoverMoreLink() {
-                    if (!discoverMoreBtn) return;
-
-                    if (window.innerWidth <= mobileBreakpoint) {
-                        discoverMoreBtn.href = '#features-mobile';
-                    } else {
-                        discoverMoreBtn.href = '#features-desktop';
+                            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
                     }
-                }
-
-                updateDiscoverMoreLink();
-
-                let resizeTimer;
-                window.addEventListener('resize', () => {
-                        clearTimeout(resizeTimer);
-                        resizeTimer = setTimeout(() => {
-                            updateDiscoverMoreLink();
-                            const newNavbarHeight = navbar ? navbar.offsetHeight : 70;
-                            document.documentElement.style.setProperty('--nav-height', newNavbarHeight + 'px');
-                        }, 150);
-                }, { passive: true });
-
+                    } else {
+                        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                    }
             });
-        </script>
 
-    </section>
+
+            if (config.autoAnimation) { startAutoAnimation(); }
+            if (elements.particles.length < config.particleCount) { createParticles(config.particleCount - elements.particles.length); }
+            elements.heroSection.addEventListener('click', function(e) { if (!e.target.closest('.dino-character')) { createEnergyWave(e.clientX, e.clientY); } });
+
+            function createEnergyWave(x, y) {
+                    const rect = elements.heroSection.getBoundingClientRect();
+                    const wave = document.createElement('div');
+                    wave.className = 'energy-wave';
+                    wave.style.top = (y - rect.top) + 'px';
+                    wave.style.left = (x - rect.left) + 'px';
+                    elements.heroSection.appendChild(wave);
+                    setTimeout(() => { wave.remove(); }, 1000);
+            }
+
+            function createParticles(count) {
+                    const container = document.querySelector('.particles') || document.createElement('div');
+                    if (!container.classList.contains('particles')) {
+                        container.className = 'particles';
+                        elements.heroSection.appendChild(container);
+                    }
+
+                    for (let i = 0; i < count; i++) {
+                        const particle = document.createElement('div');
+                        particle.className = 'particle';
+                        particle.style.top = `${Math.random() * 100}%`;
+                        particle.style.left = `${Math.random() * 100}%`;
+                        container.appendChild(particle);
+                    }
+                    elements.particles = elements.heroSection.querySelectorAll('.particle');
+            }
+
+
+            function applyTransform(element, transform, withTransition = false) {
+                if (!element) return;
+                if (withTransition) {
+                    element.style.transition = 'transform 0.5s ease-out';
+                    requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                if (element) element.style.transition = '';
+                            }, 0);
+                    });
+                } else {
+                    element.style.transition = 'none';
+                    }
+                    element.style.transform = transform;
+            }
+
+            function startAutoAnimation() {
+                    let t = 0;
+                    const animate = () => {
+                    if (!elements.heroSection.matches(':hover') && (!('ontouchstart' in window) || window.innerWidth > 768)) {
+                            t += 0.005;
+                            const x = Math.sin(t) * 0.1;
+                            const y = Math.cos(t * 1.3) * 0.05;
+
+                            if (elements.dinoCharacter) {
+                                applyTransform( elements.dinoCharacter, `translateY(${-y * 15}px) rotateY(${x * 20}deg) rotateX(${-y * 10}deg)`);
+                            }
+                        elements.particles.forEach((particle, index) => {
+                                const factor = (index % 3) * 0.5 + 0.5;
+                                const offsetX = Math.sin(t * 0.5 + index * 0.3) * 5 * factor;
+                                const offsetY = Math.cos(t * 0.5 + index * 0.3) * 4 * factor;
+                                applyTransform(particle, `translate(${offsetX}px, ${offsetY}px)`);
+                            });
+                        }
+                        requestAnimationFrame(animate);
+                    };
+                    animate();
+            }
+
+
+            // --- Discover More Button Link Update ---
+            const discoverMoreBtn = document.getElementById('discover-more-btn');
+            const mobileBreakpoint = 768;
+
+            function updateDiscoverMoreLink() {
+                if (!discoverMoreBtn) return;
+
+                if (window.innerWidth <= mobileBreakpoint) {
+                    discoverMoreBtn.href = '#features-mobile';
+                } else {
+                    discoverMoreBtn.href = '#features-desktop';
+                }
+            }
+
+            updateDiscoverMoreLink();
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        updateDiscoverMoreLink();
+                        // Rimuovo l'aggiornamento della navbarHeight qui, è già gestito nello script della navbar
+                        // const newNavbarHeight = navbar ? navbar.offsetHeight : 70;
+                        // document.documentElement.style.setProperty('--nav-height', newNavbarHeight + 'px');
+                    }, 150);
+            }, { passive: true });
+
+        });
+    </script>
+
+</section>
 
 
     <!-- Desktop Feature -->
@@ -2896,8 +2919,8 @@
                                         <i class="fas fa-wallet"></i>
                                     </div>
                                 </div>
-                                <h3 class="feature-title">Unica Dashboard</h3>
-                                <p>Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
+                                <h3 class="feature-title">Unica dashboard</h3>
+                                <p>Segna le tue spese/entrate per avere una panoramica delle tue finanze in un'unica dashboard</p>
                             </div>
                         </div>
 
@@ -2931,8 +2954,8 @@
                                         <i class="fas fa-users"></i>
                                     </div>
                                 </div>
-                                <h3 class="feature-title">Collaborativa e Smart</h3>
-                                <p>Connettiti con i tuoi amici e tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi.</p>
+                                <h3 class="feature-title">Conti tra amici</h3>
+                                <p>Tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi</p>
                             </div>
                         </div>
                     </div>
@@ -2948,7 +2971,7 @@
                                         <i class="fas fa-calendar-alt"></i> <!-- Icona per Insight Intelligenti -->
                                     </div>
                                 </div>
-                                <h3 class="feature-title">Insight Intelligenti</h3>
+                                <h3 class="feature-title">Insight intelligenti</h3>
                                 <p>Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
                             </div>
                         </div>
@@ -3316,8 +3339,8 @@
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Unica Dashboard</h3>
-                            <p class="feature-description">Segna le tue spese ed entrate per avere una panoramica completa delle tue finanze in un'unica dashboard.</p>
+                            <h3 class="feature-title">Unica dashboard</h3>
+                            <p class="feature-description">Segna le tue spese/entrate per avere una panoramica delle tue finanze in un'unica dashboard</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-1" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
@@ -3332,8 +3355,8 @@
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Collaborativa e Smart</h3>
-                            <p class="feature-description">Connettiti con i tuoi amici e tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi.</p>
+                            <h3 class="feature-title">Conti tra amici</h3>
+                            <p class="feature-description">Tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-2" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
@@ -3348,8 +3371,8 @@
                     <div class="feature-container">
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
-                            <h3 class="feature-title">Insight Intelligenti</h3>
-                            <p class="feature-description">Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa.</p>
+                            <h3 class="feature-title">Insight intelligenti</h3>
+                            <p class="feature-description">Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-3" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
