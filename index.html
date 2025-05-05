@@ -4543,55 +4543,78 @@ document.addEventListener('DOMContentLoaded', function() {
             --bubble-width: 30vw; /* Ridotto */
             --speech-bubble-space: -15px; /* Ridotto */
         }
-        
+
         /* Decorazioni e struttura */
-        .game-hub::after {
-            height: 20px;
-            bottom: -20px;
-        }
-        
+        /* .game-hub::after { ... } */
+
         .bubble-wrapper {
-            width: 140%; /* Ridotto */
-            left: -20%; /* Ottimizzato */
+            width: 140%;
+            left: -20%;
         }
-        
+
         /* Etichette immagini */
         .image-label {
             font-size: 8px;
             padding: 1px 3px;
             margin-top: -5px;
         }
-        
+
         .image-label.user-avatar {
             font-size: 8px;
             padding: 1px 0px;
             margin-top: -5px;
         }
-        
-        /* Posizionamento aggiornato per gli avatar */
-        #wrapper-left {
-            left: 20%;
-        }
-        
-        #wrapper-right {
-            left: 80%;
-        }
-        
-        /* Assicura che la card non causi scroll orizzontale */
+
+        /* Posizionamento avatar */
+        #wrapper-left { left: 20%; }
+        #wrapper-right { left: 80%; }
+
+        /* Layout card */
         .card-container {
             width: 100%;
             max-width: 100vw;
             overflow-y: visible;
         }
-        
-        /* Disattiva trasformazioni hover su mobile */
-        .card:hover .card-bg {
-            transform: none;
+
+        /* --- MODIFICHE CHIAVE PER HOVER MOBILE --- */
+
+        /* Resetta TUTTE le trasformazioni e ombre per la card su mobile */
+        .card {
+             transform: none !important;
+             box-shadow: 0 8px 20px #8c8dd462 !important; /* Forza ombra viola base */
+             transition: none !important; /* Disabilita transizioni su mobile se causano problemi */
         }
-        
-        .card:hover .image-container {
-            transform: none;
+        .card-bg {
+             transform: none !important;
+             box-shadow: inherit !important; /* Eredita ombra card base */
+             transition: none !important;
         }
+         .image-container {
+             transform: none !important;
+             transition: none !important;
+         }
+
+        /* Impedisce QUALSIASI cambiamento su hover per card, bg e container su mobile */
+        .card:hover,
+        .card:focus, /* Aggiunto per accessibilità/interazioni touch */
+        .card:active { /* Aggiunto per interazioni touch */
+            transform: none !important;
+            box-shadow: 0 8px 20px #8c8dd462 !important; /* Mantiene ombra viola base */
+        }
+
+        .card:hover .card-bg,
+        .card:focus .card-bg,
+        .card:active .card-bg {
+            transform: none !important;
+            box-shadow: inherit !important; /* Mantiene ombra viola ereditata */
+        }
+
+        .card:hover .image-container,
+        .card:focus .image-container,
+        .card:active .image-container {
+            transform: none !important;
+        }
+        /* --- FINE MODIFICHE CHIAVE --- */
     }
 </style>
     
@@ -5395,7 +5418,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             /* ---- MODIFICA QUI ---- */
             .testimonial-info p {
-                font-size: 0.9rem; /* Dimensione desiderata */
+                font-size: 14.4px; /* Dimensione desiderata */
                 /* Impedisce a iOS/Safari di ingrandire automaticamente il testo */
                 -webkit-text-size-adjust: none;
                 text-size-adjust: none;
