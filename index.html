@@ -843,7 +843,7 @@
             transform: translateX(-50%);
             background-color: #222222;
             color: white;
-            padding: 16px 32px;
+            padding: 16px 24px;
             border-radius: 36px;
             cursor: pointer;
             font-weight: bold;
@@ -910,7 +910,7 @@
         /* Responsive styling */
         @media (max-width: 768px) {
             .download-bar {
-            padding: 16px 30px;
+            padding: 16px 24px;
             font-size: 17.6px;
             }
         }
@@ -1194,7 +1194,7 @@
         .chatbot-header {
             background-color: var(--primary);
             color: white;
-            padding: 15px;
+            padding: 16px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
@@ -1214,7 +1214,7 @@
         /* Message area */
         .chatbot-messages {
             flex: 1;
-            padding: 15px;
+            padding: 16px;
             overflow-y: auto;
             background-color: #E6F2F5;
             display: flex;
@@ -1224,8 +1224,8 @@
         /* Message bubbles */
         .chatbot-message {
             max-width: 80%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 8px;
+            margin-bottom: 8px;
             position: relative;
             word-wrap: break-word;
         }
@@ -1260,7 +1260,7 @@
 
         /* --- MODIFIED Typing indicator animation (to match new bot position) --- */
         .typing-indicator {
-            background-color: #fff; padding: 10px; border-radius: var(--border-radius-lg);
+            background-color: #fff; padding: 8px; border-radius: var(--border-radius-lg);
             border-bottom-right-radius: 0; /* Sharp corner bottom right */
             display: flex; align-items: center; margin-bottom: 10px; max-width: 65px;
             align-self: flex-end; /* Move to the right */
@@ -1288,7 +1288,7 @@
 
         /* Option buttons */
         .chatbot-option {
-            position: relative; background-color: #fff; color: #333; padding: 10px; cursor: pointer;
+            position: relative; background-color: #fff; color: #333; padding: 8px; cursor: pointer;
             text-align: center; border-radius: var(--border-radius-lg); transition: all 0.3s ease;
             border: none; z-index: 1; font-size: 0.9em;
         }
@@ -1307,7 +1307,7 @@
         .chatbot-share-button {
             background-color: var(--secondary); /* Green background */
             color: white; /* White text for contrast */
-            padding: 10px 15px; /* Padding for the button content */
+            padding: 8px 16px; /* Padding for the button content */
             cursor: pointer;
             text-align: center;
             border-radius: var(--border-radius-lg);
@@ -1325,7 +1325,7 @@
         .chatbot-action-button {
             background-color: var(--secondary); /* Green background */
             color: white; /* White text */
-            padding: 10px 15px;
+            padding: 8px 16px;
             cursor: pointer;
             text-align: center;
             border-radius: var(--border-radius-lg);
@@ -1338,10 +1338,10 @@
 
         /* Footer with input area */
         .chatbot-footer {
-            padding: 15px; border-top: 1px solid #eee; display: flex; background-color: #fff;
+            padding: 16px; border-top: 1px solid #eee; display: flex; background-color: #fff;
         }
         .chatbot-input {
-            flex: 1; padding: 10px; border: 1px solid var(--primary); border-radius: var(--border-radius-lg);
+            flex: 1; padding: 8px; border: 1px solid var(--primary); border-radius: var(--border-radius-lg);
             outline: none; margin-right: 10px;
         }
         .chatbot-send {
@@ -2475,7 +2475,7 @@
     
             .btn {
                 display: inline-block;
-                padding: 15px 35px;
+                padding: 16px 32px;
                 border-radius: 36px;
                 font-weight: 600;
                 text-decoration: none;
@@ -2489,6 +2489,8 @@
                 background: #8C8DD4;
                 color: white;
                 box-shadow: 0 8px 20px #8c8dd462;
+                width: 180px;
+
             }
     
             .btn-primary:hover {
@@ -2501,6 +2503,7 @@
                 color: #8C8DD4;
                 border: 2px solid #8C8DD4;
                 box-shadow: 0 8px 20px #8c8dd462;
+                width: 180px;
             }
     
             .btn-secondary:hover {
@@ -2683,7 +2686,7 @@
                 }
     
                 .btn {
-                    padding: 12px 28px;
+                    padding: 12px 10px;
                 }
     
                 .dino-avatar-container {
@@ -3144,7 +3147,7 @@
         #features-container-desktop .feature-card {
             background: white;
             border-radius: 18px; /* Match video radius */
-            padding: 2rem 1.8rem; /* Adjusted padding */
+            padding: 24px 24px; /* Adjusted padding */
             box-shadow: 0 8px 20px #8c8dd462;
             transition: border-top-color 0.35s ease, box-shadow 0.35s ease-out;
             border-top: 4px solid #8C8DD4; /* Lighter initial border */
@@ -3518,8 +3521,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            padding-top: 24px; /* Mantenuto dall'originale */
-            padding-bottom: 24px; /* Mantenuto dall'originale */
+            padding-top: 16px; /* Mantenuto dall'originale */
         }
 
         #features-mobile .feature-video {
@@ -4920,7 +4922,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .timeline-content {
-            width: 45%; background: white; padding: 2rem; border-radius: 18px;
+            width: 45%; background: white; padding: 24px; border-radius: 18px;
             box-shadow: 0 8px 20px #8c8dd462;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
@@ -5367,7 +5369,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         /* --- Stili Hover Desktop --- */
-        @media (hover: hover) and (min-width: 769px) {
+        @media (hover: hover) and (min-width: 768px) {
             .story-inner:hover {
                 box-shadow: 0 8px 20px #79c19262
                 /* overflow: visible; /* Assicura che l'ombra/avatar non venga tagliata */
@@ -5783,7 +5785,7 @@ document.addEventListener('DOMContentLoaded', function() {
             margin-bottom: 1rem;
             display: inline-block;
             background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-            padding: 6px 16px;
+            padding: 8px 16px;
             border-radius: 36px;
         }
 
@@ -5972,10 +5974,10 @@ document.addEventListener('DOMContentLoaded', function() {
             align-items: center;             
             background-color: var(--dark);             
             color: white;             
-            padding: 15px 30px;             
+            padding: 16px 24px;             
             border-radius: 18px;             
             transition: transform 0.3s, box-shadow 0.3s;             
-            width: 240px;             
+            width: 210px;             
             justify-content: flex-start;         
         }          
         .store-btn:hover {             
@@ -5984,7 +5986,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }          
         .store-btn i {             
             font-size: 2.2rem;             
-            margin-right: 12px;             
+            margin-right: 8px;             
             width: 38px;             
             text-align: left;         
         }          
@@ -6009,13 +6011,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 width: 70%;
                 max-width: 220px;                 
                 justify-content: flex-start;                 
-                margin-bottom: 1rem;
-                padding: 12px 24px;             
             }
             
             .store-btn i {
                 font-size: 2.1rem;
-                margin-right: 15px;
+                margin-right: 7px;
             }
             
             .store-name {
@@ -6080,7 +6080,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="copyright">
             <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
-            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 10.000€ - P.IVA: 00000000000<br>© 2025 Strush srls - Tutti i diritti riservati </h6>
+            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P.IVA: 00000000000<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
             
         </div>
     </div>
