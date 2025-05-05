@@ -4581,7 +4581,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .card-container {
             width: 100%;
             max-width: 100vw;
-            overflow-x: hidden;
             overflow-y: visible;
         }
         
@@ -5163,7 +5162,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>È una specie di gioco! Tenere sotto controllo le spese è diventato qualcosa che voglio fare, non che devo fare.</p>
                         </div>
                         <div class="testimonial-author">
-                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
                             <div class="avatar-blob avatar-shape-1" id="avatar-blob-1">
                                 <img src="immagini/testimonial 1.jpg" alt="Scapi A." class="testimonial-avatar">
                             </div>
@@ -5188,8 +5186,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>L'app più intuitiva che abbia mai usato. Ogni volta che sblocco un badge mi sento tipo livello 10 del risparmio.</p>
                         </div>
                         <div class="testimonial-author">
-                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
-                            <div class="avatar-blob avatar-shape-2" id="avatar-blob-2">
+                             <div class="avatar-blob avatar-shape-2" id="avatar-blob-2">
                                 <img src="immagini/testimonial 2.jpg" alt="Sgabbi Y." class="testimonial-avatar">
                             </div>
                             <div class="testimonial-info">
@@ -5213,7 +5210,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>Chi l’avrebbe mai detto che mi sarei gasato per aver messo da parte 5 euro?</p>
                         </div>
                         <div class="testimonial-author">
-                                <!-- MODIFICATO: Aggiunto id univoco per debug se necessario -->
                             <div class="avatar-blob avatar-shape-3" id="avatar-blob-3">
                                 <img src="immagini/testimonial 3.jpg" alt="Baluiso A." class="testimonial-avatar">
                             </div>
@@ -5234,6 +5230,8 @@ document.addEventListener('DOMContentLoaded', function() {
             --primary-purple: #8C8DD4;
             --primary-green: #79C192;
             --border-thickness: 3px;
+            /* Assumo esista una variabile --text2 da qualche parte, altrimenti sostituire con un colore valido */
+            --text2: #333; /* Esempio: colore di default se non definita altrove */
         }
 
         .testimonials {
@@ -5291,7 +5289,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden; /* Changed to visible to prevent clipping shadow/transform */
+            overflow: hidden;
             transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
             -webkit-tap-highlight-color: transparent;
             outline: none;
@@ -5320,9 +5318,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: relative;
             margin-right: 20px;
             filter: drop-shadow(0 4px 6px rgba(177, 172, 250, 0.2));
-            /* MODIFICATO: Aggiunta transition per transform */
             transition: filter 0.3s ease, transform 0.4s ease;
-            /* NUOVO: Assicurarsi che il contenitore non clippi il bordo trasformato */
             overflow: visible;
         }
 
@@ -5333,7 +5329,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inset: calc(-1 * var(--border-thickness));
             background: var(--gradient-primary);
             z-index: -1;
-            border-radius: 50%; /* Inizia come cerchio */
+            border-radius: 50%;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
@@ -5342,12 +5338,11 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%; /* Inizia come cerchio */
-            /* MODIFICATO: Rimossa la transizione per transform da qui */
+            border-radius: 50%;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: block; /* Aggiunto per coerenza */
-            position: relative; /* Per assicurare sia sopra ::before in alcuni browser */
-            z-index: 1; /* Per assicurare sia sopra ::before in alcuni browser */
+            display: block;
+            position: relative;
+            z-index: 1;
         }
 
         /* Definizione delle forme blob per gli avatar */
@@ -5356,7 +5351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .avatar-shape-3 { --blob-shape: 70% 40% 50% 40% / 40% 60% 40% 60%; }
 
         .testimonial-info h5 { margin: 0 0 0.3rem; }
-        .testimonial-info p { margin: 0; font-size: 0.9rem; }
+        .testimonial-info p { margin: 0; font-size: 0.9rem; } /* Stile base per desktop/default */
 
         /* Stile per l'effetto di pressione attiva */
         .story-inner:active {
@@ -5370,31 +5365,26 @@ document.addEventListener('DOMContentLoaded', function() {
         /* --- Stili Hover Desktop --- */
         @media (hover: hover) and (min-width: 768px) {
             .story-inner:hover {
-                box-shadow: 0 8px 20px #79c19262
-                /* overflow: visible; /* Assicura che l'ombra/avatar non venga tagliata */
+                box-shadow: 0 8px 20px #79c19262;
             }
 
             .story-inner:hover .avatar-blob::before {
                 border-radius: var(--blob-shape);
             }
 
-                /* MODIFICATO: Applica scale/rotate al contenitore .avatar-blob */
             .story-inner:hover .avatar-blob {
                 filter: drop-shadow(0 8px 20px #79c19262);
-                transform: scale(1.1) rotate(5deg); /* Applicato qui */
+                transform: scale(1.1) rotate(5deg);
             }
 
-            /* MODIFICATO: Applica solo il border-radius all'immagine */
             .story-inner:hover .testimonial-avatar {
                 border-radius: var(--blob-shape);
-                /* transform: scale(1.1) rotate(5deg); /* Rimosso da qui */
             }
         }
 
 
         /* Media query unificata per dispositivi mobili */
         @media (max-width: 768px) {
-            .testimonials { padding: 4rem 0 4rem; }
             .story-inner { padding: 24px; }
             .testimonial-content { margin-bottom: 16px; }
             .stories-content { height: 300px; }
@@ -5402,37 +5392,37 @@ document.addEventListener('DOMContentLoaded', function() {
             .quote-icon { margin-bottom: 16px; }
             .quote-icon svg { width: 30px; height: 30px; }
             .avatar-blob { width: 50px; height: 50px; margin-right: 16px; }
-            .testimonial-info p { font-size: 0.9rem; }
+
+            /* ---- MODIFICA QUI ---- */
+            .testimonial-info p {
+                font-size: 0.9rem; /* Dimensione desiderata */
+                /* Impedisce a iOS/Safari di ingrandire automaticamente il testo */
+                -webkit-text-size-adjust: none;
+                text-size-adjust: none;
+            }
+            /* ---- FINE MODIFICA ---- */
+
             .blob-1 { width: 120px; height: 100px; top: -50px; left: -30px; }
             .blob-2 { width: 130px; height: 110px; bottom: -40px; right: -20px; }
 
-                /* MODIFICATO: Applica transform e filtro a .avatar-blob attivo */
-                .story.active .avatar-blob {
-                    filter: drop-shadow(0 6px 12px rgba(142, 220, 169, 0.4));
-                    transform: scale(1.1) rotate(5deg); /* Applicato qui */
-                    /* Aggiungi transizione anche qui se non ereditata correttamente */
-                    transition: filter 0.3s ease, transform 0.4s ease;
+            .story.active .avatar-blob {
+                filter: drop-shadow(0 6px 12px rgba(142, 220, 169, 0.4));
+                transform: scale(1.1) rotate(5deg);
+                transition: filter 0.3s ease, transform 0.4s ease;
             }
-                /* Applica forma blob al bordo attivo */
-                .story.active .avatar-blob::before {
-                    border-radius: var(--blob-shape);
-                    /* Aggiungi transizione anche qui se non ereditata correttamente */
-                    transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            .story.active .avatar-blob::before {
+                border-radius: var(--blob-shape);
+                transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
-                /* MODIFICATO: Applica solo forma blob all'immagine attiva */
-                .story.active .testimonial-avatar {
-                    border-radius: var(--blob-shape);
-                    /* transform: scale(1.1) rotate(5deg); /* Rimosso da qui */
-                    /* Aggiungi transizione anche qui se non ereditata correttamente */
-                    transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            .story.active .testimonial-avatar {
+                border-radius: var(--blob-shape);
+                 transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
-                /* Le transizioni dovrebbero essere ereditate dagli stili base,
-                ma aggiunte qui per sicurezza se l'attivazione/disattivazione
-                della classe .active causasse problemi di timing */
         }
     </style>
 
     <script>
+        // Lo script rimane invariato come richiesto
         document.addEventListener('DOMContentLoaded', function() {
             const stories = document.querySelectorAll('.story');
             const progressBars = document.querySelectorAll('.progress-bar');
@@ -5523,14 +5513,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     if (!document.hidden) {
                     // Riparte l'animazione della storia corrente da capo quando torna visibile
-                    // (Potrebbe essere migliorato per riprendere da dove si era interrotto)
                     showStory(currentStoryIndex);
                     } else {
-                        // Quando nascosto, assicurati che la barra corrente mostri il progresso attuale
-                        // Questo è più complesso da implementare perfettamente senza salvare lo stato
-                        // Per semplicità, lasciamo che si resetti al ritorno in visibilità
                         if(progressFills[currentStoryIndex]){
-                        progressFills[currentStoryIndex].style.transition = 'none'; // Stop animation
+                          progressFills[currentStoryIndex].style.transition = 'none'; // Stop animation
                         }
                     }
             });
@@ -5779,7 +5765,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         .team-role {
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 1rem;
             display: inline-block;
             background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
@@ -6358,4 +6344,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 
-                </html>
+</html>
