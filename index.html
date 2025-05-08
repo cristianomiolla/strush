@@ -31,211 +31,261 @@
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
 <style>
-    /* Importazione del font Unbounded da Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
-    
-    /* Variabili CSS */
-    :root {
-        --primary: #79C192;
-        --secondary: #8C8DD4;
-        --text: #121218;
-        --text2: #555555;
-        --light: #f8f9fa;
-        --dark: #222222;
-        --accent: #FF85B3;
-        --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    }
-    
-    /* Reset CSS di base */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    /* Stili di base del corpo */
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        color: var(--text);
-        background-color: #121218;
-        line-height: 1.6;
-    }
-    
-    /* Utilizzo del font Unbounded per i titoli con pesi diversi */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Unbounded', sans-serif;
-        line-height: 1.4;
-        transform: scaleY(1.2); /* Distende il font in altezza */
-        letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
-    }
-    
-    h1 {
-        font-weight: 900; /* Light */
-        font-size: 2.7rem;
-        }
-    
-    h2 {
-        font-weight: 700; /* Bold */
-        font-size: 2.25rem; /* Ridotto da 2.5rem */
-        padding-bottom: 10px;
-    }
-    
-    h3 {
-        font-weight: 500; /* Medium */
-        margin-bottom: 1rem;
-        font-size: 1.04rem; /* Ridotto da 1.15rem */
-    }
-    
-    h4 {
-        font-weight: 500; /* Medium */
-        font-size: 1rem; /* Ridotto da 1.1rem */
-    }
-    
-    h5 {
-        font-weight: 400; /* Medium */
-        font-size: 0.77rem; /* Ridotto da 0.85rem */
-    }
-    
-    h6 {
-        font-weight: 300; /* Light */
-        margin-bottom: 1rem;
-        font-size: 0.68rem; /* Ridotto da 0.75rem */
-    }
-    
-    
-    a {
-        text-decoration: none;
-        color: #121218;
-        font-size: 0.9rem; /* Ridotto da 1rem */
-    }
-    
+/* Dichiarazione dei font locali Strush con @font-face */
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Variabili CSS */
+:root {
+    --primary: #79C192;
+    --secondary: #8C8DD4;
+    --text: #121218;
+    --text2: #555555;
+    --light: #f8f9fa;
+    --dark: #222222;
+    --accent: #FF85B3;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* Reset CSS di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili di base del corpo */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Utilizzo del font Strush per i titoli con pesi diversi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Strush', sans-serif;
+    line-height: 1.4;
+}
+
+h1 {
+    font-weight: 800; /* Black */
+    font-size: 3.24rem; /* Aumentato del 20% da 2.7rem */
+}
+
+h2 {
+    font-weight: 700; /* Bold */
+    font-size: 2.7rem; /* Aumentato del 20% da 2.25rem */
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-weight: 500; /* Medium */
+    margin-bottom: 1rem;
+    font-size: 1.248rem; /* Aumentato del 20% da 1.04rem */
+}
+
+h4 {
+    font-weight: 500; /* Medium */
+    font-size: 1.2rem; /* Aumentato del 20% da 1rem */
+}
+
+h5 {
+    font-weight: 400; /* Regular */
+    font-size: 0.924rem; /* Aumentato del 20% da 0.77rem */
+}
+
+h6 {
+    font-weight: 300; /* Light */
+    margin-bottom: 1rem;
+    font-size: 0.816rem; /* Aumentato del 20% da 0.68rem */
+}
+
+a {
+    text-decoration: none;
+    color: #121218;
+    font-size: 0.9rem;
+}
+
+p {
+    color: #555555;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
     p {
-        color: #555555;
-        font-size: 1rem; /* Ridotto da 1.1rem */
-    
+        font-size: 1.1rem;
     }
-    
-    @media (max-width: 768px) {
-        p {
-            font-size: 1.1rem; /* Mantenuto coerente con la riduzione */
-        }
 
-        h1 {
-            font-size: 1.6rem; 
-        }
-    
-        h2 {
-            font-size: 1.6rem; 
-        }
-
-        h3 {
-            font-size: 1.1rem; 
-        }
-
-        h4 {
-            font-size: 1.05rem; 
-        }
-
-        a {
-            font-size: 1rem;
-        }
-
-    
+    h1 {
+        font-size: 1.92rem; /* Aumentato del 20% da 1.6rem */
     }
-    
-    ul {
-        list-style: none;
-    }
-    
-    img {
-        max-width: 100%;
-    }
-    
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0rem 0 0rem;
-    }
-    
-    .text-center {
-        text-align: center;
-    }
-    
-    /* Section base style */
 
+    h2 {
+        font-size: 1.92rem; /* Aumentato del 20% da 1.6rem */
+    }
+
+    h3 {
+        font-size: 1.32rem; /* Aumentato del 20% da 1.1rem */
+    }
+
+    h4 {
+        font-size: 1.26rem; /* Aumentato del 20% da 1.05rem */
+    }
+
+    a {
+        font-size: 1rem;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0rem 0 0rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Section base style */
+.section {
+    padding: 6rem 0 6rem;
+}
+
+/* Stili per i titoli */
+.section-title {
+    text-align: center;
+    margin: 48px;
+    position: relative;
+    color: #121218;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.section-title .title-wrapper {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Effetto di rivelazione */
+.section-title.reveal .title-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animazione della barra di sottolineatura */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
+    border-radius: 2px;
+    transition: transform 0.6s ease 0.4s;
+}
+
+.section-title.reveal::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Section sub-titles */
+.section-subtitles {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #121218;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
     .section {
-        padding: 6rem 0 6rem;
+        padding: 5rem 0 5rem;
     }
-    
 
-        /* Stili per i titoli */
     .section-title {
-        text-align: center;
-        margin: 48px;
-        position: relative;
-        color: #121218;
-        font-weight: bold;
-        overflow: hidden;
+        margin: 32px;
     }
-
-    .section-title .title-wrapper {
-        display: inline-block;
-        position: relative;
-        opacity: 0;
-        transform: translateY(100%);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    /* Effetto di rivelazione */
-    .section-title.reveal .title-wrapper {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Animazione della barra di sottolineatura */
-    .section-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%) scaleX(0);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-        border-radius: 2px;
-        transition: transform 0.6s ease 0.4s;
-    }
-
-    .section-title.reveal::after {
-        transform: translateX(-50%) scaleX(1);
-    }
-
-
-    /* Section sub-titles */
     .section-subtitles {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        color: #121218;
-        font-size: 1.2rem;
+        margin-bottom: 32px;
+        font-size: 1.2rem; 
     }
-    
-    @media (max-width: 768px) {
-        
-        .section {
-            padding: 5rem 0 5rem;
-        }
-
-        .section-title {
-            margin: 32px;
-        }
-        .section-subtitles {
-            margin-bottom: 32px;
-            font-size: 1.2rem; 
-        }
-
-    }
+}
 </style>
     
 
@@ -355,449 +405,449 @@
 </div>
 
 <style>
-/* Preloader */
-#strush-preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #121218;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    overflow: hidden;
-}
-
-/* Blob Shapes */
-.strush-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(20px);
-    opacity: 0.15;
-    z-index: 1;
-}
-
-.strush-blob.blob1 {
-    width: 300px;
-    height: 300px;
-    background: #8C8DD4;
-    top: 20%;
-    left: 15%;
-    animation: blob-morph1 20s ease-in-out infinite alternate;
-}
-
-.strush-blob.blob2 {
-    width: 350px;
-    height: 350px;
-    background: #79C192;
-    bottom: 20%;
-    right: 15%;
-    animation: blob-morph2 25s ease-in-out infinite alternate;
-}
-
-.strush-blob.blob3 {
-    width: 200px;
-    height: 200px;
-    background: #BFACFA;
-    top: 60%;
-    left: 25%;
-    animation: blob-morph3 18s ease-in-out infinite alternate;
-}
-
-.strush-blob.blob4 {
-    width: 250px;
-    height: 250px;
-    background: #A4FACF;
-    top: 30%;
-    right: 25%;
-    animation: blob-morph4 22s ease-in-out infinite alternate;
-}
-
-.strush-loading-animation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-}
-
-/* Dinosauro */
-.strush-dino-container {
-    position: relative;
-    width: 100px;
-    height: 80px;
-    margin-bottom: 15px;
-}
-
-.strush-dino {
-    position: relative;
-    width: 60px;
-    height: 40px;
-    margin: 0 auto;
-    animation: bounce 0.8s infinite alternate;
-}
-
-.strush-dino-body {
-    position: absolute;
-    width: 35px;
-    height: 20px;
-    background: #8C8DD4;
-    border-radius: 10px 15px 8px 8px;
-    top: 15px;
-    left: 10px;
-}
-
-.strush-dino-head {
-    position: absolute;
-    width: 20px;
-    height: 15px;
-    background: #8C8DD4;
-    border-radius: 8px 12px 5px 5px;
-    top: 12px;
-    left: 40px;
-}
-
-.strush-dino-head:after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: #000;
-    border-radius: 50%;
-    top: 5px;
-    right: 5px;
-}
-
-/* Spine dorsali appuntite */
-.strush-dino-spines {
-    position: absolute;
-    top: 5px;
-    left: 12px;
-    z-index: 5;
-}
-
-.spine {
-    position: absolute;
-    background: #79C192;
-    width: 2px;
-    transform-origin: bottom center;
-    box-shadow: 0 0 4px rgba(180, 250, 205, 0.6);
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-    border-radius: 0;
-}
-
-.spine:before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 8px solid #79C192;
-    top: -7px;
-    left: -3px;
-}
-
-.spine:after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 2px;
-    background: #79C192;
-    border-radius: 50%;
-    bottom: -1px;
-    left: -1px;
-}
-
-.spine.s1 {
-    height: 10px;
-    top: -6px;
-    left: -0px;
-    transform: rotate(-196deg);
-}
-
-.spine.s2 {
-    height: 16px;
-    top: -19px;
-    left: 5px;
-    transform: rotate(-190deg);
-}
-
-.spine.s3 {
-    height: 18px;
-    top: -23.5px;
-    left: 14px;
-    transform: rotate(183deg);
-}
-
-.spine.s4 {
-    height: 14px;
-    top: -15px;
-    left: 21px;
-    transform: rotate(190deg);
-}
-
-.spine.s5 {
-    height: 9px;
-    top: -04px;
-    left: 27px;
-    transform: rotate(200deg);
-}
-
-.strush-dino-tail {
-    position: absolute;
-    width: 22px;
-    height: 8px;
-    background: #8C8DD4;
-    border-radius: 50% 0 0 50%;
-    top: 18px;
-    left: -8px;
-    transform-origin: right center;
-    transform: rotate(-15deg) skewY(-10deg);
-    animation: wag 0.6s infinite alternate;
-    z-index: 1;
-}
-
-
-.strush-dino-leg {
-    position: absolute;
-    width: 4px;
-    height: 15px;
-    background: #8C8DD4;
-    bottom: -5px;
-    border-radius: 2px;
-}
-
-.strush-dino-leg.left {
-    left: 15px;
-    animation: step-left 0.8s infinite alternate;
-}
-
-.strush-dino-leg.right {
-    left: 30px;
-    animation: step-right 0.8s infinite alternate;
-}
-
-.strush-dino-shadow {
-    position: absolute;
-    width: 40px;
-    height: 6px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    filter: blur(2px);
-    animation: shadow-pulse 0.8s infinite alternate;
-}
-
-/* Barra di progresso */
-.strush-progress-bar {
-    width: 200px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    box-shadow: 0 0 10px rgba(177, 172, 250, 0.2);
-}
-
-.strush-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #8C8DD4, #79C192);
-    width: 0;
-    border-radius: 3px;
-    animation: fill 2s infinite;
-}
-
-.strush-loading-text {
-    color: white;
-    font-size: 16px;
-    letter-spacing: 2px;
-    font-weight: 300;
-    text-shadow: 0 0 10px rgba(177, 172, 250, 0.5);
-}
-
-.strush-dots {
-    display: inline-block;
-    width: 30px;
-    animation: dots 1.5s infinite;
-}
-
-/* Animazioni */
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-5px);
-    }
-}
-
-@keyframes wag {
-    0% {
-        transform: rotate(-15deg) skewY(-10deg);
-    }
-    100% {
-        transform: rotate(-25deg) skewY(-15deg);
-    }
-}
-
-@keyframes step-left {
-    0% {
-        transform: rotate(-15deg);
-    }
-    100% {
-        transform: rotate(15deg);
-    }
-}
-
-@keyframes step-right {
-    0% {
-        transform: rotate(15deg);
-    }
-    100% {
-        transform: rotate(-15deg);
-    }
-}
-
-@keyframes shadow-pulse {
-    0% {
-        transform: translateX(-50%) scale(0.8);
-        opacity: 0.2;
-    }
-    100% {
-        transform: translateX(-50%) scale(1);
-        opacity: 0.3;
-    }
-}
-
-@keyframes fill {
-    0% {
-        width: 0;
-    }
-    50% {
-        width: 60%;
-    }
-    100% {
+    /* Preloader */
+    #strush-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
+        background-color: #121218;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        overflow: hidden;
     }
-}
 
-@keyframes dots {
-    0%, 100% {
-        content: '';
-        opacity: 0.2;
-    }
-    25% {
-        content: '.';
-        opacity: 1;
-    }
-    50% {
-        content: '..';
-        opacity: 1;
-    }
-    75% {
-        content: '...';
-        opacity: 1;
-    }
-}
-
-/* Blob animations */
-@keyframes blob-morph1 {
-    0% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    25% {
-        border-radius: 50% 50% 40% 60% / 40% 40% 60% 60%;
-    }
-    50% {
-        border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
-    }
-    75% {
-        border-radius: 40% 60% 50% 50% / 30% 70% 30% 70%;
-    }
-    100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-}
-
-@keyframes blob-morph2 {
-    0% {
-        border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
-    }
-    25% {
-        border-radius: 60% 40% 40% 60% / 70% 30% 70% 30%;
-    }
-    50% {
-        border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
-    }
-    75% {
-        border-radius: 30% 70% 60% 40% / 50% 60% 40% 60%;
-    }
-    100% {
-        border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
-    }
-}
-
-@keyframes blob-morph3 {
-    0% {
-        border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-    }
-    25% {
-        border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
-    }
-    50% {
-        border-radius: 30% 70% 40% 60% / 70% 30% 70% 30%;
-    }
-    75% {
-        border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
-    }
-    100% {
-        border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-    }
-}
-
-@keyframes blob-morph4 {
-    0% {
-        border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
-    }
-    25% {
-        border-radius: 30% 70% 40% 60% / 50% 50% 50% 50%;
-    }
-    50% {
-        border-radius: 60% 40% 30% 70% / 40% 60% 60% 40%;
-    }
-    75% {
-        border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
-    }
-    100% {
-        border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
-    }
-}
-
-/* Animazione fade-out */
-#strush-preloader.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .strush-progress-bar {
-        width: 150px;
-    }
+    /* Blob Shapes */
     .strush-blob {
-        opacity: 0.1;
-        transform: scale(0.7);
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(20px);
+        opacity: 0.15;
+        z-index: 1;
     }
-}
+
+    .strush-blob.blob1 {
+        width: 300px;
+        height: 300px;
+        background: #8C8DD4;
+        top: 20%;
+        left: 15%;
+        animation: blob-morph1 20s ease-in-out infinite alternate;
+    }
+
+    .strush-blob.blob2 {
+        width: 350px;
+        height: 350px;
+        background: #79C192;
+        bottom: 20%;
+        right: 15%;
+        animation: blob-morph2 25s ease-in-out infinite alternate;
+    }
+
+    .strush-blob.blob3 {
+        width: 200px;
+        height: 200px;
+        background: #BFACFA;
+        top: 60%;
+        left: 25%;
+        animation: blob-morph3 18s ease-in-out infinite alternate;
+    }
+
+    .strush-blob.blob4 {
+        width: 250px;
+        height: 250px;
+        background: #A4FACF;
+        top: 30%;
+        right: 25%;
+        animation: blob-morph4 22s ease-in-out infinite alternate;
+    }
+
+    .strush-loading-animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Dinosauro */
+    .strush-dino-container {
+        position: relative;
+        width: 100px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .strush-dino {
+        position: relative;
+        width: 60px;
+        height: 40px;
+        margin: 0 auto;
+        animation: bounce 0.8s infinite alternate;
+    }
+
+    .strush-dino-body {
+        position: absolute;
+        width: 35px;
+        height: 20px;
+        background: #8C8DD4;
+        border-radius: 10px 15px 8px 8px;
+        top: 15px;
+        left: 10px;
+    }
+
+    .strush-dino-head {
+        position: absolute;
+        width: 20px;
+        height: 15px;
+        background: #8C8DD4;
+        border-radius: 8px 12px 5px 5px;
+        top: 12px;
+        left: 40px;
+    }
+
+    .strush-dino-head:after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #000;
+        border-radius: 50%;
+        top: 5px;
+        right: 5px;
+    }
+
+    /* Spine dorsali appuntite */
+    .strush-dino-spines {
+        position: absolute;
+        top: 5px;
+        left: 12px;
+        z-index: 5;
+    }
+
+    .spine {
+        position: absolute;
+        background: #79C192;
+        width: 2px;
+        transform-origin: bottom center;
+        box-shadow: 0 0 4px rgba(180, 250, 205, 0.6);
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        border-radius: 0;
+    }
+
+    .spine:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 8px solid #79C192;
+        top: -7px;
+        left: -3px;
+    }
+
+    .spine:after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 2px;
+        background: #79C192;
+        border-radius: 50%;
+        bottom: -1px;
+        left: -1px;
+    }
+
+    .spine.s1 {
+        height: 10px;
+        top: -6px;
+        left: -0px;
+        transform: rotate(-196deg);
+    }
+
+    .spine.s2 {
+        height: 16px;
+        top: -19px;
+        left: 5px;
+        transform: rotate(-190deg);
+    }
+
+    .spine.s3 {
+        height: 18px;
+        top: -23.5px;
+        left: 14px;
+        transform: rotate(183deg);
+    }
+
+    .spine.s4 {
+        height: 14px;
+        top: -15px;
+        left: 21px;
+        transform: rotate(190deg);
+    }
+
+    .spine.s5 {
+        height: 9px;
+        top: -04px;
+        left: 27px;
+        transform: rotate(200deg);
+    }
+
+    .strush-dino-tail {
+        position: absolute;
+        width: 22px;
+        height: 8px;
+        background: #8C8DD4;
+        border-radius: 50% 0 0 50%;
+        top: 18px;
+        left: -8px;
+        transform-origin: right center;
+        transform: rotate(-15deg) skewY(-10deg);
+        animation: wag 0.6s infinite alternate;
+        z-index: 1;
+    }
+
+
+    .strush-dino-leg {
+        position: absolute;
+        width: 4px;
+        height: 15px;
+        background: #8C8DD4;
+        bottom: -5px;
+        border-radius: 2px;
+    }
+
+    .strush-dino-leg.left {
+        left: 15px;
+        animation: step-left 0.8s infinite alternate;
+    }
+
+    .strush-dino-leg.right {
+        left: 30px;
+        animation: step-right 0.8s infinite alternate;
+    }
+
+    .strush-dino-shadow {
+        position: absolute;
+        width: 40px;
+        height: 6px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        filter: blur(2px);
+        animation: shadow-pulse 0.8s infinite alternate;
+    }
+
+    /* Barra di progresso */
+    .strush-progress-bar {
+        width: 200px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(177, 172, 250, 0.2);
+    }
+
+    .strush-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #8C8DD4, #79C192);
+        width: 0;
+        border-radius: 3px;
+        animation: fill 2s infinite;
+    }
+
+    .strush-loading-text {
+        color: white;
+        font-size: 16px;
+        letter-spacing: 2px;
+        font-weight: 300;
+        text-shadow: 0 0 10px rgba(177, 172, 250, 0.5);
+    }
+
+    .strush-dots {
+        display: inline-block;
+        width: 30px;
+        animation: dots 1.5s infinite;
+    }
+
+    /* Animazioni */
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @keyframes wag {
+        0% {
+            transform: rotate(-15deg) skewY(-10deg);
+        }
+        100% {
+            transform: rotate(-25deg) skewY(-15deg);
+        }
+    }
+
+    @keyframes step-left {
+        0% {
+            transform: rotate(-15deg);
+        }
+        100% {
+            transform: rotate(15deg);
+        }
+    }
+
+    @keyframes step-right {
+        0% {
+            transform: rotate(15deg);
+        }
+        100% {
+            transform: rotate(-15deg);
+        }
+    }
+
+    @keyframes shadow-pulse {
+        0% {
+            transform: translateX(-50%) scale(0.8);
+            opacity: 0.2;
+        }
+        100% {
+            transform: translateX(-50%) scale(1);
+            opacity: 0.3;
+        }
+    }
+
+    @keyframes fill {
+        0% {
+            width: 0;
+        }
+        50% {
+            width: 60%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    @keyframes dots {
+        0%, 100% {
+            content: '';
+            opacity: 0.2;
+        }
+        25% {
+            content: '.';
+            opacity: 1;
+        }
+        50% {
+            content: '..';
+            opacity: 1;
+        }
+        75% {
+            content: '...';
+            opacity: 1;
+        }
+    }
+
+    /* Blob animations */
+    @keyframes blob-morph1 {
+        0% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        25% {
+            border-radius: 50% 50% 40% 60% / 40% 40% 60% 60%;
+        }
+        50% {
+            border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
+        }
+        75% {
+            border-radius: 40% 60% 50% 50% / 30% 70% 30% 70%;
+        }
+        100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+    }
+
+    @keyframes blob-morph2 {
+        0% {
+            border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
+        }
+        25% {
+            border-radius: 60% 40% 40% 60% / 70% 30% 70% 30%;
+        }
+        50% {
+            border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+        }
+        75% {
+            border-radius: 30% 70% 60% 40% / 50% 60% 40% 60%;
+        }
+        100% {
+            border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
+        }
+    }
+
+    @keyframes blob-morph3 {
+        0% {
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+        }
+        25% {
+            border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
+        }
+        50% {
+            border-radius: 30% 70% 40% 60% / 70% 30% 70% 30%;
+        }
+        75% {
+            border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+        }
+        100% {
+            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+        }
+    }
+
+    @keyframes blob-morph4 {
+        0% {
+            border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
+        }
+        25% {
+            border-radius: 30% 70% 40% 60% / 50% 50% 50% 50%;
+        }
+        50% {
+            border-radius: 60% 40% 30% 70% / 40% 60% 60% 40%;
+        }
+        75% {
+            border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
+        }
+        100% {
+            border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
+        }
+    }
+
+    /* Animazione fade-out */
+    #strush-preloader.fade-out {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        .strush-progress-bar {
+            width: 150px;
+        }
+        .strush-blob {
+            opacity: 0.1;
+            transform: scale(0.7);
+        }
+    }
 </style>
 
 <script>
@@ -817,6 +867,7 @@
         }, 800); // Mostra il preloader per almeno 800ms
     });
 </script>
+
 
 
     <!-- Download Bar Section -->
@@ -1135,12 +1186,12 @@
         /* Morphing animation for chatbot icon */
         @keyframes chatbot-icon-morph {
             0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
-            15% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; transform: rotate(-3deg) scale(1); }
-            30% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; transform: rotate(-8deg) scale(1); }
-            45% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; transform: rotate(-3deg) scale(1); }
-            60% { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; transform: rotate(8deg) scale(1); }
-            75% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(3deg) scale(1); }
-            90% { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; transform: rotate(-5deg) scale(1); }
+            15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+            30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
             100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
         }
 
@@ -2126,34 +2177,35 @@
                 transform: rotate(0deg) scale(1);
             }
             15% {
-                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-                transform: rotate(-3deg) scale(1);
+                border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%;
+                transform: rotate(4deg) scale(1);
             }
             30% {
-                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-                transform: rotate(-8deg) scale(1);
+                border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
+                transform: rotate(9deg) scale(1);
             }
             45% {
-                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-                transform: rotate(-3deg) scale(1);
+                border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
+                transform: rotate(4deg) scale(1);
             }
             60% {
-                border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%;
-                transform: rotate(8deg) scale(1);
+                border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%;
+                transform: rotate(-6deg) scale(1);
             }
             75% {
-                border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
-                transform: rotate(3deg) scale(1);
+                border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%;
+                transform: rotate(-3deg) scale(1);
             }
             90% {
-                border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%;
-                transform: rotate(-5deg) scale(1);
+                border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+                transform: rotate(-1deg) scale(1);
             }
             100% {
                 border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
                 transform: rotate(0deg) scale(1);
             }
         }
+
 
         .strush-logo img {
             height: 38px; /* Dimensione navbar */
@@ -3187,9 +3239,9 @@
             border-radius: 50%; /* Inizia come un cerchio perfetto */
 
             /* Blob shapes preimpostate ma non applicate inizialmente */
-            --blob1: 71% 29% 65% 35% / 33% 56% 44% 67%; /* Shape per Feature 1 */
-            --blob2: 41% 59% 27% 73% / 58% 28% 72% 42%; /* Shape per Feature 2 */
-            --blob3: 58% 42% 65% 35% / 42% 58% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
+            --blob1: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Shape per Feature 1 */
+            --blob2: 40% 60% 30% 70% / 60% 30% 70% 40%; /* Shape per Feature 2 */
+            --blob3: 60% 40% 50% 50% / 35% 65% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
         }
 
         #features-container-desktop .feature-icon i {
@@ -3208,7 +3260,7 @@
 
             /* Optional: Rotate the icon itself slightly on hover */
             #features-container-desktop .feature-card:hover .feature-icon i {
-                transform: rotate(5deg) scale(0.95); /* Rotate and slightly shrink icon */
+                transform: rotate(5deg); /* Rotate and slightly shrink icon */
             }
 
     </style>
@@ -4027,17 +4079,17 @@
 
     /* Style for shape 1 - blob shape */
     .avatar-shape-1 .avatar-wrapper {
-        border-radius: 71% 29% 65% 35% / 33% 56% 44% 67%;
+        border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
     }
 
     /* Style for shape 2 - different blob shape */
     .avatar-shape-2 .avatar-wrapper {
-        border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
+        border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
     }
 
     /* Style for shape 3 - another blob shape */
     .avatar-shape-3 .avatar-wrapper {
-        border-radius: 58% 42% 65% 35% / 42% 58% 35% 65%;
+        border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
     }
 
     /* Avatar image contained inside the shape */
@@ -5072,10 +5124,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
             if (stepNumbers.length > 0) {
                 const stepBlobShapes = [
-                    '71% 29% 65% 35% / 33% 56% 44% 67%',
-                    '41% 59% 27% 73% / 58% 28% 72% 42%',
-                    '45% 55% 40% 60% / 60% 40% 55% 45%',
-                    '58% 42% 65% 35% / 42% 58% 35% 65%'
+                    '60% 40% 65% 35% / 35% 65% 35% 65%',
+                    '40% 60% 30% 70% / 60% 30% 70% 40%',
+                    '60% 40% 50% 50% / 35% 65% 35% 65%',
+                    '40% 60% 40% 60% / 70% 30% 70% 30%'
                 ];
                 stepNumbers.forEach((stepNumber, index) => {
                     const blobShape = stepBlobShapes[index % stepBlobShapes.length];
@@ -5370,9 +5422,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         /* Definizione delle forme blob per gli avatar */
-        .avatar-shape-1 { --blob-shape: 70% 30% 50% 50% / 40% 60% 40% 60%; }
+        .avatar-shape-1 { --blob-shape: 60% 40% 65% 35% / 35% 65% 35% 65%; }
         .avatar-shape-2 { --blob-shape: 40% 60% 30% 70% / 60% 30% 70% 40%; }
-        .avatar-shape-3 { --blob-shape: 70% 40% 50% 40% / 40% 60% 40% 60%; }
+        .avatar-shape-3 { --blob-shape: 60% 40% 50% 50% / 35% 65% 35% 65%; }
 
         .testimonial-info h5 { margin: 0 0 0.3rem; }
         .testimonial-info p { margin: 0; font-size: 0.9rem; } /* Stile base per desktop/default */
@@ -5698,7 +5750,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Different shapes for each team member */
         .shape-1 {
-            border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
         }
 
         .shape-2 {
@@ -5706,12 +5758,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .shape-3 {
-            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
         }
 
         /* NUOVA FORMA PER IL QUARTO MEMBRO */
         .shape-4 {
-            border-radius: 50% 50% 70% 30% / 60% 60% 40% 40%; /* Esempio di nuova forma */
+            border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; /* Esempio di nuova forma */
         }
 
 
@@ -5743,48 +5795,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Different animation for each shape, starting from their respective initial forms */
         @keyframes morph-shape-1 {
-            0% { border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; transform: rotate(0deg); }
-            15% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; transform: rotate(-3deg); }
-            30% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; transform: rotate(-8deg); }
-            45% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; transform: rotate(-3deg); }
-            60% { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; transform: rotate(8deg); }
-            75% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(3deg); }
-            90% { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; transform: rotate(-5deg); }
-            100% { border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; transform: rotate(0deg); }
-        }
-
-        @keyframes morph-shape-2 {
-             0% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-            15% { border-radius: 30% 70% 45% 55% / 40% 60% 40% 60%; transform: rotate(5deg); }
-            30% { border-radius: 65% 35% 50% 50% / 35% 65% 35% 65%; transform: rotate(10deg); }
-            45% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(5deg); }
-            60% { border-radius: 35% 65% 60% 40% / 70% 30% 70% 30%; transform: rotate(-8deg); }
-            75% { border-radius: 45% 55% 25% 75% / 50% 50% 50% 50%; transform: rotate(-4deg); }
-            90% { border-radius: 55% 45% 40% 60% / 30% 70% 30% 70%; transform: rotate(-2deg); }
-            100% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-        }
-
-        @keyframes morph-shape-3 {
-             0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
-            15% { border-radius: 35% 65% 45% 55% / 70% 30% 70% 30%; transform: rotate(-5deg); }
-            30% { border-radius: 75% 25% 35% 65% / 40% 60% 40% 60%; transform: rotate(-10deg); }
-            45% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; transform: rotate(-5deg); }
-            60% { border-radius: 35% 65% 75% 25% / 65% 35% 65% 35%; transform: rotate(5deg); }
-            75% { border-radius: 75% 25% 45% 55% / 25% 75% 25% 75%; transform: rotate(10deg); }
-            90% { border-radius: 65% 35% 55% 45% / 45% 55% 45% 55%; transform: rotate(5deg); }
-            100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
-        }
-
-        /* NUOVA ANIMAZIONE PER SHAPE 4 */
-        @keyframes morph-shape-4 {
-             0% { border-radius: 50% 50% 70% 30% / 60% 60% 40% 40%; transform: rotate(0deg); }
-            15% { border-radius: 65% 35% 55% 45% / 45% 55% 45% 55%; transform: rotate(4deg); }
-            30% { border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; transform: rotate(9deg); }
+            0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+            15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+            30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
             45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
             60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
             75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
-            100% { border-radius: 50% 50% 70% 30% / 60% 60% 40% 40%; transform: rotate(0deg); }
+            100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        }
+
+        @keyframes morph-shape-2 {
+             0% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
+             15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+            30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+            100% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
+        }
+
+        @keyframes morph-shape-3 {
+             0% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(0deg); }
+             15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+            30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+            100% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        }
+
+        /* NUOVA ANIMAZIONE PER SHAPE 4 */
+        @keyframes morph-shape-4 {
+             0% { border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; transform: rotate(0deg); }
+            15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+            30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+            100% { border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; transform: rotate(0deg); }
         }
 
 
@@ -6082,6 +6134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <ul>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="t&c.html">Termini e Condizioni</a></li>
+                    <li><a href="#">Informativa Startup</a></li>
                 </ul>
             </div>
         </div>
@@ -6156,26 +6209,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Animazione SOLO per la FORMA (border-radius) del blob */
     @keyframes footer-blob-morph-shape-only {
-        0%   { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
-        15%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-        30%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-        45%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-        60%  { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; }
-        75%  { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; }
-        90%  { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; }
-        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
-    }
-
-    /* Animazione SOLO per la ROTAZIONE dell'immagine (mantenendo offset Y) */
-    @keyframes footer-logo-image-rotate {
-        0%   { transform: translateY(-2px) rotate(0deg); }
-        15%  { transform: translateY(-2px) rotate(-3deg); }
-        30%  { transform: translateY(-2px) rotate(-8deg); }
-        45%  { transform: translateY(-2px) rotate(-3deg); }
-        60%  { transform: translateY(-2px) rotate(8deg); }
-        75%  { transform: translateY(-2px) rotate(3deg); }
-        90%  { transform: translateY(-2px) rotate(-5deg); }
-        100% { transform: translateY(-2px) rotate(0deg); }
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+        45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
     }
 
     /* Stile base dell'immagine */
