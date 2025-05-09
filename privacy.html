@@ -6,6 +6,9 @@
     <!-- Modificato il titolo -->
     <title>Strush | Privacy Policy</title>
 
+    <!-- Meta tag per il nome dell'applicazione -->
+    <meta name="application-name" content="Strush">
+
     <!-- Collegamento ai font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -14,213 +17,263 @@
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
 
-<style>
-    /* Importazione del font Unbounded da Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
-    
-    /* Variabili CSS */
-    :root {
-        --primary: #79C192;
-        --secondary: #8C8DD4;
-        --text: #2b2d42;
-        --text2: #555555;
-        --light: #f8f9fa;
-        --dark: #222222;
-        --accent: #FF85B3;
-        --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    }
-    
-    /* Reset CSS di base */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    /* Stili di base del corpo */
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        color: var(--text);
-        line-height: 1.6;
-        font-size: 90%; /* Puoi aggiustare questo valore (es. 85%, 95%) per scalare tutto */
-    }
-    
-    /* Utilizzo del font Unbounded per i titoli con pesi diversi */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Unbounded', sans-serif;
-        line-height: 1.4;
-        transform: scaleY(1.2); /* Distende il font in altezza */
-        letter-spacing: 0.01em; /* Aggiunge spazio tra le lettere */
-    }
-    
-    h1 {
-        font-weight: 900; /* Light */
-        font-size: 2.7rem;
-        }
-    
-    h2 {
-        font-weight: 700; /* Bold */
-        font-size: 2.25rem; /* Ridotto da 2.5rem */
-        padding-bottom: 10px;
-    }
-    
-    h3 {
-        font-weight: 500; /* Medium */
-        margin-bottom: 1rem;
-        font-size: 1.04rem; /* Ridotto da 1.15rem */
-    }
-    
-    h4 {
-        font-weight: 500; /* Medium */
-        font-size: 1rem; /* Ridotto da 1.1rem */
-    }
-    
-    h5 {
-        font-weight: 400; /* Medium */
-        font-size: 0.77rem; /* Ridotto da 0.85rem */
-    }
-    
-    h6 {
-        font-weight: 300; /* Light */
-        margin-bottom: 1rem;
-        font-size: 0.68rem; /* Ridotto da 0.75rem */
-    }
-    
-    
-    a {
-        text-decoration: none;
-        color: #2b2d42;
-        font-size: 0.9rem; /* Ridotto da 1rem */
-    }
-    
+<style> 
+    /* Dichiarazione dei font locali Unbounded con @font-face */
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Variabili CSS */
+:root {
+    --primary: #79C192;
+    --secondary: #8C8DD4;
+    --text: #121218;
+    --text2: #555555;
+    --light: #f8f9fa;
+    --dark: #222222;
+    --accent: #FF85B3;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* Reset CSS di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili di base del corpo */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Utilizzo del font Unbounded per i titoli con pesi diversi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', sans-serif;
+}
+
+h1 {
+    font-weight: 800; /* Black */
+    font-size: 3.25rem; /* Aumentato del 20% da 2.7rem */
+}
+
+h2 {
+    font-weight: 700; /* Bold */
+    font-size: 2.7rem; /* Aumentato del 20% da 2.25rem */
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-weight: 500; /* Medium */
+    margin-bottom: 1rem;
+    font-size: 1.35rem; /* Aumentato del 20% da 1.04rem */
+}
+
+h4 {
+    font-weight: 500; /* Medium */
+    font-size: 1.2rem; /* Aumentato del 20% da 1rem */
+}
+
+h5 {
+    font-weight: 400; /* Regular */
+    font-size: 0.92rem; /* Aumentato del 20% da 0.77rem */
+}
+
+h6 {
+    font-weight: 300; /* Light */
+    margin-bottom: 1rem;
+    font-size: 0.82rem; /* Aumentato del 20% da 0.68rem */
+}
+
+a {
+    text-decoration: none;
+    color: #121218;
+    font-size: 0.9rem;
+}
+
+p {
+    color: #555555;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
     p {
-        color: #555555;
-        font-size: 1rem; /* Ridotto da 1.1rem */
-    
+        font-size: 1.1rem;
     }
-    
-    @media (max-width: 768px) {
-        p {
-            font-size: 1.1rem; /* Mantenuto coerente con la riduzione */
-        }
-    
-        h1 {
-            font-size: 1.6rem; 
-        }
-    
-        h2 {
-            font-size: 1.6rem; 
-        }
-    
-        h3 {
-            font-size: 1.1rem; 
-        }
-    
-        h4 {
-            font-size: 1.05rem; 
-        }
-    
-        a {
-            font-size: 1rem;
-        }
-    
-    
+
+    h1 {
+        font-size: 2rem; /* Aumentato del 20% da 1.6rem */
     }
-    
-    ul {
-        list-style: none;
+
+    h2 {
+        font-size: 1.92rem; /* Aumentato del 20% da 1.6rem */
     }
-    
-    img {
-        max-width: 100%;
+
+    h3 {
+        font-size: 1.32rem; /* Aumentato del 20% da 1.1rem */
     }
-    
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0rem 0 0rem;
+
+    h4 {
+        font-size: 1.26rem; /* Aumentato del 20% da 1.05rem */
     }
-    
-    .text-center {
-        text-align: center;
+
+    a {
+        font-size: 1rem;
     }
-    
-    /* Section base style */
-    
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0rem 0 0rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Section base style */
+.section {
+    padding: 6rem 0 6rem;
+}
+
+/* Stili per i titoli */
+.section-title {
+    text-align: center;
+    margin: 48px;
+    position: relative;
+    color: #121218;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.section-title .title-wrapper {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Effetto di rivelazione */
+.section-title.reveal .title-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animazione della barra di sottolineatura */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
+    border-radius: 2px;
+    transition: transform 0.6s ease 0.4s;
+}
+
+.section-title.reveal::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Section sub-titles */
+.section-subtitles {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #121218;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
     .section {
-        padding: 6rem 0 6rem;
+        padding: 5rem 0 5rem;
     }
-    
-    
-        /* Stili per i titoli */
+
     .section-title {
-        text-align: center;
-        margin: 48px;
-        position: relative;
-        color: #2b2d42;
-        font-weight: bold;
-        overflow: hidden;
+        margin: 32px;
     }
-    
-    .section-title .title-wrapper {
-        display: inline-block;
-        position: relative;
-        opacity: 0;
-        transform: translateY(100%);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
-    /* Effetto di rivelazione */
-    .section-title.reveal .title-wrapper {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* Animazione della barra di sottolineatura */
-    .section-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%) scaleX(0);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-        border-radius: 2px;
-        transition: transform 0.6s ease 0.4s;
-    }
-    
-    .section-title.reveal::after {
-        transform: translateX(-50%) scaleX(1);
-    }
-    
-    
-    /* Section sub-titles */
     .section-subtitles {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        color: #2b2d42;
-        font-size: 1.2rem;
+        margin-bottom: 32px;
+        font-size: 1.2rem; 
     }
-    
-    @media (max-width: 768px) {
-        
-        .section {
-            padding: 5rem 0 5rem;
-        }
-    
-        .section-title {
-            margin: 32px;
-        }
-        .section-subtitles {
-            margin-bottom: 32px;
-            font-size: 1.2rem; 
-        }
-    
-    }
+}
 </style>
+
 
 </head>
 
@@ -343,7 +396,7 @@
 </script>
 
 
-    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
@@ -415,7 +468,7 @@
             z-index: 999; /* Reduced from 1000 */
             padding: 0;
             transition: all 0.3s ease;
-            background-color: rgb(0, 0, 0);
+            background-color: #121218;           ;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
@@ -432,7 +485,6 @@
 
         /* Scrolled state for navbar */
         .strush-navbar.scrolled {
-            background-color: rgb(0, 0, 0);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
 
@@ -461,7 +513,7 @@
         }
 
         /* Dropdown mobile styles - invariati */
-        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: rgba(10, 10, 15, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
+        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
         .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
         .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
         .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
@@ -576,8 +628,8 @@
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
             /* Stili navbar mobile invariati */
-            .strush-navbar { background-color: black; backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
-            .strush-navbar.scrolled { background-color: black; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
+            .strush-navbar { backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
+            .strush-navbar.scrolled {box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
             .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
             .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 0; }
             .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 20px; }
@@ -602,7 +654,6 @@
         }
     </style>
 
-    <!-- Script rimane invariato -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuBtn = document.getElementById('menuBtn');
@@ -976,7 +1027,7 @@
     }
 </style>
 
-<!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -987,7 +1038,7 @@
                     </div>
                     <h3 class="logo-text">Strush</h3>
                 </div>
-                <p class="elevator-pitch">Prendi il controllo delle tue spese, scegli il tuo avatar e migliora le tue abitudini.</p>
+                <p class="elevator-pitch">Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio</p>
                 <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1023,13 +1074,15 @@
                 <ul>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="t&c.html">Termini e Condizioni</a></li>
+                    <li><a href="#">Informativa Startup</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="copyright">
             <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
-            <h6 class="copyright-text">© 2025 Strush - Tutti i diritti riservati</h6>
+            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P.IVA: 00000000000<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
+            
         </div>
     </div>
 </footer>
@@ -1039,7 +1092,7 @@
     footer {
         background-color: var(--dark);
         color: white;
-        padding: 4rem 0 2rem;
+        padding: 4rem 0 16px;
     }
 
     .footer-content {
@@ -1090,33 +1143,20 @@
         /* Forma iniziale */
         border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
         background: linear-gradient(135deg, #8C8DD4, #79C192);
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462;
         border: 2.5px solid #8C8DD4;
-        /* Rimosso transform iniziale se non necessario, l'immagine ha il suo offset */
     }
 
     /* Animazione SOLO per la FORMA (border-radius) del blob */
     @keyframes footer-blob-morph-shape-only {
-        0%   { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
-        15%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-        30%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-        45%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-        60%  { border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%; }
-        75%  { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; }
-        90%  { border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%; }
-        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
-    }
-
-    /* Animazione SOLO per la ROTAZIONE dell'immagine (mantenendo offset Y) */
-    @keyframes footer-logo-image-rotate {
-        0%   { transform: translateY(-2px) rotate(0deg); }
-        15%  { transform: translateY(-2px) rotate(-3deg); }
-        30%  { transform: translateY(-2px) rotate(-8deg); }
-        45%  { transform: translateY(-2px) rotate(-3deg); }
-        60%  { transform: translateY(-2px) rotate(8deg); }
-        75%  { transform: translateY(-2px) rotate(3deg); }
-        90%  { transform: translateY(-2px) rotate(-5deg); }
-        100% { transform: translateY(-2px) rotate(0deg); }
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+        45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
     }
 
     /* Stile base dell'immagine */
@@ -1246,7 +1286,8 @@
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px #79c19262    }
+        box-shadow: 0 8px 20px #79c19262
+    }
 
     .footer-social a:hover::before {
         opacity: 1;
@@ -1255,7 +1296,7 @@
     /* Copyright section (invariati) */
     .copyright {
         text-align: center;
-        padding-top: 2rem;
+        padding-top: 16px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -1282,7 +1323,7 @@
         }
 
         .footer-logo .logo-text {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .footer-links h5 {
