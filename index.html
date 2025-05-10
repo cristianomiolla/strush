@@ -30,7 +30,7 @@
     <link rel="icon" href="immagini/logo_favicon.png" type="image/png">
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
-<style> 
+<style>
     /* Dichiarazione dei font locali Unbounded con @font-face */
 @font-face {
     font-family: 'Unbounded';
@@ -104,8 +104,9 @@
     --text2: #555555;
     --light: #f8f9fa;
     --dark: #222222;
-    --accent: #FF85B3;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-thickness: 3px;
+
 }
 
 /* Reset CSS di base */
@@ -129,71 +130,71 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-weight: 800; /* Black */
-    font-size: 3.25rem; /* Aumentato del 20% da 2.7rem */
+    font-size: 52px; /* Originale: 3.25rem; Aumentato del 20% da 2.7rem */
 }
 
 h2 {
     font-weight: 700; /* Bold */
-    font-size: 2.7rem; /* Aumentato del 20% da 2.25rem */
+    font-size: 43px; /* Originale: 2.7rem; Aumentato del 20% da 2.25rem */
     padding-bottom: 10px;
 }
 
 h3 {
     font-weight: 500; /* Medium */
-    margin-bottom: 1rem;
-    font-size: 1.35rem; /* Aumentato del 20% da 1.04rem */
+    margin-bottom: 16px; /* Originale: 1rem */
+    font-size: 22px; /* Originale: 1.35rem; Aumentato del 20% da 1.04rem */
 }
 
 h4 {
     font-weight: 500; /* Medium */
-    font-size: 1.2rem; /* Aumentato del 20% da 1rem */
+    font-size: 19px; /* Originale: 19px; Aumentato del 20% da 1rem */
 }
 
 h5 {
     font-weight: 400; /* Regular */
-    font-size: 0.92rem; /* Aumentato del 20% da 0.77rem */
+    font-size: 15px; /* Originale: 0.92rem; Aumentato del 20% da 0.77rem */
 }
 
 h6 {
     font-weight: 300; /* Light */
-    margin-bottom: 1rem;
-    font-size: 0.82rem; /* Aumentato del 20% da 0.68rem */
+    margin-bottom: 16px; /* Originale: 1rem */
+    font-size: 13px; /* Originale: 0.82rem; Aumentato del 20% da 0.68rem */
 }
 
 a {
     text-decoration: none;
     color: #121218;
-    font-size: 0.9rem;
+    font-size: 14px; /* Originale: 14px */
 }
 
 p {
     color: #555555;
-    font-size: 1rem;
+    font-size: 16px; /* Originale: 1rem */
 }
 
 @media (max-width: 768px) {
     p {
-        font-size: 1.1rem;
+        font-size: 18px; /* Originale: 18px */
     }
 
     h1 {
-        font-size: 2rem; /* Aumentato del 20% da 1.6rem */
+        font-size: 32px; /* Originale: 2rem; Aumentato del 20% da 1.6rem */
     }
 
     h2 {
-        font-size: 1.92rem; /* Aumentato del 20% da 1.6rem */
+        font-size: 31px; /* Originale: 1.92rem; Aumentato del 20% da 1.6rem */
     }
 
     h3 {
-        font-size: 1.32rem; /* Aumentato del 20% da 1.1rem */
+        font-size: 21px; /* Originale: 1.32rem; Aumentato del 20% da 18px */
     }
 
     h4 {
-        font-size: 1.26rem; /* Aumentato del 20% da 1.05rem */
+        font-size: 20px; /* Originale: 1.26rem; Aumentato del 20% da 1.05rem */
     }
 
     a {
-        font-size: 1rem;
+        font-size: 16px; /* Originale: 1rem */
     }
 }
 
@@ -209,7 +210,7 @@ img {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0rem 0 0rem;
+    padding: 0px 0 0px; /* Originale: 0rem 0 0rem */
 }
 
 .text-center {
@@ -218,7 +219,7 @@ img {
 
 /* Section base style */
 .section {
-    padding: 6rem 0 6rem;
+    padding: 96px 0 96px; /* Originale: 6rem 0 6rem */
 }
 
 /* Stili per i titoli */
@@ -267,14 +268,14 @@ img {
 .section-subtitles {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
     color: #121218;
-    font-size: 1.2rem;
+    font-size: 19px; /* Originale: 19px */
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 5rem 0 5rem;
+        padding: 80px 0 80px; /* Originale: 5rem 0 5rem */
     }
 
     .section-title {
@@ -282,7 +283,7 @@ img {
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 1.2rem; 
+        font-size: 19px;  /* Originale: 19px */
     }
 }
 </style>
@@ -891,14 +892,14 @@ img {
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #222222;
+            background-color: #121218;
             color: white;
             padding: 16px 24px;
             border-radius: 36px;
             cursor: pointer;
             font-weight: bold;
             font-size: 16px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             transition: all 0.3s ease;
             z-index: 1000;
             overflow: hidden;
@@ -942,7 +943,6 @@ img {
         }
     
         .download-bar:hover {
-            background-color: #222;
             transform: translateX(-50%) translateY(-3px);
         }
     
@@ -961,7 +961,7 @@ img {
         @media (max-width: 768px) {
             .download-bar {
             padding: 16px 24px;
-            font-size: 17.6px;
+            font-size: 18px;
             }
         }
     
@@ -1149,11 +1149,9 @@ img {
     <style>
         /* Core variables */
         :root {
-            --primary: #8C8DD4;
-            --secondary: #79C192; /* Green color */
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             --border-radius-lg: 18px;
             --border-radius-full: 50%;
+
         }
 
         /* Container positioning */
@@ -1187,9 +1185,9 @@ img {
             0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
             15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
             30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
             100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(1); }
         }
@@ -1229,7 +1227,7 @@ img {
             max-height: calc(100vh - 150px); /* Adjust based on icon position */
             background-color: #fff;
             border-radius: var(--border-radius-lg);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             display: none; /* Initially hidden */
             flex-direction: column;
             overflow: hidden;
@@ -1242,7 +1240,7 @@ img {
 
         /* Header styling */
         .chatbot-header {
-            background-color: var(--primary);
+            background-color: var(--secondary); /* MODIFIED: Purple by default */
             color: white;
             padding: 16px;
             font-weight: bold;
@@ -1253,7 +1251,7 @@ img {
         }
 
         .chatbot-header:hover {
-            background-color: var(--secondary);
+            background-color: var(--primary); /* MODIFIED: Green on hover */
         }
 
         .chatbot-close {
@@ -1340,7 +1338,7 @@ img {
         .chatbot-option {
             position: relative; background-color: #fff; color: #333; padding: 8px; cursor: pointer;
             text-align: center; border-radius: var(--border-radius-lg); transition: all 0.3s ease;
-            border: none; z-index: 1; font-size: 0.9em;
+            border: none; z-index: 1; font-size: 14px;
             font-family: inherit; /* MODIFICA: Assicura che il font sia ereditato */
         }
         /* Gradient border using pseudo-element */
@@ -1356,7 +1354,7 @@ img {
 
         /* --- MODIFIED Share Button styling --- */
         .chatbot-share-button {
-            background-color: var(--secondary); /* Green background */
+            background-color: var(--secondary); /* Purple background */
             color: white; /* White text for contrast */
             padding: 8px 16px; /* Padding for the button content */
             cursor: pointer;
@@ -1364,7 +1362,7 @@ img {
             border-radius: var(--border-radius-lg);
             transition: none; /* Remove transition for no hover effect */
             border: none; /* No actual border */
-            font-size: 0.9em;
+            font-size: 14px;
             margin-top: 10px; /* Default space above */
             margin-bottom: 10px; /* Default space below */
             align-self: center; /* Center horizontally if in a flex column */
@@ -1374,7 +1372,7 @@ img {
 
         /* --- NEW Action Button styling (for Preregister) --- */
         .chatbot-action-button {
-            background-color: var(--secondary); /* Green background */
+            background-color: var(--secondary); /* Purple background */
             color: white; /* White text */
             padding: 8px 16px;
             cursor: pointer;
@@ -1382,7 +1380,7 @@ img {
             border-radius: var(--border-radius-lg);
             transition: none; /* No hover effect */
             border: none;
-            font-size: 0.9em;
+            font-size: 14px;
             display: inline-block; /* Allow placement within text */
             margin: 5px 0; /* Adjust vertical spacing as needed */
         }
@@ -1392,22 +1390,26 @@ img {
             padding: 16px; border-top: 1px solid #eee; display: flex; background-color: #fff;
         }
         .chatbot-input {
-            flex: 1; padding: 8px; border: 1px solid var(--primary); border-radius: var(--border-radius-lg);
+            flex: 1; padding: 8px; border: 1px solid var(--secondary); border-radius: var(--border-radius-lg);
             outline: none; margin-right: 10px;
         }
         .chatbot-send {
-            background-color: var(--primary); color: white; border: none; width: 40px; height: 40px;
+            background-color: var(--secondary); /* MODIFIED: Purple by default */
+            color: white; border: none; width: 40px; height: 40px;
             line-height: 40px; text-align: center; font-size: 1.2em; border-radius: var(--border-radius-full);
             cursor: pointer; transition: background-color 0.3s ease; flex-shrink: 0;
         }
-        .chatbot-send:hover { background-color: var(--secondary); }
+        .chatbot-send:hover {
+            background-color: var(--primary); /* MODIFIED: Green on hover */
+        }
 
 
         /* --- MOBILE STYLES (BELOW 768px) --- */
         @media (max-width: 768px) {
             /* Reduce hover feedback on touch devices */
-            .chatbot-header:hover { background-color: var(--primary); }
-            .chatbot-send:hover { background-color: var(--primary); }
+            /* The hover states will now correctly reflect the new base styles */
+            .chatbot-header:hover { background-color: var(--primary); } /* Hover is green */
+            .chatbot-send:hover { background-color: var(--primary); }   /* Hover is green */
             .chatbot-option:hover { background-color: #fff; color: #333; }
 
             /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
@@ -2134,7 +2136,7 @@ img {
         .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
         .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
         .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
-        .strush-mobile-links a { text-decoration: none; color: white; font-size: 17.6px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 18px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 18px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 18px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
         .strush-mobile-links a:hover { color: #79C192; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
@@ -2168,44 +2170,20 @@ img {
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
             /* Stili grafici mantenuti dalla navbar originale */
             background: linear-gradient(135deg, #8C8DD4, #79C192);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             border: 2.5px solid #8C8DD4;
         }
 
         /* --- MODIFICA --- Nuova animazione presa dal chatbot */
         @keyframes navbar-blob-morph-from-chatbot {
-            0% {
-                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-                transform: rotate(0deg) scale(1);
-            }
-            15% {
-                border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%;
-                transform: rotate(4deg) scale(1);
-            }
-            30% {
-                border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%;
-                transform: rotate(9deg) scale(1);
-            }
-            45% {
-                border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
-                transform: rotate(4deg) scale(1);
-            }
-            60% {
-                border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%;
-                transform: rotate(-6deg) scale(1);
-            }
-            75% {
-                border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%;
-                transform: rotate(-3deg) scale(1);
-            }
-            90% {
-                border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
-                transform: rotate(-1deg) scale(1);
-            }
-            100% {
-                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-                transform: rotate(0deg) scale(1);
-            }
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
         }
 
 
@@ -2223,13 +2201,13 @@ img {
         /* L'hover diretto sul blob mantiene lo scale e shadow, non l'animazione */
         .strush-logo-blob:hover {
             transform: scale(1.05) translateY(-2px); /* Aggiunto translateY per coerenza */
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
         .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 3px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; padding: 8px 10px; border-radius: 18px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 14px; padding: 8px 10px; border-radius: 18px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
         .strush-nav-links a:hover { color: #79C192; }
         .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #79C192, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
         .strush-nav-links a:hover::after { width: 80%; }
@@ -2516,7 +2494,7 @@ img {
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 19px;
             margin-bottom: 32px;
             color: rgba(255, 255, 255, 0.8);
 
@@ -2535,7 +2513,7 @@ img {
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 19.2px;
+            font-size: 19px;
             text-align: center;
             border: 2px solid transparent;
         }
@@ -2543,13 +2521,13 @@ img {
         .btn-primary {
             background: #8C8DD4;
             color: white;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             width: 180px;
 
         }
 
         .btn-primary:hover {
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             transform: translateY(-2px);
         }
 
@@ -2557,14 +2535,14 @@ img {
             background: transparent;
             color: #8C8DD4;
             border: 2px solid #8C8DD4;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             width: 180px;
         }
 
         .btn-secondary:hover {
 
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
         .hero-image {
@@ -2638,7 +2616,7 @@ img {
         .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
 
         .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
-        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 8px 20px #8c8dd462;
+        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0px 20px #8c8dd462;
             opacity: 0; animation: dataPoint 4s infinite; }
         .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
         .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
@@ -2646,8 +2624,8 @@ img {
         .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
         .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
         .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
-        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 8px 20px #8c8dd462;animation: scanLine 3s infinite; }
-        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 8px 20px #8c8dd462;opacity: 0.7; animation: techCirclePulse 4s infinite; }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0px 20px #8c8dd462;animation: scanLine 3s infinite; }
+        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 0px 20px #8c8dd462;opacity: 0.7; animation: techCirclePulse 4s infinite; }
         .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
         .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
         .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
@@ -2672,7 +2650,7 @@ img {
         .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
         .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
 
-        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 8px 20px #8c8dd462;
+        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0px 20px #8c8dd462;
             transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
         .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
@@ -3077,11 +3055,6 @@ img {
     <style>
         /* Stili per la versione desktop */
         :root {
-            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #79C192;
-            --border-thickness: 3px;
-            /* --card-hover-lift: -8px; */ /* Rimosso o commentato - non più usato */
             --video-hover-scale: 1.05; /* Variable for video scale */
             --video-base-z: 10px;
             --video-hover-z: 15px;
@@ -3175,7 +3148,7 @@ img {
         #features-container-desktop .center-divider {
             width: 2px;
             height: 450px;
-            background: linear-gradient(to bottom, transparent, var(--primary-purple), transparent);
+            background: linear-gradient(to bottom, transparent, var(--secondary), transparent);
             margin: 0 60px;
             flex-shrink: 0;
             transition: opacity 0.5s ease-out;
@@ -3191,7 +3164,7 @@ img {
             height: 450px;
             object-fit: cover;
             border-radius: 18px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             display: block;
             margin: 0 auto;
             transform: translateZ(var(--video-base-z));
@@ -3206,7 +3179,7 @@ img {
             background: white;
             border-radius: 18px; /* Match video radius */
             padding: 24px 24px; /* Adjusted padding */
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             transition: box-shadow 0.35s ease-out; /* Rimossa transition per border-top-color */
             text-align: center;
             max-width: 320px; /* Slightly wider */
@@ -3216,8 +3189,8 @@ img {
         }
 
         #features-container-desktop .feature-card:hover {
-            /* border-top-color: var(--primary-green); */ /* RIMOSSA la modifica del colore della barra all'hover */
-            box-shadow: 0 8px 20px #8c8dd462;
+            /* border-top-color: var(--primary); */ /* RIMOSSA la modifica del colore della barra all'hover */
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
         /* MODIFICA: Aggiunto margine sotto feature-title */
@@ -3246,13 +3219,13 @@ img {
             background: var(--gradient-primary);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
             border-radius: 50%; /* Inizia come un cerchio perfetto */
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
 
 
             /* Blob shapes preimpostate ma non applicate inizialmente */
             --blob1: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Shape per Feature 1 */
             --blob2: 40% 60% 30% 70% / 60% 30% 70% 40%; /* Shape per Feature 2 */
-            --blob3: 60% 40% 50% 50% / 35% 65% 35% 65%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
+            --blob3: 70% 30% 60% 40% / 30% 70% 30% 70%; /* Shape per Feature 3 (presa da HowItWorks step 4) */
         }
 
         #features-container-desktop .feature-icon i {
@@ -3265,7 +3238,7 @@ img {
         #features-container-desktop .feature-card:hover .feature-icon {
             background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
             transform: scale(1.1); /* Increased scale slightly */
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
         }
 
@@ -3418,7 +3391,14 @@ img {
     <div class="container">
         <h2 class="section-title">Caratteristiche Principali</h2>
 
-        <!-- NUOVO: Wrapper per Carosello, Frecce e Indicatori -->
+        <!-- Indicatori di pagina (SPOSTATI QUI, UN SOLO SET) -->
+        <div class="feature-indicators">
+            <span class="feature-dot active" data-index="0"></span>
+            <span class="feature-dot" data-index="1"></span>
+            <span class="feature-dot" data-index="2"></span>
+        </div>
+
+        <!-- NUOVO: Wrapper per Carosello, Frecce -->
         <div class="features-carousel-wrapper">
 
             <!-- Container per tutte le features (le slide) -->
@@ -3426,6 +3406,7 @@ img {
                 <!-- Feature 1 -->
                 <div id="feature-mobile-1" class="feature-container-slide">
                     <div class="feature-container">
+                        <!-- Indicatori RIMOSSI da qui -->
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Unica dashboard</h4>
@@ -3434,7 +3415,6 @@ img {
                         <div class="feature-media">
                             <video id="video-mobile-1" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
                         </div>
-                        <!-- Indicatori RIMOSSI da qui -->
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
                 </div>
@@ -3442,6 +3422,7 @@ img {
                 <!-- Feature 2 -->
                 <div id="feature-mobile-2" class="feature-container-slide">
                     <div class="feature-container">
+                        <!-- Indicatori RIMOSSI da qui -->
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Conti tra amici</h4>
@@ -3450,7 +3431,6 @@ img {
                         <div class="feature-media">
                             <video id="video-mobile-2" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
                         </div>
-                        <!-- Indicatori RIMOSSI da qui -->
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
                 </div>
@@ -3458,6 +3438,7 @@ img {
                 <!-- Feature 3 -->
                 <div id="feature-mobile-3" class="feature-container-slide">
                     <div class="feature-container">
+                        <!-- Indicatori RIMOSSI da qui -->
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Insight intelligenti</h4>
@@ -3466,33 +3447,24 @@ img {
                         <div class="feature-media">
                             <video id="video-mobile-3" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
                         </div>
-                         <!-- Indicatori RIMOSSI da qui -->
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
                 </div>
             </div> <!-- Fine features-list -->
 
-            <!-- Frecce di navigazione laterali (SPOSTATE QUI, UN SOLO SET) -->
+            <!-- Frecce di navigazione laterali (UN SOLO SET) -->
             <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
             <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-
-            <!-- Indicatori di pagina (SPOSTATI QUI, UN SOLO SET) -->
-            <div class="feature-indicators">
-                <span class="feature-dot active" data-index="0"></span>
-                <span class="feature-dot" data-index="1"></span>
-                <span class="feature-dot" data-index="2"></span>
-            </div>
 
         </div> <!-- Fine features-carousel-wrapper -->
     </div>
 
     <style>
-        /* Stili originali per la versione mobile + modifiche per wrapper/frecce/dots */
         :root {
             --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
+            --primary-purple: #8C8DD4; /* Same as --secondary */
             --primary-green: #79C192;
-            --border-thickness: 3px; /* Variabile non usata nel CSS originale fornito? */
+            --secondary: #8C8DD4; /* Assuming this is your purple */
         }
 
         /* Nascondi su desktop (come originale) */
@@ -3524,21 +3496,46 @@ img {
             z-index: 2;
         }
 
-        /* NUOVO/MODIFICATO: Stile per il wrapper */
-        .features-carousel-wrapper {
-            position: relative; /* Necessario per posizionare frecce/dots */
+        /* MODIFICATO: Indicatori (dots) posizionati SOTTO il titolo principale della sezione */
+        #features-mobile > .container > .feature-indicators { /* More specific selector */
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 16px; /* Spazio sotto i dots, sopra il carosello */
         }
 
-        /* Contenitore delle slide (come originale) */
+         /* Stile dot */
+        #features-mobile > .container > .feature-indicators .feature-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #features-mobile > .container > .feature-indicators .feature-dot.active {
+            background: var(--secondary);
+            transform: scale(1.2);
+        }
+
+
+        /* Wrapper del carosello */
+        .features-carousel-wrapper {
+            position: relative; /* Necessario per posizionare frecce */
+        }
+
+        /* Contenitore delle slide */
         #features-mobile .features-list {
             display: block;
             overflow: hidden;
             width: 100%;
             position: relative;
-            height: 615px; /* Altezza fissa (come originale) */
+            height: 585px; /* Altezza leggermente ridotta per fare spazio ai dots sopra */
         }
 
-        /* Singola slide (come originale) */
+        /* Singola slide */
         #features-mobile .feature-container-slide {
             width: 100%;
             min-width: 100%;
@@ -3549,35 +3546,33 @@ img {
             left: 0;
             height: 100%;
             will-change: transform;
-            /* display: flex; */ /* Mantenuto commentato */
-            /* justify-content: center; */
-            /* align-items: center; */
         }
 
-        /* Stili interni della card (come originale) */
+        /* Stili interni della card */
         #features-mobile .feature-container {
             position: relative;
             width: 90%;
             max-width: 350px;
-            height: auto; /* L'altezza fissa è su .features-list */
-            margin:  auto; /* Centra la card */
+            height: auto;
+            margin: 15px auto 0 auto;
             background: white;
             border-radius: 18px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 24px 24px;
-            /* border-top: 4px solid var(--primary-purple); */ /* RIMOSSA la barra viola sopra */
-            /* min-height: 550px; */
+            padding: 24px;
         }
 
         #features-mobile .feature-content {
             order: 1;
             width: 100%;
-            padding: 0 10px;
             text-align: center;
+        }
+
+        #features-mobile .feature-title {
+            padding-bottom: 8px;
         }
 
         #features-mobile .feature-media {
@@ -3585,313 +3580,254 @@ img {
             width: 100%;
             display: flex;
             justify-content: center;
-            padding-top: 16px; /* Mantenuto dall'originale */
+            padding-top: 16px;
         }
 
         #features-mobile .feature-video {
-            width: 170px; /* Mantenuto dall'originale */
+            width: 170px;
             height: auto;
             object-fit: cover;
             border-radius: 18px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
-        /* MODIFICATO: Indicatori (dots) posizionati in fondo al wrapper */
-        .features-carousel-wrapper .feature-indicators {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-             position: absolute;
-             bottom: 10px; /* In fondo al wrapper (sopra il padding-bottom) */
-             left: 50%;
-             transform: translateX(-50%);
-             width: 100%; /* Per centrare correttamente */
-            z-index: 10;
-        }
-
-         /* MODIFICATO: Stile dot (selector aggiornato) */
-        .features-carousel-wrapper .feature-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .features-carousel-wrapper .feature-dot.active {
-            background: var(--primary-purple);
-            transform: scale(1.2); /* Rimosso translate, non necessario qui */
-        }
-
-        /* MODIFICATO: Navigazione ai lati del wrapper */
+        /* Navigazione (frecce) */
         .features-carousel-wrapper .nav-arrow {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             background: white;
             border: 1px solid #eee;
-            color: var(--primary-purple);
+            color: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 16px;
-            position: absolute; /* Rispetto a .features-carousel-wrapper */
-             top: 45%; /* O aggiusta questo valore se necessario */
-            transform: translateY(-50%); /* Centra verticalmente il bottone stesso */
+            position: absolute;
+            top: 45%; /* Adjusted if carousel height changed */
+            transform: translateY(-50%);
             z-index: 10;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* MODIFICATO: Posizione frecce (selector aggiornato) */
         .features-carousel-wrapper .prev-arrow {
-            left: 10px; /* O 0, o valore desiderato */
+            left: 10px;
         }
 
         .features-carousel-wrapper .next-arrow {
-            right: 10px; /* O 0, o valore desiderato */
+            right: 10px;
         }
 
-        /* Stato attivo per i pulsanti (come originale, selector aggiornato) */
-        .features-carousel-wrapper .nav-arrow:active { /* Usa solo :active */
+        .features-carousel-wrapper .nav-arrow:active {
             background: var(--gradient-primary);
             color: white;
-            /* Mantiene lo scale originale ma usa il nuovo transform base */
             transform: translateY(-50%) scale(0.95);
         }
     </style>
 
     <script>
-        // Script originale, con MINIME modifiche ai selettori di frecce/dots
         document.addEventListener('DOMContentLoaded', () => {
-            // Assicurati che questo codice venga eseguito solo su mobile (come originale)
-             const featuresMobileSection = document.getElementById('features-mobile');
-            // Controllo più robusto se è visibile
-            if (!featuresMobileSection || window.getComputedStyle(featuresMobileSection).display === 'none') {
-               if (window.innerWidth > 768) return; // Vecchio controllo per sicurezza
-               // Potrebbe essere nascosto per altri motivi, se esiste non partire
-                if (!featuresMobileSection) return;
+            const featuresMobileSection = document.getElementById('features-mobile');
+            // Robust check for mobile visibility
+            if (!featuresMobileSection || (window.innerWidth > 768 && window.getComputedStyle(featuresMobileSection).display === 'none')) {
+                 if (!featuresMobileSection && window.innerWidth > 768) return;
+                 if (featuresMobileSection && window.getComputedStyle(featuresMobileSection).display === 'none' && window.innerWidth > 768) return;
+                 if (!featuresMobileSection) return; // Final check if section itself doesn't exist
             }
 
-            // Variabili per il carosello mobile
             let currentFeatureIndex = 0;
             const featuresCarousel = document.getElementById('features-carousel-mobile');
-             // Seleziona le slide DENTRO il carosello
-             const featureElements = featuresCarousel?.querySelectorAll('.feature-container-slide');
+            const featureElements = featuresCarousel?.querySelectorAll('.feature-container-slide');
             const totalFeatures = featureElements?.length || 0;
-             if (!featuresCarousel || totalFeatures === 0) return; // Esce se non ci sono slide
 
+            if (!featuresCarousel || totalFeatures === 0) {
+                console.error("Features carousel or slides not found.");
+                return;
+            }
 
-            // NUOVO: Seleziona il wrapper comune
-             const carouselWrapper = featuresCarousel.closest('.features-carousel-wrapper');
+            // MODIFICATO: Seleziona il wrapper comune per frecce
+            const carouselWrapper = featuresCarousel.closest('.features-carousel-wrapper');
              if (!carouselWrapper) {
                 console.error("Wrapper .features-carousel-wrapper non trovato.");
                 return;
              }
 
-            // MODIFICATO: Seleziona i singoli dots e bottoni dal wrapper
-            const dotsContainer = carouselWrapper.querySelector('.feature-indicators');
-             const dots = dotsContainer?.querySelectorAll('.feature-dot'); // Seleziona tutti i dots nell'UNICO container
-            const prevBtn = carouselWrapper.querySelector('.prev-arrow'); // Seleziona il SINGOLO bottone prev
-            const nextBtn = carouselWrapper.querySelector('.next-arrow'); // Seleziona il SINGOLO bottone next
+            // MODIFICATO: Seleziona i dots globali (fuori dal wrapper del carosello, dentro .container)
+            const sectionContainer = featuresMobileSection.querySelector('.container');
+            const dotsContainer = sectionContainer?.querySelector('.feature-indicators');
+            const dots = dotsContainer?.querySelectorAll('.feature-dot');
+            const prevBtn = carouselWrapper.querySelector('.prev-arrow');
+            const nextBtn = carouselWrapper.querySelector('.next-arrow');
 
-             // Verifica elementi UI essenziali
-             if (!dots || dots.length !== totalFeatures || !prevBtn || !nextBtn) {
-                 console.error("Elementi UI (dots/frecce) non trovati o numero incorretto.");
-                 return;
-             }
+            // Verifica elementi UI essenziali
+            if (!dots || dots.length !== totalFeatures || !prevBtn || !nextBtn) {
+                console.error("Elementi UI (dots, frecce) non trovati o numero incorretto.", {
+                    dots: dots ? dots.length : 'ND',
+                    totalFeatures,
+                    prevBtn: !!prevBtn,
+                    nextBtn: !!nextBtn
+                });
+                return;
+            }
 
             let isAnimating = false;
 
-            // Imposta lo stato iniziale del carosello mobile (come originale)
             function setupMobileCarousel() {
-                updateActiveDot(0); // Aggiorna l'UNICO set di dots
+                updateActiveDot(0); // Aggiorna il set globale di dots
                 featureElements.forEach((feature, index) => {
                     const video = feature.querySelector('.feature-video');
                     if (index === 0) {
                         feature.style.transform = 'translateX(0)';
                         feature.style.visibility = 'visible';
                         feature.style.opacity = '1';
-                         if (video) video.play().catch(e => {});
+                        if (video) video.play().catch(e => console.warn("Video play initial failed:", e));
                     } else {
                         feature.style.transform = 'translateX(100%)';
                         feature.style.visibility = 'visible';
                         feature.style.opacity = '1';
-                         if (video) video.pause();
+                        if (video) video.pause();
                     }
-                    // Assicura che la transizione sia attiva dopo il setup iniziale
-                    feature.style.transition = 'transform 0.4s ease-in-out';
+                    feature.style.transition = 'transform 0.4s ease-in-out, opacity 0.4s ease-in-out';
                 });
             }
 
-
-            // Aggiorna il dot attivo su mobile (Logica quasi identica, opera su 'dots')
+            // MODIFICATO: Aggiorna il dot attivo sul set globale
             function updateActiveDot(index) {
-                dots.forEach((dot, i) => { // Itera sull'UNICO set di dots
+                dots.forEach((dot, i) => {
                     if (i === index) {
                         dot.classList.add('active');
                     } else {
                         dot.classList.remove('active');
                     }
-                 });
+                });
             }
 
-            // Gestisci il cambio di feature su mobile (Logica identica all'originale)
-             function goToFeature(index) {
-                if (isAnimating || !featuresCarousel) return;
-                 isAnimating = true;
+            function goToFeature(index) {
+                if (isAnimating) return;
+                isAnimating = true;
 
-                 const previousIndex = currentFeatureIndex;
-                 // Calcolo indice corretto (gestisce loop)
-                 if (index < 0) {
-                    currentFeatureIndex = totalFeatures - 1;
-                 } else if (index >= totalFeatures) {
-                    currentFeatureIndex = 0;
-                 } else {
-                     currentFeatureIndex = index;
-                 }
-                 // index = currentFeatureIndex; // L'indice calcolato diventa l'indice target
+                const previousIndex = currentFeatureIndex;
+                currentFeatureIndex = (index + totalFeatures) % totalFeatures;
 
-                 // Determina direzione
-                 let direction = index > previousIndex ? 1 : -1;
-                 // Gestione del loop nella direzione
-                 if (previousIndex === totalFeatures - 1 && index === 0) {
-                     direction = 1; // Da ultimo a primo -> avanti
-                 } else if (previousIndex === 0 && index === totalFeatures - 1) {
-                     direction = -1; // Da primo a ultimo -> indietro
-                 }
+                let direction = 1; // Default to forward
+                if (index < previousIndex) { // Moving backwards
+                    if (previousIndex === 0 && currentFeatureIndex === totalFeatures - 1) { // Loop from first to last
+                        direction = -1;
+                    } else {
+                        direction = -1;
+                    }
+                } else if (index > previousIndex) { // Moving forwards
+                     if (previousIndex === totalFeatures - 1 && currentFeatureIndex === 0) { // Loop from last to first
+                        direction = 1;
+                    } else {
+                        direction = 1;
+                    }
+                }
+                // If index === previousIndex (e.g., clicked active dot), direction might need specific handling or just do nothing.
+                // Current logic will likely keep direction = 1 if index === previousIndex after modulo.
 
-                 // Pausa tutti i video
-                 document.querySelectorAll('#features-mobile .feature-video').forEach(video => {
+                document.querySelectorAll('#features-mobile .feature-video').forEach(video => {
                     video.pause();
-                    // video.currentTime = 0; // Optional: reset video
                 });
 
-                 // Animazione Slide
-                 featureElements.forEach((feature, idx) => {
-                     const video = feature.querySelector('.feature-video');
-                     // Slide corrente (che esce)
-                     if (idx === previousIndex) {
-                         feature.style.transition = 'transform 0.4s ease-in-out';
-                         feature.style.transform = direction === 1 ? 'translateX(-100%)' : 'translateX(100%)';
-                     }
-                     // Slide nuova (che entra)
-                     else if (idx === currentFeatureIndex) {
-                         // Posiziona fuori schermo senza transizione
-                         feature.style.transition = 'none';
-                         feature.style.transform = direction === 1 ? 'translateX(100%)' : 'translateX(-100%)';
-                         // Forza reflow per applicare lo stato iniziale
-                         feature.offsetHeight;
-                         // Attiva la transizione e muovi al centro
-                         feature.style.transition = 'transform 0.4s ease-in-out';
-                         feature.style.transform = 'translateX(0%)';
-                         // Avvia il video della nuova slide attiva
-                         if (video) {
-                             video.play().catch(e => console.log("Video play failed:", e));
-                         }
-                     }
-                     // Altre slide (assicurati siano fuori schermo)
-                     else {
-                         feature.style.transition = 'none';
-                         feature.style.transform = 'translateX(100%)'; // O -100% a seconda della logica preferita
-                     }
-                 });
+                featureElements.forEach((feature, idx) => {
+                    const video = feature.querySelector('.feature-video');
+                    if (idx === previousIndex) {
+                        feature.style.transition = 'transform 0.4s ease-in-out';
+                        feature.style.transform = direction === 1 ? 'translateX(-100%)' : 'translateX(100%)';
+                    } else if (idx === currentFeatureIndex) {
+                        feature.style.transition = 'none';
+                        feature.style.transform = direction === 1 ? 'translateX(100%)' : 'translateX(-100%)';
+                        feature.offsetHeight; // Force reflow
+                        feature.style.transition = 'transform 0.4s ease-in-out';
+                        feature.style.transform = 'translateX(0%)';
+                        if (video) {
+                            video.play().catch(e => console.warn("Video play failed:", e));
+                        }
+                    } else {
+                        // Ensure other slides are positioned correctly off-screen
+                        feature.style.transition = 'none';
+                        feature.style.transform = 'translateX(100%)'; // Or -100% depending on a preferred default
+                    }
+                });
 
-                 // Aggiorna il dot attivo
-                 updateActiveDot(currentFeatureIndex);
+                updateActiveDot(currentFeatureIndex);
 
-                 // Reset dello stato di animazione dopo la transizione
-                 setTimeout(() => {
-                     isAnimating = false;
-                     // Pulisce le transizioni "none" se necessario
-                     featureElements.forEach(feature => {
-                         feature.style.transition = ''; // Rimuove stile inline o lo setta a default
-                     });
-                 }, 400); // Durata della transizione CSS
-             }
+                setTimeout(() => {
+                    isAnimating = false;
+                    featureElements.forEach(feature => {
+                        if (feature.style.transition === 'none') {
+                           feature.style.transition = '';
+                        }
+                    });
+                }, 400);
+            }
 
-
-            // Funzione per gestire l'effetto di clic sui pulsanti (Commentata - :active è preferibile)
-            // function handleButtonClick(button) { ... }
-
-            // MODIFICATO: Evento click sul pulsante precedente (singolo bottone)
             prevBtn?.addEventListener('click', () => {
                 goToFeature(currentFeatureIndex - 1);
             });
 
-
-            // MODIFICATO: Evento click sul pulsante successivo (singolo bottone)
-             nextBtn?.addEventListener('click', () => {
+            nextBtn?.addEventListener('click', () => {
                 goToFeature(currentFeatureIndex + 1);
             });
 
-            // Event listener per i dot indicatori (come originale, opera su 'dots')
+            // MODIFICATO: Event listener per i dot indicatori globali
             if (dots && dots.length) {
                 dots.forEach((dot) => {
                     dot.addEventListener('click', () => {
                         const index = parseInt(dot.getAttribute('data-index'));
-                         if (index !== currentFeatureIndex && !isAnimating) { // Evita click sullo stesso o durante animazione
-                             goToFeature(index);
-                         }
+                        if (index !== currentFeatureIndex && !isAnimating) {
+                            goToFeature(index);
+                        }
                     });
                 });
             }
 
-            // Imposta il carosello mobile all'avvio (come originale)
             setupMobileCarousel();
 
-             // Gestione resize della finestra (come originale)
-             let resizeTimeout;
-             window.addEventListener('resize', () => {
-                 clearTimeout(resizeTimeout);
-                 resizeTimeout = setTimeout(() => {
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
                     const isMobileNow = window.getComputedStyle(featuresMobileSection).display !== 'none';
                     if (isMobileNow) {
-                        // Ri-calcola la posizione iniziale - resetta alla prima slide
-                         setupMobileCarousel();
-                     }
+                        setupMobileCarousel();
+                    }
                 }, 250);
-             }, { passive: true });
+            }, { passive: true });
 
-            // Supporto per touch swipe su mobile (come originale)
-             if (featuresCarousel) {
-                 let touchStartX = 0;
-                 let touchEndX = 0;
+            if (featuresCarousel) {
+                let touchStartX = 0;
+                let touchEndX = 0;
 
-                 featuresCarousel.addEventListener('touchstart', (e) => {
-                    if (isAnimating) return; // Ignora se sta animando
-                     touchStartX = e.changedTouches[0].screenX;
-                 }, { passive: true });
+                featuresCarousel.addEventListener('touchstart', (e) => {
+                    if (isAnimating) return;
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
 
-                 featuresCarousel.addEventListener('touchend', (e) => {
-                    if (isAnimating || touchStartX === 0) return; // Ignora se sta animando o non c'è stato start valido
-                     touchEndX = e.changedTouches[0].screenX;
-                     handleSwipe();
-                     // Resetta per evitare swipe multipli
-                     touchStartX = 0;
-                     touchEndX = 0;
-                 }, { passive: true });
+                featuresCarousel.addEventListener('touchend', (e) => {
+                    if (isAnimating || touchStartX === 0) return;
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    touchStartX = 0;
+                    touchEndX = 0;
+                }, { passive: true });
 
-                 function handleSwipe() {
-                    const swipeThreshold = 50; // Come originale
-
+                function handleSwipe() {
+                    const swipeThreshold = 50;
                     if (touchEndX < touchStartX - swipeThreshold) {
-                        // Swipe a sinistra - vai alla feature successiva
-                         goToFeature(currentFeatureIndex + 1);
+                        goToFeature(currentFeatureIndex + 1);
                     } else if (touchEndX > touchStartX + swipeThreshold) {
-                        // Swipe a destra - vai alla feature precedente
-                         goToFeature(currentFeatureIndex - 1);
-                     }
-                    // Se lo swipe è troppo corto, non fa nulla
+                        goToFeature(currentFeatureIndex - 1);
+                    }
                 }
             }
         });
     </script>
 
 </section>
-
 
 <!-- Avatar Evolution Section -->
 <section id="avatar-evolution" class="avatar-evolution section">
@@ -3973,12 +3909,6 @@ img {
 </div>
 
 <style>
-    :root {
-        --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-        --primary-purple: #8C8DD4;
-        --primary-green: #79C192;
-        --border-thickness: 3px;
-    }
     
     .avatar-evolution {
         background: #E6F2F5;
@@ -4022,14 +3952,14 @@ img {
         height: 100%;
         transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462;
         border-radius: 18px;
         will-change: transform;
     }
     
     .avatar-card:hover .card-inner {
         transform: rotateY(180deg) scale(1.05);
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462;
         }
     
     .card-front, .card-back {
@@ -4103,7 +4033,7 @@ img {
 
     /* Style for shape 3 - another blob shape */
     .avatar-shape-3 .avatar-wrapper {
-        border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
+        border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
     }
 
     /* Avatar image contained inside the shape */
@@ -4187,13 +4117,13 @@ img {
         /* Per dispositivi mobili: disattiva l'effetto hover */
         .avatar-card:hover .card-inner {
             transform: none;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
         
         /* La card si gira solo quando ha la classe flipped */
         .avatar-card .card-inner.flipped {
             transform: rotateY(180deg);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
     }
 
@@ -4311,7 +4241,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="container">
     <h2 class="section-title">Hub</h2>
     <p class="section-subtitles">Incontra i tuoi amici per ricevere in automatico promemoria utili e condividere i progressi.</p>
-    
+
     <div class="card-container">
         <div class="card">
             <div class="card-bg" style="background-image: url('immagini/sfondo hub.png');"></div>
@@ -4324,13 +4254,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img id="img-left" class="image" src="immagini/liv 1 vuoto.png" alt="Liv 1 Vuoto">
                     <span class="image-label">Giacomo P. - Liv 1</span>
                 </div>
-                
+
                 <!-- Immagine centrale (avatar utente) -->
                 <div id="wrapper-center" class="image-wrapper">
                     <img id="img-center" class="image" src="immagini/liv 2 vuoto.png" alt="Liv 2 Vuoto">
                     <span class="image-label user-avatar"><i class="user-icon">👤</i>- Liv 2 </span>
                 </div>
-                
+
                 <!-- Immagine destra con nuvoletta -->
                 <div id="wrapper-right" class="image-wrapper">
                     <div class="bubble-wrapper">
@@ -4351,10 +4281,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     :root {
-        /* --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%); */ /* Already defined */
-        /* --primary-purple: #8C8DD4; */ /* Already defined */
-        /* --primary-green: #79C192; */ /* Already defined */
-        /* --border-thickness: 3px; */ /* Already defined */
+        /* Define your --secondary color if not already globally defined */
+        /* --secondary: #8C8DD4; */ /* Example, ensure this is available */
+        /* --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%); */ /* Ensure this is available */
+
+
         --speech-bubble-space: -30px;
         --card-width: 800px;
         --card-height: 500px;
@@ -4362,19 +4293,19 @@ document.addEventListener('DOMContentLoaded', function() {
         --image-height: 250px;
         --bubble-width: 300px;
     }
-    
+
     /* Limitare overflow solo alla sezione Hub, ma permettere overflow verticale */
     .card-container {
         overflow-x: hidden;
         overflow-y: visible;
         width: 100%;
     }
-    
+
     .game-hub {
         background: #E6F2F5;
         position: relative;
     }
-    
+
     /* Curva inferiore */
     .game-hub::after {
         content: '';
@@ -4387,8 +4318,8 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 0 0 50% 50% / 0 0 100% 100%;
         z-index: 2;
     }
-    
-    .card-container { /* Hub's card container */
+
+    .card-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -4397,8 +4328,8 @@ document.addEventListener('DOMContentLoaded', function() {
         perspective: 1500px;
         overflow: visible; /* Cambiato da hidden a visible */
     }
-    
-    .card { /* Hub's card */
+
+    .card {
         transition: all 0.3s ease;
         border-radius: 18px;
         background-color: white;
@@ -4413,9 +4344,9 @@ document.addEventListener('DOMContentLoaded', function() {
         transform-style: preserve-3d;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462; /* Base purple shadow */
     }
-    
+
     /* Aggiungiamo un div per lo sfondo con effetto zoom */
     .card-bg {
         position: absolute;
@@ -4429,16 +4360,14 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 18px;
         overflow: hidden;
         z-index: 0;
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462; /* Base purple shadow */
     }
-    
-    .card:hover .card-bg { /* Hub's card hover */
+
+    .card:hover .card-bg {
         transform: scale(1.05);
-        box-shadow: 0 8px 20px #8c8dd462;
-
     }
 
-    
+
     .image-container {
         position: relative;
         width: 100%;
@@ -4446,22 +4375,22 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: transform 0.3s ease;
         transform-style: preserve-3d !important;
     }
-    
+
     /* Zoom effect on hover */
-    .card:hover .image-container { /* Hub's card hover */
+    .card:hover .image-container {
         transform: scale(1.02);
     }
-    
+
     /* Effetto 3D Perspective Container */
-    .card { /* Hub's card */
+    .card {
         perspective: 1200px !important;
         overflow: visible !important;
     }
-    
+
     .image-container.transform-active {
         transform: translateZ(20px);
     }
-    
+
     .image-wrapper {
         position: absolute;
         transition: left 2s ease-in-out;
@@ -4470,7 +4399,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transform: translateY(-50%);
         width: calc(var(--image-width));
     }
-    
+
     /* Wrapper della nuvoletta */
     .bubble-wrapper {
         position: absolute;
@@ -4482,8 +4411,8 @@ document.addEventListener('DOMContentLoaded', function() {
         margin-bottom: var(--speech-bubble-space);
         z-index: 10;
     }
-    
-    .image { /* Hub's images */
+
+    .image {
         width: 100%;
         height: auto;
         max-width: var(--image-width);
@@ -4491,7 +4420,7 @@ document.addEventListener('DOMContentLoaded', function() {
         object-fit: contain;
         transition: none;
     }
-    
+
     /* Stili per le etichette sotto le immagini */
     .image-label {
         display: block;
@@ -4501,82 +4430,82 @@ document.addEventListener('DOMContentLoaded', function() {
         background-color: rgba(255, 255, 255, 0.8);
         padding: 4px 4px;
         border-radius: 18px;
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462;
         transition: none;
         position: relative;
         z-index: 5;
     }
-    
+
     /* Stile speciale per la targhetta dell'avatar utente */
     .image-label.user-avatar {
-        background: var(--gradient-primary);
-        box-shadow: 0 8px 20px #8c8dd462;
+        background: var(--gradient-primary); /* Make sure --gradient-primary is defined */
+        box-shadow: 0 0px 20px #8c8dd462;
         font-weight: bold;
         border: 2px solid #fff;
         padding: 4px 0px;
     }
-    
+
     .user-icon {
         font-style: normal;
         margin-left: 5px;
     }
-    
+
     @keyframes pulse {
         0% { box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
         50% { box-shadow: 0 3px 15px rgba(177, 172, 250, 0.8); }
         100% { box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
     }
-    
+
     /* Posizionamento immagini */
     #wrapper-center {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
     }
-    
+
     #wrapper-left {
         left: 20%;
         transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
+
     #wrapper-right {
         left: 80%;
         transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
+
     /* Animazioni fluttuanti - solo movimento verticale */
     @keyframes floatCenter {
         0% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
         100% { transform: translateY(0); }
     }
-    
+
     @keyframes floatLeft {
         0% { transform: translateY(0); }
         50% { transform: translateY(5px); }
         100% { transform: translateY(0); }
     }
-    
+
     @keyframes floatRight {
         0% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
         100% { transform: translateY(0); }
     }
-    
+
     #img-center {
         animation: floatCenter 3s ease-in-out infinite;
     }
-    
+
     #img-left {
         animation: floatLeft 4s ease-in-out infinite;
     }
-    
+
     #img-right {
         animation: floatRight 4s ease-in-out infinite;
     }
-    
+
     /* Stile nuvoletta dei fumetti */
     .speech-bubble {
         width: var(--bubble-width);
@@ -4587,11 +4516,11 @@ document.addEventListener('DOMContentLoaded', function() {
         transform-origin: bottom center;
         transform: scale(1.15);
     }
-    
+
     .speech-bubble.visible {
         opacity: 1;
     }
-    
+
     /* Assicurarsi che i titoli della sezione siano visibili */
     .section-title,
     .section-subtitles {
@@ -4602,14 +4531,14 @@ document.addEventListener('DOMContentLoaded', function() {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     /* Media query ottimizzata per dispositivi mobili */
     @media screen and (max-width: 768px) {
         :root {
-            --card-width: 90vw; /* Hub card */
-            --card-height: 56vw; /* Hub card */
-            --image-width: 21vw; /* Hub image */
-            --image-height: 29vw; /* Hub image */
+            --card-width: 90vw;
+            --card-height: 56vw;
+            --image-width: 21vw;
+            --image-height: 29vw;
             --bubble-width: 30vw; /* Ridotto */
             --speech-bubble-space: -15px; /* Ridotto */
         }
@@ -4617,116 +4546,101 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Decorazioni e struttura */
         /* .game-hub::after { ... } */
 
-        .bubble-wrapper { /* Hub bubble wrapper */
+        .bubble-wrapper {
             width: 140%;
             left: -20%;
         }
 
         /* Etichette immagini */
-        .image-label { /* Hub image label */
+        .image-label {
             font-size: 8px;
             padding: 1px 3px;
             margin-top: -5px;
         }
 
-        .image-label.user-avatar { /* Hub user avatar label */
+        .image-label.user-avatar {
             font-size: 8px;
             padding: 1px 0px;
             margin-top: -5px;
         }
 
         /* Posizionamento avatar */
-        #wrapper-left { left: 20%; } /* Hub wrapper */
-        #wrapper-right { left: 80%; } /* Hub wrapper */
+        #wrapper-left { left: 20%; }
+        #wrapper-right { left: 80%; }
 
         /* Layout card */
-        .card-container { /* Hub card container */
+        .card-container {
             width: 100%;
             max-width: 100vw;
             overflow-y: visible;
         }
 
-        /* --- MODIFICHE CHIAVE PER HOVER MOBILE (HUB CARD) --- */
+        /* --- MODIFICHE CHIAVE PER HOVER MOBILE --- */
 
         /* Resetta TUTTE le trasformazioni e ombre per la card su mobile */
-        .card-container .card { /* Target Hub card specifically */
+        .card {
              transform: none !important;
-             box-shadow: 0 8px 20px #8c8dd462 !important; /* Forza ombra viola base */
+             box-shadow: 0 0px 20px #8c8dd462 !important; /* Forza ombra viola base */
              transition: none !important; /* Disabilita transizioni su mobile se causano problemi */
         }
-        .card-container .card .card-bg { /* Target Hub card-bg */
+        .card-bg {
              transform: none !important;
              box-shadow: inherit !important; /* Eredita ombra card base */
              transition: none !important;
         }
-         .card-container .card .image-container { /* Target Hub image-container */
+         .image-container {
              transform: none !important;
              transition: none !important;
          }
 
         /* Impedisce QUALSIASI cambiamento su hover per card, bg e container su mobile */
-        .card-container .card:hover,
-        .card-container .card:focus, /* Aggiunto per accessibilità/interazioni touch */
-        .card-container .card:active { /* Aggiunto per interazioni touch */
+        .card:hover,
+        .card:focus, /* Aggiunto per accessibilità/interazioni touch */
+        .card:active { /* Aggiunto per interazioni touch */
             transform: none !important;
-            box-shadow: 0 8px 20px #8c8dd462 !important; /* Mantiene ombra viola base */
+            box-shadow: 0 0px 20px #8c8dd462 !important; /* Mantiene ombra viola base */
         }
 
-        .card-container .card:hover .card-bg,
-        .card-container .card:focus .card-bg,
-        .card-container .card:active .card-bg {
+        .card:hover .card-bg,
+        .card:focus .card-bg,
+        .card:active .card-bg {
             transform: none !important;
             box-shadow: inherit !important; /* Mantiene ombra viola ereditata */
         }
 
-        .card-container .card:hover .image-container,
-        .card-container .card:focus .image-container,
-        .card-container .card:active .image-container {
+        .card:hover .image-container,
+        .card:focus .image-container,
+        .card:active .image-container {
             transform: none !important;
         }
-        /* --- FINE MODIFICHE CHIAVE (HUB CARD) --- */
     }
 </style>
-    
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Elementi DOM (HUB SECTION)
+    // Elementi DOM
     const wrapperLeft = document.getElementById('wrapper-left');
     const wrapperCenter = document.getElementById('wrapper-center');
     const wrapperRight = document.getElementById('wrapper-right');
     const speechBubbleLeft = document.getElementById('speech-bubble-left');
     const speechBubbleRight = document.getElementById('speech-bubble-right');
-    
-    // Seleziona la card della sezione Hub specificamente.
-    // Evita di selezionare le .avatar-card della sezione Avatar Evolution.
-    const hubCardContainer = document.querySelector('.card-container'); // Hub's main container for cards
-    let hubCard = null;
-    let hubImageContainer = null;
-    let hubCardBg = null;
-
-    if (hubCardContainer) {
-        hubCard = hubCardContainer.querySelector('.card'); // The main card in the Hub section
-    }
-    if (hubCard) {
-        hubImageContainer = hubCard.querySelector('.image-container');
-        hubCardBg = hubCard.querySelector('.card-bg');
-    }
+    const imageContainer = document.querySelector('.image-container');
+    const card = document.querySelector('.card');
 
     // Controllo se è un dispositivo mobile
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    
-    // Posizioni - aggiornate per migliore responsività (HUB SECTION)
-    if (wrapperLeft && wrapperRight) { // Check if elements exist before setting styles
-        const positionLeft = { left: isMobile ? '20%' : '20%' };
-        const positionRight = { left: isMobile ? '80%' : '80%' };
-        wrapperLeft.style.left = positionLeft.left;
-        wrapperRight.style.left = positionRight.left;
-    }
-    
+
+    // Posizioni - aggiornate per migliore responsività
+    const positionLeft = { left: isMobile ? '20%' : '20%' };
     const positionMeetLeft = { left: '35%' };
     const positionMeetRight = { left: '65%' };
-    
-    // Immagini per le nuvolette (HUB SECTION)
+    const positionRight = { left: isMobile ? '80%' : '80%' };
+
+    // Configurazione iniziale
+    wrapperLeft.style.left = positionLeft.left;
+    wrapperRight.style.left = positionRight.left;
+
+    // Immagini per le nuvolette
     const leftBubbleImages = [
         "immagini/nuvola1.png",
         "immagini/nuvola2.png"
@@ -4741,39 +4655,47 @@ document.addEventListener('DOMContentLoaded', function() {
     let leftImageIndex = 0;
     let rightImageIndex = 0;
 
-    // Funzioni per mostrare le nuvolette (HUB SECTION)
+    // Funzioni per mostrare le nuvolette
     function showLeftSpeechBubble() {
-        if (!speechBubbleLeft) return;
         speechBubbleLeft.src = leftBubbleImages[leftImageIndex];
         leftImageIndex = (leftImageIndex + 1) % leftBubbleImages.length;
         speechBubbleLeft.classList.add('visible');
-        
+
         setTimeout(() => {
             speechBubbleLeft.classList.remove('visible');
         }, 2800);
     }
 
     function showRightSpeechBubble() {
-        if (!speechBubbleRight) return;
         speechBubbleRight.src = rightBubbleImages[rightImageIndex];
         rightImageIndex = (rightImageIndex + 1) % rightBubbleImages.length;
         speechBubbleRight.classList.add('visible');
-        
+
         setTimeout(() => {
             speechBubbleRight.classList.remove('visible');
         }, 2800);
     }
 
-    // Funzioni per spostare le immagini (HUB SECTION)
+    // Funzioni per spostare le immagini
     function moveLeftToCenter() {
-        if (!wrapperLeft) return;
+        // Prima impostiamo solo lo z-index senza transizione
         wrapperLeft.style.zIndex = '3';
+
+        // Usiamo setTimeout per evitare che il cambio di z-index e posizione
+        // avvengano simultaneamente e causino problemi di rendering
         setTimeout(() => {
             wrapperLeft.style.left = positionMeetLeft.left;
         }, 10);
-        setTimeout(showLeftSpeechBubble, 2000);
+
         setTimeout(() => {
-            wrapperLeft.style.left = (isMobile ? '20%' : '20%'); // Use updated position
+            showLeftSpeechBubble();
+        }, 2000);
+
+        setTimeout(() => {
+            wrapperLeft.style.left = positionLeft.left;
+
+            // Ripristiniamo lo z-index originale dopo che l'elemento
+            // è tornato nella posizione iniziale
             setTimeout(() => {
                 wrapperLeft.style.zIndex = '1';
             }, 2000);
@@ -4781,24 +4703,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function moveRightToCenter() {
-        if (!wrapperRight) return;
+        // Prima impostiamo solo lo z-index senza transizione
         wrapperRight.style.zIndex = '3';
+
+        // Usiamo setTimeout per evitare che il cambio di z-index e posizione
+        // avvengano simultaneamente e causino problemi di rendering
         setTimeout(() => {
             wrapperRight.style.left = positionMeetRight.left;
         }, 10);
-        setTimeout(showRightSpeechBubble, 2000);
+
         setTimeout(() => {
-            wrapperRight.style.left = (isMobile ? '80%' : '80%'); // Use updated position
+            showRightSpeechBubble();
+        }, 2000);
+
+        setTimeout(() => {
+            wrapperRight.style.left = positionRight.left;
+
+            // Ripristiniamo lo z-index originale dopo che l'elemento
+            // è tornato nella posizione iniziale
             setTimeout(() => {
                 wrapperRight.style.zIndex = '1';
             }, 2000);
         }, 4000);
     }
 
-    // Avvio dell'animazione (HUB SECTION)
+    // Avvio dell'animazione
     function startAnimationLoop() {
-        if (!wrapperLeft || !wrapperRight) return; // Don't start if elements are missing
         moveLeftToCenter();
+
         let isLeftTurn = false;
         setInterval(() => {
             if (isLeftTurn) {
@@ -4810,72 +4742,98 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 8000);
     }
 
-    // Avvia l'animazione dopo un breve ritardo (solo se elementi Hub esistono)
-    if (wrapperLeft && wrapperRight && speechBubbleLeft && speechBubbleRight) {
-        setTimeout(startAnimationLoop, 1000);
-    }
+    // Avvia l'animazione dopo un breve ritardo
+    setTimeout(startAnimationLoop, 1000);
 
-
-    // Aggiorna le dimensioni quando la finestra viene ridimensionata (HUB SECTION)
+    // Aggiorna le dimensioni quando la finestra viene ridimensionata
     window.addEventListener('resize', function() {
+        // Aggiorna il controllo per dispositivi mobili
         const newIsMobile = window.matchMedia("(max-width: 768px)").matches;
+
+        // Se cambia da desktop a mobile o viceversa, aggiorna la variabile
         if (isMobile !== newIsMobile) {
-            // Consider reloading or dynamically adjusting styles if behavior drastically changes
-            // location.reload(); // Potentially disruptive, use with caution
+            location.reload(); // Ricarica la pagina per applicare le modifiche
         }
-        // Riconfigura posizioni se necessario e se elementi esistono
-        if (wrapperLeft && wrapperRight) {
-            wrapperLeft.style.left = (newIsMobile ? '20%' : '20%');
-            wrapperRight.style.left = (newIsMobile ? '80%' : '80%');
-        }
+
+        // Riconfigura posizioni
+        wrapperLeft.style.left = positionLeft.left;
+        wrapperRight.style.left = positionRight.left;
     });
-    
-    // ===== EFFETTO 3D MIGLIORATO (HUB CARD) =====
-    if (hubCard && hubImageContainer && hubCardBg) { // Ensure Hub elements exist
-        if (!isMobile) {
-            hubCard.addEventListener('mousemove', function(e) {
-                const cardRect = hubCard.getBoundingClientRect();
-                const xRatio = (e.clientX - cardRect.left) / cardRect.width;
-                const yRatio = (e.clientY - cardRect.top) / cardRect.height;
-                const maxRotation = 12;
-                const xRotation = maxRotation * (0.5 - yRatio);
-                const yRotation = maxRotation * (xRatio - 0.5);
-                
-                hubCard.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-                hubCard.style.boxShadow = `0 8px 20px #8c8dd462, 
-                                    ${yRotation * 0.5}px ${xRotation * -0.5}px 15px rgba(0,0,0,0.08)`;
-                
-                const imageContainerRect = hubImageContainer.getBoundingClientRect();
-                if (
-                    e.clientX >= imageContainerRect.left && 
-                    e.clientX <= imageContainerRect.right && 
-                    e.clientY >= imageContainerRect.top && 
-                    e.clientY <= imageContainerRect.bottom
-                ) {
-                    hubImageContainer.style.transform = 'scale(1.05)';
-                    hubCardBg.style.transform = 'scale(1.08)';
-                } else {
-                    hubImageContainer.style.transform = 'scale(1.02)';
-                    hubCardBg.style.transform = 'scale(1.05)';
-                }
-            });
-            
-            hubCard.addEventListener('mouseleave', function() {
-                hubCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
-                hubCard.style.boxShadow = '0 8px 20px #8c8dd462';
-                hubImageContainer.style.transform = 'scale(1)';
-                hubCardBg.style.transform = 'scale(1)';
-            });
-        } else {
-            // Mobile specific behavior for Hub card (already handled by CSS media query to prevent hover effects)
-            // Add click effect for mobile if desired, similar to avatar cards, but ensure it targets hubCard
-            hubCard.addEventListener('click', function() {
-                hubCard.style.boxShadow = '0 10px 25px rgba(140, 141, 212, 0.4)';
-                setTimeout(() => {
-                    hubCard.style.boxShadow = '0 8px 20px #8c8dd462';
-                }, 500);
-            });
-        }
+
+    // ===== EFFETTO 3D MIGLIORATO =====
+    // Applica effetto 3D solo su desktop, non su mobile
+    const baseCardShadow = '0 0px 20px #8c8dd462'; // Store base shadow from CSS
+
+    if (!isMobile) {
+        // Aggiungi effetto 3D al passaggio del mouse sulla card
+        card.addEventListener('mousemove', function(e) {
+            // Ottieni dimensioni e posizione della card
+            const cardRect = card.getBoundingClientRect();
+            const cardBg = card.querySelector('.card-bg');
+
+            // Calcola la posizione relativa del cursore all'interno della card (da 0 a 1)
+            const xRatio = (e.clientX - cardRect.left) / cardRect.width;
+            const yRatio = (e.clientY - cardRect.top) / cardRect.height;
+
+            // Calcola gli angoli di rotazione (intervallo da -12 a 12 gradi)
+            const maxRotation = 12;
+            const xRotation = maxRotation * (0.5 - yRatio);
+            const yRotation = maxRotation * (xRatio - 0.5);
+
+            // Applica la trasformazione all'intera card incluso lo sfondo
+            card.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+
+            // Aggiungi un'ombra VIOLA per enfatizzare l'effetto 3D
+            // --secondary color is #8C8DD4 -> rgb(140, 141, 212)
+            card.style.boxShadow = `0 25px 50px rgba(140, 141, 212, 0.5),
+                                ${yRotation * 0.5}px ${xRotation * -0.5}px 30px rgba(0,0,0,0.1)`;
+
+            // Controlla se il cursore è sopra l'image container per applicare uno zoom aggiuntivo
+            const imageContainerRect = imageContainer.getBoundingClientRect();
+            if (
+                e.clientX >= imageContainerRect.left &&
+                e.clientX <= imageContainerRect.right &&
+                e.clientY >= imageContainerRect.top &&
+                e.clientY <= imageContainerRect.bottom
+            ) {
+                // Applica un leggero zoom aggiuntivo quando il mouse è sopra l'image container
+                imageContainer.style.transform = 'scale(1.05)';
+                // Zoom leggermente maggiore per lo sfondo
+                cardBg.style.transform = 'scale(1.08)';
+            } else {
+                // Applica solo lo zoom base quando il mouse è sulla card ma non sull'image container
+                imageContainer.style.transform = 'scale(1.02)';
+                // Zoom base per lo sfondo
+                cardBg.style.transform = 'scale(1.05)';
+            }
+        });
+
+        // Reset della trasformazione quando il mouse esce dalla card
+        card.addEventListener('mouseleave', function() {
+            const cardBg = card.querySelector('.card-bg');
+            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            card.style.boxShadow = baseCardShadow; // Revert to base purple shadow
+            imageContainer.style.transform = 'scale(1)';
+            cardBg.style.transform = 'scale(1)';
+        });
+    } else {
+        // Su mobile, rimuovi tutte le trasformazioni di default e disabilita il zoom
+        const cardBg = card.querySelector('.card-bg');
+        card.style.transform = 'none';
+        imageContainer.style.transform = 'none';
+        cardBg.style.transform = 'none';
+
+        // Su mobile, gestisci il click per mostrare un'ombra VIOLA
+        card.addEventListener('click', function() {
+            // Crea effetto pulsante con ombra viola
+            // --secondary color is #8C8DD4 -> rgb(140, 141, 212)
+            card.style.boxShadow = '0 15px 30px rgba(140, 141, 212, 0.5)';
+
+            // Rimuovi l'effetto dopo un breve periodo, tornando all'ombra base
+            setTimeout(() => {
+                card.style.boxShadow = baseCardShadow;
+            }, 500);
+        });
     }
 });
 </script>
@@ -4972,7 +4930,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .timeline-line:after {
             content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
             width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
-            border-top: 15px solid var(--primary-purple);
+            border-top: 15px solid var(--secondary);
         }
 
         .timeline-item {
@@ -4983,13 +4941,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         .timeline-dot {
             position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
-            background: white; border: 4px solid var(--primary-purple); border-radius: 50%;
+            background: white; border: 4px solid var(--secondary); border-radius: 50%;
             transform: translateX(-50%); z-index: 2;
         }
 
         .timeline-content {
             width: 45%; background: white; padding: 24px; border-radius: 18px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
         }
@@ -4997,13 +4955,13 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Stili Hover Desktop */
         @media (hover: hover) and (min-width: 769px) { /* Applica solo se il device supporta hover e non è mobile */
             .timeline-content:hover {
-                box-shadow: 0 8px 20px #8c8dd462;
+                box-shadow: 0 0px 20px #8c8dd462;
             }
 
             .timeline-content:hover .step-number {
                 border-radius: var(--step-blob-shape, 50%);
                 transform: scale(1.1) rotate(5deg);
-                box-shadow: 0 8px 20px #8c8dd462;
+                box-shadow: 0 0px 20px #8c8dd462;
                 background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
             }
         }
@@ -5012,7 +4970,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .timeline-item.left .timeline-content:before,
         .timeline-item.right .timeline-content:before {
             content: ''; position: absolute; top: 34px; /* Allinea al dot */
-            width: 40px; height: 2px; background-color: var(--primary-purple); z-index: 1;
+            width: 40px; height: 2px; background-color: var(--secondary); z-index: 1;
         }
         .timeline-item.left .timeline-content:before { right: -40px; }
         .timeline-item.right .timeline-content:before { left: -40px; }
@@ -5022,7 +4980,7 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             margin-bottom: 1rem; position: relative; z-index: 1;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
                         transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
@@ -5039,8 +4997,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Ticker Styles */
             .ticker-wrap {
-            width: 100%; overflow: hidden; background: #222222;
-            box-shadow: 0 8px 20px #8c8dd462, 0 -8px 20px rgba(93, 92, 179, 0.25);
+            width: 100%; overflow: hidden; background: #121218;
+            box-shadow: 0 0px 20px #8c8dd462, 0 0px 20px #8c8dd462;
             position: relative;
             transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
             }
@@ -5084,7 +5042,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
                     left: -25px; right: auto; width: 25px; top: 32px;
                 }
-                .ticker-item { font-size: 0.9rem; margin-right: 1.5rem; }
+                .ticker-item { font-size: 14px; margin-right: 1.5rem; }
 
                 /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
                 .ticker {
@@ -5093,14 +5051,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 /* NUOVO: Stili per l'elemento timeline centrato su mobile */
                 .timeline-content.is-centered {
-                    box-shadow: 0 8px 20px #8c8dd462;
+                    box-shadow: 0 0px 20px #8c8dd462;
                     /* Aggiungi qui altri stili desiderati per lo stato "attivo" se necessario */
                 }
 
                 .timeline-content.is-centered .step-number {
                 border-radius: var(--step-blob-shape, 50%);
                 transform: scale(1.1) rotate(5deg);
-                box-shadow: 0 8px 20px #8c8dd462;
+                box-shadow: 0 0px 20px #8c8dd462;
                 background: linear-gradient(135deg, #79C192 60%, #8C8DD4 100%);
                 }
             }
@@ -5114,7 +5072,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const stepBlobShapes = [
                     '60% 40% 65% 35% / 35% 65% 35% 65%',
                     '40% 60% 30% 70% / 60% 30% 70% 40%',
-                    '60% 40% 50% 50% / 35% 65% 35% 65%',
+                    ' 60% 40% 50% 50% / 35% 65% 35% 65%',
                     '40% 60% 40% 60% / 70% 30% 70% 30%'
                 ];
                 stepNumbers.forEach((stepNumber, index) => {
@@ -5289,15 +5247,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #79C192;
-            --border-thickness: 3px;
-            /* Assumo esista una variabile --text2 da qualche parte, altrimenti sostituire con un colore valido */
-            --text2: #333; /* Esempio: colore di default se non definita altrove */
-        }
-
         .testimonials {
             background: #E6F2F5;
             position: relative;
@@ -5325,9 +5274,9 @@ document.addEventListener('DOMContentLoaded', function() {
             margin: auto auto auto auto;
             overflow: hidden;
             cursor: pointer;
-            padding-bottom: 25px;
-            padding-left: 17px;
-            padding-right: 17px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
             -webkit-touch-callout: none;
@@ -5336,7 +5285,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Progress bars styles */
         .progress-bars { display: flex; gap: 8px; margin-bottom: 20px; }
         .progress-bar { height: 4px; flex: 1; background: rgba(0, 0, 0, 0.1); border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; width: 0%; background: var(--primary-purple); border-radius: 2px; transition: width 0.1s linear; }
+        .progress-fill { height: 100%; width: 0%; background: var(--secondary); border-radius: 2px; transition: width 0.1s linear; }
         .progress-fill.completed { width: 100%; }
         .progress-fill.no-transition { transition: none; }
 
@@ -5357,7 +5306,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
             -webkit-tap-highlight-color: transparent;
             outline: none;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
         /* Irregular blob shapes */
@@ -5396,7 +5345,7 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: -1;
             border-radius: 50%;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
 
         }
 
@@ -5415,10 +5364,10 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Definizione delle forme blob per gli avatar */
         .avatar-shape-1 { --blob-shape: 60% 40% 65% 35% / 35% 65% 35% 65%; }
         .avatar-shape-2 { --blob-shape: 40% 60% 30% 70% / 60% 30% 70% 40%; }
-        .avatar-shape-3 { --blob-shape: 60% 40% 50% 50% / 35% 65% 35% 65%; }
+        .avatar-shape-3 { --blob-shape: 70% 30% 60% 40% / 30% 70% 30% 70%; }
 
         .testimonial-info h5 { margin: 0 0 0.3rem; }
-        .testimonial-info p { margin: 0; font-size: 0.9rem; } /* Stile base per desktop/default */
+        .testimonial-info p { margin: 0; font-size: 14px; } /* Stile base per desktop/default */
 
         /* Stile per l'effetto di pressione attiva */
         .story-inner:active {
@@ -5431,7 +5380,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* --- Stili Hover Desktop --- */
         @media (hover: hover) and (min-width: 768px) {
             .story-inner:hover {
-                box-shadow: 0 8px 20px #8c8dd462;
+                box-shadow: 0 0px 20px #8c8dd462;
             }
 
             .story-inner:hover .avatar-blob::before {
@@ -5453,14 +5402,14 @@ document.addEventListener('DOMContentLoaded', function() {
             .story-inner { padding: 24px; }
             .testimonial-content { margin-bottom: 16px; }
             .stories-content { height: 300px; }
-            .testimonial-content p { font-size: 1.1rem; color: var(--text2); }
+            .testimonial-content p { font-size: 18px; color: var(--text2); }
             .quote-icon { margin-bottom: 16px; }
             .quote-icon svg { width: 30px; height: 30px; }
             .avatar-blob { width: 50px; height: 50px; margin-right: 16px; }
 
             /* ---- MODIFICA QUI ---- */
             .testimonial-info p {
-                font-size: 14.4px; /* Dimensione desiderata */
+                font-size: 14px; /* Dimensione desiderata */
                 /* Impedisce a iOS/Safari di ingrandire automaticamente il testo */
                 -webkit-text-size-adjust: none;
                 text-size-adjust: none;
@@ -5669,13 +5618,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <style>
-        :root {
-            --gradient-primary: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-            --primary-purple: #8C8DD4;
-            --primary-green: #79C192;
-            --border-thickness: 3px;
-        }
-
         .team {
             background-color: white;
             position: relative;
@@ -5733,7 +5675,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: relative;
             background: linear-gradient(135deg, #8C8DD4 0%, #79C192 100%);
             padding: 5px;
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
             overflow: hidden;
         }
 
@@ -5747,7 +5689,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .shape-3 {
-            border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
+            border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
         }
 
         /* NUOVA FORMA PER IL QUARTO MEMBRO */
@@ -5787,9 +5729,9 @@ document.addEventListener('DOMContentLoaded', function() {
             0% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
             15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
             30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
             100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
         }
@@ -5798,22 +5740,22 @@ document.addEventListener('DOMContentLoaded', function() {
              0% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
              15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
             30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
             100% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
         }
 
         @keyframes morph-shape-3 {
-             0% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(0deg); }
+             0% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(0deg); }
              15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
             30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
-            100% { border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(0deg); }
+            100% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(0deg); }
         }
 
         /* NUOVA ANIMAZIONE PER SHAPE 4 */
@@ -5821,9 +5763,9 @@ document.addEventListener('DOMContentLoaded', function() {
              0% { border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; transform: rotate(0deg); }
             15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
             30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-            45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+            45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+            60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+            75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
             90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
             100% { border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; transform: rotate(0deg); }
         }
@@ -5880,7 +5822,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .team-social a:hover {
             color: #000000;
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px #8c8dd462;
+            box-shadow: 0 0px 20px #8c8dd462;
         }
 
         .team-social a:hover::before {
@@ -5995,7 +5937,6 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Download Section */         
         .download {             
             background: var(--gradient-primary);             
-            color: var(--dark);         
         }          
         .download-content {             
             text-align: center;             
@@ -6021,7 +5962,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .store-btn {             
             display: flex;             
             align-items: center;             
-            background-color: var(--dark);             
+            background-color: var(--text);             
             color: white;             
             padding: 16px 24px;             
             border-radius: 18px;             
@@ -6046,7 +5987,7 @@ document.addEventListener('DOMContentLoaded', function() {
             flex: 1;         
         }          
         .store-name {             
-            font-size: 1.2rem;             
+            font-size: 19px;             
             font-weight: bold;         
         }          
         /* Media query for mobile devices */         
@@ -6068,7 +6009,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             .store-name {
-                font-size: 1.2rem;
+                font-size: 19px;
             }
         }     
     </style> 
@@ -6201,9 +6142,9 @@ document.addEventListener('DOMContentLoaded', function() {
         0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
         15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
         30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-        45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
         90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
         100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
     }
@@ -6227,7 +6168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: footer-blob-morph-shape-only 5s infinite;
         /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
         transform: scale(1.05); /* Rimosso translateY qui perché l'offset è sull'immagine */
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 0px 20px #8c8dd462;
     }
 
     /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
@@ -6335,7 +6276,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px #8c8dd462;   
+        box-shadow: 0 0px 20px #8c8dd462;   
     }
 
     .footer-social a:hover::before {
@@ -6381,7 +6322,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .footer-email a {
-            font-size: 17.6px;
+            font-size: 18px;
         }
 
         .footer-social {
