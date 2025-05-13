@@ -31,10 +31,11 @@
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
 <style>
-    /* Dichiarazione dei font locali Unbounded con @font-face */
+    
+/* Dichiarazione dei font locali Unbounded con @font-face */
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-ExtraLight.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -42,7 +43,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Light.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -50,7 +51,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Regular.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -58,7 +59,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Medium.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -66,7 +67,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-SemiBold.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -74,7 +75,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Bold.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -82,7 +83,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-ExtraBold.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -90,8 +91,114 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Black.ttf') format('truetype');
+    src: url('./font/Unbounded/Unbounded-Black.ttf') format('truetype');
     font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Dichiarazione dei font locali Segoe UI con @font-face */
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuil.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguili.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuisl.ttf') format('truetype');
+    font-weight: 350; /* Semilight */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisli.ttf') format('truetype');
+    font-weight: 350; /* Semilight */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeui.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuii.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisb.ttf') format('truetype');
+    font-weight: 600; /* Semibold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisbi.ttf') format('truetype');
+    font-weight: 600; /* Semibold */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuib.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuiz.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguibl.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguibli.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Dichiarazione dei font Strush (assumendo che abbiano file nella cartella Strush) */
+@font-face {
+    font-family: 'Strush';
+    src: url('./font/Strush/Strush.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
@@ -105,8 +212,8 @@
     --light: #f8f9fa;
     --dark: #222222;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
     --border-thickness: 3px;
-
 }
 
 /* Reset CSS di base */
@@ -136,7 +243,6 @@ h1 {
 h2 {
     font-weight: 700; 
     font-size: 43px; 
-    padding-bottom: 10px;
 }
 
 h3 {
@@ -244,6 +350,7 @@ img {
 .section-title.reveal .title-wrapper {
     opacity: 1;
     transform: translateY(0);
+    padding-bottom: 10px;
 }
 
 /* Animazione della barra di sottolineatura */
@@ -286,6 +393,7 @@ img {
         font-size: 20px;  /* Originale: 19px */
     }
 }
+
 </style>
     
 
@@ -1173,7 +1281,7 @@ img {
             transition: transform 0.3s ease, border-radius 0.3s ease;
             overflow: hidden;
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-            border: 2.5px solid #9495EA;
+            border: 2px solid #9495EA;
             cursor: pointer;
         }
 
@@ -1346,8 +1454,8 @@ img {
 
         /* --- MODIFIED Share Button styling --- */
         .chatbot-share-button {
-            background-color: var(--secondary); /* Purple background */
-            color: white; /* White text for contrast */
+            background-color: var(--primary); /* Purple background */
+            color: var(--text) ; /* White text */
             padding: 8px 16px; /* Padding for the button content */
             cursor: pointer;
             text-align: center;
@@ -1364,8 +1472,8 @@ img {
 
         /* --- NEW Action Button styling (for Preregister) --- */
         .chatbot-action-button {
-            background-color: var(--secondary); /* Purple background */
-            color: white; /* White text */
+            background-color: var(--primary); /* Purple background */
+            color: var(--text) ; /* White text */
             padding: 8px 16px;
             cursor: pointer;
             text-align: center;
@@ -2161,7 +2269,7 @@ img {
             /* Forma iniziale presa dal chatbot */
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
             /* Stili grafici mantenuti dalla navbar originale */
-            border: 2.5px solid #9495EA;
+            border: 2px solid #9495EA;
         }
 
         /* --- MODIFICA --- Nuova animazione presa dal chatbot */
@@ -2493,7 +2601,7 @@ img {
 
         .btn {
             display: inline-block;
-            padding: 16px 32px;
+            padding: 16px 24px;
             border-radius: 36px;
             font-weight: 600;
             text-decoration: none;
@@ -2506,7 +2614,6 @@ img {
         .btn-primary {
             background: #9495EA;
             color: white;
-
             width: 190px;
 
         }
@@ -2707,7 +2814,7 @@ img {
             }
 
             .btn {
-                padding: 12px 10px;
+                padding: 16px 16px;
             }
 
             .dino-avatar-container {
@@ -3826,7 +3933,7 @@ img {
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Latrofa</h4>
+                        <h4>Francesco</h4>
                         <p>Look da hipster squattrinato, ma con stile. Vive tra arte e il dramma del conto in rosso.</p>
                         <div class="level-badge">Principiante</div>
                     </div>
@@ -3872,7 +3979,7 @@ img {
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Baluiso</h4>
+                        <h4>Andrea</h4>
                         <p>Eleganza casual, ma con Excel aperto. Divide l’aperitivo al centesimo, ma con classe.</p>
                         <div class="level-badge">Avanzato</div>
                     </div>
@@ -3974,8 +4081,8 @@ img {
         align-items: center;
         justify-content: center;
         /* ADDED: Curve for the bottom edge */
-        border-bottom-left-radius: 50% 20px; 
-        border-bottom-right-radius: 50% 20px;
+        border-bottom-left-radius: 50% 30px; 
+        border-bottom-right-radius: 50% 30px;
     }
 
     /* Irregular shape containers for avatars */
@@ -5765,7 +5872,7 @@ document.addEventListener('DOMContentLoaded', function() {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            background: var(--gradient-secondary);
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: -1;
@@ -6084,7 +6191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         overflow: hidden;
         /* Forma iniziale */
         border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-        border: 2.5px solid #9495EA;
+        border: 2px solid #9495EA;
     }
 
     /* Animazione SOLO per la FORMA (border-radius) del blob */
@@ -6216,7 +6323,7 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: var(--gradient-primary);
+        background: var(--gradient-secondary);
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
