@@ -186,7 +186,7 @@ p {
     }
 
     h3 {
-        font-size: 21px;
+        font-size: 24px;
     }
 
     h4 {
@@ -256,7 +256,7 @@ img {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
-    border-radius: 2px;
+    border-radius: 36px;
     transition: transform 0.6s ease 0.4s;
 }
 
@@ -270,7 +270,7 @@ img {
     max-width: 700px;
     margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
     color: #121218;
-    font-size: 19px; /* Originale: 19px */
+    font-size: 20px; /* Originale: 19px */
 }
 
 @media (max-width: 768px) {
@@ -283,7 +283,7 @@ img {
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 19px;  /* Originale: 19px */
+        font-size: 20px;  /* Originale: 19px */
     }
 }
 </style>
@@ -899,11 +899,10 @@ img {
             cursor: pointer;
             font-weight: bold;
             font-size: 16px;
-            box-shadow: 0 0px 20px #9495EA62;
             transition: all 0.3s ease;
             z-index: 1000;
             overflow: hidden;
-            min-width: 180px;
+            min-width: 190px;
             text-align: center;
         }
     
@@ -944,6 +943,8 @@ img {
     
         .download-bar:hover {
             transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 8px 20px #9495EA62;
+
         }
     
         .download-bar.hidden {
@@ -1115,8 +1116,6 @@ img {
 
 <!-- Chatbot -->
 <section id="chatbot">
-    <!-- Added id to the container for easier JS access -->
-    <!-- Initially hidden -->
     <div class="chatbot-container" id="chatbot-container" style="display: none;">
         <!-- Audio element for opening sound -->
         <audio id="chatbot-open-sound" preload="auto">
@@ -1149,7 +1148,7 @@ img {
     <style>
         /* Core variables */
         :root {
-            --border-radius-lg: 18px;
+            --border-radius-lg: 16px;
             --border-radius-full: 50%;
 
         }
@@ -1171,11 +1170,9 @@ img {
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: box-shadow 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
+            transition: transform 0.3s ease, border-radius 0.3s ease;
             overflow: hidden;
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-            background: linear-gradient(135deg, #9495EA, #84CD9D);
-            box-shadow: 0 0px 20px #9495EA62;
             border: 2.5px solid #9495EA;
             cursor: pointer;
         }
@@ -1198,11 +1195,6 @@ img {
             animation: chatbot-icon-morph 5s infinite;
         }
 
-        /* Apply scale/shadow only on hover for extra interaction */
-        .chatbot-icon:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0px 25px #9495EA88;
-        }
 
         /* Icon image styling */
         .chatbot-icon img {
@@ -1294,7 +1286,7 @@ img {
 
         /* --- MODIFIED User message styling --- */
         .user-message {
-            background-color: var(--primary); color: white;
+            background-color: var(--secondary); color: white;
             align-self: flex-start; /* Move to the left */
             margin-right: auto; /* Ensure it stays left */
             border-radius: var(--border-radius-lg);
@@ -1302,7 +1294,7 @@ img {
         }
         .user-message::after {
             content: ""; position: absolute; bottom: 0; left: -8px; /* Position tail on the left */ width: 0; height: 0;
-            border-right: 10px solid var(--primary); /* Pointing left, primary color */
+            border-right: 10px solid var(--secondary); /* Pointing left, primary color */
             border-top: 10px solid transparent; border-bottom: 0 solid transparent;
         }
 
@@ -1408,13 +1400,13 @@ img {
         @media (max-width: 768px) {
             /* Reduce hover feedback on touch devices */
             /* The hover states will now correctly reflect the new base styles */
-            .chatbot-header:hover { background-color: var(--primary); } /* Hover is green */
-            .chatbot-send:hover { background-color: var(--primary); }   /* Hover is green */
+            .chatbot-header:hover { background-color: var(--secondary); } /* Hover is green */
+            .chatbot-send:hover { background-color: var(--secondary); }   /* Hover is green */
             .chatbot-option:hover { background-color: #fff; color: #333; }
 
             /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
             .chatbot-icon:hover {
-                animation: none; transform: none; box-shadow: 0 0px 20px #9495EA62;
+                animation: none; transform: none; 
             }
             /* Ensure the animation still runs if the chat is open on mobile */
             .chatbot-container.chat-is-open .chatbot-icon {
@@ -1892,8 +1884,8 @@ img {
         width: 0%;
         background: #9495EA; /* Gradiente viola */
         transition: width .3s ease-out;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
     }
 
 </style>
@@ -2128,7 +2120,7 @@ img {
         }
 
         /* Dropdown mobile styles - invariati */
-        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
+        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px;  transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
         .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
         .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
         .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
@@ -2136,7 +2128,7 @@ img {
         .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
         .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
         .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
-        .strush-mobile-links a { text-decoration: none; color: white; font-size: 20px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 16px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 18px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 16px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
         .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
@@ -2169,8 +2161,6 @@ img {
             /* Forma iniziale presa dal chatbot */
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
             /* Stili grafici mantenuti dalla navbar originale */
-            background: linear-gradient(135deg, #9495EA, #84CD9D);
-            box-shadow: 0 0px 20px #9495EA62;
             border: 2.5px solid #9495EA;
         }
 
@@ -2198,18 +2188,13 @@ img {
             transform: translateY(-2px); /* Mantenuto offset */
         }
 
-        /* L'hover diretto sul blob mantiene lo scale e shadow, non l'animazione */
-        .strush-logo-blob:hover {
-            transform: scale(1.05) translateY(-2px); /* Aggiunto translateY per coerenza */
-            box-shadow: 0 0px 20px #9495EA62;
-        }
 
         .strush-logo-text { color: #9495EA; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 3px; }
         .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 14px; padding: 8px 10px; border-radius: 16px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
         .strush-nav-links a:hover { color: #84CD9D; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%);     border-radius: 36px; /* Adjust the radius as you like */}
         .strush-nav-links a:hover::after { width: 80%; }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
@@ -2495,7 +2480,7 @@ img {
 
         .hero-subtitle {
             margin-bottom: 32px;
-            color: rgba(255, 255, 255, 0.8);
+            color: #ffffff;
             font-size: 20px;
 
         }
@@ -2521,13 +2506,13 @@ img {
         .btn-primary {
             background: #9495EA;
             color: white;
-            box-shadow: 0 0px 20px #9495EA62;
+
             width: 190px;
 
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 8px 20px #9495EA62;
             transform: translateY(-2px);
         }
 
@@ -2535,14 +2520,13 @@ img {
             background: transparent;
             color: #9495EA;
             border: 2px solid #9495EA;
-            box-shadow: 0 0px 20px #9495EA62;
             width: 190px;
         }
 
         .btn-secondary:hover {
 
             transform: translateY(-2px);
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 8px 20px #9495EA62;
         }
 
         .hero-image {
@@ -3188,10 +3172,6 @@ img {
             z-index: 1; /* Ensure card is clickable over other elements */
         }
 
-        #features-container-desktop .feature-card:hover {
-            /* border-top-color: var(--primary); */ /* RIMOSSA la modifica del colore della barra all'hover */
-            box-shadow: 0 0px 20px #9495EA62;
-        }
 
         /* MODIFICA: Aggiunto margine sotto feature-title */
         #features-container-desktop .feature-title {
@@ -3219,7 +3199,6 @@ img {
             background: var(--gradient-primary);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
             border-radius: 50%; /* Inizia come un cerchio perfetto */
-            box-shadow: 0 0px 20px #9495EA62;
 
 
             /* Blob shapes preimpostate ma non applicate inizialmente */
@@ -3230,7 +3209,6 @@ img {
 
         #features-container-desktop .feature-icon i {
             font-size: 1.8rem;
-            color: rgb(0, 0, 0); /* Better contrast on gradient */
             transition: transform 0.4s ease;
         }
 
@@ -3238,7 +3216,6 @@ img {
         #features-container-desktop .feature-card:hover .feature-icon {
             background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
             transform: scale(1.1); /* Increased scale slightly */
-            box-shadow: 0 0px 20px #9495EA62;
             border-radius: var(--blob-shape); /* Apply the pre-stored blob shape */
         }
 
@@ -4942,7 +4919,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         /* Stili Hover Desktop */
-        @media (hover: hover) and (min-width: 769px) { /* Applica solo se il device supporta hover e non è mobile */
+        @media (hover: hover) and (min-width: 768px) { /* Applica solo se il device supporta hover e non è mobile */
             .timeline-content:hover {
                 box-shadow: 0 0px 20px #9495EA62;
             }
@@ -4950,7 +4927,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .timeline-content:hover .step-number {
                 border-radius: var(--step-blob-shape, 50%);
                 transform: scale(1.1) rotate(5deg);
-                box-shadow: 0 0px 20px #9495EA62;
                 background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
             }
         }
@@ -4969,7 +4945,6 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
-            box-shadow: 0 0px 20px #9495EA62;
             margin-bottom: 1rem; position: relative; z-index: 1;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
                         transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
@@ -4987,7 +4962,6 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Ticker Styles */
             .ticker-wrap {
             width: 100%; overflow: hidden; background: #121218;
-            box-shadow: 0 0px 20px #9495EA62, 0 0px 20px #9495EA62;
             position: relative;
             transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
             }
@@ -5038,16 +5012,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 animation-duration: 60s; /* Era 30s, aumentato per rallentare */
                 }
 
-                /* NUOVO: Stili per l'elemento timeline centrato su mobile */
-                .timeline-content.is-centered {
-                    box-shadow: 0 0px 20px #9495EA62;
-                    /* Aggiungi qui altri stili desiderati per lo stato "attivo" se necessario */
-                }
-
                 .timeline-content.is-centered .step-number {
                 border-radius: var(--step-blob-shape, 50%);
                 transform: scale(1.1) rotate(5deg);
-                box-shadow: 0 0px 20px #9495EA62;
                 background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
                 }
             }
@@ -5300,8 +5267,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Irregular blob shapes */
         .blob { position: absolute; z-index: 0; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;  }
-        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: rgba(177, 172, 250, 0.15); transform: rotate(30deg); }
-        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: rgba(177, 172, 250, 0.15); transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: #9495EA33; transform: rotate(30deg); }
+        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: #9495EA33; transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 
         /* Quote icon styles */
         .quote-icon { margin-bottom: 24px; position: relative; z-index: 1; }
@@ -5319,7 +5286,6 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 68px;
             position: relative;
             margin-right: 20px;
-            filter: drop-shadow(0 4px 6px rgba(177, 172, 250, 0.2));
             transition: filter 0.3s ease, transform 0.4s ease;
             overflow: visible;
             
@@ -5334,7 +5300,6 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: -1;
             border-radius: 50%;
             transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 0px 20px #9495EA62;
 
         }
 
@@ -5409,7 +5374,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .blob-2 { width: 130px; height: 110px; bottom: -40px; right: -20px; }
 
             .story.active .avatar-blob {
-                filter: drop-shadow(0 6px 12px rgba(142, 220, 169, 0.4));
                 transform: scale(1.1) rotate(5deg);
                 transition: filter 0.3s ease, transform 0.4s ease;
             }
@@ -5664,7 +5628,6 @@ document.addEventListener('DOMContentLoaded', function() {
             position: relative;
             background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
             padding: 5px;
-            box-shadow: 0 0px 20px #9495EA62;
             overflow: hidden;
         }
 
@@ -5786,7 +5749,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f8f9fa;
+            background-color:  #5555550a;
             color: #121218;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -5811,7 +5774,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .team-social a:hover {
             color: #000000;
             transform: translateY(-5px);
-            box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 8px 20px #9495EA62;   
         }
 
         .team-social a:hover::before {
@@ -5961,7 +5924,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }          
         .store-btn:hover {             
             transform: translateY(-5px);             
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);         
+            box-shadow: 0 8px 20px #55555533;         
         }          
         .store-btn i {             
             font-size: 2.2rem;             
@@ -6121,8 +6084,6 @@ document.addEventListener('DOMContentLoaded', function() {
         overflow: hidden;
         /* Forma iniziale */
         border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-        background: linear-gradient(135deg, #9495EA, #84CD9D);
-        box-shadow: 0 0px 20px #9495EA62;
         border: 2.5px solid #9495EA;
     }
 
@@ -6156,8 +6117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Applica l'animazione della FORMA al blob */
         animation: footer-blob-morph-shape-only 5s infinite;
         /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
-        transform: scale(1.05); /* Rimosso translateY qui perché l'offset è sull'immagine */
-        box-shadow: 0 0px 20px #9495EA62;
     }
 
     /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
@@ -6191,7 +6150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 100%;
         height: 3px;
         background: var(--gradient-primary);
-        border-radius: 2px;
+        border-radius: 36px;
     }
 
     .footer-links ul li {
@@ -6214,6 +6173,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bottom: 0;
         left: 0;
         background-color: #84CD9D ;
+        border-radius: 36px;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
@@ -6265,7 +6225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 0px 20px #9495EA62;   
+        box-shadow: 0 8px 20px #9495EA62;   
     }
 
     .footer-social a:hover::before {
