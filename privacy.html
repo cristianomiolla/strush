@@ -17,11 +17,12 @@
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
 
-<style> 
-    /* Dichiarazione dei font locali Unbounded con @font-face */
+<style>
+    
+/* Dichiarazione dei font locali Unbounded con @font-face */
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-ExtraLight.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -29,7 +30,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Light.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -37,7 +38,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Regular.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -45,7 +46,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Medium.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -53,7 +54,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-SemiBold.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -61,7 +62,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Bold.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -69,7 +70,7 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-ExtraBold.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -77,22 +78,121 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('./font/Unbounded-Black.ttf') format('truetype');
+    src: url('./font/Strush/Unbounded-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
+/* Dichiarazione dei font locali Segoe UI con @font-face */
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuil.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguili.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuisl.ttf') format('truetype');
+    font-weight: 350; /* Semilight */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisli.ttf') format('truetype');
+    font-weight: 350; /* Semilight */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeui.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuii.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisb.ttf') format('truetype');
+    font-weight: 600; /* Semibold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguisbi.ttf') format('truetype');
+    font-weight: 600; /* Semibold */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuib.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/segoeuiz.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguibl.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('./font/Segoe UI/seguibli.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: italic;
+    font-display: swap;
+}
+
+
 /* Variabili CSS */
 :root {
-    --primary: #79C192;
-    --secondary: #8C8DD4;
+    --primary: #84CD9D;
+    --secondary: #9495EA;
     --text: #121218;
     --text2: #555555;
-    --light: #f8f9fa;
+    --light: #E6F2F5;
     --dark: #222222;
-    --accent: #FF85B3;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+    --border-thickness: 3px;
 }
 
 /* Reset CSS di base */
@@ -105,8 +205,8 @@
 /* Stili di base del corpo */
 body {
     font-family: 'Segoe UI', sans-serif;
-    color: var(--text);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
@@ -115,72 +215,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-weight: 800; /* Black */
-    font-size: 3.25rem; /* Aumentato del 20% da 2.7rem */
+    font-weight: 800; 
+    font-size: 52px; 
 }
 
 h2 {
-    font-weight: 700; /* Bold */
-    font-size: 2.7rem; /* Aumentato del 20% da 2.25rem */
-    padding-bottom: 10px;
+    font-weight: 700; 
+    font-size: 43px; 
 }
 
 h3 {
-    font-weight: 500; /* Medium */
-    margin-bottom: 1rem;
-    font-size: 1.35rem; /* Aumentato del 20% da 1.04rem */
+    font-weight: 500; 
+    margin-bottom: 16px; 
+    font-size: 22px; 
+    color: var(--text);
 }
 
 h4 {
-    font-weight: 500; /* Medium */
-    font-size: 1.2rem; /* Aumentato del 20% da 1rem */
+    font-weight: 500; 
+    font-size: 19px; 
+    color: var(--text);
 }
 
 h5 {
-    font-weight: 400; /* Regular */
-    font-size: 0.92rem; /* Aumentato del 20% da 0.77rem */
+    font-weight: 400; 
+    font-size: 15px; 
+    color: var(--text);
 }
 
 h6 {
-    font-weight: 300; /* Light */
-    margin-bottom: 1rem;
-    font-size: 0.82rem; /* Aumentato del 20% da 0.68rem */
+    font-weight: 300; 
+    margin-bottom: 16px; 
+    font-size: 13px; 
+    color: var(--text);   
 }
 
 a {
     text-decoration: none;
     color: #121218;
-    font-size: 0.9rem;
+    font-size: 14px; /* Originale: 14px */
 }
 
 p {
     color: #555555;
-    font-size: 1rem;
+    font-size: 16px; /* Originale: 1rem */
 }
 
 @media (max-width: 768px) {
     p {
-        font-size: 1.1rem;
+        font-size: 18px; 
     }
 
     h1 {
-        font-size: 2rem; /* Aumentato del 20% da 1.6rem */
+        font-size: 32px;
     }
 
     h2 {
-        font-size: 1.92rem; /* Aumentato del 20% da 1.6rem */
+        font-size: 31px; 
     }
 
     h3 {
-        font-size: 1.32rem; /* Aumentato del 20% da 1.1rem */
+        font-size: 24px;
     }
 
     h4 {
-        font-size: 1.26rem; /* Aumentato del 20% da 1.05rem */
+        font-size: 20px; 
     }
 
     a {
-        font-size: 1rem;
+        font-size: 16px;
     }
 }
 
@@ -196,7 +299,7 @@ img {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0rem 0 0rem;
+    padding: 0px 0 0px; /* Originale: 0rem 0 0rem */
 }
 
 .text-center {
@@ -205,7 +308,7 @@ img {
 
 /* Section base style */
 .section {
-    padding: 6rem 0 6rem;
+    padding: 96px 0 96px; /* Originale: 6rem 0 6rem */
 }
 
 /* Stili per i titoli */
@@ -230,6 +333,7 @@ img {
 .section-title.reveal .title-wrapper {
     opacity: 1;
     transform: translateY(0);
+    padding-bottom: 8px;
 }
 
 /* Animazione della barra di sottolineatura */
@@ -241,8 +345,8 @@ img {
     transform: translateX(-50%) scaleX(0);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #79C192 0%, #8C8DD4 100%);
-    border-radius: 2px;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    border-radius: 36px;
     transition: transform 0.6s ease 0.4s;
 }
 
@@ -254,14 +358,14 @@ img {
 .section-subtitles {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
     color: #121218;
-    font-size: 1.2rem;
+    font-size: 20px; /* Originale: 19px */
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 5rem 0 5rem;
+        padding: 80px 0 80px; /* Originale: 5rem 0 5rem */
     }
 
     .section-title {
@@ -269,9 +373,10 @@ img {
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 1.2rem; 
+        font-size: 20px;  /* Originale: 19px */
     }
 }
+
 </style>
 
 
@@ -396,7 +501,7 @@ img {
 </script>
 
 
-<!-- Navbar -->
+    <!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
@@ -480,7 +585,8 @@ img {
         /* Add padding to body to prevent navbar from covering content */
         body {
             /* Ensure padding matches the minimum navbar height */
-            padding-top: 70px;
+            /* MODIFICA: Usa la variabile CSS per coerenza, con fallback */
+            padding-top: var(--nav-height, 70px);
         }
 
         /* Scrolled state for navbar */
@@ -513,7 +619,7 @@ img {
         }
 
         /* Dropdown mobile styles - invariati */
-        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
+        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px;  transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
         .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
         .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
         .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
@@ -521,8 +627,8 @@ img {
         .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
         .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
         .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
-        .strush-mobile-links a { text-decoration: none; color: white; font-size: 17.6px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 18px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-        .strush-mobile-links a:hover { color: #79C192; background-color: rgba(255, 255, 255, 0.05); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 18px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 16px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
         .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 36px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
@@ -554,46 +660,21 @@ img {
             /* Forma iniziale presa dal chatbot */
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
             /* Stili grafici mantenuti dalla navbar originale */
-            background: linear-gradient(135deg, #8C8DD4, #79C192);
-            box-shadow: 0 8px 20px #8c8dd462;
-            border: 2.5px solid #8C8DD4;
+            border: 2px solid #9495EA;
         }
 
         /* --- MODIFICA --- Nuova animazione presa dal chatbot */
         @keyframes navbar-blob-morph-from-chatbot {
-            0% {
-                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-                transform: rotate(0deg) scale(1);
-            }
-            15% {
-                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-                transform: rotate(-3deg) scale(1);
-            }
-            30% {
-                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-                transform: rotate(-8deg) scale(1);
-            }
-            45% {
-                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-                transform: rotate(-3deg) scale(1);
-            }
-            60% {
-                border-radius: 25% 75% 40% 60% / 45% 35% 65% 55%;
-                transform: rotate(8deg) scale(1);
-            }
-            75% {
-                border-radius: 60% 40% 50% 50% / 35% 65% 35% 65%;
-                transform: rotate(3deg) scale(1);
-            }
-            90% {
-                border-radius: 45% 55% 65% 35% / 70% 30% 70% 30%;
-                transform: rotate(-5deg) scale(1);
-            }
-            100% {
-                border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-                transform: rotate(0deg) scale(1);
-            }
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
         }
+
 
         .strush-logo img {
             height: 38px; /* Dimensione navbar */
@@ -606,18 +687,13 @@ img {
             transform: translateY(-2px); /* Mantenuto offset */
         }
 
-        /* L'hover diretto sul blob mantiene lo scale e shadow, non l'animazione */
-        .strush-logo-blob:hover {
-            transform: scale(1.05) translateY(-2px); /* Aggiunto translateY per coerenza */
-            box-shadow: 0 8px 20px #8c8dd462;
-        }
 
-        .strush-logo-text { color: #8C8DD4; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
+        .strush-logo-text { color: #9495EA; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
-        .strush-nav-links li { margin: 0 3px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; padding: 8px 10px; border-radius: 18px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-        .strush-nav-links a:hover { color: #79C192; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #79C192, #8C8DD4); transition: all 0.3s ease; transform: translateX(-50%); }
+        .strush-nav-links li { margin: 0 4px; }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 16px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a:hover { color: #84CD9D; }
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0px; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 36px; /* Adjust the radius as you like */}
         .strush-nav-links a:hover::after { width: 80%; }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
@@ -632,7 +708,7 @@ img {
             .strush-navbar.scrolled {box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
             .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
             .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 0; }
-            .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 20px; }
+            .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 24px; }
 
             /* Stati attivi mobile */
             .menu-active .strush-logo-mobile .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
@@ -649,7 +725,7 @@ img {
             .strush-mobile-dropdown { display: block; top: 70px; }
             .strush-mobile-dropdown::after { filter: blur(25px); top: -20px; left: -20px; right: -20px; bottom: -20px; }
             .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
-            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #8C8DD4; }
+            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #9495EA; }
             .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
         }
     </style>
@@ -660,6 +736,17 @@ img {
             const mobileDropdown = document.getElementById('mobileDropdown');
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
+
+            // Funzione per aggiornare l'altezza della navbar nel CSS
+            function updateNavbarHeight() {
+                const navbarHeight = navbar ? navbar.offsetHeight : 70; // Usa l'altezza effettiva o 70 come fallback
+                document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+                // Applica direttamente il padding al body anche qui, per sicurezza
+                document.body.style.paddingTop = navbarHeight + 'px';
+            }
+
+            // Esegui subito al caricamento
+            updateNavbarHeight();
 
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
                 item.style.setProperty('--i', index);
@@ -700,6 +787,13 @@ img {
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // Aggiorna l'altezza anche al resize, se necessario
+            let resizeTimerNav;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimerNav);
+                resizeTimerNav = setTimeout(updateNavbarHeight, 150);
+            }, { passive: true });
         });
     </script>
 
@@ -1112,15 +1206,13 @@ img {
     }
 
     .footer-email a {
-        color: #79C192;
+        color: #84CD9D;
         text-decoration: none;
         transition: all 0.3s ease;
         font-size: 16px;
     }
 
-    .footer-email a:hover {
-        text-decoration: underline;
-    }
+
 
     .footer-logo {
         display: flex;
@@ -1142,9 +1234,7 @@ img {
         overflow: hidden;
         /* Forma iniziale */
         border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-        background: linear-gradient(135deg, #8C8DD4, #79C192);
-        box-shadow: 0 0px 20px #8c8dd462;
-        border: 2.5px solid #8C8DD4;
+        border: 2px solid #9495EA;
     }
 
     /* Animazione SOLO per la FORMA (border-radius) del blob */
@@ -1152,9 +1242,9 @@ img {
         0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
         15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
         30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-        45% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; transform: rotate(4deg); }
-        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-6deg); }
-        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-3deg); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
         90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
         100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
     }
@@ -1177,8 +1267,6 @@ img {
         /* Applica l'animazione della FORMA al blob */
         animation: footer-blob-morph-shape-only 5s infinite;
         /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
-        transform: scale(1.05); /* Rimosso translateY qui perché l'offset è sull'immagine */
-        box-shadow: 0 8px 20px #8c8dd462;
     }
 
     /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
@@ -1190,7 +1278,7 @@ img {
     /* === MODIFICA FINE === */
 
     .footer-logo .logo-text {
-        color: #8C8DD4;
+        color: #9495EA;
         font-weight: 800;
         margin-left: 10px;
         margin-bottom: 0px;
@@ -1199,9 +1287,10 @@ img {
     /* Links sections (invariati) */
     .footer-links h5{
         position: relative;
-        padding-bottom: 10px;
+        padding-bottom: 8px;
         display: inline-block;
         margin-bottom: 24px;
+        color: white;
     }
 
     .footer-links h5::after {
@@ -1210,9 +1299,9 @@ img {
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 3px;
+        height: 4px;
         background: var(--gradient-primary);
-        border-radius: 2px;
+        border-radius: 36px;
     }
 
     .footer-links ul li {
@@ -1234,14 +1323,15 @@ img {
         height: 0.5px;
         bottom: 0;
         left: 0;
-        background-color: #79C192 ;
+        background-color: #84CD9D ;
+        border-radius: 36px;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
     }
 
     .footer-links a:hover {
-        color: #79C192;
+        color: #84CD9D;
     }
 
     .footer-links a:hover::after {
@@ -1262,7 +1352,7 @@ img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+            background-color:  #555555;
         color: white;
         transition: all 0.3s ease;
         position: relative;
@@ -1277,7 +1367,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
-        background: var(--gradient-primary);
+        background: var(--gradient-secondary);
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: -1;
@@ -1286,7 +1376,7 @@ img {
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px #79c19262
+        box-shadow: 0 8px 20px #9495EA62;   
     }
 
     .footer-social a:hover::before {
@@ -1332,7 +1422,7 @@ img {
         }
 
         .footer-email a {
-            font-size: 17.6px;
+            font-size: 18px;
         }
 
         .footer-social {
