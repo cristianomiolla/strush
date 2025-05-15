@@ -31,7 +31,6 @@
     <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
     
 <style>
-    
 /* Dichiarazione dei font locali Unbounded con @font-face */
 @font-face {
     font-family: 'Unbounded';
@@ -97,103 +96,22 @@
     font-display: swap;
 }
 
-/* Dichiarazione dei font locali Segoe UI con @font-face */
+/* Dichiarazione del font Open Sans Variable */
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeuil.ttf') format('truetype');
-    font-weight: 300; /* Light */
+    font-family: 'Open Sans';
+    src: url('./font/OpenSans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguili.ttf') format('truetype');
-    font-weight: 300; /* Light */
+    font-family: 'Open Sans';
+    src: url('./font/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
     font-style: italic;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeuisl.ttf') format('truetype');
-    font-weight: 350; /* Semilight */
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguisli.ttf') format('truetype');
-    font-weight: 350; /* Semilight */
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeui.ttf') format('truetype');
-    font-weight: 400; /* Regular */
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeuii.ttf') format('truetype');
-    font-weight: 400; /* Regular */
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguisb.ttf') format('truetype');
-    font-weight: 600; /* Semibold */
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguisbi.ttf') format('truetype');
-    font-weight: 600; /* Semibold */
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeuib.ttf') format('truetype');
-    font-weight: 700; /* Bold */
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/segoeuiz.ttf') format('truetype');
-    font-weight: 700; /* Bold */
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguibl.ttf') format('truetype');
-    font-weight: 900; /* Black */
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./font/Segoe UI/seguibli.ttf') format('truetype');
-    font-weight: 900; /* Black */
-    font-style: italic;
-    font-display: swap;
-}
-
 
 /* Variabili CSS */
 :root {
@@ -217,9 +135,9 @@
 
 /* Stili di base del corpo */
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
@@ -278,23 +196,18 @@ p {
     p {
         font-size: 18px; 
     }
-
     h1 {
         font-size: 32px;
     }
-
     h2 {
         font-size: 31px; 
     }
-
     h3 {
         font-size: 24px;
     }
-
     h4 {
         font-size: 20px; 
     }
-
     a {
         font-size: 16px;
     }
@@ -380,7 +293,6 @@ img {
     .section {
         padding: 80px 0 80px; /* Originale: 5rem 0 5rem */
     }
-
     .section-title {
         margin: 32px;
     }
@@ -389,7 +301,6 @@ img {
         font-size: 20px;  /* Originale: 19px */
     }
 }
-
 </style>
     
 
@@ -1065,7 +976,6 @@ img {
         @media (max-width: 768px) {
             .download-bar {
             padding: 16px 24px;
-            font-size: 20px;
             }
         }
     
@@ -1362,6 +1272,7 @@ img {
             background-color: #E6F2F5;
             display: flex;
             flex-direction: column;
+            color: var(--text);
         }
 
         /* Message bubbles */
@@ -1450,7 +1361,7 @@ img {
 
         /* Option buttons */
         .chatbot-option {
-            position: relative; background-color: #fff; color: #333; padding: 8px; cursor: pointer;
+            position: relative; background-color: #fff; color: var(--text); padding: 8px; cursor: pointer;
             text-align: center; border-radius: var(--border-radius-lg); transition: all 0.3s ease;
             border: none; z-index: 1; font-size: 14px;
             font-family: inherit; /* MODIFICA: Assicura che il font sia ereditato */
@@ -1464,12 +1375,12 @@ img {
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1;
         }
-        .chatbot-option:hover { background-color: #f2f2f2cd; color: #000; }
+        .chatbot-option:hover { background-color: #f2f2f2cd; }
 
         /* --- MODIFIED Share Button styling --- */
         .chatbot-share-button {
             background-color: var(--primary); /* Purple background */
-            color: var(--text) ; /* White text */
+            color: white ; 
             padding: 8px 16px; /* Padding for the button content */
             cursor: pointer;
             text-align: center;
@@ -1487,7 +1398,7 @@ img {
         /* --- NEW Action Button styling (for Preregister) --- */
         .chatbot-action-button {
             background-color: var(--primary); /* Purple background */
-            color: var(--text) ; /* White text */
+            color: white ; 
             padding: 8px 16px;
             cursor: pointer;
             text-align: center;
@@ -1524,7 +1435,7 @@ img {
             /* The hover states will now correctly reflect the new base styles */
             .chatbot-header:hover { background-color: var(--secondary); } /* Hover is green */
             .chatbot-send:hover { background-color: var(--secondary); }   /* Hover is green */
-            .chatbot-option:hover { background-color: #fff; color: #333; }
+            .chatbot-option:hover { background-color: #fff; }
 
             /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
             .chatbot-icon:hover {
@@ -2759,10 +2670,10 @@ text-shadow: 0 0px 20px #9495EA33;
             transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
         .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
-        .mouse { width: 26px; height: 40px; border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 20px; position: relative; margin-bottom: 10px; }
-        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background: rgba(255, 255, 255, 0.6); border-radius: 2px; animation: scroll 2s infinite; }
+        .mouse { width: 26px; height: 40px; border: 2px solid #f6f6f6; border-radius: 20px; position: relative; margin-bottom: 10px; }
+        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background:#f6f6f6; border-radius: 2px; animation: scroll 2s infinite; }
         .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.6); transform: rotate(45deg); animation: arrow 2s infinite; }
+        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid #f6f6f6; transform: rotate(45deg); animation: arrow 2s infinite; }
         .arrow span:nth-child(2) { animation-delay: 0.2s; }
         .arrow span:nth-child(3) { animation-delay: 0.4s; }
 
@@ -5011,7 +4922,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .timeline-line:after {
-            content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
             width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
             border-top: 15px solid var(--secondary);
         }
@@ -5092,7 +5003,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
             .ticker-item {
                 display: inline-block; font-size: 1rem; font-weight: 600;
-                text-shadow: 0 0 1px rgba(255, 255, 255, 0.5); color: #9495EA !important;
+                color: #9495EA !important;
                 transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
             }
         .ticker-wrap:hover .ticker-item,
@@ -5395,7 +5306,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Testimonial content styles */
         .testimonial-content { margin-bottom: 32px; flex-grow: 1; position: relative; z-index: 1; }
-        .testimonial-content p { font-size: 1.5rem; color: var(--text2); }
+        .testimonial-content p { font-size: 1.5rem; color: var(--text); }
 
         /* Testimonial author styles */
         .testimonial-author { display: flex; align-items: center; margin-top: auto; position: relative; z-index: 1; }
@@ -5715,7 +5626,7 @@ document.addEventListener('DOMContentLoaded', function() {
             /* Definisci esplicitamente 4 colonne per mostrare tutti i membri su una riga */
             grid-template-columns: repeat(4, 1fr); /* Quattro colonne di uguale larghezza */
             /* --- FINE MODIFICA --- */
-            gap: 6rem; /* Potrebbe essere necessario ridurre il gap se non c'è abbastanza spazio */
+            gap: 5.5rem; /* Potrebbe essere necessario ridurre il gap se non c'è abbastanza spazio */
             margin-right: 20px; /* Potrebbe essere necessario ridurre i margini laterali */
             margin-left: 20px;  /* Potrebbe essere necessario ridurre i margini laterali */
         }
@@ -6060,8 +5971,8 @@ document.addEventListener('DOMContentLoaded', function() {
             flex: 1;         
         }          
         .store-name {             
-            font-size: 19px;             
-            font-weight: bold;         
+            font-size: 18px;             
+            font-weight: 700;         
         }          
         /* Media query for mobile devices */         
         @media (max-width: 768px) {             
