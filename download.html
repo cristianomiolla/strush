@@ -156,7 +156,7 @@ h4 {
 
 h5 {
     font-weight: 400; 
-    font-size: 15px; 
+    font-size: 16px; 
     color: var(--text);
 }
 
@@ -179,14 +179,12 @@ p {
 }
 
 @media (max-width: 768px) {
-    p {
-        font-size: 18px; 
-    }
+
     h1 {
         font-size: 32px;
     }
     h2 {
-        font-size: 31px; 
+        font-size: 32px; 
     }
     h3 {
         font-size: 24px;
@@ -194,6 +192,14 @@ p {
     h4 {
         font-size: 20px; 
     }
+
+    h5 {
+    font-size: 16px; }
+
+    p {
+        font-size: 16px; 
+    }
+
     a {
         font-size: 16px;
     }
@@ -245,7 +251,7 @@ img {
 .section-title.reveal .title-wrapper {
     opacity: 1;
     transform: translateY(0);
-    padding-bottom: 8px;
+    padding-bottom: 10px;
 }
 
 /* Animazione della barra di sottolineatura */
@@ -272,7 +278,7 @@ img {
     max-width: 700px;
     margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
     color: #121218;
-    font-size: 20px; /* Originale: 19px */
+    font-size: 20px; 
 }
 
 @media (max-width: 768px) {
@@ -284,7 +290,7 @@ img {
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 20px;  /* Originale: 19px */
+        font-size: 18px;  /* Originale: 19px */
     }
 }
 </style>
@@ -413,7 +419,7 @@ img {
 
 <body>
 
-    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="strush-navbar" id="mainNav">
 
     <div class="strush-container">
@@ -424,9 +430,10 @@ img {
                     <div class="strush-logo">
                         <!-- Modificato per matchare forma iniziale chatbot -->
                         <div class="strush-logo-blob">
-                            <img src="immagini/logo.png" alt="Strush Logo">
+                            <img src="immagini/pittogramma.png" alt="Strush Logo">
                         </div>
-                        <h3 class="strush-logo-text">Strush</h3>
+                        <!-- NUOVA IMMAGINE LOGO TESTO -->
+                        <img src="immagini/logo.png" alt="Strush" class="strush-logo-text-img">
                     </div>
                 </a>
             </div>
@@ -457,9 +464,10 @@ img {
                         <div class="strush-logo">
                              <!-- Modificato per matchare forma iniziale chatbot -->
                             <div class="strush-logo-blob">
-                                <img src="immagini/logo.png" alt="Strush Logo">
+                                <img src="immagini/pittogramma.png" alt="Strush Logo">
                             </div>
-                            <h3 class="strush-logo-text">Strush</h3>
+                            <!-- NUOVA IMMAGINE LOGO TESTO -->
+                            <img src="immagini/logo.png" alt="Strush" class="strush-logo-text-img">
                         </div>
                     </a>
                 </div>
@@ -482,26 +490,22 @@ img {
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 999; /* Reduced from 1000 */
+            z-index: 999;
             padding: 0;
             transition: all 0.3s ease;
-            background-color: #121218;           ;
+            background-color: #121218;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-            min-height: 70px; /* Set minimum height for the navbar */
-            display: flex; /* Use flexbox to help center content vertically */
-            align-items: center; /* Center content vertically */
+            min-height: 70px;
+            display: flex;
+            align-items: center;
         }
 
-        /* Add padding to body to prevent navbar from covering content */
         body {
-            /* Ensure padding matches the minimum navbar height */
-            /* MODIFICA: Usa la variabile CSS per coerenza, con fallback */
             padding-top: var(--nav-height, 70px);
         }
 
-        /* Scrolled state for navbar */
         .strush-navbar.scrolled {
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
@@ -511,30 +515,66 @@ img {
             max-width: 1140px;
             margin: 0 auto;
             padding: 0;
-            /* Allow container to take full width needed */
             width: 100%;
         }
 
         .strush-nav-container {
             display: flex;
             align-items: center;
-            justify-content: center; /* Centered links on desktop */
+            justify-content: center;
             width: 100%;
-            padding: 5px 0; /* Adjusted padding slightly for vertical centering within 70px */
+            padding: 4px 0;
             position: relative;
-            min-height: 60px; /* Allow content to define height, but ensure enough space */
+            min-height: 60px;
         }
 
-        /* Logo per versione mobile (inizialmente nascosto in desktop) */
+        /* --- LOGO MOBILE --- */
         .strush-logo-mobile {
-            display: none;
+            display: none; 
         }
 
-        /* Dropdown mobile styles - invariati */
+        .strush-logo-mobile .strush-logo-blob {
+            width: 0; 
+            height: 38px; /* Altezza complessiva del blob (incluso padding) */
+            opacity: 0; 
+            margin-right: 0; 
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
+            overflow: hidden; /* Mantiene la forma data da border-radius */
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Forma del blob */
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); /* Sfondo gradiente */
+            padding: 2px; /* Questo crea il "bordo" visibile */
+            box-sizing: border-box; /* Width e Height includono il padding */
+        }
+        .strush-logo-mobile .strush-logo-blob img {
+            width: 100%; /* Riempie lo spazio interno al padding */
+            height: 100%; /* Riempie lo spazio interno al padding */
+            object-fit: cover; 
+            display: block;
+            border-radius: inherit; /* L'immagine eredita la forma del blob */
+            /* transform: translateY(-2px); Potrebbe non essere più necessario o da aggiustare */
+        }
+        
+        .strush-logo-mobile .strush-logo-text-img {
+             height: 24px; 
+             width: auto;
+             display: inline-block;
+             vertical-align: middle;
+             margin-left: 0; 
+             transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
+             opacity: 1;
+        }
+        /* --- FINE LOGO MOBILE --- */
+
+
+        /* Dropdown mobile styles */
         .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px;  transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
         .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
         .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
-        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px; }
+        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px;}
         .strush-mobile-dropdown.active::after { opacity: 1; }
         .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
         .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
@@ -543,69 +583,112 @@ img {
         .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 5px 10px; border-radius: 36px; margin: 0; position: relative; padding-left: 15px; padding-right: 15px; }
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 36px; margin: 0; position: relative; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
-        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
-        .strush-nav-links-container:hover .strush-logo-text { opacity: 0; width: 0; margin-right: 0; }
-        .strush-nav-links-container:hover .strush-logo-nav-item { margin-right: 5px; transition: all 0.3s ease; }
 
-        /* --- MODIFICA --- Applica l'animazione del chatbot sull'hover del contenitore */
-        .strush-nav-links-container:hover .strush-logo-blob {
-             /* Usa la nuova animazione con la durata del chatbot */
-            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        .strush-logo-nav-item {
+            margin-right: 15px;
+            transition: margin-right 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
         }
-
-        .strush-logo-nav-item { margin-right: 15px; transition: all 0.3s ease; flex-shrink: 0; }
         .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
         .strush-logo { display: flex; align-items: center; }
 
-        /* --- MODIFICA --- Stile del logo blob aggiornato */
-        .strush-logo-blob {
-            width: 38px; /* Dimensione navbar */
-            height: 38px; /* Dimensione navbar */
+        /* --- LOGO DESKTOP --- */
+        .strush-logo-nav-item .strush-logo-blob {
+            width: 0;
+            height: 38px; /* Altezza complessiva del blob (incluso padding) */
+            opacity: 0;
+            transform: scale(0.7);
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            /* Forma iniziale presa dal chatbot */
-            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-            /* Stili grafici mantenuti dalla navbar originale */
-            border: 2px solid #9495EA;
+            margin-right: 0px; /* Inizialmente nessun margine a destra */
+            overflow: hidden; /* Mantiene la forma data da border-radius */
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Forma del blob */
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); /* Sfondo gradiente */
+            padding: 2px; /* Questo crea il "bordo" visibile */
+            box-sizing: border-box; /* Width e Height includono il padding */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out; 
         }
-
-        /* --- MODIFICA --- Nuova animazione presa dal chatbot */
-        @keyframes navbar-blob-morph-from-chatbot {
-        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
-        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
-        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
-        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
-        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
-        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
-        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
-        }
-
-
-        .strush-logo img {
-            height: 38px; /* Dimensione navbar */
-            width: 38px;  /* Dimensione navbar */
-            object-fit: cover; /* Mantenuto 'cover' come nell'originale navbar */
-            transition: all 0.3s ease;
-            z-index: 1;
+        .strush-logo-nav-item .strush-logo-blob img {
+            width: 100%; /* Riempie lo spazio interno al padding */
+            height: 100%; /* Riempie lo spazio interno al padding */
+            object-fit: cover;
             display: block;
-            margin: auto;
-            transform: translateY(-2px); /* Mantenuto offset */
+            border-radius: inherit; /* L'immagine eredita la forma del blob */
+             /* transform: translateY(-2px); Potrebbe non essere più necessario o da aggiustare */
         }
 
+        .strush-logo-nav-item .strush-logo-text-img {
+            height: 20px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px; 
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out 0.05s, margin-left 0.3s ease-in-out;
+        }
 
-        .strush-logo-text { color: #9495EA; font-weight: 800; transition: all 0.3s ease; margin-left: 10px; margin-bottom: 0px; display: inline-block; width: auto }
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob {
+            width: 38px;
+            opacity: 1;
+            transform: scale(1);
+            margin-right: 5px; /* Aggiungi un piccolo margine quando il blob è visibile */
+            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        }
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-text-img {
+            opacity: 0;
+            transform: scale(0.7);
+            width: 0;
+            overflow: hidden;
+            pointer-events: none;
+            margin-left: 0;
+            margin-right: 0; 
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item {
+            margin-right: 5px;
+        }
+        /* --- FINE LOGO DESKTOP --- */
+
+
+        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+
+        @keyframes navbar-blob-morph-from-chatbot {
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1)); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg) scale(var(--blob-scale, 1)); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg) scale(var(--blob-scale, 1)); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg) scale(var(--blob-scale, 1)); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg) scale(var(--blob-scale, 1)); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1));}
+        }
+        
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob,
+        .menu-active .strush-logo-mobile .strush-logo-blob { 
+            --blob-scale: 1;
+        }
+        .strush-logo-nav-item .strush-logo-blob { 
+             --blob-scale: 0.7;
+        }
+        
+        .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1; 
+        }
+
+        /* Rimossa la regola .strush-logo-blob img globale, ora è specifica per mobile e desktop blob */
+
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 4px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 16px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
+        .strush-nav-links a { text-decoration: none; color: white; font-weight: 600; font-size: 14px; padding: 8px 8px; border-radius: 16px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
         .strush-nav-links a:hover { color: #84CD9D; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0px; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 36px; /* Adjust the radius as you like */}
+        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0px; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 36px; }
         .strush-nav-links a:hover::after { width: 80%; }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
@@ -615,24 +698,38 @@ img {
 
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
-            /* Stili navbar mobile invariati */
             .strush-navbar { backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
             .strush-navbar.scrolled {box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
             .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
-            .strush-logo-mobile { display: block; z-index: 999; grid-column: 2; text-align: center; padding: 0 15px; margin-top: 0; }
-            .strush-logo-mobile .strush-logo-text { margin-bottom: 0px; transition: all 0.3s ease; font-size: 24px; }
+            
+            .strush-logo-mobile {
+                display: block; 
+                z-index: 999;
+                grid-column: 2;
+                text-align: center;
+                padding: 0 15px;
+                margin-top: 0;
+            }
 
-            /* Stati attivi mobile */
-            .menu-active .strush-logo-mobile .strush-logo-text { opacity: 0; width: 0; margin-left: 0; overflow: hidden; }
-            .menu-active .strush-logo-mobile .strush-logo { justify-content: center; }
+            .menu-active .strush-logo-mobile .strush-logo-text-img {
+                opacity: 0;
+                width: 0;
+                margin-left: 0; 
+                overflow: hidden;
+                pointer-events: none;
+            }
 
-            /* --- MODIFICA --- Applica l'animazione del chatbot quando il menu mobile è attivo */
             .menu-active .strush-logo-mobile .strush-logo-blob {
-                /* Usa la nuova animazione con la durata del chatbot */
+                width: 38px; /* Larghezza del blob quando visibile */
+                height: 38px; /* Altezza del blob quando visibile */
+                opacity: 1; 
                 animation: navbar-blob-morph-from-chatbot 5s infinite;
             }
 
-            /* Resto stili mobile invariati */
+            .menu-active .strush-logo-mobile .strush-logo {
+                justify-content: center;
+            }
+
             .strush-nav-links-container { display: none; }
             .strush-mobile-dropdown { display: block; top: 70px; }
             .strush-mobile-dropdown::after { filter: blur(25px); top: -20px; left: -20px; right: -20px; bottom: -20px; }
@@ -649,15 +746,11 @@ img {
             const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
             const navbar = document.getElementById('mainNav');
 
-            // Funzione per aggiornare l'altezza della navbar nel CSS
             function updateNavbarHeight() {
-                const navbarHeight = navbar ? navbar.offsetHeight : 70; // Usa l'altezza effettiva o 70 come fallback
+                const navbarHeight = navbar ? navbar.offsetHeight : 70;
                 document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
-                // Applica direttamente il padding al body anche qui, per sicurezza
                 document.body.style.paddingTop = navbarHeight + 'px';
             }
-
-            // Esegui subito al caricamento
             updateNavbarHeight();
 
             document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
@@ -700,7 +793,6 @@ img {
                 }
             });
 
-            // Aggiorna l'altezza anche al resize, se necessario
             let resizeTimerNav;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimerNav);
@@ -829,7 +921,7 @@ img {
         max-width: 600px;
         width: 100%;
         background-color: white;
-        border-radius: 20px;
+        border-radius: 16px;
     box-shadow: 0 0px 20px #9495EA62;
         padding: 32px;
         text-align: center;
@@ -841,7 +933,7 @@ img {
         width: 280px;
         height: 150px;
         position: relative;
-        border-radius: 8px;
+        border-radius: 16px;
         overflow: hidden;
         border: 2px solid var(--secondary);
         background-color: #E6F2F5
@@ -903,11 +995,12 @@ img {
         width: 100%;
         font-family: inherit;
         font-size: 16px;
+        border: 1px solid #9495EA;
     }
     
     .register-button {
-        background: var(--gradient-primary);
-        color: var(--text);
+        background: var(--secondary);
+        color: white;
         border: none;
         border-radius: 0 16px 16px 0;
         padding: 16px;
@@ -925,7 +1018,6 @@ img {
         justify-content: center; /* Centra il contenuto quando lo spinner è visibile */
     }
     
-    .register-button:hover {  background: var(--gradient-secondary); }
     
     .button-text {
         transition: opacity 0.3s;
@@ -1391,16 +1483,15 @@ img {
     </script>
 
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <div class="logo-blob">
-                        <img src="immagini/logo.png" alt="Strush Logo">
-                    </div>
-                    <h3 class="logo-text">Strush</h3>
+                    <!-- === MODIFICA HTML: Logo completo === -->
+                    <img src="immagini/logocompleto.png" alt="Strush Logo Completo" class="footer-logo-complete">
+                    <!-- === FINE MODIFICA HTML === -->
                 </div>
                 <p class="elevator-pitch">Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio</p>
                 <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
@@ -1482,77 +1573,34 @@ img {
         font-size: 16px;
     }
 
-
-
+    /* Contenitore per il logo */
     .footer-logo {
-        display: flex;
+        display: flex; /* Utile per centrare se necessario */
         align-items: center;
         margin-bottom: 1rem;
     }
 
-    /* === MODIFICA INIZIO: Stili Logo Blob e Immagine Adattati === */
-
-    /* Stile base del contenitore blob */
-    .footer-logo .logo-blob {
-        width: 38px;
-        height: 38px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per scale/shadow hover */
-        overflow: hidden;
-        /* Forma iniziale */
-        border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
-        border: 2px solid #9495EA;
+    /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
+    .footer-logo-complete {
+        height: 24px;  /* Adatta l'altezza come desideri */
+        width: auto;  /* Mantiene le proporzioni */
+        display: block; /* Rimuove spazio extra sotto l'immagine se inline */
+        /* Se vuoi centrarlo orizzontalmente quando .footer-about è text-align: center (in mobile) */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* Per allinearlo a sinistra di default: */
+        /* margin-right: auto; */
     }
+    /* === FINE MODIFICA CSS === */
 
-    /* Animazione SOLO per la FORMA (border-radius) del blob */
-    @keyframes footer-blob-morph-shape-only {
-        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg); }
-        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg); }
-        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg); }
-        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg); }
-        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg); }
-        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg); }
-        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg); }
-        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg);}
-    }
+    /* RIMOSSI GLI STILI PER .footer-logo .logo-blob, .footer-logo img (pittogramma), .footer-logo .logo-text e le animazioni associate */
+    /* .footer-logo .logo-blob { ... } */
+    /* @keyframes footer-blob-morph-shape-only { ... } */
+    /* .footer-logo img { ... } */
+    /* .footer-logo .logo-blob:hover { ... } */
+    /* .footer-logo .logo-blob:hover img { ... } */
+    /* .footer-logo .logo-text { ... } */
 
-    /* Stile base dell'immagine */
-    .footer-logo img {
-        height: 38px;
-        width: 38px;
-        object-fit: cover;
-        transition: transform 0.3s ease; /* Transizione se necessaria */
-        z-index: 1;
-        display: block;
-        margin: auto;
-        /* Offset iniziale */
-        transform: translateY(-2px);
-    }
-
-    /* Azioni sull'HOVER del blob */
-    .footer-logo .logo-blob:hover {
-        /* Applica l'animazione della FORMA al blob */
-        animation: footer-blob-morph-shape-only 5s infinite;
-        /* Applica trasformazioni statiche di hover (scale/shadow) al blob */
-    }
-
-    /* Applica l'animazione di ROTAZIONE all'immagine QUANDO il blob è in hover */
-    .footer-logo .logo-blob:hover img {
-        animation: footer-logo-image-rotate 5s infinite;
-        /* La transform dell'animazione sovrascrive quella base dell'immagine */
-    }
-
-    /* === MODIFICA FINE === */
-
-    .footer-logo .logo-text {
-        color: #9495EA;
-        font-weight: 800;
-        margin-left: 10px;
-        margin-bottom: 0px;
-    }
 
     /* Links sections (invariati) */
     .footer-links h5{
@@ -1671,20 +1719,21 @@ img {
         color: white;
     }
 
-    /* Responsive adjustments (invariati) */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
         .footer-content {
             grid-template-columns: 1fr;
             text-align: center;
         }
 
+        /* Modifica per centrare il logo completo in mobile */
         .footer-logo {
-            justify-content: center;
+            justify-content: center; /* Centra l'immagine all'interno del div .footer-logo */
+        }
+        .footer-logo-complete {
+            height: 28px;
         }
 
-        .footer-logo .logo-text {
-            font-size: 24px;
-        }
 
         .footer-links h5 {
             margin-left: auto;
