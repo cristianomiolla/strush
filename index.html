@@ -170,7 +170,7 @@ h4 {
 
 h5 {
     font-weight: 400; 
-    font-size: 15px; 
+    font-size: 16px; 
     color: var(--text);
 }
 
@@ -193,14 +193,12 @@ p {
 }
 
 @media (max-width: 768px) {
-    p {
-        font-size: 18px; 
-    }
+
     h1 {
         font-size: 32px;
     }
     h2 {
-        font-size: 31px; 
+        font-size: 32px; 
     }
     h3 {
         font-size: 24px;
@@ -208,6 +206,14 @@ p {
     h4 {
         font-size: 20px; 
     }
+
+    h5 {
+    font-size: 16px; }
+
+    p {
+        font-size: 16px; 
+    }
+
     a {
         font-size: 16px;
     }
@@ -259,7 +265,7 @@ img {
 .section-title.reveal .title-wrapper {
     opacity: 1;
     transform: translateY(0);
-    padding-bottom: 8px;
+    padding-bottom: 10px;
 }
 
 /* Animazione della barra di sottolineatura */
@@ -976,6 +982,8 @@ img {
         @media (max-width: 768px) {
             .download-bar {
             padding: 16px 24px;
+            font-size: 18px;
+
             }
         }
     
@@ -1169,7 +1177,7 @@ img {
         /* Container positioning */
         .chatbot-container {
             position: fixed;
-            bottom: 100px; /* Adjusted for general visibility */
+            bottom: 130px; /* Adjusted for general visibility */
             right: 20px;
             z-index: 1000;
             /* display: none; /* Initially hidden - now done inline */
@@ -1435,6 +1443,7 @@ img {
             /* The hover states will now correctly reflect the new base styles */
             .chatbot-header:hover { background-color: var(--secondary); } /* Hover is green */
             .chatbot-send:hover { background-color: var(--secondary); }   /* Hover is green */
+                    .chatbot-option { font-size: 14px;}
             .chatbot-option:hover { background-color: #fff; }
 
             /* Only disable icon hover effects, not the animation triggered by .chat-is-open */
@@ -3593,7 +3602,6 @@ text-shadow: 0 0px 20px #9495EA33;
             height: auto;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 0px 20px #9495EA62;
         }
 
         /* Navigazione (frecce) */
@@ -3614,7 +3622,7 @@ text-shadow: 0 0px 20px #9495EA33;
             top: 45%; /* Adjusted if carousel height changed */
             transform: translateY(-50%);
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 20px #9495EA62;
         }
 
         .features-carousel-wrapper .prev-arrow {
@@ -5012,7 +5020,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .ticker-wrap:hover .ticker-separator { color: #84CD9D !important; }
 
         .ticker-separator {
-            font-size: 1.3rem; font-weight: bold; margin: 0 0.8rem;
+            font-size: 1.3rem; font-weight: 700; margin: 0 0.8rem;
             vertical-align: middle; display: inline-block; color: #9495EA;
             transition: color 0.3s ease;
         }
@@ -5036,7 +5044,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
                     left: -25px; right: auto; width: 25px; top: 32px;
                 }
-                .ticker-item { font-size: 14px; margin-right: 1.5rem; }
+                .ticker-item { font-size: 18px; margin-right: 1.5rem; }
 
                 /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
                 .ticker {
@@ -5306,7 +5314,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Testimonial content styles */
         .testimonial-content { margin-bottom: 32px; flex-grow: 1; position: relative; z-index: 1; }
-        .testimonial-content p { font-size: 1.5rem; color: var(--text); }
+        .testimonial-content p { font-size: 24px; color: var(--text); }
 
         /* Testimonial author styles */
         .testimonial-author { display: flex; align-items: center; margin-top: auto; position: relative; z-index: 1; }
