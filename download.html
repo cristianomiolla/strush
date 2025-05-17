@@ -129,28 +129,23 @@ body {
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
+        line-height: 1.5;
+
 }
 
 h1 {
     font-weight: 800; 
-    font-size: 52px; 
+    font-size: 48px; 
 }
 
 h2 {
     font-weight: 700; 
-    font-size: 43px; 
-}
-
-h3 {
-    font-weight: 500; 
-    margin-bottom: 16px; 
-    font-size: 22px; 
-    color: var(--text);
+    font-size: 40px; 
 }
 
 h4 {
     font-weight: 500; 
-    font-size: 19px; 
+    font-size: 20px; 
     color: var(--text);
 }
 
@@ -163,7 +158,7 @@ h5 {
 h6 {
     font-weight: 300; 
     margin-bottom: 16px; 
-    font-size: 13px; 
+    font-size: 12px; 
     color: var(--text);   
 }
 
@@ -265,7 +260,7 @@ img {
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
     border-radius: 36px;
-    transition: transform 0.6s ease 0.4s;
+    transition: transform 0.6s ease 0.3s;
 }
 
 .section-title.reveal::after {
@@ -840,7 +835,7 @@ img {
         </div>
     
         <!-- App Info -->
-        <h3 class="app-title">App in sviluppo</h3>
+        <h4 class="app-title">App in sviluppo</h4>
         <div class="dots-container">
         <span class="dot dot-blue"></span>
         <span class="dot dot-gray"></span>
@@ -966,14 +961,14 @@ img {
     }
     
     .subscribe-description {
-        color: #555;
+        color: var(--text);
         margin-bottom: 8px;
         line-height: 1.5;
     }
     
     .privacy-notice {
         font-size: 14px;
-        color: #999;
+        color: var(--text2);
         margin-bottom: 24px;
         margin-top: 0;
     }
@@ -1563,7 +1558,7 @@ img {
 
     .footer-email {
         color: white;
-        margin-top: 1rem;
+        margin-top: 16px;
     }
 
     .footer-email a {
@@ -1577,7 +1572,7 @@ img {
     .footer-logo {
         display: flex; /* Utile per centrare se necessario */
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
     }
 
     /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
@@ -1617,7 +1612,7 @@ img {
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 4px;
+        height: 2px;
         background: var(--gradient-primary);
         border-radius: 36px;
     }
@@ -1753,6 +1748,7 @@ img {
         }
     }
 </style>
+
 
 
 </body>
