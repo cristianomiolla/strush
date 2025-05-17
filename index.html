@@ -143,28 +143,23 @@ body {
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
+        line-height: 1.5;
+
 }
 
 h1 {
     font-weight: 800; 
-    font-size: 52px; 
+    font-size: 48px; 
 }
 
 h2 {
     font-weight: 700; 
-    font-size: 43px; 
-}
-
-h3 {
-    font-weight: 500; 
-    margin-bottom: 16px; 
-    font-size: 22px; 
-    color: var(--text);
+    font-size: 40px; 
 }
 
 h4 {
     font-weight: 500; 
-    font-size: 19px; 
+    font-size: 20px; 
     color: var(--text);
 }
 
@@ -177,7 +172,7 @@ h5 {
 h6 {
     font-weight: 300; 
     margin-bottom: 16px; 
-    font-size: 13px; 
+    font-size: 12px; 
     color: var(--text);   
 }
 
@@ -279,7 +274,7 @@ img {
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
     border-radius: 36px;
-    transition: transform 0.6s ease 0.4s;
+    transition: transform 0.6s ease 0.3s;
 }
 
 .section-title.reveal::after {
@@ -2923,7 +2918,7 @@ text-shadow: 0 0px 20px #9495EA33;
                 if (!element) return;
                 if (withTransition) {
                     // Applica una transizione definita per il ritorno allo stato base
-                    element.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)'; // Curva ease-out più naturale
+                    element.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'; // Curva ease-out più naturale
                     element.style.transform = transform;
                     // Rimuovi la transizione dopo che è stata applicata,
                     // così non interferisce con le animazioni continue o il mouse move.
@@ -3200,7 +3195,7 @@ text-shadow: 0 0px 20px #9495EA33;
             display: block;
             margin: 0 auto;
             transform: translateZ(var(--video-base-z));
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
         }
 
         #features-container-desktop .video-perspective-container:hover .parallax-video {
@@ -3245,7 +3240,7 @@ text-shadow: 0 0px 20px #9495EA33;
             align-items: center;
             justify-content: center;
             background: var(--gradient-primary);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Ease with overshoot */
             border-radius: 50%; /* Inizia come un cerchio perfetto */
 
 
@@ -3257,7 +3252,7 @@ text-shadow: 0 0px 20px #9495EA33;
 
         #features-container-desktop .feature-icon i {
             font-size: 1.8rem;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
             color: var(--text);
         }
 
@@ -3560,7 +3555,7 @@ text-shadow: 0 0px 20px #9495EA33;
         #features-mobile .feature-container-slide {
             width: 100%;
             min-width: 100%;
-            transition: transform 0.4s ease-in-out;
+            transition: transform 0.3s ease-in-out;
             margin: 0;
             position: absolute;
             top: 0;
@@ -3709,7 +3704,7 @@ text-shadow: 0 0px 20px #9495EA33;
                         feature.style.opacity = '1';
                         if (video) video.pause();
                     }
-                    feature.style.transition = 'transform 0.4s ease-in-out, opacity 0.4s ease-in-out';
+                    feature.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
                 });
             }
 
@@ -3755,13 +3750,13 @@ text-shadow: 0 0px 20px #9495EA33;
                 featureElements.forEach((feature, idx) => {
                     const video = feature.querySelector('.feature-video');
                     if (idx === previousIndex) {
-                        feature.style.transition = 'transform 0.4s ease-in-out';
+                        feature.style.transition = 'transform 0.3s ease-in-out';
                         feature.style.transform = direction === 1 ? 'translateX(-100%)' : 'translateX(100%)';
                     } else if (idx === currentFeatureIndex) {
                         feature.style.transition = 'none';
                         feature.style.transform = direction === 1 ? 'translateX(100%)' : 'translateX(-100%)';
                         feature.offsetHeight; // Force reflow
-                        feature.style.transition = 'transform 0.4s ease-in-out';
+                        feature.style.transition = 'transform 0.3s ease-in-out';
                         feature.style.transform = 'translateX(0%)';
                         if (video) {
                             video.play().catch(e => console.warn("Video play failed:", e));
@@ -4029,7 +4024,7 @@ text-shadow: 0 0px 20px #9495EA33;
         justify-content: center;
         width: 140px;
         height: 140px;
-        transition: transform 0.4s ease;
+        transition: transform 0.3s ease;
     }
 
     /* Avatar wrapper - this will have the border and clip-path */
@@ -4990,8 +4985,8 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
             margin-bottom: 1rem; position: relative; z-index: 1;
-            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        transform 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             color: var(--text);
 ;
 
@@ -5333,7 +5328,7 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 68px;
             position: relative;
             margin-right: 20px;
-            transition: filter 0.3s ease, transform 0.4s ease;
+            transition: filter 0.3s ease, transform 0.3s ease;
             overflow: visible;
             
         }
@@ -5346,7 +5341,7 @@ document.addEventListener('DOMContentLoaded', function() {
             background: var(--gradient-primary);
             z-index: -1;
             border-radius: 50%;
-            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
         }
 
         /* Avatar image styles */
@@ -5355,7 +5350,7 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: block;
             position: relative;
             z-index: 1;
@@ -5422,16 +5417,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             .story.active .avatar-blob {
                 transform: scale(1.1) rotate(5deg);
-                transition: filter 0.3s ease, transform 0.4s ease;
+                transition: filter 0.3s ease, transform 0.3s ease;
             }
             .story.active .avatar-blob::before {
                 border-radius: var(--blob-shape);
                 background: var(--gradient-secondary);
-                transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+                transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
             }
             .story.active .testimonial-avatar {
                 border-radius: var(--blob-shape);
-                 transition: border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                 transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
         }
     </style>
@@ -5557,7 +5552,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="immagini/team1.png" alt="Cristiano Miolla">
                     </div>
                 </div>
-                <h3 class="team-name">Cristiano Miolla</h3>
+                <h4 class="team-name">Cristiano Miolla</h4>
                 <div class="team-role">CEO & Founder</div>
                 <p class="team-bio">Appassionato di innovazione, guida Strush per rendere l’educazione finanziaria a misura di Gen Z</p>
                 <div class="team-social">
@@ -5573,7 +5568,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="immagini/team2.jpg" alt="Silvano Sorino">
                     </div>
                 </div>
-                <h3 class="team-name">Silvano Sorino</h3>
+                <h4 class="team-name">Silvano Sorino</h4>
                 <div class="team-role">Game Designer</div>
                 <p class="team-bio">Concept artist nel mondo dei videogiochi, Silvano porta il suo know-how nella gamification</p>
                 <div class="team-social">
@@ -5589,7 +5584,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="immagini/team3.png" alt="Vito Carnimeo">
                     </div>
                 </div>
-                <h3 class="team-name">Vito Carnimeo</h3>
+                <h4 class="team-name">Vito Carnimeo</h4>
                 <div class="team-role">Illustrator & Visual Artist</div>
                 <p class="team-bio">Dà forma all’identità visiva e cura la comunicazione sui social, con uno stile fresco e riconoscibile</p>
                 <div class="team-social">
@@ -5605,7 +5600,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="immagini/team4.png" alt="Giuseppe Santoro">
                     </div>
                 </div>
-                <h3 class="team-name">Giuseppe Santoro</h3>
+                <h4 class="team-name">Giuseppe Santoro</h4>
                 <div class="team-role">UI/UX Designer</div>
                 <p class="team-bio">Giuseppe progetta l’esperienza utente e l’interfaccia dell’app unendo funzionalità e accessibilità</p>
                 <div class="team-social">
@@ -5668,6 +5663,10 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .team-name {
+        margin-bottom: 16px; 
         }
 
         .team-photo {
@@ -5912,7 +5911,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="container">         
         <div class="download-content">             
-            <h3 class="headline">Pronto a migliorare la tua gestione finanziaria?</h3>             
+            <h4 class="headline">Pronto a migliorare la tua gestione finanziaria?</h4>             
             <p class="description">Scarica l'app Strush oggi stesso e inizia il tuo percorso verso una gestione finanziaria più semplice e consapevole.</p>             
             <div class="store-buttons">                 
                 <a href="download.html" class="store-btn">                     
@@ -6098,7 +6097,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .footer-email {
         color: white;
-        margin-top: 1rem;
+        margin-top: 16px;
     }
 
     .footer-email a {
@@ -6112,7 +6111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .footer-logo {
         display: flex; /* Utile per centrare se necessario */
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
     }
 
     /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
@@ -6152,7 +6151,7 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 4px;
+        height: 2px;
         background: var(--gradient-primary);
         border-radius: 36px;
     }
