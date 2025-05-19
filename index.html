@@ -2279,27 +2279,30 @@ img {
         style="display: block; width: 100%; height: 100%;"
         version="1.1"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        transform="matrix(1,0,0,-1,0,0)" <!-- Inverte l'asse Y, y=0 è in basso -->
         class="curve-svg"
         >
-      <defs>
-        <mask id="uniqueCurveMask">
-          <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
-          <!-- Path per la maschera che definisce la forma da "scavare" -->
-          <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
-        </mask>
-      </defs>
-      <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
-      <!-- L'offset y="0.5" e height="29.5" evita che tocchi il bordo inferiore del viewBox visibile -->
-      <rect x="0" y="0.5" width="200" height="29.5" fill="#121218" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
+      <!-- MODIFICA: Trasformazione applicata a un gruppo <g> interno -->
+      <g transform="matrix(1,0,0,-1,0,30)">
+          <defs>
+            <mask id="uniqueCurveMask">
+              <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
+              <!-- Questo path e le coordinate sono relative al sistema pre-trasformazione del <g> -->
+              <!-- (0,0) è l'angolo in alto a sinistra del <g>, Y cresce verso il basso) -->
+              <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
+            </mask>
+          </defs>
+          <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
+          <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
+          <rect x="0" y="0.5" width="200" height="29.5" fill="#121218" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
 
-      <!-- Path per la barra di progresso (solo l'arco) -->
-      <!-- Disegnato da sinistra (0,0) a destra (200,0) -->
-      <path
-        id="readingProgressCurve"
-        class="progress-bar-path"
-        d="M0,0 A100,30 0 0 0 200,0"
-        ></path>
+          <!-- Path per la barra di progresso (solo l'arco) -->
+          <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
+          <path
+            id="readingProgressCurve"
+            class="progress-bar-path"
+            d="M0,0 A100,30 0 0 0 200,0"
+            ></path>
+      </g>
     </svg>
 </div>
 
@@ -2324,27 +2327,25 @@ img {
     .progress-bar-path {
         fill: none;
         stroke: #9495EA; /* Colore della barra di progresso, personalizzabile */
-        stroke-width: 3; /* Spessore desktop in unità SVG (risulta in 2px visivi) */
-        stroke-linecap: round; /* MODIFICA: Estremità arrotondate */
+        stroke-width: 3; /* Spessore desktop in unità SVG */
+        stroke-linecap: round;
         transition: stroke-dashoffset 0.05s linear; /* Transizione fluida */
-        pointer-events: auto; /* Permetti eventi se necessario, ma di solito non serve per una progress bar */
+        pointer-events: auto;
     }
 
     @media screen and (max-width: 767px) {
         .navbar-bottom-curve {
             height: 25px; /* Altezza mobile */
-            /* Correzioni per evitare artefatti laterali su alcuni browser/dispositivi */
             width: calc(100% + 1px);
             left: -0.5px;
         }
         .progress-bar-path {
-            /* Per mantenere 2px visivi quando l'SVG è alto 25px (contenitore)
+            /* Per mantenere ~3px visivi quando l'SVG è alto 25px (contenitore)
                ma la viewBox SVG è alta 30 unità:
-               stroke-width-svg = (2px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
-                                = (2 / 25) * 30 = 0.08 * 30 = 2.4
+               stroke-width-svg = (3px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
+                                = (3 / 25) * 30 = 0.12 * 30 = 3.6
             */
-            stroke-width: 3.4; /* Spessore mobile in unità SVG per ottenere ~2px visivi */
-            /* stroke-linecap rimane round anche qui, l'arrotondamento si adatta allo stroke-width */
+            stroke-width: 3.6; /* Spessore mobile in unità SVG */
         }
     }
 </style>
@@ -2361,23 +2362,17 @@ img {
         let pathLength;
 
         function calculatePathLength() {
-            // getTotalLength() potrebbe non funzionare correttamente se l'elemento non è ancora renderizzato
-            // o non ha dimensioni definite. Qui l'SVG ha dimensioni, quindi dovrebbe andare bene.
-            // Si consiglia di eseguire questo calcolo dopo che l'elemento è visibile.
             try {
                 pathLength = progressBarPath.getTotalLength();
                 progressBarPath.style.strokeDasharray = pathLength;
                 progressBarPath.style.strokeDashoffset = pathLength; // Inizia vuota
             } catch (e) {
                 // console.error("Errore nel calcolare getTotalLength:", e);
-                // Potrebbe essere necessario ritardare questa chiamata o assicurarsi che l'SVG sia visibile
             }
         }
 
         function updateProgressBar() {
             if (typeof pathLength === 'undefined' || pathLength === 0) {
-                // Se pathLength non è stato calcolato (es. SVG non ancora pronto), riprova.
-                // Questo è un fallback, idealmente calculatePathLength funziona al primo colpo.
                 calculatePathLength();
                 if (typeof pathLength === 'undefined' || pathLength === 0) return;
             }
@@ -2385,44 +2380,30 @@ img {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const clientHeight = document.documentElement.clientHeight;
-
             const scrollableHeight = scrollHeight - clientHeight;
 
             if (scrollableHeight <= 0) {
-                // Pagina non scrollabile o scrollata completamente: la barra può essere piena o vuota.
-                // Opzione 1: Barra vuota se non c'è scroll
                 progressBarPath.style.strokeDashoffset = pathLength;
-                // Opzione 2: Barra piena se non c'è scroll (tutto visibile)
-                // progressBarPath.style.strokeDashoffset = 0;
                 return;
             }
 
             const scrollPercentage = scrollTop / scrollableHeight;
             const drawLength = pathLength * scrollPercentage;
-
-            // Assicurati che l'offset non vada oltre i limiti [0, pathLength]
             progressBarPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, pathLength - drawLength));
         }
 
-        // Calcola la lunghezza del path quando il DOM è pronto
-        // e l'SVG dovrebbe avere le sue dimensioni.
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
                 calculatePathLength();
                 updateProgressBar(); // Imposta lo stato iniziale
             });
         } else {
-            // DOM già caricato
             calculatePathLength();
             updateProgressBar(); // Imposta lo stato iniziale
         }
 
-        // Listener per lo scroll
         window.addEventListener('scroll', updateProgressBar, { passive: true });
 
-        // Listener per il resize (potrebbe influenzare getTotalLength se l'SVG scala in modo strano,
-        // ma con preserveAspectRatio="none" e path fissi, la lunghezza in unità SVG non cambia.
-        // Tuttavia, è buona norma ricalcolare se le dimensioni del viewport cambiano)
         let resizeTimeout;
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimeout);
@@ -2434,6 +2415,7 @@ img {
 
     })();
 </script>
+<!-- Fine Blocco Curva Navbar con Barra di Lettura -->
 
 
     <!-- Hero Section -->
