@@ -29,7 +29,7 @@
     <!-- Favicon -->
     <link rel="icon" href="immagini/pittogramma_trasp.png" type="image/png">
     <link rel="shortcut icon" href="immagini/pittogramma_trasp.png" type="image/png">
-    
+
 <style>
 /* Dichiarazione dei font locali Unbounded con @font-face */
 @font-face {
@@ -96,29 +96,32 @@
     font-display: swap;
 }
 
-/* Dichiarazione del font Open Sans Variable */
+/* Dichiarazione del font Inter Variable */
 @font-face {
-    font-family: 'Open Sans';
-    src: url('./font/OpenSans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('./font/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
     font-style: italic;
     font-display: swap;
 }
+
 
 /* Variabili CSS */
 :root {
     --primary: #84CD9D;
     --secondary: #9495EA;
-    --text: #121218;
-    --text2: #555555;
+    --text: #121212;
+    --text2: #6B6F6E;
     --light: #E6F2F5;
     --dark: #222222;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -135,7 +138,7 @@
 
 /* Stili di base del corpo */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     font-weight: 400;
 }
@@ -143,72 +146,65 @@ body {
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
-        line-height: 1.5;
-
+    line-height: 1.5;
 }
 
 h1 {
-    font-weight: 800; 
-    font-size: 48px; 
+    font-weight: 800;
+    font-size: 48px;
 }
 
 h2 {
-    font-weight: 700; 
-    font-size: 40px; 
+    font-weight: 700;
+    font-size: 40px;
 }
 
 h4 {
-    font-weight: 500; 
-    font-size: 20px; 
+    font-weight: 500;
+    font-size: 20px;
     color: var(--text);
 }
 
 h5 {
-    font-weight: 400; 
-    font-size: 16px; 
+    font-weight: 400;
+    font-size: 16px;
     color: var(--text);
 }
 
 h6 {
-    font-weight: 300; 
-    margin-bottom: 16px; 
-    font-size: 12px; 
-    color: var(--text);   
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text);
 }
 
 a {
     text-decoration: none;
-    color: #121218;
-    font-size: 14px; /* Originale: 14px */
+    color: #121212;
+    font-size: 14px;
 }
 
 p {
-    color: #555555;
-    font-size: 16px; /* Originale: 1rem */
+    color: #6B6F6E;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
-
     h1 {
         font-size: 32px;
     }
     h2 {
-        font-size: 32px; 
-    }
-    h3 {
-        font-size: 24px;
+        font-size: 32px;
     }
     h4 {
-        font-size: 20px; 
+        font-size: 20px;
     }
-
     h5 {
-    font-size: 16px; }
-
-    p {
-        font-size: 16px; 
+        font-size: 16px;
     }
-
+    p {
+        font-size: 16px;
+    }
     a {
         font-size: 16px;
     }
@@ -226,7 +222,7 @@ img {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px 0 0px; /* Originale: 0rem 0 0rem */
+    padding: 0px 0 0px;
 }
 
 .text-center {
@@ -235,7 +231,7 @@ img {
 
 /* Section base style */
 .section {
-    padding: 96px 0 96px; /* Originale: 6rem 0 6rem */
+    padding: 96px 0 96px;
 }
 
 /* Stili per i titoli */
@@ -243,7 +239,7 @@ img {
     text-align: center;
     margin: 48px;
     position: relative;
-    color: #121218;
+    color: #121212;
     font-weight: bold;
     overflow: hidden;
 }
@@ -285,21 +281,21 @@ img {
 .section-subtitles {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
-    color: #121218;
-    font-size: 20px; 
+    margin: 0 auto 48px;
+    color: #121212;
+    font-size: 20px;
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 80px 0 80px; /* Originale: 5rem 0 5rem */
+        padding: 80px 0 80px;
     }
     .section-title {
         margin: 32px;
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 18px;  /* Originale: 19px */
+        font-size: 18px;
     }
 }
 </style>
@@ -428,7 +424,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #121218;
+        background-color: #121212;
         z-index: 9999;
         display: flex;
         justify-content: center;
@@ -666,7 +662,7 @@ img {
     .strush-progress-bar {
         width: 200px;
         height: 6px;
-        background: #555555;
+        background: #6B6F6E;
         border-radius: 36px;
         overflow: hidden;
         margin-bottom: 16px;
@@ -907,7 +903,7 @@ img {
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #121218;
+            background-color: #121212;
             color: white;
             padding: 16px;
             border-radius: 36px;
@@ -1249,7 +1245,7 @@ img {
             max-height: calc(100vh - 150px); 
             background-color: #fff;
             border-radius: var(--border-radius-lg);
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
             display: none; 
             flex-direction: column;
             overflow: hidden;
@@ -1348,7 +1344,7 @@ img {
             background-color: #9495EA; 
         }
         .typing-indicator span:nth-of-type(2) {
-            background-color: #555555; 
+            background-color: #6B6F6E; 
             animation-delay: 0.2s;
         }
         .typing-indicator span:nth-of-type(3) {
@@ -1372,7 +1368,7 @@ img {
             border: none; z-index: 1; font-size: 14px;
             font-family: inherit; border: 1px solid #9495EA;
         }
-        .chatbot-option:hover { background-color: #F6F6F6; }
+        .chatbot-option:hover { background-color: #f1f1f1; }
 
         .chatbot-share-button {
             background-color: var(--secondary); 
@@ -1889,7 +1885,7 @@ img {
             z-index: 999; /* Navbar sopra il dropdown */
             padding: 0;
             transition: all 0.3s ease;
-            background-color: #121218;
+            background-color: #121212;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             min-height: 70px;
@@ -1967,7 +1963,7 @@ img {
             top: 70px; /* Default top position */
             left: 0;
             width: 100%;
-            background-color: #121218;
+            background-color: #121212;
             backdrop-filter: blur(15px); /* Per desktop */
             -webkit-backdrop-filter: blur(15px); /* Per desktop */
             z-index: 998; /* Dropdown sotto la navbar */
@@ -2293,7 +2289,7 @@ img {
           </defs>
           <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
           <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
-          <rect x="0" y="0.5" width="200" height="29.5" fill="#121218" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
+          <rect x="0" y="0.5" width="200" height="29.5" fill="#121212" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
 
           <!-- Path per la barra di progresso (solo l'arco) -->
           <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
@@ -2531,7 +2527,7 @@ img {
             padding: 0;
             display: flex;
             align-items: center;
-            background: #121218;
+            background: #121212;
             box-sizing: border-box;
         }
 
@@ -2695,7 +2691,7 @@ text-shadow: 0 0px 20px #9495EA33;
         .dino-body { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
         .dino-head { position: absolute; top: 40px; left: 170px; width: 90px; height: 70px; background: #67AF9E; border-radius: 50% 70% 30% 30%; transform: rotate(10deg); z-index: 5; animation: dinoHead 5s infinite alternate; }
         .dino-eye { position: absolute; top: 20px; left: 20px; width: 18px; height: 18px; background: white; border-radius: 50%; overflow: hidden; }
-        .dino-eye::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; background: #121218; border-radius: 50%; animation: dinoEye 4s infinite; }
+        .dino-eye::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; background: #121212; border-radius: 50%; animation: dinoEye 4s infinite; }
         .dino-snout { position: absolute; top: 35px; left: 45px; width: 50px; height: 25px; background: #5DA08F; border-radius: 60% 80% 60% 40%; transform: rotate(-5deg); }
         .dino-mouth { position: absolute; top: 45px; left: 55px; width: 30px; height: 10px; background: #4A8272; border-radius: 40% 40% 60% 60%; animation: dinoMouth 3s infinite; }
         .dino-neck { position: absolute; top: 90px; left: 150px; width: 50px; height: 70px; background: #67AF9E; border-radius: 30% 30% 50% 50%; transform: rotate(60deg); z-index: 4; }
@@ -2716,7 +2712,7 @@ text-shadow: 0 0px 20px #9495EA33;
         .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
 
         .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
-        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0px 20px #9495EA62;
+        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0px 10px #9495EA62;
             opacity: 0; animation: dataPoint 4s infinite; }
         .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
         .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
@@ -2724,8 +2720,8 @@ text-shadow: 0 0px 20px #9495EA33;
         .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
         .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
         .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
-        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0px 20px #9495EA62;animation: scanLine 3s infinite; }
-        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 0px 20px #9495EA62;opacity: 0.7; animation: techCirclePulse 4s infinite; }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0px 10px #9495EA62;animation: scanLine 3s infinite; }
+        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 0px 10px #9495EA62;opacity: 0.7; animation: techCirclePulse 4s infinite; }
         .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
         .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
         .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
@@ -2750,14 +2746,14 @@ text-shadow: 0 0px 20px #9495EA33;
         .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
         .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
 
-        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0px 20px #9495EA62;
+        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0px 10px #9495EA62;
             transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
         .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
-        .mouse { width: 26px; height: 40px; border: 2px solid #f6f6f6; border-radius: 20px; position: relative; margin-bottom: 10px; }
-        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background:#f6f6f6; border-radius: 2px; animation: scroll 2s infinite; }
+        .mouse { width: 26px; height: 40px; border: 2px solid #f1f1f1; border-radius: 20px; position: relative; margin-bottom: 10px; }
+        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background:#f1f1f1; border-radius: 2px; animation: scroll 2s infinite; }
         .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid #f6f6f6; transform: rotate(45deg); animation: arrow 2s infinite; }
+        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid #f1f1f1; transform: rotate(45deg); animation: arrow 2s infinite; }
         .arrow span:nth-child(2) { animation-delay: 0.2s; }
         .arrow span:nth-child(3) { animation-delay: 0.4s; }
 
@@ -3090,7 +3086,7 @@ text-shadow: 0 0px 20px #9495EA33;
                                     </div>
                                 </div>
                                 <h4 class="feature-title">Unica dashboard</h4>
-                                <p>Segna le tue spese/entrate per avere una panoramica delle tue finanze in un'unica dashboard</p>
+                                <p>Gestisci i tuoi conti per avere una panoramica delle tue spese in un'unica dashboard</p>
                             </div>
                         </div>
 
@@ -3125,7 +3121,7 @@ text-shadow: 0 0px 20px #9495EA33;
                                     </div>
                                 </div>
                                 <h4 class="feature-title">Conti tra amici</h4>
-                                <p>Tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi</p>
+                                <p>Condividi spese e abbonamenti con gli amici e tieni traccia dei rimborsi senza più conti a mano</p>
                             </div>
                         </div>
                     </div>
@@ -3142,7 +3138,7 @@ text-shadow: 0 0px 20px #9495EA33;
                                     </div>
                                 </div>
                                 <h4 class="feature-title">Insight intelligenti</h4>
-                                <p>Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
+                                <p>Ricevi promemoria per le tue uscite future e visualizza gli insight sulle tue abitudini di spesa</p>
                             </div>
                         </div>
 
@@ -3272,7 +3268,7 @@ text-shadow: 0 0px 20px #9495EA33;
             height: 450px;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
             display: block;
             margin: 0 auto;
             transform: translateZ(var(--video-base-z));
@@ -3286,8 +3282,8 @@ text-shadow: 0 0px 20px #9495EA33;
         #features-container-desktop .feature-card {
             background: white;
             border-radius: 16px; /* Match video radius */
-            padding: 24px 24px; /* Adjusted padding */
-            box-shadow: 0 0px 20px #9495EA62;
+            padding: 32px; /* Adjusted padding */
+            box-shadow: 0 0px 10px #9495EA62;
             transition: box-shadow 0.35s ease-out; /* Rimossa transition per border-top-color */
             text-align: center;
             max-width: 320px; /* Slightly wider */
@@ -3512,7 +3508,7 @@ text-shadow: 0 0px 20px #9495EA33;
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Unica dashboard</h4>
-                            <p class="feature-description">Segna le tue spese/entrate per avere una panoramica delle tue finanze in un'unica dashboard</p>
+                            <p class="feature-description">Gestisci i tuoi conti per avere una panoramica delle tue spese in un'unica dashboard</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-1" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
@@ -3528,7 +3524,7 @@ text-shadow: 0 0px 20px #9495EA33;
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Conti tra amici</h4>
-                            <p class="feature-description">Tieni traccia delle spese comuni (come Netflix e Spotify) e di chi ha dato o preso soldi</p>
+                            <p class="feature-description">Condividi spese e abbonamenti con gli amici e tieni traccia dei rimborsi senza più conti a mano</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-2" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video>
@@ -3544,7 +3540,7 @@ text-shadow: 0 0px 20px #9495EA33;
                         <div class="feature-content">
                             <!-- Titolo e descrizione -->
                             <h4 class="feature-title">Insight intelligenti</h4>
-                            <p class="feature-description">Ricevi promemoria per le spese future e ricorrenti, e visualizza gli insight sulle tue abitudini di spesa</p>
+                            <p class="feature-description">Ricevi promemoria per le tue uscite future e visualizza gli insight sulle tue abitudini di spesa</p>
                         </div>
                         <div class="feature-media">
                             <video id="video-mobile-3" class="feature-video" src="immagini/video1.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
@@ -3607,7 +3603,7 @@ text-shadow: 0 0px 20px #9495EA33;
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #ddd;
+            background: #D8DBDA;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -3654,7 +3650,7 @@ text-shadow: 0 0px 20px #9495EA33;
             margin: 15px auto 0 auto;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -3692,7 +3688,7 @@ text-shadow: 0 0px 20px #9495EA33;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background:  #F6F6F6;
+            background:  #ffffff;
             border: 1px solid #eee;
             color: var(--secondary);
             display: flex;
@@ -3705,7 +3701,7 @@ text-shadow: 0 0px 20px #9495EA33;
             top: 45%; /* Adjusted if carousel height changed */
             transform: translateY(-50%);
             z-index: 10;
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
         }
 
         .features-carousel-wrapper .prev-arrow {
@@ -4048,14 +4044,14 @@ text-shadow: 0 0px 20px #9495EA33;
         height: 100%;
         transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
-        box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 0px 10px #9495EA62;
         border-radius: 16px;
         will-change: transform;
     }
     
     .avatar-card:hover .card-inner {
         transform: rotateY(180deg) scale(1.05);
-        box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 0px 10px #9495EA62;
         }
     
     .card-front, .card-back {
@@ -4194,6 +4190,7 @@ text-shadow: 0 0px 20px #9495EA33;
     
     /* Media query for responsive design */
     @media (max-width: 768px) {
+
         .avatar-selection-container {
             gap: 20px;
         }
@@ -4207,13 +4204,13 @@ text-shadow: 0 0px 20px #9495EA33;
         /* Per dispositivi mobili: disattiva l'effetto hover */
         .avatar-card:hover .card-inner {
             transform: none;
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
         }
         
         /* La card si gira solo quando ha la classe flipped */
         .avatar-card .card-inner.flipped {
             transform: rotateY(180deg);
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
         }
 
     }
@@ -4435,7 +4432,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transform-style: preserve-3d;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 0px 20px #9495EA62; /* Base purple shadow */
+        box-shadow: 0 0px 10px #9495EA62; /* Base purple shadow */
     }
 
     /* Aggiungiamo un div per lo sfondo con effetto zoom */
@@ -4451,7 +4448,7 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 16px;
         overflow: hidden;
         z-index: 0;
-        box-shadow: 0 0px 20px #9495EA62; /* Base purple shadow */
+        box-shadow: 0 0px 10px #9495EA62; /* Base purple shadow */
     }
 
     .card:hover .card-bg {
@@ -4521,7 +4518,7 @@ document.addEventListener('DOMContentLoaded', function() {
         background-color: rgba(255, 255, 255, 0.8);
         padding: 4px 4px;
         border-radius: 16px;
-        box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 0px 10px #9495EA62;
         transition: none;
         position: relative;
         z-index: 5;
@@ -4530,7 +4527,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Stile speciale per la targhetta dell'avatar utente */
     .image-label.user-avatar {
         background: var(--gradient-primary); /* Make sure --gradient-primary is defined */
-        box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 0px 10px #9495EA62;
         font-weight: bold;
         border: 2px solid #fff;
         padding: 4px 0px;
@@ -4672,7 +4669,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Resetta TUTTE le trasformazioni e ombre per la card su mobile */
         .card {
              transform: none !important;
-             box-shadow: 0 0px 20px #9495EA62 !important; /* Forza ombra viola base */
+             box-shadow: 0 0px 10px #9495EA62 !important; /* Forza ombra viola base */
              transition: none !important; /* Disabilita transizioni su mobile se causano problemi */
         }
         .card-bg {
@@ -4690,7 +4687,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .card:focus, /* Aggiunto per accessibilità/interazioni touch */
         .card:active { /* Aggiunto per interazioni touch */
             transform: none !important;
-            box-shadow: 0 0px 20px #9495EA62 !important; /* Mantiene ombra viola base */
+            box-shadow: 0 0px 10px #9495EA62 !important; /* Mantiene ombra viola base */
         }
 
         .card:hover .card-bg,
@@ -5038,8 +5035,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .timeline-content {
-            width: 45%; background: white; padding: 24px; border-radius: 16px;
-            box-shadow: 0 0px 20px #9495EA62;
+            width: 45%; background: white; padding: 32px; border-radius: 16px;
+            box-shadow: 0 0px 10px #9495EA62;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
         }
@@ -5047,7 +5044,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Stili Hover Desktop */
         @media (hover: hover) and (min-width: 768px) { /* Applica solo se il device supporta hover e non è mobile */
             .timeline-content:hover {
-                box-shadow: 0 0px 20px #9495EA62;
+                box-shadow: 0 0px 10px #9495EA62;
             }
 
             .timeline-content:hover .step-number {
@@ -5090,7 +5087,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Ticker Styles */
             .ticker-wrap {
-            width: 100%; overflow: hidden; background: #121218;
+            width: 100%; overflow: hidden; background: #121212;
             position: relative;
             transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
             }
@@ -5396,7 +5393,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
             -webkit-tap-highlight-color: transparent;
             outline: none;
-            box-shadow: 0 0px 20px #9495EA62;
+            box-shadow: 0 0px 10px #9495EA62;
         }
 
         /* Irregular blob shapes */
@@ -5458,7 +5455,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Stile per l'effetto di pressione attiva */
         .story-inner:active {
-            background-color: #f6f6f6;
+            background-color: #f1f1f1;
             transform: translateY(1px);
             transition: all 0.05s ease-out;
         }
@@ -5467,7 +5464,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* --- Stili Hover Desktop --- */
         @media (hover: hover) and (min-width: 768px) {
             .story-inner:hover {
-                box-shadow: 0 0px 20px #9495EA62;
+                box-shadow: 0 0px 10px #9495EA62;
             }
 
             .story-inner:hover .avatar-blob::before {
@@ -5896,8 +5893,8 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color:  #f6f6f6;
-            color: #121218;
+            background-color:  #f1f1f1;
+            color: #121212;
             transition: all 0.3s ease;
             text-decoration: none;
             position: relative;
@@ -6075,7 +6072,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }          
         .store-btn:hover {             
             transform: translateY(-2px);             
-            box-shadow: 0 8px 20px #55555533;         
+            box-shadow: 0 8px 20px #6B6F6E33;         
         }          
         .store-btn i {             
             font-size: 2.2rem;             
@@ -6307,7 +6304,7 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-            background-color:  #555555;
+            background-color:  #6B6F6E;
         color: white;
         transition: all 0.3s ease;
         position: relative;
