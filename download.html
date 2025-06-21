@@ -82,29 +82,32 @@
     font-display: swap;
 }
 
-/* Dichiarazione del font Open Sans Variable */
+/* Dichiarazione del font Inter Variable */
 @font-face {
-    font-family: 'Open Sans';
-    src: url('./font/OpenSans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('./font/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
     font-style: italic;
     font-display: swap;
 }
+
 
 /* Variabili CSS */
 :root {
     --primary: #84CD9D;
     --secondary: #9495EA;
-    --text: #121218;
-    --text2: #555555;
+    --text: #121212;
+    --text2: #6B6F6E;
     --light: #E6F2F5;
     --dark: #222222;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -121,7 +124,7 @@
 
 /* Stili di base del corpo */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     font-weight: 400;
 }
@@ -129,72 +132,65 @@ body {
 /* Utilizzo del font Unbounded per i titoli con pesi diversi */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', sans-serif;
-        line-height: 1.5;
-
+    line-height: 1.5;
 }
 
 h1 {
-    font-weight: 800; 
-    font-size: 48px; 
+    font-weight: 700;
+    font-size: 48px;
 }
 
 h2 {
-    font-weight: 700; 
-    font-size: 40px; 
+    font-weight: 700;
+    font-size: 40px;
 }
 
 h4 {
-    font-weight: 500; 
-    font-size: 20px; 
+    font-weight: 500;
+    font-size: 20px;
     color: var(--text);
 }
 
 h5 {
-    font-weight: 400; 
-    font-size: 16px; 
+    font-weight: 400;
+    font-size: 16px;
     color: var(--text);
 }
 
 h6 {
-    font-weight: 300; 
-    margin-bottom: 16px; 
-    font-size: 12px; 
-    color: var(--text);   
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text);
 }
 
 a {
     text-decoration: none;
-    color: #121218;
-    font-size: 14px; /* Originale: 14px */
+    color: #121212;
+    font-size: 14px;
 }
 
 p {
-    color: #555555;
-    font-size: 16px; /* Originale: 1rem */
+    color: #6B6F6E;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
-
     h1 {
         font-size: 32px;
     }
     h2 {
-        font-size: 32px; 
-    }
-    h3 {
-        font-size: 24px;
+        font-size: 32px;
     }
     h4 {
-        font-size: 20px; 
+        font-size: 20px;
     }
-
     h5 {
-    font-size: 16px; }
-
-    p {
-        font-size: 16px; 
+        font-size: 16px;
     }
-
+    p {
+        font-size: 16px;
+    }
     a {
         font-size: 16px;
     }
@@ -212,7 +208,7 @@ img {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px 0 0px; /* Originale: 0rem 0 0rem */
+    padding: 0px 0 0px;
 }
 
 .text-center {
@@ -221,7 +217,7 @@ img {
 
 /* Section base style */
 .section {
-    padding: 96px 0 96px; /* Originale: 6rem 0 6rem */
+    padding: 96px 0 96px;
 }
 
 /* Stili per i titoli */
@@ -229,7 +225,7 @@ img {
     text-align: center;
     margin: 48px;
     position: relative;
-    color: #121218;
+    color: #121212;
     font-weight: bold;
     overflow: hidden;
 }
@@ -271,21 +267,21 @@ img {
 .section-subtitles {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 48px; /* Originale: margin: 0 auto 3rem */
-    color: #121218;
-    font-size: 20px; 
+    margin: 0 auto 48px;
+    color: #121212;
+    font-size: 20px;
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 80px 0 80px; /* Originale: 5rem 0 5rem */
+        padding: 80px 0 80px;
     }
     .section-title {
         margin: 32px;
     }
     .section-subtitles {
         margin-bottom: 32px;
-        font-size: 18px;  /* Originale: 19px */
+        font-size: 20px;
     }
 }
 </style>
@@ -485,13 +481,12 @@ img {
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 999;
+            z-index: 999; /* Navbar sopra il dropdown */
             padding: 0;
             transition: all 0.3s ease;
-            background-color: #121218;
+            background-color: #121212;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
             min-height: 70px;
             display: flex;
             align-items: center;
@@ -499,10 +494,6 @@ img {
 
         body {
             padding-top: var(--nav-height, 70px);
-        }
-
-        .strush-navbar.scrolled {
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
 
         .strush-container {
@@ -525,40 +516,39 @@ img {
 
         /* --- LOGO MOBILE --- */
         .strush-logo-mobile {
-            display: none; 
+            display: none;
         }
 
         .strush-logo-mobile .strush-logo-blob {
-            width: 0; 
-            height: 38px; /* Altezza complessiva del blob (incluso padding) */
-            opacity: 0; 
-            margin-right: 0; 
+            width: 0;
+            height: 38px;
+            opacity: 0;
+            margin-right: 0;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
-            overflow: hidden; /* Mantiene la forma data da border-radius */
-            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Forma del blob */
-            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); /* Sfondo gradiente */
-            padding: 2px; /* Questo crea il "bordo" visibile */
-            box-sizing: border-box; /* Width e Height includono il padding */
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
         }
         .strush-logo-mobile .strush-logo-blob img {
-            width: 100%; /* Riempie lo spazio interno al padding */
-            height: 100%; /* Riempie lo spazio interno al padding */
-            object-fit: cover; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            border-radius: inherit; /* L'immagine eredita la forma del blob */
-            /* transform: translateY(-2px); Potrebbe non essere più necessario o da aggiustare */
+            border-radius: inherit;
         }
-        
+
         .strush-logo-mobile .strush-logo-text-img {
-             height: 24px; 
+             height: 24px;
              width: auto;
              display: inline-block;
              vertical-align: middle;
-             margin-left: 0; 
+             margin-left: 0;
              transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
              opacity: 1;
         }
@@ -566,11 +556,45 @@ img {
 
 
         /* Dropdown mobile styles */
-        .strush-mobile-dropdown { display: none; position: absolute; top: 70px; left: 0; width: 100%; background-color: #121218; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 998; transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease; padding: 16px 0; border-radius: 0 0 15px 15px;  transform: translateY(-20px); opacity: 0; height: auto; max-height: 0; overflow: hidden; position: absolute; }
-        .strush-mobile-dropdown::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 141, 212, 0.7), transparent); z-index: 1; }
-        .strush-mobile-dropdown::after { content: ''; position: absolute; top: -30px; left: -30px; right: -30px; bottom: -30px; background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.2) 0%, rgba(142, 220, 169, 0.1) 40%, rgba(10, 10, 15, 0) 75%); filter: blur(35px); z-index: -1; opacity: 0; transition: opacity 0.6s ease 0.2s; pointer-events: none; border-radius: 50%; }
+        .strush-mobile-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px; /* Default top position */
+            left: 0;
+            width: 100%;
+            background-color: #121212;
+            backdrop-filter: blur(15px); /* Per desktop */
+            -webkit-backdrop-filter: blur(15px); /* Per desktop */
+            z-index: 998; /* Dropdown sotto la navbar */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+            padding: 16px 0;
+            border-radius: 0 0 16px 16px;
+            transform: translateY(-20px);
+            opacity: 0;
+            height: auto;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .strush-mobile-dropdown::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            /* MODIFICA: Ridotta opacità dei colori nel gradiente */
+            background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.1) 0%, rgba(142, 220, 169, 0.05) 40%, rgba(10, 10, 15, 0) 75%);
+            /* MODIFICA: Ridotta sfocatura per desktop */
+            filter: blur(25px); /* Era 35px */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.2s;
+            pointer-events: none;
+            border-radius: 50%;
+        }
         .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px;}
-        .strush-mobile-dropdown.active::after { opacity: 1; }
+        .strush-mobile-dropdown.active::after { opacity: 1; } /* Potresti anche ridurre questa opacità se vuoi, es. opacity: 0.7; */
         .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
         .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
         .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
@@ -594,28 +618,27 @@ img {
         /* --- LOGO DESKTOP --- */
         .strush-logo-nav-item .strush-logo-blob {
             width: 0;
-            height: 38px; /* Altezza complessiva del blob (incluso padding) */
+            height: 38px;
             opacity: 0;
             transform: scale(0.7);
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 0px; /* Inizialmente nessun margine a destra */
-            overflow: hidden; /* Mantiene la forma data da border-radius */
-            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; /* Forma del blob */
-            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); /* Sfondo gradiente */
-            padding: 2px; /* Questo crea il "bordo" visibile */
-            box-sizing: border-box; /* Width e Height includono il padding */
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out; 
+            margin-right: 0px;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out;
         }
         .strush-logo-nav-item .strush-logo-blob img {
-            width: 100%; /* Riempie lo spazio interno al padding */
-            height: 100%; /* Riempie lo spazio interno al padding */
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
-            border-radius: inherit; /* L'immagine eredita la forma del blob */
-             /* transform: translateY(-2px); Potrebbe non essere più necessario o da aggiustare */
+            border-radius: inherit;
         }
 
         .strush-logo-nav-item .strush-logo-text-img {
@@ -623,7 +646,7 @@ img {
             width: auto;
             display: inline-block;
             vertical-align: middle;
-            margin-right: 8px; 
+            margin-right: 8px;
             opacity: 1;
             transform: scale(1);
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out 0.05s, margin-left 0.3s ease-in-out;
@@ -633,7 +656,7 @@ img {
             width: 38px;
             opacity: 1;
             transform: scale(1);
-            margin-right: 5px; /* Aggiungi un piccolo margine quando il blob è visibile */
+            margin-right: 5px;
             animation: navbar-blob-morph-from-chatbot 5s infinite;
         }
         .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-text-img {
@@ -643,7 +666,7 @@ img {
             overflow: hidden;
             pointer-events: none;
             margin-left: 0;
-            margin-right: 0; 
+            margin-right: 0;
         }
 
         .strush-nav-links-container:hover .strush-logo-nav-item {
@@ -664,27 +687,51 @@ img {
         90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg) scale(var(--blob-scale, 1)); }
         100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1));}
         }
-        
+
         .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob,
-        .menu-active .strush-logo-mobile .strush-logo-blob { 
+        .menu-active .strush-logo-mobile .strush-logo-blob {
             --blob-scale: 1;
         }
-        .strush-logo-nav-item .strush-logo-blob { 
+        .strush-logo-nav-item .strush-logo-blob {
              --blob-scale: 0.7;
         }
-        
-        .strush-logo-mobile .strush-logo-blob {
-            --blob-scale: 1; 
-        }
 
-        /* Rimossa la regola .strush-logo-blob img globale, ora è specifica per mobile e desktop blob */
+        .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1;
+        }
 
         .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
         .strush-nav-links li { margin: 0 4px; }
-        .strush-nav-links a { text-decoration: none; color: white; font-weight: 600; font-size: 14px; padding: 8px 8px; border-radius: 16px; transition: all 0.3s ease; position: relative; display: inline-block; white-space: nowrap; }
-        .strush-nav-links a:hover { color: #84CD9D; }
-        .strush-nav-links a::after { content: ''; position: absolute; bottom: 0px; left: 50%; width: 0; height: 2px; background: linear-gradient(to right, #84CD9D, #9495EA); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 36px; }
-        .strush-nav-links a:hover::after { width: 80%; }
+        .strush-nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 8px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .strush-nav-links a:hover {
+            color: #84CD9D;
+        }
+        .strush-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #84CD9D, #9495EA);
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 36px;
+        }
+        .strush-nav-links a:hover::after {
+            width: calc(100% - 16px);
+        }
         .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
         .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
         .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
@@ -693,12 +740,18 @@ img {
 
         /* Media query unificata per dispositivi mobili */
         @media screen and (max-width: 768px) {
-            .strush-navbar { backdrop-filter: none; -webkit-backdrop-filter: none; height: 70px; min-height: 70px; display: flex; align-items: center; }
-            .strush-navbar.scrolled {box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); }
+            .strush-navbar {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                height: 70px;
+                min-height: 70px;
+                display: flex;
+                align-items: center;
+            }
             .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
-            
+
             .strush-logo-mobile {
-                display: block; 
+                display: block;
                 z-index: 999;
                 grid-column: 2;
                 text-align: center;
@@ -709,15 +762,15 @@ img {
             .menu-active .strush-logo-mobile .strush-logo-text-img {
                 opacity: 0;
                 width: 0;
-                margin-left: 0; 
+                margin-left: 0;
                 overflow: hidden;
                 pointer-events: none;
             }
 
             .menu-active .strush-logo-mobile .strush-logo-blob {
-                width: 38px; /* Larghezza del blob quando visibile */
-                height: 38px; /* Altezza del blob quando visibile */
-                opacity: 1; 
+                width: 38px;
+                height: 38px;
+                opacity: 1;
                 animation: navbar-blob-morph-from-chatbot 5s infinite;
             }
 
@@ -726,8 +779,22 @@ img {
             }
 
             .strush-nav-links-container { display: none; }
-            .strush-mobile-dropdown { display: block; top: 70px; }
-            .strush-mobile-dropdown::after { filter: blur(25px); top: -20px; left: -20px; right: -20px; bottom: -20px; }
+
+            .strush-mobile-dropdown {
+                display: block;
+                top: 69px; 
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .strush-mobile-dropdown::after {
+                /* MODIFICA: Ridotta sfocatura per mobile e estensione */
+                filter: blur(20px); /* Era 25px, originariamente 35px */
+                top: -15px;         /* Era -20px, originariamente -30px */
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+                /* L'opacità del gradiente è già stata ridotta nella regola generale di .strush-mobile-dropdown::after */
+            }
             .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
             .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #9495EA; }
             .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
@@ -797,6 +864,153 @@ img {
     </script>
 
 </nav>
+
+<!-- Inizio Blocco Curva Navbar con Barra di Lettura -->
+<div class="navbar-bottom-curve">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 200 30"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 100%;"
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="curve-svg"
+        >
+      <!-- MODIFICA: Trasformazione applicata a un gruppo <g> interno -->
+      <g transform="matrix(1,0,0,-1,0,30)">
+          <defs>
+            <mask id="uniqueCurveMask">
+              <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
+              <!-- Questo path e le coordinate sono relative al sistema pre-trasformazione del <g> -->
+              <!-- (0,0) è l'angolo in alto a sinistra del <g>, Y cresce verso il basso) -->
+              <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
+            </mask>
+          </defs>
+          <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
+          <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
+          <rect x="0" y="0.5" width="200" height="29.5" fill="#121212" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
+
+          <!-- Path per la barra di progresso (solo l'arco) -->
+          <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
+          <path
+            id="readingProgressCurve"
+            class="progress-bar-path"
+            d="M0,0 A100,30 0 0 0 200,0"
+            ></path>
+      </g>
+    </svg>
+</div>
+
+<style>
+    .navbar-bottom-curve {
+        position: fixed;
+        top: 69px; /* Assicurati che questo valore sia corretto per la tua navbar */
+        left: 0;
+        width: 100%;
+        height: 30px; /* Altezza desktop */
+        z-index: 999;
+        background-color: transparent; /* Importante che sia trasparente */
+        pointer-events: none; /* Non intercetta eventi mouse sul contenitore */
+    }
+
+    .curve-svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .progress-bar-path {
+        fill: none;
+        stroke: #9495EA; /* Colore della barra di progresso, personalizzabile */
+        stroke-width: 3; /* Spessore desktop in unità SVG */
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.05s linear; /* Transizione fluida */
+        pointer-events: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        .navbar-bottom-curve {
+            height: 25px; /* Altezza mobile */
+            width: calc(100% + 1px);
+            left: -0.5px;
+        }
+        .progress-bar-path {
+            /* Per mantenere ~3px visivi quando l'SVG è alto 25px (contenitore)
+               ma la viewBox SVG è alta 30 unità:
+               stroke-width-svg = (3px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
+                                = (3 / 25) * 30 = 0.12 * 30 = 3.6
+            */
+            stroke-width: 3.6; /* Spessore mobile in unità SVG */
+        }
+    }
+</style>
+
+<script>
+    (function() { // IIFE per incapsulare lo scope ed evitare conflitti
+        const progressBarPath = document.getElementById('readingProgressCurve');
+
+        if (!progressBarPath) {
+            // console.error("Elemento 'readingProgressCurve' per la barra di progresso non trovato!");
+            return;
+        }
+
+        let pathLength;
+
+        function calculatePathLength() {
+            try {
+                pathLength = progressBarPath.getTotalLength();
+                progressBarPath.style.strokeDasharray = pathLength;
+                progressBarPath.style.strokeDashoffset = pathLength; // Inizia vuota
+            } catch (e) {
+                // console.error("Errore nel calcolare getTotalLength:", e);
+            }
+        }
+
+        function updateProgressBar() {
+            if (typeof pathLength === 'undefined' || pathLength === 0) {
+                calculatePathLength();
+                if (typeof pathLength === 'undefined' || pathLength === 0) return;
+            }
+
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const scrollableHeight = scrollHeight - clientHeight;
+
+            if (scrollableHeight <= 0) {
+                progressBarPath.style.strokeDashoffset = pathLength;
+                return;
+            }
+
+            const scrollPercentage = scrollTop / scrollableHeight;
+            const drawLength = pathLength * scrollPercentage;
+            progressBarPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, pathLength - drawLength));
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                calculatePathLength();
+                updateProgressBar(); // Imposta lo stato iniziale
+            });
+        } else {
+            calculatePathLength();
+            updateProgressBar(); // Imposta lo stato iniziale
+        }
+
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                calculatePathLength();
+                updateProgressBar();
+            }, 100); // Debounce leggero
+        });
+
+    })();
+</script>
+<!-- Fine Blocco Curva Navbar con Barra di Lettura -->
 
 
 
@@ -917,7 +1131,7 @@ img {
         width: 100%;
         background-color: white;
         border-radius: 16px;
-    box-shadow: 0 0px 20px #9495EA62;
+        box-shadow: 0 0px 20px #9495EA62;
         padding: 32px;
         text-align: center;
         position: relative;
@@ -931,8 +1145,7 @@ img {
         border-radius: 16px;
         overflow: hidden;
         border: 2px solid var(--secondary);
-        background-color: #E6F2F5
-;
+        background-color: #E6F2F5;
         margin: 0 auto 32px;
     }
     
@@ -1007,7 +1220,7 @@ img {
         min-width: 120px;
         font-family: inherit;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
         display: inline-flex; /* Utile per allineare testo e spinner */
         align-items: center; /* Allinea verticalmente testo e spinner */
         justify-content: center; /* Centra il contenuto quando lo spinner è visibile */
@@ -1499,7 +1712,7 @@ img {
             </div>
 
             <div class="footer-links">
-                <h5 class="links-rapidi">Links Rapidi</h5>
+                <h5 class="links-rapidi">Link Rapidi</h5>
                 <ul>
                     <li><a href="index.html#hero">Home</a></li>
                     <li><a href="index.html#features">Caratteristiche</a></li>
@@ -1524,14 +1737,14 @@ img {
                 <ul>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="t&c.html">Termini e Condizioni</a></li>
-                    <li><a href="#">Informativa Startup</a></li>
+                    <li><a href="informativa.html">Informativa Startup</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="copyright">
             <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
-            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P.IVA: 00000000000<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
+            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P.IVA: 09068680728<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
             
         </div>
     </div>
@@ -1665,7 +1878,7 @@ img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-            background-color:  #555555;
+            background-color:  #6B6F6E;
         color: white;
         transition: all 0.3s ease;
         position: relative;
@@ -1689,7 +1902,7 @@ img {
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px #9495EA62;   
+        box-shadow: 0 4px 10px #9495EA62;   
     }
 
     .footer-social a:hover::before {
@@ -1748,6 +1961,7 @@ img {
         }
     }
 </style>
+
 
 
 
