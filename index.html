@@ -120,13 +120,17 @@
 :root {
     --primary: #84CD9D;
     --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondaryextralight: #D1D1F2;
     --text: #121212;
     --text2: #6B6F6E;
     --light: #E6F2F5;
     --dark: #222222;
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
-    --border-thickness: 3px;
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
 }
 
 /* Reset CSS di base */
@@ -269,7 +273,7 @@ img {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
-    border-radius: 36px;
+    border-radius: 32px;
     transition: transform 0.6s ease 0.3s;
 }
 
@@ -663,7 +667,7 @@ img {
         width: 200px;
         height: 6px;
         background: #6B6F6E;
-        border-radius: 36px;
+        border-radius: 32px;
         overflow: hidden;
         margin-bottom: 16px;
     }
@@ -681,7 +685,7 @@ img {
         font-size: 16px;
         letter-spacing: 2px;
         font-weight: 500;
-        text-shadow: 0 0px 20px #9495EA62;
+        text-shadow: 0 0px 20px #9495EA66;
     }
 
     .strush-dots {
@@ -906,7 +910,7 @@ img {
             background-color: #121212;
             color: white;
             padding: 16px;
-            border-radius: 36px;
+            border-radius: 32px;
             cursor: pointer;
             font-weight: 600;
             font-size: 16px;
@@ -929,9 +933,7 @@ img {
         
         /* Click effect styling */
         .download-bar:active {
-            transform: translateX(-50%) scale(0.95);
-            background-color: #333;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            background-color: #222222;
             transition: all 0.1s ease;
         }
     
@@ -954,7 +956,7 @@ img {
     
         .download-bar:hover {
             transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 4px 10px #9495EA62;
+            box-shadow: 0 2px 8px #9495EA40;
 
         }
     
@@ -1152,14 +1154,6 @@ img {
     </div>
 
     <style>
-        /* Core variables */
-        :root {
-            --border-radius-lg: 16px;
-            --border-radius-full: 50%;
-            --gradient-start: #84CD9D;
-            --gradient-end: #9495EA;
-        }
-
         /* Container positioning */
         .chatbot-container {
             position: fixed;
@@ -1178,7 +1172,7 @@ img {
             
             border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
             
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             
             /* Padding per creare l'effetto bordo visibile (2px per lato) */
             padding: 3px; 
@@ -1240,7 +1234,8 @@ img {
             max-height: calc(100vh - 150px); 
             background-color: #fff;
             border-radius: var(--border-radius-lg);
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
+            border: 1px solid var(--secondaryextralight);
             display: none; 
             flex-direction: column;
             overflow: hidden;
@@ -1359,11 +1354,11 @@ img {
 
         .chatbot-option {
             position: relative; background-color: #fff; color: var(--text); padding: 8px; cursor: pointer;
-            text-align: center; border-radius: 36px; transition: all 0.3s ease;
+            text-align: center; border-radius: 32px; transition: all 0.3s ease;
             border: none; z-index: 1; font-size: 14px;
             font-family: inherit; border: 1px solid #9495EA;
         }
-        .chatbot-option:hover { background-color: #f1f1f1; }
+        .chatbot-option:hover { background-color: #E9EAEA; }
 
         .chatbot-share-button {
             background-color: var(--secondary); 
@@ -1407,7 +1402,7 @@ img {
             flex: 1;
             padding: 8px;
             border: 1px solid var(--secondary);
-            border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg); 
+            border-radius: 16px 0 0 16px; 
             outline: none;
             margin-right: 0; 
             font-size: 14px; 
@@ -1417,7 +1412,7 @@ img {
             background-color: var(--secondary);
             color: white;
             border: none; 
-            border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0; 
+            border-radius: 0 16px 16px 0; 
             padding: 8px 16px; 
             text-align: center;
             font-size: 18px; 
@@ -1998,7 +1993,7 @@ img {
         .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 36px; margin: 0; position: relative; }
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 32px; margin: 0; position: relative; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
 
         .strush-logo-nav-item {
@@ -2123,7 +2118,7 @@ img {
             background: linear-gradient(to right, #84CD9D, #9495EA);
             transition: width 0.3s ease;
             transform: translateX(-50%);
-            border-radius: 36px;
+            border-radius: 32px;
         }
         .strush-nav-links a:hover::after {
             width: calc(100% - 16px);
@@ -2602,7 +2597,7 @@ text-shadow: 0 0px 20px #9495EA33;
         .btn {
             display: inline-block;
             padding: 16px;
-            border-radius: 36px;
+            border-radius: 32px;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -2612,28 +2607,27 @@ text-shadow: 0 0px 20px #9495EA33;
         }
 
         .btn-primary {
-            background: #9495EA;
+            background: var(--secondarygradient);
             color: white;
             width: 190px;
 
         }
 
         .btn-primary:hover {
-            box-shadow: 0 4px 10px #9495EA62;
+            box-shadow: 0 2px 8px #9495EA40;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
             color: #9495EA;
-            border: 2px solid #9495EA;
+            border: 1px solid var(--secondary);
             width: 190px;
         }
 
         .btn-secondary:hover {
-
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px #9495EA62;
+            box-shadow: 0 2px 8px #9495EA40;
         }
 
         .hero-image {
@@ -2707,7 +2701,7 @@ text-shadow: 0 0px 20px #9495EA33;
         .spike.s5 { left: -28px; top: 45px; animation: spikeWave 3s infinite ease-in-out 0.8s; }
 
         .tech-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; }
-        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 0px 10px #9495EA62;
+        .data-point { position: absolute; width: 10px; height: 10px; background: rgba(177, 172, 250, 0.7); border-radius: 50%; box-shadow: 0 4px 10px #9495EA66;
             opacity: 0; animation: dataPoint 4s infinite; }
         .data-point.p1 { top: 60px; left: 200px; animation-delay: 0.5s; }
         .data-point.p2 { top: 120px; left: 170px; animation-delay: 1.0s; }
@@ -2715,8 +2709,8 @@ text-shadow: 0 0px 20px #9495EA33;
         .data-point.p4 { top: 200px; left: 120px; animation-delay: 2.0s; }
         .data-point.p5 { top: 80px; left: 100px; animation-delay: 2.5s; }
         .data-point.p6 { top: 180px; left: 60px; animation-delay: 3.0s; }
-        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0px 10px #9495EA62;animation: scanLine 3s infinite; }
-        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 0px 10px #9495EA62;opacity: 0.7; animation: techCirclePulse 4s infinite; }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(177, 172, 250, 0.5); box-shadow: 0 0px 10px #9495EA66;animation: scanLine 3s infinite; }
+        .tech-circle { position: absolute; border: 1px solid rgba(177, 172, 250, 0.5); border-radius: 50%; box-shadow: 0 0 15px rgba(177, 172, 250, 0.3);box-shadow: 0 0px 10px #9495EA66;opacity: 0.7; animation: techCirclePulse 4s infinite; }
         .tech-circle.c1 { top: 50%; left: 50%; width: 300px; height: 300px; transform: translate(-50%, -50%); }
         .tech-circle.c2 { top: 50%; left: 50%; width: 400px; height: 400px; transform: translate(-50%, -50%); animation-delay: 0.5s; }
         .tech-circle.c3 { top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%, -50%); animation-delay: 1s; }
@@ -2741,14 +2735,14 @@ text-shadow: 0 0px 20px #9495EA33;
         .tree.t1 { left: 70%; width: 30px; height: 80px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.7; }
         .tree.t2 { left: 30%; width: 40px; height: 100px; background: #2A3B37; border-radius: 50% 50% 0 0; opacity: 0.6; }
 
-        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 0px 10px #9495EA62;
+        .energy-wave { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid rgba(177, 172, 250, 0.8); box-shadow: 0 4px 10px #9495EA66;
             transform: translate(-50%, -50%); animation: energyWave 1s forwards; z-index: 30; pointer-events: none; }
 
         .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: rgba(255, 255, 255, 0.6); animation: fadeInUp 1s ease-out 1s both; z-index: 50; }
-        .mouse { width: 26px; height: 40px; border: 2px solid #f1f1f1; border-radius: 20px; position: relative; margin-bottom: 10px; }
-        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background:#f1f1f1; border-radius: 2px; animation: scroll 2s infinite; }
+        .mouse { width: 26px; height: 40px; border: 2px solid #E9EAEA; border-radius: 20px; position: relative; margin-bottom: 10px; }
+        .wheel { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background:#E9EAEA; border-radius: 2px; animation: scroll 2s infinite; }
         .arrow { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid #f1f1f1; transform: rotate(45deg); animation: arrow 2s infinite; }
+        .arrow span { display: block; width: 10px; height: 10px; border-right: 2px solid rgba(255, 255, 255, 0.6); border-bottom: 2px solid #E9EAEA; transform: rotate(45deg); animation: arrow 2s infinite; }
         .arrow span:nth-child(2) { animation-delay: 0.2s; }
         .arrow span:nth-child(3) { animation-delay: 0.4s; }
 
@@ -3262,8 +3256,9 @@ text-shadow: 0 0px 20px #9495EA33;
             width: 253px;
             height: 450px;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 0px 10px #9495EA62;
+            border-radius: 24px;
+            border: 1px solid var(--secondaryextralight);
+            box-shadow: 0 4px 10px #9495EA66;
             display: block;
             margin: 0 auto;
             transform: translateZ(var(--video-base-z));
@@ -3276,9 +3271,10 @@ text-shadow: 0 0px 20px #9495EA33;
 
         #features-container-desktop .feature-card {
             background: white;
-            border-radius: 16px; /* Match video radius */
+            border-radius: 24px; /* Match video radius */
+            border: 1px solid var(--secondaryextralight);
             padding: 32px; /* Adjusted padding */
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
             transition: box-shadow 0.35s ease-out; /* Rimossa transition per border-top-color */
             text-align: center;
             max-width: 320px; /* Slightly wider */
@@ -3645,7 +3641,7 @@ text-shadow: 0 0px 20px #9495EA33;
             margin: 15px auto 0 auto;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -3696,7 +3692,7 @@ text-shadow: 0 0px 20px #9495EA33;
             top: 45%; /* Adjusted if carousel height changed */
             transform: translateY(-50%);
             z-index: 10;
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
         }
 
         .features-carousel-wrapper .prev-arrow {
@@ -4039,14 +4035,15 @@ text-shadow: 0 0px 20px #9495EA33;
         height: 100%;
         transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
-        box-shadow: 0 0px 10px #9495EA62;
-        border-radius: 16px;
+        box-shadow: 0 4px 10px #9495EA66;
+        border-radius: 24px;
+        border: 1px solid var(--secondaryextralight);
         will-change: transform;
     }
     
     .avatar-card:hover .card-inner {
         transform: rotateY(180deg) scale(1.05);
-        box-shadow: 0 0px 10px #9495EA62;
+        box-shadow: 0 4px 10px #9495EA66;
         }
     
     .card-front, .card-back {
@@ -4054,7 +4051,7 @@ text-shadow: 0 0px 20px #9495EA33;
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        border-radius: 16px;
+        border-radius: 24px;
         overflow: hidden;
         transform-style: preserve-3d;
     }
@@ -4199,13 +4196,13 @@ text-shadow: 0 0px 20px #9495EA33;
         /* Per dispositivi mobili: disattiva l'effetto hover */
         .avatar-card:hover .card-inner {
             transform: none;
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
         }
         
         /* La card si gira solo quando ha la classe flipped */
         .avatar-card .card-inner.flipped {
             transform: rotateY(180deg);
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
         }
 
     }
@@ -4414,7 +4411,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .card {
         transition: all 0.3s ease;
-        border-radius: 16px;
+        border-radius: var(--border-radius-big);
         background-color: white;
         width: var(--card-width);
         height: var(--card-height);
@@ -4427,7 +4424,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transform-style: preserve-3d;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 0px 10px #9495EA62; /* Base purple shadow */
+        box-shadow: 0 0px 10px #9495EA66; /* Base purple shadow */
     }
 
     /* Aggiungiamo un div per lo sfondo con effetto zoom */
@@ -4440,10 +4437,11 @@ document.addEventListener('DOMContentLoaded', function() {
         background-size: cover;
         background-position: center;
         transition: transform 0.3s ease;
-        border-radius: 16px;
+        border-radius: var(--border-radius-big);
+        border: 1px solid var(--secondaryextralight);
         overflow: hidden;
         z-index: 0;
-        box-shadow: 0 0px 10px #9495EA62; /* Base purple shadow */
+        box-shadow: 0 4px 10px #9495EA66; /* Base purple shadow */
     }
 
     .card:hover .card-bg {
@@ -4513,7 +4511,7 @@ document.addEventListener('DOMContentLoaded', function() {
         background-color: rgba(255, 255, 255, 0.8);
         padding: 4px 4px;
         border-radius: 16px;
-        box-shadow: 0 0px 10px #9495EA62;
+        box-shadow: 0 4px 10px #9495EA66;
         transition: none;
         position: relative;
         z-index: 5;
@@ -4522,7 +4520,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Stile speciale per la targhetta dell'avatar utente */
     .image-label.user-avatar {
         background: var(--gradient-primary); /* Make sure --gradient-primary is defined */
-        box-shadow: 0 0px 10px #9495EA62;
+        box-shadow: 0 4px 10px #9495EA66;
         font-weight: bold;
         border: 2px solid #fff;
         padding: 4px 0px;
@@ -4664,7 +4662,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Resetta TUTTE le trasformazioni e ombre per la card su mobile */
         .card {
              transform: none !important;
-             box-shadow: 0 0px 10px #9495EA62 !important; /* Forza ombra viola base */
+             box-shadow: 0 4px 10px #9495EA66 !important; /* Forza ombra viola base */
              transition: none !important; /* Disabilita transizioni su mobile se causano problemi */
         }
         .card-bg {
@@ -4682,7 +4680,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .card:focus, /* Aggiunto per accessibilità/interazioni touch */
         .card:active { /* Aggiunto per interazioni touch */
             transform: none !important;
-            box-shadow: 0 0px 10px #9495EA62 !important; /* Mantiene ombra viola base */
+            box-shadow: 0 4px 10px #9495EA66 !important; /* Mantiene ombra viola base */
         }
 
         .card:hover .card-bg,
@@ -4846,7 +4844,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ===== EFFETTO 3D MIGLIORATO =====
     // Applica effetto 3D solo su desktop, non su mobile
-    const baseCardShadow = '0 0px 20px #9495EA62'; // Store base shadow from CSS
+    const baseCardShadow = '0 0px 20px #9495EA66'; // Store base shadow from CSS
 
     if (!isMobile) {
         // Aggiungi effetto 3D al passaggio del mouse sulla card
@@ -5030,8 +5028,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         .timeline-content {
-            width: 45%; background: white; padding: 32px; border-radius: 16px;
-            box-shadow: 0 0px 10px #9495EA62;
+            width: 45%; background: white; padding: 32px; border-radius: 24px;
+            border: 1px solid var(--secondaryextralight);
+            box-shadow: 0 4px 10px #9495EA66;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
         }
@@ -5039,7 +5038,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Stili Hover Desktop */
         @media (hover: hover) and (min-width: 768px) { /* Applica solo se il device supporta hover e non è mobile */
             .timeline-content:hover {
-                box-shadow: 0 0px 10px #9495EA62;
+                box-shadow: 0 4px 10px #9495EA66;
             }
 
             .timeline-content:hover .step-number {
@@ -5136,7 +5135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .timeline-content.is-centered .step-number {
                 border-radius: var(--step-blob-shape, 50%);
                 transform: scale(1.1) rotate(5deg);
-                background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
+                background: var(--gradient-primary);
                 }
 
                 .how-it-works::after {
@@ -5378,7 +5377,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         .story-inner {
             background: rgb(255, 255, 255);
-            border-radius: 16px;
+            border-radius: var(--border-radius-big);
+            border: 1px solid var(--secondaryextralight);
             padding: 32px;
             height: 100%;
             display: flex;
@@ -5388,13 +5388,13 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
             -webkit-tap-highlight-color: transparent;
             outline: none;
-            box-shadow: 0 0px 10px #9495EA62;
+            box-shadow: 0 4px 10px #9495EA66;
         }
 
         /* Irregular blob shapes */
         .blob { position: absolute; z-index: 0; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;  }
-        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: #9495EA33; transform: rotate(30deg); }
-        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: #9495EA33; transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: #F3F3FF; transform: rotate(30deg); }
+        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: #F3F3FF; transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 
         /* Quote icon styles */
         .quote-icon { margin-bottom: 24px; position: relative; z-index: 1; }
@@ -5421,7 +5421,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .avatar-blob::before {
             content: '';
             position: absolute;
-            inset: calc(-1 * var(--border-thickness));
+            inset: calc(-1 * 3px);
             background: var(--gradient-primary);
             z-index: -1;
             border-radius: 50%;
@@ -5450,7 +5450,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* Stile per l'effetto di pressione attiva */
         .story-inner:active {
-            background-color: #f1f1f1;
+            background-color: #E9EAEA;
             transform: translateY(1px);
             transition: all 0.05s ease-out;
         }
@@ -5459,7 +5459,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* --- Stili Hover Desktop --- */
         @media (hover: hover) and (min-width: 768px) {
             .story-inner:hover {
-                box-shadow: 0 0px 10px #9495EA62;
+                box-shadow: 0 4px 10px #9495EA66;
             }
 
             .story-inner:hover .avatar-blob::before {
@@ -5866,7 +5866,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: inline-block;
             background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
             padding: 8px 16px;
-            border-radius: 36px;
+            border-radius: 32px;
             color: var(--text);
 
         }
@@ -5888,7 +5888,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color:  #f1f1f1;
+            background-color:  #E9EAEA;
             color: #121212;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -5912,7 +5912,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         .team-social a:hover {
             transform: translateY(-5px);
-        box-shadow: 0 4px 10px #9495EA62;   
+        box-shadow: 0 2px 8px #9495EA40;   
         }
 
         .team-social a:hover::before {
@@ -6248,7 +6248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 100%;
         height: 2px;
         background: var(--gradient-primary);
-        border-radius: 36px;
+        border-radius: 32px;
     }
 
     .footer-links ul li {
@@ -6271,7 +6271,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bottom: 0;
         left: 0;
         background-color: #84CD9D ;
-        border-radius: 36px;
+        border-radius: 32px;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
@@ -6323,7 +6323,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .footer-social a:hover {
         color: var(--dark);
         transform: translateY(-5px);
-        box-shadow: 0 4px 10px #9495EA62;   
+        box-shadow: 0 2px 8px #9495EA40;   
     }
 
     .footer-social a:hover::before {
