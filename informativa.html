@@ -107,6 +107,8 @@
 :root {
     --primary: #84CD9D;
     --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondaryextralight: #D1D1F2;
     --text: #121212;
     --text2: #6B6F6E;
     --light: #E6F2F5;
@@ -114,6 +116,9 @@
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
     --border-thickness: 3px;
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
 }
 
 /* Reset CSS di base */
@@ -256,7 +261,7 @@ img {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
-    border-radius: 36px;
+    border-radius: 32px;
     transition: transform 0.6s ease 0.3s;
 }
 
@@ -601,7 +606,7 @@ img {
         .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 36px; margin: 0; position: relative; }
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 32px; margin: 0; position: relative; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
 
         .strush-logo-nav-item {
@@ -726,7 +731,7 @@ img {
             background: linear-gradient(to right, #84CD9D, #9495EA);
             transition: width 0.3s ease;
             transform: translateX(-50%);
-            border-radius: 36px;
+            border-radius: 32px;
         }
         .strush-nav-links a:hover::after {
             width: calc(100% - 16px);
@@ -1128,6 +1133,9 @@ img {
                     <li>consulenza, formazione e assistenza tecnica riguardo a soluzioni, prodotti e servizi sviluppati e/o distribuiti dalla società;</li>
                     <li>tutte le operazioni commerciali, industriali, finanziarie, mobiliari ed immobiliari ritenute necessarie o utili per il conseguimento dell'oggetto sociale, nonché assumere partecipazioni in altre società o imprese aventi oggetto analogo, affine o connesso al proprio, nel rispetto dei limiti previsti dalla legge.</li>
                 </ul>
+                <p>
+                    Sono comunque escluse dall'oggetto sociale le attività riservate di cui al decreto legislativo 1° settembre 1993 n. 385 (Testo Unico Bancario) ed al D.lgs 24 febbraio 1998 n. 58. 
+                </p>
             </div>
 
 
@@ -1137,7 +1145,7 @@ img {
                     <h4>4. Attività Svolta e Spese in Ricerca e Sviluppo</h4>
                 </div>
                 <p>
-                    L’attività specifica cui fanno capo i requisiti relativi all’innovazione tecnologica consiste nello sviluppo di una piattaforma digitale integrata per la gestione delle risorse finanziarie personali, finalizzata a semplificare, centralizzare e potenziare l’alfabetizzazione finanziaria degli utenti mediante un approccio interattivo, inclusivo e accessibile, basato sull’impiego di tecnologie avanzate e sull’integrazione di sistemi di gamification ispirati alla psicologia comportamentale.
+                    L’attività specifica cui fanno capo i requisiti relativi all’innovazione tecnologica consiste nello sviluppo, produzione e commercializzazione di una piattaforma digitale integrata per la gestione delle risorse finanziarie personali, finalizzata a semplificare, centralizzare e potenziare l’alfabetizzazione finanziaria degli utenti mediante un approccio interattivo, inclusivo e accessibile, basato sull’impiego di tecnologie avanzate e sull’integrazione di sistemi di gamification ispirati alla psicologia comportamentale.
                 </p>
                 <p>
                     Come previsto dall’art. 25, comma 2, lettera i) della Legge 221/2012, si dichiara che le spese in ricerca e sviluppo risultano pari o superiori al 15% (quindici per cento) del maggiore tra il costo e il valore totale della produzione.
@@ -1146,7 +1154,7 @@ img {
                     A tal fine, il legale rappresentante si impegna, per l’anno 2025, a sostenere spese in ricerca e sviluppo pari a euro 15.000,00, a fronte di un costo totale della produzione stimato in euro 20.000,00. Tra le spese previste rientrano in particolare quelle relative alla progettazione e sviluppo della piattaforma web e dell’applicazione mobile.
                 </p>
                 <p>
-                    Il bilancio previsionale è allegato alla presente pratica in formato PDF/A.
+                    La dichiarazione di impegno per spesa di ricerca e sviluppo è allegata alla presente pratica.
                 </p>
             </div>
 
@@ -1249,9 +1257,10 @@ img {
     
     .terms-content {
         background-color: white;
-        border-radius: 18px;
+        border-radius: var(--border-radius-big);
         padding: 3rem;
-        box-shadow: 0 8px 20px #8c8dd462;
+        box-shadow: 0 4px 10px #9495EA66;
+        border: 1px solid var(--secondaryextralight);
         margin: 3rem 0;
     }
 
@@ -1497,7 +1506,7 @@ img {
         width: 100%;
         height: 2px;
         background: var(--gradient-primary);
-        border-radius: 36px;
+        border-radius: 32px;
     }
 
     .footer-links ul li {
@@ -1520,7 +1529,7 @@ img {
         bottom: 0;
         left: 0;
         background-color: #84CD9D ;
-        border-radius: 36px;
+        border-radius: 32px;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
