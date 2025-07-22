@@ -106,6 +106,8 @@
 :root {
     --primary: #84CD9D;
     --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondaryextralight: #D1D1F2;
     --text: #121212;
     --text2: #6B6F6E;
     --light: #E6F2F5;
@@ -113,6 +115,9 @@
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
     --border-thickness: 3px;
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
 }
 
 /* Reset CSS di base */
@@ -255,7 +260,7 @@ img {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
-    border-radius: 36px;
+    border-radius: 32px;
     transition: transform 0.6s ease 0.3s;
 }
 
@@ -602,7 +607,7 @@ img {
         .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
 
         /* Stili Desktop Navbar */
-        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 36px; margin: 0; position: relative; }
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 32px; margin: 0; position: relative; }
         .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
 
         .strush-logo-nav-item {
@@ -727,7 +732,7 @@ img {
             background: linear-gradient(to right, #84CD9D, #9495EA);
             transition: width 0.3s ease;
             transform: translateX(-50%);
-            border-radius: 36px;
+            border-radius: 32px;
         }
         .strush-nav-links a:hover::after {
             width: calc(100% - 16px);
@@ -1117,21 +1122,22 @@ img {
         position: absolute;
         border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
         opacity: 0.15;
-        background-color: var(--secondary);
+        background-color: var(--secondaryextralight);
     }
     
     .shape1 { width: 400px; height: 400px; top: -150px; left: -100px; transform: rotate(25deg); }
-    .shape2 { width: 300px; height: 300px; bottom: -100px; right: -50px; transform: rotate(-15deg); border-radius: 70% 30% 50% 50% / 30% 70% 40% 60%; }
-    .shape3 { width: 200px; height: 200px; top: 60%; left: 10%; transform: rotate(45deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    .shape4 { width: 250px; height: 250px; top: 20%; right: 15%; transform: rotate(-30deg); border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
-    .shape5 { width: 180px; height: 180px; bottom: 30%; left: 50%; transform: rotate(15deg); border-radius: 50% 50% 70% 30% / 30% 60% 40% 70%; }
+    .shape2 { width: 300px; height: 300px; bottom: -100px; right: -50px; transform: rotate(-15deg); border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+    .shape3 { width: 200px; height: 200px; top: 60%; left: 10%; transform: rotate(45deg); border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; }
+    .shape4 { width: 250px; height: 250px; top: 20%; right: 15%; transform: rotate(-30deg); border-radius: 70% 30% 60% 40% / 30% 70% 30% 70; }
+    .shape5 { width: 180px; height: 180px; bottom: 30%; left: 50%; transform: rotate(15deg); border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; }
     
     .app-card {
         max-width: 600px;
         width: 100%;
         background-color: white;
-        border-radius: 16px;
-        box-shadow: 0 0px 20px #9495EA62;
+        border-radius: var(--border-radius-big);
+        box-shadow: 0 4px 10px #9495EA66;
+        border: 1px solid var(--secondaryextralight);
         padding: 32px;
         text-align: center;
         position: relative;
@@ -1142,9 +1148,9 @@ img {
         width: 280px;
         height: 150px;
         position: relative;
-        border-radius: 16px;
+        border-radius: var(--border-radius-lg);
         overflow: hidden;
-        border: 2px solid var(--secondary);
+        border: 1px solid var(--secondaryextralight);
         background-color: #E6F2F5;
         margin: 0 auto 32px;
     }
@@ -1197,7 +1203,6 @@ img {
     .email-input {
         flex: 1;
         padding: 16px;
-        border: 1px solid #ddd;
         border-radius: 16px 0 0 16px;
         outline: none;
         width: 100%;
@@ -1207,7 +1212,7 @@ img {
     }
     
     .register-button {
-        background: var(--secondary);
+        background: var(--secondarygradient);
         color: white;
         border: none;
         border-radius: 0 16px 16px 0;
@@ -1827,7 +1832,7 @@ img {
         width: 100%;
         height: 2px;
         background: var(--gradient-primary);
-        border-radius: 36px;
+        border-radius: 32px;
     }
 
     .footer-links ul li {
@@ -1850,7 +1855,7 @@ img {
         bottom: 0;
         left: 0;
         background-color: #84CD9D ;
-        border-radius: 36px;
+        border-radius: 32px;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease;
