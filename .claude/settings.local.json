@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/crist/OneDrive/Documenti/progetti/strush/landing page/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

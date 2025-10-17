@@ -1,0 +1,115 @@
+    <!-- Cursore Animation Pallino viola + Blob-->
+<div id="blob"></div>
+<div id="violet-cursor"></div>
+        
+<style>
+            /* Global cursor removal */
+            * {
+                cursor: none !important;
+            }
+        
+            #blob {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(141, 141, 212, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                transition: transform 0.1s ease-out;
+                z-index: 9999;
+                display: none; /* Start hidden */
+                justify-content: center;
+                align-items: center;
+            }
+        
+            #violet-cursor {
+                position: fixed;
+                width: 12px;
+                height: 12px;
+                background-color: #8C8DD4;
+                border-radius: 50%;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                z-index: 10000;
+                display: none; /* Start hidden */
+            }
+        
+            /* Ensure mobile responsiveness */
+            @media (max-width: 767px) {
+                #blob, #violet-cursor {
+                    display: none !important;
+                }
+            }
+</style>
+        
+<script>
+            const blob = document.getElementById('blob');
+            const violetCursor = document.getElementById('violet-cursor');
+            let lastX = 0;
+            let lastY = 0;
+            let velocityX = 0;
+            let velocityY = 0;
+        
+            function isMobileDevice() {
+                return window.innerWidth < 768;
+            }
+        
+            document.addEventListener('mousemove', (e) => {
+                if (isMobileDevice()) return;
+        
+                const x = e.clientX;
+                const y = e.clientY;
+        
+                // Check if mouse is over a nav element
+                const isOverNav = e.target.closest('nav') !== null;
+        
+                // Always move the violet cursor everywhere
+                violetCursor.style.left = `${x}px`;
+                violetCursor.style.top = `${y}px`;
+                violetCursor.style.display = 'block';
+        
+                // Calculate velocity
+                velocityX = x - lastX;
+                velocityY = y - lastY;
+        
+                if (isOverNav) {
+                    // In nav: hide blob
+                    blob.style.display = 'none';
+                } else {
+                    // Outside nav: full blob animation
+                    blob.style.display = 'flex';
+                    blob.style.left = `${x}px`;
+                    blob.style.top = `${y}px`;
+        
+                    // Deformation based on velocity
+                    const maxDeformation = 1.5;
+                    const minDeformation = 0.8;
+        
+                    const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
+                    const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
+        
+                    // Calculate rotation angle
+                    const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
+        
+                    // Apply deformation and rotation
+                    blob.style.transform = `
+                        translate(-50%, -50%)
+                        scaleX(${deformationX})
+                        scaleY(${deformationY})
+                        rotate(${angle}deg)
+                    `;
+                }
+        
+                lastX = x;
+                lastY = y;
+            });
+        
+            // Hide both cursor elements when mouse leaves the screen
+            document.addEventListener('mouseleave', () => {
+                if (!isMobileDevice()) {
+                    blob.style.display = 'none';
+                    violetCursor.style.display = 'none';
+                }
+            });
+</script>

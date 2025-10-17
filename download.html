@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Strush | Preregistrazione</title>
+
+    <!-- Meta tag per il nome dell'applicazione -->
+    <meta name="application-name" content="Strush">
+
+    <!-- Collegamento ai font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="immagini/logo_favicon.png" type="image/png">
+
+<style>
+/* Dichiarazione dei font locali Unbounded con @font-face */
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Dichiarazione del font Inter Variable */
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* Variabili CSS */
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --light: #E6F2F5;
+    --dark: #222222;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+    --border-thickness: 3px;
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
+}
+
+/* Reset CSS di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili di base del corpo */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Utilizzo del font Unbounded per i titoli con pesi diversi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text);
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text);
+}
+
+h6 {
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: #121212;
+    font-size: 14px;
+}
+
+p {
+    color: #6B6F6E;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h4 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    a {
+        font-size: 16px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 0 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Section base style */
+.section {
+    padding: 96px 0 96px;
+}
+
+/* Stili per i titoli */
+.section-title {
+    text-align: center;
+    margin: 48px;
+    position: relative;
+    color: #121212;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.section-title .title-wrapper {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Effetto di rivelazione */
+.section-title.reveal .title-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: 10px;
+}
+
+/* Animazione della barra di sottolineatura */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    border-radius: 32px;
+    transition: transform 0.6s ease 0.3s;
+}
+
+.section-title.reveal::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Section sub-titles */
+.section-subtitles {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    color: #121212;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0 80px;
+    }
+    .section-title {
+        margin: 32px;
+    }
+    .section-subtitles {
+        margin-bottom: 32px;
+        font-size: 20px;
+    }
+}
+</style>
+
+    <!-- Cursore Animation Pallino viola + Blob-->
+<div id="blob"></div>
+<div id="violet-cursor"></div>
+
+<style>
+  /* Global cursor removal */
+  * {
+      cursor: none !important;
+  }
+
+  #blob {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(141, 141, 212, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: transform 0.1s ease-out;
+      z-index: 9999;
+      display: none; /* Start hidden */
+      justify-content: center;
+      align-items: center;
+  }
+
+  #violet-cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background-color: #8C8DD4;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+      display: none; /* Start hidden */
+  }
+
+  /* Ensure mobile responsiveness */
+  @media (max-width: 767px) {
+      #blob, #violet-cursor {
+          display: none !important;
+      }
+        /* Ripristina il cursore standard su mobile */
+        * {
+            cursor: auto !important;
+      }
+  }
+</style>
+
+<script>
+  const blob = document.getElementById('blob');
+  const violetCursor = document.getElementById('violet-cursor');
+  let lastX = 0;
+  let lastY = 0;
+  let velocityX = 0;
+  let velocityY = 0;
+
+  function isMobileDevice() {
+      return window.innerWidth < 768;
+  }
+
+  document.addEventListener('mousemove', (e) => {
+      if (isMobileDevice()) return;
+
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // Check if mouse is over a nav element
+      const isOverNav = e.target.closest('nav') !== null;
+
+      // Always move the violet cursor everywhere
+      violetCursor.style.left = `${x}px`;
+      violetCursor.style.top = `${y}px`;
+      violetCursor.style.display = 'block';
+
+      // Calculate velocity
+      velocityX = x - lastX;
+      velocityY = y - lastY;
+
+      if (isOverNav) {
+          // In nav: hide blob
+          blob.style.display = 'none';
+      } else {
+          // Outside nav: full blob animation
+          blob.style.display = 'flex';
+          blob.style.left = `${x}px`;
+          blob.style.top = `${y}px`;
+
+          // Deformation based on velocity
+          const maxDeformation = 1.5;
+          const minDeformation = 0.8;
+
+          const deformationX = 1 + Math.min(Math.abs(velocityX) / 20, maxDeformation - minDeformation);
+          const deformationY = 1 + Math.min(Math.abs(velocityY) / 20, maxDeformation - minDeformation);
+
+          // Calculate rotation angle
+          const angle = Math.atan2(velocityY, velocityX) * (180 / Math.PI);
+
+          // Apply deformation and rotation
+          blob.style.transform = `
+              translate(-50%, -50%)
+              scaleX(${deformationX})
+              scaleY(${deformationY})
+              rotate(${angle}deg)
+          `;
+      }
+
+      lastX = x;
+      lastY = y;
+  });
+
+  // Hide both cursor elements when mouse leaves the screen
+  document.addEventListener('mouseleave', () => {
+      if (!isMobileDevice()) {
+          blob.style.display = 'none';
+          violetCursor.style.display = 'none';
+      }
+  });
+</script>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="strush-navbar" id="mainNav">
+
+    <div class="strush-container">
+        <div class="strush-nav-container">
+            <!-- Logo sempre visibile e centrato in mobile -->
+            <div class="strush-logo-mobile">
+                <a href="index.html#hero" class="strush-logo-container">
+                    <div class="strush-logo">
+                        <!-- Modificato per matchare forma iniziale chatbot -->
+                        <div class="strush-logo-blob">
+                            <img src="immagini/pittogramma.png" alt="Strush Logo">
+                        </div>
+                        <!-- NUOVA IMMAGINE LOGO TESTO -->
+                        <img src="immagini/logo.png" alt="Strush" class="strush-logo-text-img">
+                    </div>
+                </a>
+            </div>
+
+            <!-- Menu hamburger a destra -->
+            <div class="strush-menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu dropdown per mobile -->
+            <div class="strush-mobile-dropdown" id="mobileDropdown">
+                <ul class="strush-mobile-links">
+                    <li><a href="index.html#features-mobile">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+
+            <!-- Menu desktop -->
+            <div class="strush-nav-links-container" id="navLinksContainer">
+                <!-- Logo per versione desktop -->
+                <div class="strush-logo-nav-item">
+                    <a href="index.html#hero" class="strush-logo-container">
+                        <div class="strush-logo">
+                             <!-- Modificato per matchare forma iniziale chatbot -->
+                            <div class="strush-logo-blob">
+                                <img src="immagini/pittogramma.png" alt="Strush Logo">
+                            </div>
+                            <!-- NUOVA IMMAGINE LOGO TESTO -->
+                            <img src="immagini/logo.png" alt="Strush" class="strush-logo-text-img">
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="strush-nav-links">
+                    <li><a href="index.html#features-desktop">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
+        .strush-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999; /* Navbar sopra il dropdown */
+            padding: 0;
+            transition: all 0.3s ease;
+            background-color: #121212;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        body {
+            padding-top: var(--nav-height, 70px);
+        }
+
+        .strush-container {
+            width: 96%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+        }
+
+        .strush-nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 4px 0;
+            position: relative;
+            min-height: 60px;
+        }
+
+        /* --- LOGO MOBILE --- */
+        .strush-logo-mobile {
+            display: none;
+        }
+
+        .strush-logo-mobile .strush-logo-blob {
+            width: 0;
+            height: 38px;
+            opacity: 0;
+            margin-right: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        .strush-logo-mobile .strush-logo-blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .strush-logo-mobile .strush-logo-text-img {
+             height: 24px;
+             width: auto;
+             display: inline-block;
+             vertical-align: middle;
+             margin-left: 0;
+             transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
+             opacity: 1;
+        }
+        /* --- FINE LOGO MOBILE --- */
+
+
+        /* Dropdown mobile styles */
+        .strush-mobile-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px; /* Default top position */
+            left: 0;
+            width: 100%;
+            background-color: #121212;
+            backdrop-filter: blur(15px); /* Per desktop */
+            -webkit-backdrop-filter: blur(15px); /* Per desktop */
+            z-index: 998; /* Dropdown sotto la navbar */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+            padding: 16px 0;
+            border-radius: 0 0 16px 16px;
+            transform: translateY(-20px);
+            opacity: 0;
+            height: auto;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .strush-mobile-dropdown::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            /* MODIFICA: Ridotta opacità dei colori nel gradiente */
+            background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.1) 0%, rgba(142, 220, 169, 0.05) 40%, rgba(10, 10, 15, 0) 75%);
+            /* MODIFICA: Ridotta sfocatura per desktop */
+            filter: blur(25px); /* Era 35px */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.2s;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px;}
+        .strush-mobile-dropdown.active::after { opacity: 1; } /* Potresti anche ridurre questa opacità se vuoi, es. opacity: 0.7; */
+        .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+        .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
+        .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 18px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 16px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
+
+        /* Stili Desktop Navbar */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 32px; margin: 0; position: relative; }
+        .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
+
+        .strush-logo-nav-item {
+            margin-right: 15px;
+            transition: margin-right 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+        .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
+        .strush-logo { display: flex; align-items: center; }
+
+        /* --- LOGO DESKTOP --- */
+        .strush-logo-nav-item .strush-logo-blob {
+            width: 0;
+            height: 38px;
+            opacity: 0;
+            transform: scale(0.7);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0px;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out;
+        }
+        .strush-logo-nav-item .strush-logo-blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .strush-logo-nav-item .strush-logo-text-img {
+            height: 20px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out 0.05s, margin-left 0.3s ease-in-out;
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob {
+            width: 38px;
+            opacity: 1;
+            transform: scale(1);
+            margin-right: 5px;
+            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        }
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-text-img {
+            opacity: 0;
+            transform: scale(0.7);
+            width: 0;
+            overflow: hidden;
+            pointer-events: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item {
+            margin-right: 5px;
+        }
+        /* --- FINE LOGO DESKTOP --- */
+
+
+        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+
+        @keyframes navbar-blob-morph-from-chatbot {
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1)); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg) scale(var(--blob-scale, 1)); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg) scale(var(--blob-scale, 1)); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg) scale(var(--blob-scale, 1)); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg) scale(var(--blob-scale, 1)); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1));}
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob,
+        .menu-active .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1;
+        }
+        .strush-logo-nav-item .strush-logo-blob {
+             --blob-scale: 0.7;
+        }
+
+        .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1;
+        }
+
+        .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
+        .strush-nav-links li { margin: 0 4px; }
+        .strush-nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 8px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .strush-nav-links a:hover {
+            color: #84CD9D;
+        }
+        .strush-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #84CD9D, #9495EA);
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 32px;
+        }
+        .strush-nav-links a:hover::after {
+            width: calc(100% - 16px);
+        }
+        .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
+        .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+        .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* Media query unificata per dispositivi mobili */
+        @media screen and (max-width: 768px) {
+            .strush-navbar {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                height: 70px;
+                min-height: 70px;
+                display: flex;
+                align-items: center;
+            }
+            .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
+
+            .strush-logo-mobile {
+                display: block;
+                z-index: 999;
+                grid-column: 2;
+                text-align: center;
+                padding: 0 15px;
+                margin-top: 0;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo-text-img {
+                opacity: 0;
+                width: 0;
+                margin-left: 0;
+                overflow: hidden;
+                pointer-events: none;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo-blob {
+                width: 38px;
+                height: 38px;
+                opacity: 1;
+                animation: navbar-blob-morph-from-chatbot 5s infinite;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo {
+                justify-content: center;
+            }
+
+            .strush-nav-links-container { display: none; }
+
+            .strush-mobile-dropdown {
+                display: block;
+                top: 69px; 
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .strush-mobile-dropdown::after {
+                /* MODIFICA: Ridotta sfocatura per mobile e estensione */
+                filter: blur(20px); /* Era 25px, originariamente 35px */
+                top: -15px;         /* Era -20px, originariamente -30px */
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+                /* L'opacità del gradiente è già stata ridotta nella regola generale di .strush-mobile-dropdown::after */
+            }
+            .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
+            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #9495EA; }
+            .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileDropdown = document.getElementById('mobileDropdown');
+            const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
+            const navbar = document.getElementById('mainNav');
+
+            function updateNavbarHeight() {
+                const navbarHeight = navbar ? navbar.offsetHeight : 70;
+                document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+                document.body.style.paddingTop = navbarHeight + 'px';
+            }
+            updateNavbarHeight();
+
+            document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
+                item.style.setProperty('--i', index);
+            });
+
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                menuBtn.classList.toggle('open');
+                menuBtn.classList.toggle('active');
+                mobileDropdown.classList.toggle('active');
+                document.body.classList.toggle('menu-active');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active');
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (mobileDropdown.classList.contains('active') &&
+                    !mobileDropdown.contains(e.target) &&
+                    !menuBtn.contains(e.target)) {
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active');
+                }
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            let resizeTimerNav;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimerNav);
+                resizeTimerNav = setTimeout(updateNavbarHeight, 150);
+            }, { passive: true });
+        });
+    </script>
+
+</nav>
+
+<!-- Inizio Blocco Curva Navbar con Barra di Lettura -->
+<div class="navbar-bottom-curve">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 200 30"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 100%;"
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="curve-svg"
+        >
+      <!-- MODIFICA: Trasformazione applicata a un gruppo <g> interno -->
+      <g transform="matrix(1,0,0,-1,0,30)">
+          <defs>
+            <mask id="uniqueCurveMask">
+              <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
+              <!-- Questo path e le coordinate sono relative al sistema pre-trasformazione del <g> -->
+              <!-- (0,0) è l'angolo in alto a sinistra del <g>, Y cresce verso il basso) -->
+              <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
+            </mask>
+          </defs>
+          <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
+          <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
+          <rect x="0" y="0.5" width="200" height="29.5" fill="#121212" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
+
+          <!-- Path per la barra di progresso (solo l'arco) -->
+          <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
+          <path
+            id="readingProgressCurve"
+            class="progress-bar-path"
+            d="M0,0 A100,30 0 0 0 200,0"
+            ></path>
+      </g>
+    </svg>
+</div>
+
+<style>
+    .navbar-bottom-curve {
+        position: fixed;
+        top: 69px; /* Assicurati che questo valore sia corretto per la tua navbar */
+        left: 0;
+        width: 100%;
+        height: 30px; /* Altezza desktop */
+        z-index: 999;
+        background-color: transparent; /* Importante che sia trasparente */
+        pointer-events: none; /* Non intercetta eventi mouse sul contenitore */
+    }
+
+    .curve-svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .progress-bar-path {
+        fill: none;
+        stroke: #9495EA; /* Colore della barra di progresso, personalizzabile */
+        stroke-width: 3; /* Spessore desktop in unità SVG */
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.05s linear; /* Transizione fluida */
+        pointer-events: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        .navbar-bottom-curve {
+            height: 25px; /* Altezza mobile */
+            width: calc(100% + 1px);
+            left: -0.5px;
+        }
+        .progress-bar-path {
+            /* Per mantenere ~3px visivi quando l'SVG è alto 25px (contenitore)
+               ma la viewBox SVG è alta 30 unità:
+               stroke-width-svg = (3px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
+                                = (3 / 25) * 30 = 0.12 * 30 = 3.6
+            */
+            stroke-width: 3.6; /* Spessore mobile in unità SVG */
+        }
+    }
+</style>
+
+<script>
+    (function() { // IIFE per incapsulare lo scope ed evitare conflitti
+        const progressBarPath = document.getElementById('readingProgressCurve');
+
+        if (!progressBarPath) {
+            // console.error("Elemento 'readingProgressCurve' per la barra di progresso non trovato!");
+            return;
+        }
+
+        let pathLength;
+
+        function calculatePathLength() {
+            try {
+                pathLength = progressBarPath.getTotalLength();
+                progressBarPath.style.strokeDasharray = pathLength;
+                progressBarPath.style.strokeDashoffset = pathLength; // Inizia vuota
+            } catch (e) {
+                // console.error("Errore nel calcolare getTotalLength:", e);
+            }
+        }
+
+        function updateProgressBar() {
+            if (typeof pathLength === 'undefined' || pathLength === 0) {
+                calculatePathLength();
+                if (typeof pathLength === 'undefined' || pathLength === 0) return;
+            }
+
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const scrollableHeight = scrollHeight - clientHeight;
+
+            if (scrollableHeight <= 0) {
+                progressBarPath.style.strokeDashoffset = pathLength;
+                return;
+            }
+
+            const scrollPercentage = scrollTop / scrollableHeight;
+            const drawLength = pathLength * scrollPercentage;
+            progressBarPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, pathLength - drawLength));
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                calculatePathLength();
+                updateProgressBar(); // Imposta lo stato iniziale
+            });
+        } else {
+            calculatePathLength();
+            updateProgressBar(); // Imposta lo stato iniziale
+        }
+
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                calculatePathLength();
+                updateProgressBar();
+            }, 100); // Debounce leggero
+        });
+
+    })();
+</script>
+<!-- Fine Blocco Curva Navbar con Barra di Lettura -->
+
+
+
+    <!-- MAIN CONTENT SECTION -->
+<div class="app-development-section section">
+    <!-- Background shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+        <div class="shape shape5"></div>
+    </div>
+    
+    <div class="app-card">
+        <!-- Dino Game -->
+        <div class="dino-game-container">
+        <canvas id="dino-game" width="280" height="150"></canvas>
+    
+        <div class="strush-dino">
+            <div class="strush-dino-body"></div>
+            <div class="strush-dino-head"></div>
+            <div class="strush-dino-spines">
+            <div class="spine s1"></div>
+            <div class="spine s2"></div>
+            <div class="spine s3"></div>
+            <div class="spine s4"></div>
+            <div class="spine s5"></div>
+            </div>
+            <div class="strush-dino-tail"></div>
+            <div class="strush-dino-leg left"></div>
+            <div class="strush-dino-leg right"></div>
+        </div>
+    
+        <div class="strush-dino-shadow"></div>
+        </div>
+    
+        <!-- App Info -->
+        <h4 class="app-title">App in sviluppo</h4>
+        <div class="dots-container">
+        <span class="dot dot-blue"></span>
+        <span class="dot dot-gray"></span>
+        <span class="dot dot-green"></span>
+        </div>
+    
+        <!-- Subscribe Section -->
+        <p class="subscribe-description">Lascia la tua email per essere tra i primi a scoprire quando l'app sarà disponibile</p>
+        <p class="privacy-notice">Promettiamo di non inviarti spam, solo aggiornamenti importanti!</p>
+    
+        <form id="email-form" class="email-form">
+        <input type="email" id="userEmail" placeholder="La tua email" class="email-input" required>
+        <button type="submit" class="register-button">
+            <span class="button-text">Registrati</span>
+            <div class="loading-spinner"></div> <!-- Spinner PER IL BOTTONE -->
+        </button>
+        </form>
+    
+        <!-- Privacy Policy Checkbox -->
+        <div class="privacy-checkbox-container">
+        <input type="checkbox" id="privacyPolicyCheck" name="privacyPolicyCheck" required>
+        <label for="privacyPolicyCheck">
+            Ho letto e accetto la <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </label>
+        </div>
+    
+        <!-- Form Status -->
+        <!-- Lo spinner per lo stato del form viene inserito qui dinamicamente dal JS -->
+        <div id="formStatus" class="form-status"></div>
+    
+    </div>
+    </div>
+    
+    <style>
+    .app-development-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff; /* Il background ora si estenderà fino sotto la navbar */
+        position: relative;
+        overflow: hidden;
+        /* min-height: calc(100vh - 70px - 10rem); */ /* Manteniamo la logica originale del min-height */
+        min-height: calc(100vh - 10rem); /* Ricalcolato se la navbar è FUORI da questo calcolo */
+        /* Oppure, se min-height deve considerare lo spazio SOTTO la navbar: */
+        /* min-height: calc(100vh - 10rem); */ /* O mantenere l'originale se la logica è corretta */
+        box-sizing: border-box;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* margin-top: 70px; */ /* RIMOSSO: Questo causava il problema */
+        padding-top: 70px;  /* AGGIUNTO: Crea spazio interno per la navbar fissa */
+    }
+    
+    
+    .bg-shapes {
+        position: absolute;
+        top: 0; /* Ora si allinea correttamente con l'inizio della sezione (sotto la navbar) */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+    }
+    
+    .shape {
+        position: absolute;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        opacity: 0.15;
+        background-color: var(--secondaryextralight);
+    }
+    
+    .shape1 { width: 400px; height: 400px; top: -150px; left: -100px; transform: rotate(25deg); }
+    .shape2 { width: 300px; height: 300px; bottom: -100px; right: -50px; transform: rotate(-15deg); border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+    .shape3 { width: 200px; height: 200px; top: 60%; left: 10%; transform: rotate(45deg); border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; }
+    .shape4 { width: 250px; height: 250px; top: 20%; right: 15%; transform: rotate(-30deg); border-radius: 70% 30% 60% 40% / 30% 70% 30% 70; }
+    .shape5 { width: 180px; height: 180px; bottom: 30%; left: 50%; transform: rotate(15deg); border-radius: 40% 60% 40% 60% / 70% 30% 70% 30%; }
+    
+    .app-card {
+        max-width: 600px;
+        width: 100%;
+        background-color: white;
+        border-radius: var(--border-radius-big);
+        box-shadow: 0 4px 10px #9495EA66;
+        border: 1px solid var(--secondaryextralight);
+        padding: 32px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .dino-game-container {
+        width: 280px;
+        height: 150px;
+        position: relative;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--secondaryextralight);
+        background-color: #E6F2F5;
+        margin: 0 auto 32px;
+    }
+    
+    .app-title {
+        color: var(--secondary);
+        margin-bottom: 24px;
+        font-weight: 600;
+        padding: 0px;
+    }
+    
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+    
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-blue { background-color: var(--secondary); animation: dotJump 1.2s infinite ease-in-out 0s; }
+    .dot-gray { background-color: #555555; animation: dotJump 1.2s infinite ease-in-out 0.4s; }
+    .dot-green { background-color: var(--primary); animation: dotJump 1.2s infinite ease-in-out 0.8s; }
+    
+    @keyframes dotJump {
+        0%, 40%, 100% { transform: translateY(0); }
+        20% { transform: translateY(-8px); }
+    }
+    
+    .subscribe-description {
+        color: var(--text);
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+    
+    .privacy-notice {
+        font-size: 14px;
+        color: var(--text2);
+        margin-bottom: 24px;
+        margin-top: 0;
+    }
+    
+    .email-form {
+        display: flex;
+        max-width: 100%;
+        margin: 0 auto 16px;
+        position: relative;
+        flex-direction: row;
+    }
+    
+    .email-input {
+        flex: 1;
+        padding: 16px;
+        border-radius: 16px 0 0 16px;
+        outline: none;
+        width: 100%;
+        font-family: inherit;
+        font-size: 16px;
+        border: 1px solid #9495EA;
+    }
+    
+    .register-button {
+        background: var(--secondarygradient);
+        color: white;
+        border: none;
+        border-radius: 0 16px 16px 0;
+        padding: 16px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        position: relative; /* Necessario per posizionare lo spinner interno */
+        overflow: hidden;
+        white-space: nowrap;
+        min-width: 120px;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 500;
+        display: inline-flex; /* Utile per allineare testo e spinner */
+        align-items: center; /* Allinea verticalmente testo e spinner */
+        justify-content: center; /* Centra il contenuto quando lo spinner è visibile */
+    }
+    
+    
+    .button-text {
+        transition: opacity 0.3s;
+        display: inline-block; /* Assicura che occupi spazio */
+    }
+    
+    .register-button.loading .button-text {
+        opacity: 0; /* Nasconde il testo quando in loading */
+    }
+    
+    /* Stile per lo spinner DENTRO il bottone */
+    .register-button .loading-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centra perfettamente */
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--text2);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 0.8s linear infinite;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .register-button.loading .loading-spinner {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    @keyframes spin {
+        to { transform: translate(-50%, -50%) rotate(360deg); } /* Mantiene la traslazione durante la rotazione */
+    }
+    
+    .privacy-checkbox-container {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--text2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 14px;
+    }
+    
+    .privacy-checkbox-container input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+    
+    .privacy-checkbox-container label {
+        margin: 0;
+        line-height: 1.4;
+        cursor: pointer;
+    }
+    
+    .privacy-checkbox-container a {
+        color: var(--secondary);
+        text-decoration: underline;
+        transition: color 0.2s;
+    }
+    
+    .privacy-checkbox-container a:hover { color: var(--primary); }
+    
+    .form-status {
+        display: flex;
+        align-items: center; /* Allinea verticalmente lo spinner (se presente) e il testo */
+        justify-content: center; /* Centra orizzontalmente il contenuto */
+        gap: 8px; /* Aggiunge spazio tra spinner e testo */
+        margin: 8px 0 0px;
+        min-height: 24px; /* Mantiene lo spazio anche quando vuoto */
+        transition: opacity 0.3s;
+        font-size: 14px; /* Opzionale: regola la dimensione del testo di stato */
+    }
+    
+    .form-status.success { color: var(--primary); }
+    .form-status.error { color: #e74c3c; }
+    .form-status.loading { color: #555; } /* Colore per il testo "Elaborazione..." */
+    
+    /* Stile per lo spinner DENTRO il formStatus (generato da JS) */
+    .form-status .loading-spinner {
+        /* Rimuoviamo gli stili assoluti e di trasformazione */
+        position: static;
+        transform: none;
+        /* Usiamo display inline-block per metterlo in linea col testo */
+        display: inline-block;
+        vertical-align: middle; /* Aiuta l'allineamento verticale col testo adiacente */
+        width: 18px; /* Leggermente più piccolo? */
+        height: 18px;
+        border: 2px solid #121218; /* Colore bordo più scuro */
+        border-radius: 50%;
+        border-top-color: var(--secondary); /* Colore principale spinner */
+        /* L'animazione spin definita sopra viene riutilizzata */
+        animation: spin-form-status 0.8s linear infinite; /* Potrebbe servire un'animazione separata se spin usa translate */
+        /* Non servono opacity/visibility qui, viene aggiunto/rimosso dall'HTML */
+        margin: 0; /* Resetta margini */
+        flex-shrink: 0; /* Impedisce che si restringa se lo spazio è poco */
+    }
+    
+    /* Definiamo un'animazione spin specifica se quella globale usa translate */
+    @keyframes spin-form-status {
+        to { transform: rotate(360deg); }
+    }
+    
+    
+    /* --- Dino styles rimangono invariati --- */
+    .strush-dino { position: absolute; width: 60px; height: 40px; left: 50px; top: 83px; z-index: 10; }
+    .strush-dino.running { animation: bounce 0.8s infinite alternate; }
+    .strush-dino.jumping { animation: none; }
+    .strush-dino-body { position: absolute; width: 35px; height: 20px; background: var(--secondary); border-radius: 10px 15px 8px 8px; top: 15px; left: 10px; }
+    .strush-dino-head { position: absolute; width: 20px; height: 15px; background: var(--secondary); border-radius: 8px 12px 5px 5px; top: 12px; left: 40px; }
+    .strush-dino-head:after { content: ''; position: absolute; width: 3px; height: 3px; background: #000; border-radius: 50%; top: 5px; right: 5px; }
+    .strush-dino-spines { position: absolute; top: 5px; left: 12px; z-index: 5; }
+    .spine { position: absolute; background: #84CD9D; width: 2px; transform-origin: bottom center; box-shadow: 0 0 4px rgba(180, 250, 205, 0.6); clip-path: polygon(0% 0%, 100% 0%, 50% 100%); border-radius: 0; }
+    .spine:before { content: ''; position: absolute; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 8px solid #84CD9D; top: -7px; left: -3px; }
+    .spine:after { content: ''; position: absolute; width: 4px; height: 2px; background: #84CD9D; border-radius: 50%; bottom: -1px; left: -1px; }
+    .spine.s1 { height: 10px; top: -6px; left: -0px; transform: rotate(-196deg); }
+    .spine.s2 { height: 16px; top: -19px; left: 5px; transform: rotate(-190deg); }
+    .spine.s3 { height: 18px; top: -23.5px; left: 14px; transform: rotate(183deg); }
+    .spine.s4 { height: 14px; top: -15px; left: 21px; transform: rotate(190deg); }
+    .spine.s5 { height: 9px; top: -04px; left: 27px; transform: rotate(200deg); }
+    .strush-dino-tail { position: absolute; width: 22px; height: 8px; background: var(--secondary); border-radius: 50% 0 0 50%; top: 18px; left: -8px; transform-origin: right center; transform: rotate(-15deg) skewY(-10deg); animation: wag 0.6s infinite alternate; z-index: 1; }
+    .strush-dino-leg { position: absolute; width: 4px; height: 15px; background: var(--secondary); bottom: -5px; border-radius: 2px; }
+    .strush-dino-leg.left { left: 15px; animation: step-left 0.8s infinite alternate; }
+    .strush-dino-leg.right { left: 30px; animation: step-right 0.8s infinite alternate; }
+    .strush-dino-shadow { position: absolute; width: 40px; height: 6px; background: rgba(0, 0, 0, 0.3); border-radius: 50%; bottom: 25px; left: 65px; filter: blur(2px); z-index: 5; }
+    .strush-dino-shadow.shadow-jumping { animation: none; opacity: 0.2; transform: scale(0.8); }
+    .strush-dino-shadow:not(.shadow-jumping) { animation: shadow-pulse 0.8s infinite alternate; }
+    
+    @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
+    @keyframes wag { 0% { transform: rotate(-15deg) skewY(-10deg); } 100% { transform: rotate(-25deg) skewY(-15deg); } }
+    @keyframes step-left { 0% { transform: rotate(-15deg); } 100% { transform: rotate(15deg); } }
+    @keyframes step-right { 0% { transform: rotate(15deg); } 100% { transform: rotate(-15deg); } }
+    @keyframes shadow-pulse { 0% { transform: scale(0.8); opacity: 0.2; } 100% { transform: scale(1); opacity: 0.3; } }
+    
+    @media (max-width: 768px) {
+        .app-development-section {
+          /* padding-top: 70px; sarà ereditato dalla regola base */
+          min-height: calc(100vh - 70px - 8rem); /* La logica originale del min-height è mantenuta */
+          padding-left: 16px;
+          padding-right: 16px;
+      }
+      
+      .app-card {
+          padding: 32px 24px;
+      }
+
+        .email-form {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .email-input {
+            border-radius: 16px;
+        }
+        .register-button {
+            border-radius: 16px;
+            padding: 16px;
+            width: 100%;
+        }
+
+        a {
+        font-size: 14px;
+        }
+
+        .shape {
+            transform-origin: center;
+            animation: float 8s infinite ease-in-out;
+        }
+        .shape1 { animation-delay: 0s; }
+        .shape2 { animation-delay: 1s; }
+        .shape3 { animation-delay: 2s; }
+        .shape4 { animation-delay: 3s; }
+        .shape5 { animation-delay: 4s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+    }
+    </style>
+    
+    <script>
+    // Lo script JS rimane invariato
+    (function() {
+        const canvas = document.getElementById('dino-game');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+    
+        const GROUND_HEIGHT = 20;
+        const DINO_WIDTH = 44;
+        const DINO_HEIGHT = 47;
+        const CACTUS_WIDTH = 15;
+        const CACTUS_HEIGHT = 30;
+        const CLOUD_WIDTH = 60;
+        const CLOUD_HEIGHT = 35;
+    
+        let gameRunning = true;
+        let groundY = canvas.height - GROUND_HEIGHT;
+        let dino = {
+        x: 50,
+        y: groundY - DINO_HEIGHT,
+        width: DINO_WIDTH,
+        height: DINO_HEIGHT,
+        jumping: false,
+        jumpSpeed: -10,
+        gravity: 0.6,
+        velocityY: 0,
+        frameCount: 0,
+        legPosition: 0
+        };
+    
+        let cacti = [];
+        let clouds = [];
+        let nextCactusTime = 0;
+        let animationFrameId;
+    
+        function init() {
+        cacti = [];
+        clouds = [];
+        dino.x = 50;
+        dino.y = groundY - DINO_HEIGHT;
+        dino.jumping = false;
+        dino.velocityY = 0;
+        dino.frameCount = 0;
+        nextCactusTime = 0;
+    
+        cacti.push({
+            x: canvas.width + 100,
+            y: groundY - CACTUS_HEIGHT,
+            width: CACTUS_WIDTH,
+            height: CACTUS_HEIGHT
+        });
+    
+        for (let i = 0; i < 3; i++) {
+            clouds.push({
+            x: Math.random() * canvas.width,
+            y: 20 + Math.random() * (groundY / 2 - 30),
+            width: CLOUD_WIDTH + Math.random() * 20,
+            height: CLOUD_HEIGHT - 5 + Math.random() * 10,
+            speed: 0.8 + Math.random() * 0.4
+            });
+        }
+        updateDinoDOM();
+        }
+    
+        function updateDinoDOM() {
+        const strushDino = document.querySelector('.strush-dino');
+        const strushShadow = document.querySelector('.strush-dino-shadow');
+    
+        if (strushDino && strushShadow) {
+            strushDino.style.left = `${dino.x}px`;
+            strushDino.style.top = `${dino.y}px`;
+            strushShadow.style.left = `${dino.x + 15}px`;
+            strushShadow.style.top = `${groundY - 5}px`;
+    
+            if (dino.jumping) {
+            strushDino.classList.add('jumping');
+            strushDino.classList.remove('running');
+            strushShadow.classList.add('shadow-jumping');
+            } else {
+            strushDino.classList.remove('jumping');
+            strushDino.classList.add('running');
+            strushShadow.classList.remove('shadow-jumping');
+            }
+        }
+        }
+    
+        function drawCactus(x, y) {
+        ctx.fillStyle = '#2d8659';
+        ctx.fillRect(x + 5, y, 5, CACTUS_HEIGHT);
+        ctx.fillRect(x, y + 10, 5, 5);
+        ctx.fillRect(x, y + 10, 2, 10);
+        ctx.fillRect(x + 10, y + 15, 5, 5);
+        ctx.fillRect(x + 13, y + 15, 2, 10);
+        }
+    
+        function drawCloud(x, y, width, height) {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(x + width/4, y + height/2, height/2.5, 0, Math.PI * 2);
+        ctx.arc(x + width/2, y + height/2.8, height/2.2, 0, Math.PI * 2);
+        ctx.arc(x + width*3/4, y + height/2, height/2.5, 0, Math.PI * 2);
+        ctx.fill();
+        }
+    
+        function drawGround() {
+        ctx.fillStyle = '#cccccc';
+        ctx.fillRect(0, groundY, canvas.width, GROUND_HEIGHT);
+        }
+    
+        function update() {
+        dino.frameCount++;
+    
+        if (dino.jumping) {
+            dino.velocityY += dino.gravity;
+            dino.y += dino.velocityY;
+            if (dino.y >= groundY - DINO_HEIGHT) {
+            dino.y = groundY - DINO_HEIGHT;
+            dino.jumping = false;
+            dino.velocityY = 0;
+            }
+        }
+    
+        for (let i = 0; i < cacti.length; i++) {
+            cacti[i].x -= 4;
+            if (cacti[i].x + CACTUS_WIDTH < 0) {
+            cacti.splice(i, 1); i--;
+            } else {
+            const distanceToCactus = cacti[i].x - (dino.x + dino.width);
+            if (distanceToCactus > 0 && distanceToCactus < 70 && !dino.jumping) {
+                dino.jumping = true;
+                dino.velocityY = dino.jumpSpeed;
+            }
+            }
+        }
+    
+        if (dino.frameCount > nextCactusTime) {
+            cacti.push({
+            x: canvas.width, y: groundY - CACTUS_HEIGHT, width: CACTUS_WIDTH, height: CACTUS_HEIGHT
+            });
+            nextCactusTime = dino.frameCount + 70 + Math.floor(Math.random() * 60);
+        }
+    
+        clouds.forEach(cloud => {
+            cloud.x -= cloud.speed;
+            if (cloud.x + cloud.width < 0) {
+            cloud.x = canvas.width;
+            cloud.y = 20 + Math.random() * (groundY / 2 - 30);
+            }
+        });
+    
+        updateDinoDOM();
+        }
+    
+        function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        clouds.forEach(cloud => drawCloud(cloud.x, cloud.y, cloud.width, cloud.height));
+        drawGround();
+        cacti.forEach(cactus => drawCactus(cactus.x, cactus.y));
+        }
+    
+        function gameLoop() {
+        update();
+        draw();
+        animationFrameId = requestAnimationFrame(gameLoop);
+        }
+    
+        init();
+        gameLoop();
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationFrameId) {
+                        init();
+                        gameLoop();
+                    }
+                } else {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                        animationFrameId = null;
+                    }
+                }
+            });
+        });
+        observer.observe(canvas);
+    
+    })();
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('email-form');
+        const button = form.querySelector('.register-button');
+        const statusDiv = document.getElementById('formStatus');
+        const privacyCheckbox = document.getElementById('privacyPolicyCheck');
+    
+        if (!form || !button || !statusDiv || !privacyCheckbox) {
+            console.error("Form elements not found!");
+            return;
+        }
+    
+        form.addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        var email = document.getElementById('userEmail').value;
+    
+        if (!email || !email.includes('@') || email.indexOf('.') === -1) {
+            statusDiv.innerHTML = 'Inserisci un indirizzo email valido.';
+            statusDiv.className = 'form-status error';
+            return;
+        }
+    
+        if (!privacyCheckbox.checked) {
+            statusDiv.innerHTML = 'Devi accettare la Privacy Policy per registrarti.';
+            statusDiv.className = 'form-status error';
+            // Trigger browser's native validation UI for the checkbox
+            if (typeof privacyCheckbox.reportValidity === 'function') {
+                privacyCheckbox.reportValidity();
+            } else {
+                // Fallback for older browsers
+                privacyCheckbox.focus();
+            }
+            return;
+        }
+    
+        button.classList.add('loading');
+        // Inserisce lo spinner *e* il testo nello statusDiv
+        statusDiv.innerHTML = '<div class="loading-spinner"></div><span>Elaborazione...</span>';
+        statusDiv.className = 'form-status loading'; // Applica classe per stile loading
+        button.disabled = true;
+        privacyCheckbox.disabled = true;
+        document.getElementById('userEmail').disabled = true;
+    
+        console.log('Tentativo di invio email:', email);
+    
+        var scriptURL = 'https://script.google.com/macros/s/AKfycbxfVLsaV1IOveHBinztcCQ9JqjBlKOTUolELD8OH6I5k0h5oa_-rbnHflnFAwVm5kaR/exec';
+    
+        var formData = new FormData();
+        formData.append('Email', email);
+    
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors', // Important: Google Apps Script needs 'no-cors' for simple POST requests from web pages
+            body: formData
+        })
+        .then(response => {
+            // With 'no-cors', we can't read the actual response, but a successful network request implies the data was likely sent.
+            console.log('Richiesta inviata (no-cors). Assumendo successo.');
+            button.classList.remove('loading');
+            statusDiv.innerHTML = 'Grazie! Registrazione avvenuta con successo.';
+            statusDiv.className = 'form-status success';
+            form.reset(); // Clear the form fields
+            button.disabled = false;
+            privacyCheckbox.disabled = false;
+            document.getElementById('userEmail').disabled = false;
+    
+            // Clear the success message after a few seconds
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+                statusDiv.className = 'form-status';
+            }, 5000);
+        })
+        .catch(error => {
+            // This catch block usually triggers for network errors (e.g., no internet)
+            // It might not catch script execution errors on the Google Apps Script side due to 'no-cors'.
+            console.error('Errore di rete o fetch:', error);
+            button.classList.remove('loading');
+            statusDiv.innerHTML = 'Errore durante la registrazione. Riprova.'; // More generic error message
+            statusDiv.className = 'form-status error';
+            button.disabled = false;
+            privacyCheckbox.disabled = false;
+            document.getElementById('userEmail').disabled = false;
+        });
+        });
+    });
+    </script>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <!-- === MODIFICA HTML: Logo completo === -->
+                    <img src="immagini/logocompleto.png" alt="Strush Logo Completo" class="footer-logo-complete">
+                    <!-- === FINE MODIFICA HTML === -->
+                </div>
+                <p class="elevator-pitch">Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio</p>
+                <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Link Rapidi</h5>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#features">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Supporto</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contatti</a></li>
+                    <li><a href="#">Assistenza</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Legale</h5>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="t&c.html">Termini e Condizioni</a></li>
+                    <li><a href="informativa.html">Informativa Startup</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
+            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P.IVA: 09068680728<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
+            
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Stili generali del footer (invariati) */
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 4rem 0 16px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .elevator-pitch {
+        color: rgb(255, 255, 255);
+    }
+
+    .footer-email {
+        color: white;
+        margin-top: 16px;
+    }
+
+    .footer-email a {
+        color: #84CD9D;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 16px;
+    }
+
+    /* Contenitore per il logo */
+    .footer-logo {
+        display: flex; /* Utile per centrare se necessario */
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
+    .footer-logo-complete {
+        height: 24px;  /* Adatta l'altezza come desideri */
+        width: auto;  /* Mantiene le proporzioni */
+        display: block; /* Rimuove spazio extra sotto l'immagine se inline */
+        /* Se vuoi centrarlo orizzontalmente quando .footer-about è text-align: center (in mobile) */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* Per allinearlo a sinistra di default: */
+        /* margin-right: auto; */
+    }
+    /* === FINE MODIFICA CSS === */
+
+    /* RIMOSSI GLI STILI PER .footer-logo .logo-blob, .footer-logo img (pittogramma), .footer-logo .logo-text e le animazioni associate */
+    /* .footer-logo .logo-blob { ... } */
+    /* @keyframes footer-blob-morph-shape-only { ... } */
+    /* .footer-logo img { ... } */
+    /* .footer-logo .logo-blob:hover { ... } */
+    /* .footer-logo .logo-blob:hover img { ... } */
+    /* .footer-logo .logo-text { ... } */
+
+
+    /* Links sections (invariati) */
+    .footer-links h5{
+        position: relative;
+        padding-bottom: 8px;
+        display: inline-block;
+        margin-bottom: 24px;
+        color: white;
+    }
+
+    .footer-links h5::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gradient-primary);
+        border-radius: 32px;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 24px;
+    }
+
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        bottom: 0;
+        left: 0;
+        background-color: #84CD9D ;
+        border-radius: 32px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #84CD9D;
+    }
+
+    .footer-links a:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* Social icons (invariati) */
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 1.5rem;
+    }
+
+    .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+            background-color:  #6B6F6E;
+        color: white;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .footer-social a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-secondary);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .footer-social a:hover {
+        color: var(--dark);
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px #9495EA62;   
+    }
+
+    .footer-social a:hover::before {
+        opacity: 1;
+    }
+
+    /* Copyright section (invariati) */
+    .copyright {
+        text-align: center;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright .proudly-crafted {
+        margin-bottom: 16px;
+        color: white;
+    }
+
+    .copyright .copyright-text {
+        margin-top: 0;
+        margin-bottom: 0px;
+        color: white;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        /* Modifica per centrare il logo completo in mobile */
+        .footer-logo {
+            justify-content: center; /* Centra l'immagine all'interno del div .footer-logo */
+        }
+        .footer-logo-complete {
+            height: 28px;
+        }
+
+
+        .footer-links h5 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-email a {
+            font-size: 18px;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(0);
+        }
+    }
+</style>
+
+
+
+
+</body>
+</html>

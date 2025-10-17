@@ -1,0 +1,271 @@
+/* Dichiarazione dei font locali Unbounded con @font-face */
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Dichiarazione del font Inter Variable */
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* Variabili CSS */
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondarylight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --light: #E6F2F5;
+    --dark: #222222;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
+}
+
+/* Reset CSS di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili di base del corpo */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Utilizzo del font Unbounded per i titoli con pesi diversi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text);
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text);
+}
+
+h6 {
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: #121212;
+    font-size: 14px;
+}
+
+p {
+    color: #6B6F6E;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h4 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    a {
+        font-size: 16px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 0 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Section base style */
+.section {
+    padding: 96px 0 96px;
+}
+
+/* Stili per i titoli */
+.section-title {
+    text-align: center;
+    margin: 48px;
+    position: relative;
+    color: #121212;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.section-title .title-wrapper {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Effetto di rivelazione */
+.section-title.reveal .title-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: 10px;
+}
+
+/* Animazione della barra di sottolineatura */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    border-radius: 32px;
+    transition: transform 0.6s ease 0.3s;
+}
+
+.section-title.reveal::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Section sub-titles */
+.section-subtitles {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    color: #121212;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0 80px;
+    }
+    .section-title {
+        margin: 32px;
+    }
+    .section-subtitles {
+        margin-bottom: 32px;
+        font-size: 20px;
+    }
+}

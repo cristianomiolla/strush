@@ -1,0 +1,270 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <!-- === MODIFICA HTML: Logo completo === -->
+                    <img src="immagini/logocompleto.png" alt="Strush Logo Completo" class="footer-logo-complete">
+                    <!-- === FINE MODIFICA HTML === -->
+                </div>
+                <p class="elevator-pitch">Spese pazze o amico fantasma al conto? Con Strush si gioca sul serio</p>
+                <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Link Rapidi</h5>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#features">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Supporto</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contatti</a></li>
+                    <li><a href="#">Assistenza</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5 class="links-rapidi">Legale</h5>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="t&c.html">Termini e Condizioni</a></li>
+                    <li><a href="informativa.html">Informativa Startup</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
+            <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P. IVA: 09068680728<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
+            
+        </div>
+    </div>
+
+    <style>
+        /* Stili generali del footer (invariati) */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 16px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .elevator-pitch {
+            color: rgb(255, 255, 255);
+        }
+
+        .footer-email {
+            color: white;
+            margin-top: 16px;
+        }
+
+        .footer-email a {
+            color: #84CD9D;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Contenitore per il logo */
+        .footer-logo {
+            display: flex; /* Utile per centrare se necessario */
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
+        .footer-logo-complete {
+            height: 24px;  /* Adatta l'altezza come desideri */
+            width: auto;  /* Mantiene le proporzioni */
+            display: block; /* Rimuove spazio extra sotto l'immagine se inline */
+            /* Se vuoi centrarlo orizzontalmente quando .footer-about è text-align: center (in mobile) */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            /* Per allinearlo a sinistra di default: */
+            /* margin-right: auto; */
+        }
+        /* === FINE MODIFICA CSS === */
+
+        /* RIMOSSI GLI STILI PER .footer-logo .logo-blob, .footer-logo img (pittogramma), .footer-logo .logo-text e le animazioni associate */
+        /* .footer-logo .logo-blob { ... } */
+        /* @keyframes footer-blob-morph-shape-only { ... } */
+        /* .footer-logo img { ... } */
+        /* .footer-logo .logo-blob:hover { ... } */
+        /* .footer-logo .logo-blob:hover img { ... } */
+        /* .footer-logo .logo-text { ... } */
+
+
+        /* Links sections (invariati) */
+        .footer-links h5{
+            position: relative;
+            padding-bottom: 8px;
+            display: inline-block;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 32px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0.5px;
+            bottom: 0;
+            left: 0;
+            background-color: #84CD9D ;
+            border-radius: 32px;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #84CD9D;
+        }
+
+        .footer-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Social icons (invariati) */
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+                background-color:  #6B6F6E;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .footer-social a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .footer-social a:hover {
+            color: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: 0 2px 8px #9495EA40;   
+        }
+
+        .footer-social a:hover::before {
+            opacity: 1;
+        }
+
+        /* Copyright section (invariati) */
+        .copyright {
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright .proudly-crafted {
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .copyright .copyright-text {
+            margin-top: 0;
+            margin-bottom: 0px;
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            /* Modifica per centrare il logo completo in mobile */
+            .footer-logo {
+                justify-content: center; /* Centra l'immagine all'interno del div .footer-logo */
+            }
+            .footer-logo-complete {
+                height: 28px;
+            }
+
+
+            .footer-links h5 {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-email a {
+                font-size: 18px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links a:hover {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</footer>

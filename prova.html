@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+    
+    <html lang="en">
+    
+    <head>
+    
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Animated Feature Icon</title>
+    
+    <style>
+    
+    body {
+    
+    display: flex;
+    
+    justify-content: center;
+    
+    align-items: center;
+    
+    min-height: 100vh;
+    
+    background-color: #f8f9fa;
+    
+    margin: 0;
+    
+    font-family: Arial, sans-serif;
+    
+    }
+    
+    .container {
+    
+    text-align: center;
+    
+    }
+    
+    .feature-container {
+    
+    display: inline-flex;
+    
+    flex-direction: column;
+    
+    align-items: center;
+    
+    margin: 20px;
+    
+    }
+    
+    .feature-card {
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    align-items: center;
+    
+    padding: 30px;
+    
+    border-radius: 16px;
+    
+    background-color: white;
+    
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    
+    width: 200px;
+    
+    height: 250px;
+    
+    transition: transform 0.3s ease;
+    
+    }
+    
+    .feature-title {
+    
+    font-size: 20px;
+    
+    font-weight: bold;
+    
+    margin-top: 20px;
+    
+    color: #333;
+    
+    }
+    
+    .feature-description {
+    
+    font-size: 14px;
+    
+    color: #666;
+    
+    margin-top: 10px;
+    
+    text-align: center;
+    
+    line-height: 1.5;
+    
+    }
+    
+    .feature-icon-wrapper {
+    
+    position: relative;
+    
+    width: 70px;
+    
+    height: 70px;
+    
+    }
+    
+    .feature-icon {
+    
+    width: 70px;
+    
+    height: 70px;
+    
+    border-radius: 50%;
+    
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    
+    --blob1: 60% 40% 65% 35% / 35% 65% 35% 65%;
+    
+    animation: iconAnimation 4.8s infinite;
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: center;
+    
+    position: relative;
+    
+    }
+    
+    .icon-inner {
+    
+    width: 30px;
+    
+    height: 30px;
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: center;
+    
+    animation: rotateAnimation 4.8s infinite;
+    
+    transform-origin: center;
+    
+    }
+    
+    @keyframes iconAnimation {
+    
+    0%, 41.66% {
+    
+    border-radius: 50%;
+    
+    transform: scale(1);
+    
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    
+    }
+    
+    50%, 91.66% {
+    
+    border-radius: var(--blob1);
+    
+    transform: scale(1.1);
+    
+    background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
+    
+    }
+    
+    100% {
+    
+    border-radius: 50%;
+    
+    transform: scale(1);
+    
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    
+    }
+    
+    }
+    
+    @keyframes rotateAnimation {
+    
+    0%, 41.66% {
+    
+    transform: rotate(0deg);
+    
+    }
+    
+    50%, 91.66% {
+    
+    transform: rotate(5deg);
+    
+    }
+    
+    100% {
+    
+    transform: rotate(0deg);
+    
+    }
+    
+    }
+    
+    .demo-text {
+    
+    margin-top: 30px;
+    
+    color: #666;
+    
+    }
+    
+    .timing-info {
+    
+    font-size: 14px;
+    
+    color: #666;
+    
+    margin-top: 5px;
+    
+    }
+    
+    .static-view {
+    
+    display: flex;
+    
+    justify-content: space-around;
+    
+    max-width: 600px;
+    
+    margin-top: 50px;
+    
+    }
+    
+    .state {
+    
+    text-align: center;
+    
+    }
+    
+    .state-label {
+    
+    margin-top: 15px;
+    
+    font-weight: bold;
+    
+    }
+    
+    .normal-state {
+    
+    width: 70px;
+    
+    height: 70px;
+    
+    border-radius: 50%;
+    
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: center;
+    
+    }
+    
+    .hover-state {
+    
+    width: 70px;
+    
+    height: 70px;
+    
+    border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+    
+    background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
+    
+    transform: scale(1.1);
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: center;
+    
+    }
+    
+    .normal-icon {
+    
+    transform: rotate(0deg);
+    
+    }
+    
+    .hover-icon {
+    
+    transform: rotate(5deg);
+    
+    }
+    
+    /* Animation timeline visualization */
+    
+    .timeline {
+    
+    width: 400px;
+    
+    height: 60px;
+    
+    margin: 30px auto;
+    
+    position: relative;
+    
+    background: #eee;
+    
+    border-radius: 5px;
+    
+    }
+    
+    .timeline-bar {
+    
+    position: absolute;
+    
+    height: 20px;
+    
+    top: 20px;
+    
+    border-radius: 10px;
+    
+    }
+    
+    .normal-time {
+    
+    width: 41.66%;
+    
+    left: 0;
+    
+    background-color: #84CD9D;
+    
+    }
+    
+    .transition-time-1 {
+    
+    width: 8.34%;
+    
+    left: 41.66%;
+    
+    background-color: #a0b5e9;
+    
+    }
+    
+    .blob-time {
+    
+    width: 41.66%;
+    
+    left: 50%;
+    
+    background-color: #9495EA;
+    
+    }
+    
+    .transition-time-2 {
+    
+    width: 8.34%;
+    
+    left: 91.66%;
+    
+    background-color: #a0b5e9;
+    
+    }
+    
+    .time-marker {
+    
+    position: absolute;
+    
+    top: -20px;
+    
+    font-size: 12px;
+    
+    transform: translateX(-50%);
+    
+    }
+    
+    .marker-0 {
+    
+    left: 0;
+    
+    }
+    
+    .marker-2 {
+    
+    left: 41.66%;
+    
+    }
+    
+    .marker-24 {
+    
+    left: 50%;
+    
+    }
+    
+    .marker-44 {
+    
+    left: 91.66%;
+    
+    }
+    
+    .marker-48 {
+    
+    left: 100%;
+    
+    }
+    
+    </style>
+    
+    </head>
+    
+    <body>
+    
+    <div class="container">
+    
+    <h1>Feature Icon Animation</h1>
+    
+    <div class="feature-container">
+    
+    <div class="feature-card">
+    
+    <div class="feature-icon-wrapper">
+    
+    <div class="feature-icon">
+    
+    <div class="icon-inner">
+    
+    <svg width="30" height="30" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    
+    <path fill="#121218" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272H320c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/>
+    
+    </svg>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <h3 class="feature-title">Digital Wallet</h3>
+    
+    <p class="feature-description">Manage your finances securely with our advanced digital wallet solution.</p>
+    
+    </div>
+    
+    </div>
+    
+    <p class="demo-text">Animation Timing Visualization:</p>
+    
+    <div class="timeline">
+    
+    <div class="timeline-bar normal-time"></div>
+    
+    <div class="timeline-bar transition-time-1"></div>
+    
+    <div class="timeline-bar blob-time"></div>
+    
+    <div class="timeline-bar transition-time-2"></div>
+    
+    <div class="time-marker marker-0">0s</div>
+    
+    <div class="time-marker marker-2">2s</div>
+    
+    <div class="time-marker marker-24">2.4s</div>
+    
+    <div class="time-marker marker-44">4.4s</div>
+    
+    <div class="time-marker marker-48">4.8s</div>
+    
+    </div>
+    
+    <p class="timing-info">
+    
+    • Initial delay: 2 seconds in normal state<br>
+    
+    • Transition to blob: 0.4 seconds<br>
+    
+    • Pause in blob state: 2 seconds<br>
+    
+    • Transition back: 0.4 seconds<br>
+    
+    • Total cycle: 4.8 seconds
+    
+    </p>
+    
+    <div class="static-view">
+    
+    <div class="state">
+    
+    <div class="normal-state">
+    
+    <svg width="30" height="30" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="normal-icon">
+    
+    <path fill="#121218" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272H320c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/>
+    
+    </svg>
+    
+    </div>
+    
+    <div class="state-label">Normal State</div>
+    
+    </div>
+    
+    <div class="state">
+    
+    <div class="hover-state">
+    
+    <svg width="30" height="30" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="hover-icon">
+    
+    <path fill="#121218" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272H320c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/>
+    
+    </svg>
+    
+    </div>
+    
+    <div class="state-label">Blob State</div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </body>
+    
+    </html>
+    
+    
