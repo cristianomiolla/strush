@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/crist/OneDrive/Documenti/progetti/strush/landing page/**)"
+      "Read(//c/Users/crist/OneDrive/Documenti/progetti/strush/landing page/**)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
