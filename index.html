@@ -597,15 +597,23 @@
     // Nascondi il preloader quando la pagina è completamente caricata
     window.addEventListener('load', function() {
         const preloader = document.getElementById('strush-preloader');
-        
+
         // Aggiungi un ritardo minimo per garantire che il preloader sia visibile
         setTimeout(function() {
             // Aggiungi una classe per l'animazione di fade-out
             preloader.classList.add('fade-out');
-            
+
             // Rimuovi completamente il preloader dopo l'animazione
             setTimeout(function() {
                 preloader.style.display = 'none';
+
+                // Fai apparire il messaggio hero dopo 1 secondo dalla fine del preloader
+                setTimeout(function() {
+                    const heroMessage = document.querySelector('.hero-message');
+                    if (heroMessage) {
+                        heroMessage.classList.add('show');
+                    }
+                }, 1000);
             }, 500);
         }, 800); // Mostra il preloader per almeno 800ms
     });
@@ -2025,7 +2033,7 @@
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">I soldi non crescono sugli alberi</h1>
-            <p class="hero-subtitle">Controlla le tue spese con un coach smart e un percorso ludico che premia i tuoi progressi.</p>
+            <p class="hero-subtitle">Controlla le tue spese con un coach smart e migliora le tue abitudini come in un gioco.</p>
             <div class="hero-buttons">
                 <a href="#features-desktop" class="btn btn-secondary" id="discover-more-btn">Scopri di più</a>
                 <a href="#download" class="btn btn-primary">Scarica ora</a>
@@ -2033,63 +2041,17 @@
         </div>
         <div class="hero-image">
             <!-- Nessun overflow: hidden qui -->
-            <div class="dino-avatar-container">
-                <div class="dino-character">
-                    <div class="dino-body">
-                        <div class="dino-head">
-                            <div class="dino-eye"></div>
-                            <div class="dino-snout"></div>
-                            <div class="dino-mouth"></div>
-                        </div>
-                        <div class="dino-neck"></div>
-                        <div class="dino-torso"></div>
-                        <div class="dino-arm left"></div>
-                        <div class="dino-arm right"></div>
-                        <div class="dino-leg left"></div>
-                        <div class="dino-leg right"></div>
-                        <div class="dino-tail"></div>
-                        <div class="dino-spikes">
-                            <div class="spike s1"></div>
-                            <div class="spike s2"></div>
-                            <div class="spike s3"></div>
-                            <div class="spike s4"></div>
-                            <div class="spike s5"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-overlay">
-                    <div class="data-point p1"></div>
-                    <div class="data-point p2"></div>
-                    <div class="data-point p3"></div>
-                    <div class="data-point p4"></div>
-                    <div class="data-point p5"></div>
-                    <div class="data-point p6"></div>
-                    <div class="scan-line"></div>
-                    <div class="tech-circle c1"></div>
-                    <div class="tech-circle c2"></div>
-                    <div class="tech-circle c3"></div>
-                </div>
-
-                <div class="particles">
-                    <div class="particle p1"></div>
-                    <div class="particle p2"></div>
-                    <div class="particle p3"></div>
-                    <div class="particle p4"></div>
-                    <div class="particle p5"></div>
-                    <div class="particle p6"></div>
-                    <div class="particle p7"></div>
-                    <div class="particle p8"></div>
-                </div>
-
-                <div class="prehistoric-bg">
-                    <div class="mountain m1"></div>
-                    <div class="mountain m2"></div>
-                    <div class="mountain m3"></div>
-                    <div class="tree t1"></div>
-                    <div class="tree t2"></div>
-                </div>
+            <div style="position: relative; display: inline-block;">
+                <img src="idle.svg" alt="Strush character" class="hero-character" style="width: 100%; height: auto; max-width: 180px;">
+                <img src="consiglioidle.svg" alt="Consiglio" class="hero-message">
             </div>
+            <style>
+                @media (max-width: 768px) {
+                    .hero-character {
+                        max-width: 100px !important;
+                    }
+                }
+            </style>
         </div>
     </div>
 

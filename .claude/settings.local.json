@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/crist/OneDrive/Documenti/progetti/strush/landing page/**)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push)",
+      "Bash(git push:*)",
+      "Bash(find:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate elevator pitch and hero subtitle across all pages\n\n- Change description from \"Prendi il controllo...\" to \"Controlla le tue spese con un coach smart e un percorso ludico che premia i tuoi progressi.\"\n- Update hero-subtitle in index.html\n- Update elevator-pitch in footer, download, informativa, privacy, shop, and t&c pages\n- Use masculine article \"un coach\" instead of \"una coach\"\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(done)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
