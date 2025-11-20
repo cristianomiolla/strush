@@ -269,3 +269,83 @@ img {
         font-size: 20px;
     }
 }
+
+/* Hero character animation */
+.hero-character {
+    animation: floatPulse 3s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-12px) scale(1.03);
+    }
+}
+
+/* Hero message (consiglioidle.svg) */
+.hero-message {
+    position: absolute;
+    top: -45%;
+    left: 50%;
+    transform: translateX(-58%);
+    width: 180% !important;
+    max-width: none !important;
+    height: auto !important;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.hero-message.show {
+    animation: messageAppear 0.5s ease-out forwards;
+}
+
+@keyframes messageAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-58%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-58%) translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-message {
+        width: 300% !important;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero-message.show {
+        animation: messageAppearMobile 0.5s ease-out forwards;
+    }
+
+    @keyframes messageAppearMobile {
+        0% {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .hero-character {
+        animation: floatPulseMobile 3s ease-in-out infinite;
+    }
+
+    @keyframes floatPulseMobile {
+        0%, 100% {
+            transform: translateY(80px) scale(1);
+        }
+        50% {
+            transform: translateY(68px) scale(1.03);
+        }
+    }
+}
