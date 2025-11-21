@@ -10,7 +10,9 @@
       "Bash(cp:*)",
       "Bash(rm:*)",
       "Bash(done)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []
