@@ -248,511 +248,171 @@
 <body>
 
     <!-- Preloader -->
-<div id="strush-preloader">
-    <!-- Blob shapes as background -->
-    <div class="strush-blob blob1"></div>
-    <div class="strush-blob blob2"></div>
-    <div class="strush-blob blob3"></div>
-    <div class="strush-blob blob4"></div>
-    
-    <div class="strush-loading-animation">
-        <!-- Dinosauro con spine e barra di caricamento -->
-        <div class="strush-dino-container">
-            <div class="strush-dino">
-                <div class="strush-dino-body"></div>
-                <div class="strush-dino-head"></div>
-                <div class="strush-dino-spines">
-                    <div class="spine s1"></div>
-                    <div class="spine s2"></div>
-                    <div class="spine s3"></div>
-                    <div class="spine s4"></div>
-                    <div class="spine s5"></div>
-                </div>
-                <div class="strush-dino-tail"></div>
-                <div class="strush-dino-leg left"></div>
-                <div class="strush-dino-leg right"></div>
-            </div>
-            <div class="strush-dino-shadow"></div>
-        </div>
-        
-        <!-- Barra di progresso -->
-        <div class="strush-progress-bar">
-            <div class="strush-progress-fill"></div>
-        </div>
-        
-        <div class="strush-loading-text">Caricamento<span class="strush-dots">...</span></div>
+<div id="video-preloader" class="video-preloader">
+    <div class="preloader-content">
+        <video id="preloader-video" class="preloader-video" muted playsinline preload="auto">
+            <source src="assets/preloading/preloader.mp4" type="video/mp4">
+        </video>
+        <canvas id="preloader-canvas" class="preloader-canvas"></canvas>
     </div>
 </div>
 
 <style>
-    /* Preloader */
-    #strush-preloader {
+    /* Video Preloader Styles */
+    .video-preloader {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #121212;
-        z-index: 9999;
+        background-color: #000;
+        z-index: 99999;
         display: flex;
         justify-content: center;
         align-items: center;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
         overflow: hidden;
+        opacity: 1;
+        transition: opacity 0.6s ease-out;
     }
 
-    /* Blob Shapes */
-    .strush-blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(20px);
-        opacity: 0.15;
-        z-index: 1;
-    }
-
-    .strush-blob.blob1 {
-        width: 300px;
-        height: 300px;
-        background: #9495EA;
-        top: 20%;
-        left: 15%;
-        animation: blob-morph1 20s ease-in-out infinite alternate;
-    }
-
-    .strush-blob.blob2 {
-        width: 350px;
-        height: 350px;
-        background: #84CD9D;
-        bottom: 20%;
-        right: 15%;
-        animation: blob-morph2 25s ease-in-out infinite alternate;
-    }
-
-    .strush-blob.blob3 {
-        width: 200px;
-        height: 200px;
-        background: #BFACFA;
-        top: 60%;
-        left: 25%;
-        animation: blob-morph3 18s ease-in-out infinite alternate;
-    }
-
-    .strush-blob.blob4 {
-        width: 250px;
-        height: 250px;
-        background: #A4FACF;
-        top: 30%;
-        right: 25%;
-        animation: blob-morph4 22s ease-in-out infinite alternate;
-    }
-
-    .strush-loading-animation {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Dinosauro */
-    .strush-dino-container {
-        position: relative;
-        width: 100px;
-        height: 80px;
-        margin-bottom: 15px;
-    }
-
-    .strush-dino {
-        position: relative;
-        width: 60px;
-        height: 40px;
-        margin: 0 auto;
-        animation: bounce 0.8s infinite alternate;
-    }
-
-    .strush-dino-body {
-        position: absolute;
-        width: 35px;
-        height: 20px;
-        background: #9495EA;
-        border-radius: 10px 15px 8px 8px;
-        top: 15px;
-        left: 10px;
-    }
-
-    .strush-dino-head {
-        position: absolute;
-        width: 20px;
-        height: 15px;
-        background: #9495EA;
-        border-radius: 8px 12px 5px 5px;
-        top: 12px;
-        left: 40px;
-    }
-
-    .strush-dino-head:after {
-        content: '';
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: #000;
-        border-radius: 50%;
-        top: 5px;
-        right: 5px;
-    }
-
-    /* Spine dorsali appuntite */
-    .strush-dino-spines {
-        position: absolute;
-        top: 5px;
-        left: 12px;
-        z-index: 5;
-    }
-
-    .spine {
-        position: absolute;
-        background: #84CD9D;
-        width: 2px;
-        transform-origin: bottom center;
-        box-shadow: 0 0 4px rgba(180, 250, 205, 0.6);
-        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-        border-radius: 0;
-    }
-
-    .spine:before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-bottom: 8px solid #84CD9D;
-        top: -7px;
-        left: -3px;
-    }
-
-    .spine:after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 2px;
-        background: #84CD9D;
-        border-radius: 50%;
-        bottom: -1px;
-        left: -1px;
-    }
-
-    .spine.s1 {
-        height: 10px;
-        top: -6px;
-        left: -0px;
-        transform: rotate(-196deg);
-    }
-
-    .spine.s2 {
-        height: 16px;
-        top: -19px;
-        left: 5px;
-        transform: rotate(-190deg);
-    }
-
-    .spine.s3 {
-        height: 18px;
-        top: -23.5px;
-        left: 14px;
-        transform: rotate(183deg);
-    }
-
-    .spine.s4 {
-        height: 14px;
-        top: -15px;
-        left: 21px;
-        transform: rotate(190deg);
-    }
-
-    .spine.s5 {
-        height: 9px;
-        top: -04px;
-        left: 27px;
-        transform: rotate(200deg);
-    }
-
-    .strush-dino-tail {
-        position: absolute;
-        width: 22px;
-        height: 8px;
-        background: #9495EA;
-        border-radius: 50% 0 0 50%;
-        top: 18px;
-        left: -8px;
-        transform-origin: right center;
-        transform: rotate(-15deg) skewY(-10deg);
-        animation: wag 0.6s infinite alternate;
-        z-index: 1;
-    }
-
-
-    .strush-dino-leg {
-        position: absolute;
-        width: 4px;
-        height: 15px;
-        background: #9495EA;
-        bottom: -5px;
-        border-radius: 2px;
-    }
-
-    .strush-dino-leg.left {
-        left: 15px;
-        animation: step-left 0.8s infinite alternate;
-    }
-
-    .strush-dino-leg.right {
-        left: 30px;
-        animation: step-right 0.8s infinite alternate;
-    }
-
-    .strush-dino-shadow {
-        position: absolute;
-        width: 40px;
-        height: 6px;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        filter: blur(2px);
-        animation: shadow-pulse 0.8s infinite alternate;
-    }
-
-    /* Barra di progresso */
-    .strush-progress-bar {
-        width: 200px;
-        height: 6px;
-        background: #6B6F6E;
-        border-radius: 32px;
-        overflow: hidden;
-        margin-bottom: 16px;
-    }
-
-    .strush-progress-fill {
-        height: 100%;
-        background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
-        width: 0;
-        border-radius: 3px;
-        animation: fill 2s infinite;
-    }
-
-    .strush-loading-text {
-        color: white;
-        font-size: 18px;
-        letter-spacing: 2px;
-        font-weight: 500;
-        text-shadow: 0 0px 20px #9495EA66;
-    }
-
-    .strush-dots {
-        display: inline-block;
-        width: 30px;
-        animation: dots 1.5s infinite;
-    }
-
-    /* Animazioni */
-    @keyframes bounce {
-        0% {
-            transform: translateY(0);
-        }
-        100% {
-            transform: translateY(-5px);
-        }
-    }
-
-    @keyframes wag {
-        0% {
-            transform: rotate(-15deg) skewY(-10deg);
-        }
-        100% {
-            transform: rotate(-25deg) skewY(-15deg);
-        }
-    }
-
-    @keyframes step-left {
-        0% {
-            transform: rotate(-15deg);
-        }
-        100% {
-            transform: rotate(15deg);
-        }
-    }
-
-    @keyframes step-right {
-        0% {
-            transform: rotate(15deg);
-        }
-        100% {
-            transform: rotate(-15deg);
-        }
-    }
-
-    @keyframes shadow-pulse {
-        0% {
-            transform: translateX(-50%) scale(0.8);
-            opacity: 0.2;
-        }
-        100% {
-            transform: translateX(-50%) scale(1);
-            opacity: 0.3;
-        }
-    }
-
-    @keyframes fill {
-        0% {
-            width: 0;
-        }
-        50% {
-            width: 60%;
-        }
-        100% {
-            width: 100%;
-        }
-    }
-
-    @keyframes dots {
-        0%, 100% {
-            content: '';
-            opacity: 0.2;
-        }
-        25% {
-            content: '.';
-            opacity: 1;
-        }
-        50% {
-            content: '..';
-            opacity: 1;
-        }
-        75% {
-            content: '...';
-            opacity: 1;
-        }
-    }
-
-    /* Blob animations */
-    @keyframes blob-morph1 {
-        0% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
-        25% {
-            border-radius: 50% 50% 40% 60% / 40% 40% 60% 60%;
-        }
-        50% {
-            border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
-        }
-        75% {
-            border-radius: 40% 60% 50% 50% / 30% 70% 30% 70%;
-        }
-        100% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
-    }
-
-    @keyframes blob-morph2 {
-        0% {
-            border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
-        }
-        25% {
-            border-radius: 60% 40% 40% 60% / 70% 30% 70% 30%;
-        }
-        50% {
-            border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
-        }
-        75% {
-            border-radius: 30% 70% 60% 40% / 50% 60% 40% 60%;
-        }
-        100% {
-            border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
-        }
-    }
-
-    @keyframes blob-morph3 {
-        0% {
-            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-        }
-        25% {
-            border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
-        }
-        50% {
-            border-radius: 30% 70% 40% 60% / 70% 30% 70% 30%;
-        }
-        75% {
-            border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
-        }
-        100% {
-            border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-        }
-    }
-
-    @keyframes blob-morph4 {
-        0% {
-            border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
-        }
-        25% {
-            border-radius: 30% 70% 40% 60% / 50% 50% 50% 50%;
-        }
-        50% {
-            border-radius: 60% 40% 30% 70% / 40% 60% 60% 40%;
-        }
-        75% {
-            border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
-        }
-        100% {
-            border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
-        }
-    }
-
-    /* Animazione fade-out */
-    #strush-preloader.fade-out {
+    .video-preloader.fade-out {
         opacity: 0;
-        transition: opacity 0.5s ease;
         pointer-events: none;
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-        .strush-progress-bar {
-            width: 150px;
-        }
-        .strush-blob {
-            opacity: 0.1;
-            transform: scale(0.7);
+    .preloader-content {
+        position: relative;
+        width: 50%;
+        max-width: 600px;
+        aspect-ratio: 16/9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .preloader-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .preloader-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.1s ease;
+    }
+
+    .preloader-canvas.show {
+        opacity: 1;
+    }
+
+    .preloader-video.hide {
+        opacity: 0;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .preloader-content {
+            width: 60%;
+            max-width: 300px;
         }
     }
 </style>
 
 <script>
-    // Nascondi il preloader quando la pagina è completamente caricata
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('strush-preloader');
+    (function() {
+        'use strict';
 
-        // Aggiungi un ritardo minimo per garantire che il preloader sia visibile
-        setTimeout(function() {
-            // Aggiungi una classe per l'animazione di fade-out
-            preloader.classList.add('fade-out');
+        const preloader = document.getElementById('video-preloader');
+        const video = document.getElementById('preloader-video');
+        const canvas = document.getElementById('preloader-canvas');
+        const ctx = canvas.getContext('2d');
 
-            // Rimuovi completamente il preloader dopo l'animazione
-            setTimeout(function() {
-                preloader.style.display = 'none';
+        let videoEnded = false;
+        let pageLoaded = false;
 
-                // Fai apparire il messaggio hero dopo 1 secondo dalla fine del preloader
+        // Resize canvas to match video dimensions
+        function resizeCanvas() {
+            canvas.width = video.videoWidth || window.innerWidth;
+            canvas.height = video.videoHeight || window.innerHeight;
+        }
+
+        // Capture and freeze last frame
+        function captureLastFrame() {
+            resizeCanvas();
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.classList.add('show');
+            video.classList.add('hide');
+        }
+
+        // Remove preloader with fade-out
+        function removePreloader() {
+            if (videoEnded && pageLoaded) {
+                preloader.classList.add('fade-out');
+
                 setTimeout(function() {
-                    const heroMessage = document.querySelector('.hero-message');
-                    if (heroMessage) {
-                        heroMessage.classList.add('show');
-                    }
-                }, 1000);
-            }, 500);
-        }, 800); // Mostra il preloader per almeno 800ms
-    });
+                    preloader.style.display = 'none';
+
+                    // Show hero message after preloader removal
+                    setTimeout(function() {
+                        const heroMessage = document.querySelector('.hero-message');
+                        if (heroMessage) {
+                            heroMessage.classList.add('show');
+                        }
+                    }, 500);
+                }, 600);
+            }
+        }
+
+        // Video event handlers
+        video.addEventListener('loadedmetadata', function() {
+            resizeCanvas();
+        });
+
+        video.addEventListener('ended', function() {
+            videoEnded = true;
+            captureLastFrame();
+            removePreloader();
+        });
+
+        // Fallback: capture frame just before end
+        video.addEventListener('timeupdate', function() {
+            if (video.duration > 0 && video.currentTime >= video.duration - 0.1) {
+                if (!videoEnded) {
+                    captureLastFrame();
+                }
+            }
+        });
+
+        // Start video playback
+        video.play().catch(function(error) {
+            console.warn('Video autoplay failed:', error);
+            // If autoplay fails, capture first frame and proceed
+            captureLastFrame();
+            videoEnded = true;
+            removePreloader();
+        });
+
+        // Page load handler
+        window.addEventListener('load', function() {
+            pageLoaded = true;
+            removePreloader();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (videoEnded) {
+                resizeCanvas();
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            }
+        });
+    })();
 </script>
 
 
