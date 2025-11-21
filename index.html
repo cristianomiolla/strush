@@ -31,7 +31,143 @@
     <link rel="shortcut icon" href="assets/immagini/pittogramma_trasp.png" type="image/png">
 
 <link rel="stylesheet" href="style.css">
-    
+
+    <!-- Video Lazy Loading with Intersection Observer -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Configuration
+            const CONFIG = {
+                rootMargin: '200px', // Start loading 200px before video enters viewport
+                threshold: 0.01,
+                autoplayMargin: '50px', // Start playing when closer to viewport
+                autoplayThreshold: 0.25,
+                mobileBreakpoint: 768 // Desktop/Mobile breakpoint
+            };
+
+            // Video state tracking
+            const videoStates = new Map();
+
+            // Device detection
+            function isMobile() {
+                return window.innerWidth <= CONFIG.mobileBreakpoint;
+            }
+
+            // Check if video should be loaded based on device type
+            function shouldLoadVideo(video) {
+                const isDesktopVideo = video.classList.contains('parallax-video');
+                const isMobileVideo = video.classList.contains('feature-video');
+                const mobile = isMobile();
+
+                // Desktop video on desktop OR mobile video on mobile
+                if (isDesktopVideo && !mobile) {
+                    return true;
+                }
+                if (isMobileVideo && mobile) {
+                    return true;
+                }
+
+                console.log(`Skipping video load: ${video.id || video.className} (${mobile ? 'mobile' : 'desktop'} device)`);
+                return false;
+            }
+
+            // Intersection Observer for lazy loading
+            const lazyVideoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+
+                    if (entry.isIntersecting && video.dataset.src) {
+                        // Check if video should be loaded for this device type
+                        if (!shouldLoadVideo(video)) {
+                            lazyVideoObserver.unobserve(video);
+                            return;
+                        }
+
+                        // Load video
+                        video.src = video.dataset.src;
+                        video.load();
+
+                        // Mark as loaded
+                        video.removeAttribute('data-src');
+                        videoStates.set(video, { loaded: true, playing: false });
+
+                        // Start observing for autoplay
+                        autoplayObserver.observe(video);
+
+                        // Stop observing for lazy load
+                        lazyVideoObserver.unobserve(video);
+
+                        console.log('Video loaded:', video.id || video.className);
+                    }
+                });
+            }, {
+                rootMargin: CONFIG.rootMargin,
+                threshold: CONFIG.threshold
+            });
+
+            // Intersection Observer for auto-play/pause
+            const autoplayObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    const state = videoStates.get(video);
+
+                    if (!state || !state.loaded) return;
+
+                    // Skip autoplay for parallax-video (handled by existing script)
+                    if (video.classList.contains('parallax-video')) {
+                        return;
+                    }
+
+                    if (entry.isIntersecting) {
+                        // Video is in viewport - play it
+                        video.play()
+                            .then(() => {
+                                state.playing = true;
+                                console.log('Video playing:', video.id || video.className);
+                            })
+                            .catch(err => {
+                                console.warn('Video play failed:', video.id, err);
+                            });
+                    } else {
+                        // Video is out of viewport - pause it
+                        if (state.playing) {
+                            video.pause();
+                            state.playing = false;
+                            console.log('Video paused:', video.id || video.className);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: CONFIG.autoplayMargin,
+                threshold: CONFIG.autoplayThreshold
+            });
+
+            // Initialize on DOM ready
+            function initLazyVideos() {
+                const lazyVideos = document.querySelectorAll('video.lazy-video');
+
+                if (lazyVideos.length === 0) {
+                    console.warn('No lazy videos found');
+                    return;
+                }
+
+                console.log(`Initializing lazy loading for ${lazyVideos.length} videos`);
+
+                lazyVideos.forEach(video => {
+                    videoStates.set(video, { loaded: false, playing: false });
+                    lazyVideoObserver.observe(video);
+                });
+            }
+
+            // Start when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initLazyVideos);
+            } else {
+                initLazyVideos();
+            }
+        })();
+    </script>
 
     <!-- Animazione sui titoli -->
 <script>
@@ -2033,7 +2169,7 @@
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">I soldi non crescono sugli alberi</h1>
-            <p class="hero-subtitle">Controlla le tue spese con un coach smart e migliora le tue abitudini come in un gioco.</p>
+            <p class="hero-subtitle">Controlla le tue spese con un coach smart e migliora la tua gestione finanziaria come in un gioco.</p>
             <div class="hero-buttons">
                 <a href="#features-desktop" class="btn btn-secondary" id="discover-more-btn">Scopri di più</a>
                 <a href="#download" class="btn btn-primary">Scarica ora</a>
@@ -2660,8 +2796,8 @@ text-shadow: 0 0px 20px #9495EA33;
 
                         <div class="feature-half feature-half-right">
                             <div class="video-perspective-container">
-                                <!-- Added preload="metadata" -->
-                                <video id="parallax-video-desktop-1" class="parallax-video" src="assets/preview/preview1.mp4" playsinline muted loop preload="metadata"></video>
+                                <!-- Lazy loading enabled -->
+                                <video id="parallax-video-desktop-1" class="parallax-video lazy-video" data-src="assets/preview/preview1.mp4" playsinline muted loop preload="none"></video>
                             </div>
                         </div>
                     </div>
@@ -2672,8 +2808,8 @@ text-shadow: 0 0px 20px #9495EA33;
                     <div class="feature-container">
                         <div class="feature-half feature-half-left">
                             <div class="video-perspective-container">
-                                <!-- Added preload="metadata" -->
-                                <video id="parallax-video-desktop-2" class="parallax-video" src="assets/immagini/video1.mp4" playsinline muted loop preload="metadata"></video>
+                                <!-- Lazy loading enabled -->
+                                <video id="parallax-video-desktop-2" class="parallax-video lazy-video" data-src="assets/immagini/video1.mp4" playsinline muted loop preload="none"></video>
                             </div>
                         </div>
 
@@ -2712,8 +2848,8 @@ text-shadow: 0 0px 20px #9495EA33;
 
                         <div class="feature-half feature-half-right">
                             <div class="video-perspective-container">
-                                <!-- Added preload="metadata" -->
-                                <video id="parallax-video-desktop-3" class="parallax-video" src="assets/preview/preview3.mp4" playsinline muted loop preload="metadata"></video>
+                                <!-- Lazy loading enabled -->
+                                <video id="parallax-video-desktop-3" class="parallax-video lazy-video" data-src="assets/preview/preview3.mp4" playsinline muted loop preload="none"></video>
                             </div>
                         </div>
                     </div>
@@ -3006,7 +3142,7 @@ text-shadow: 0 0px 20px #9495EA33;
                         : 0;
 
                         // Play/Pause logic refined
-                        if (parallaxVideo) {
+                        if (parallaxVideo && parallaxVideo.src) { // Check if video is loaded
                         const shouldBePlaying = isInView && !hasReachedNavbar; // Play only when fully visible before exit starts
 
                         if (shouldBePlaying && !isVisible) {
@@ -3080,7 +3216,7 @@ text-shadow: 0 0px 20px #9495EA33;
                             <p class="feature-description">Gestisci i tuoi conti per avere una panoramica delle tue spese in un'unica dashboard</p>
                         </div>
                         <div class="feature-media">
-                            <video id="video-mobile-1" class="feature-video" src="assets/preview/preview1.mp4" playsinline muted loop></video>
+                            <video id="video-mobile-1" class="feature-video lazy-video" data-src="assets/preview/preview1.mp4" playsinline muted loop preload="none"></video>
                         </div>
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
@@ -3096,7 +3232,7 @@ text-shadow: 0 0px 20px #9495EA33;
                             <p class="feature-description">Il tuo mentore finanziario in tasca che analizza le tue spese e ti guida con consigli personalizzati.</p>
                         </div>
                         <div class="feature-media">
-                            <video id="video-mobile-2" class="feature-video" src="assets/immagini/video1.mp4" playsinline muted loop></video>
+                            <video id="video-mobile-2" class="feature-video lazy-video" data-src="assets/immagini/video1.mp4" playsinline muted loop preload="none"></video>
                         </div>
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
@@ -3112,7 +3248,7 @@ text-shadow: 0 0px 20px #9495EA33;
                             <p class="feature-description">Condividi spese e abbonamenti con gli amici e tieni traccia dei rimborsi senza più conti a mano</p>
                         </div>
                         <div class="feature-media">
-                            <video id="video-mobile-3" class="feature-video" src="assets/preview/preview3.mp4" playsinline muted loop></video> <!-- Assicurati sia il video giusto -->
+                            <video id="video-mobile-3" class="feature-video lazy-video" data-src="assets/preview/preview3.mp4" playsinline muted loop preload="none"></video>
                         </div>
                     </div>
                     <!-- Frecce RIMOSSE da qui -->
