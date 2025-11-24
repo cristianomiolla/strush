@@ -12,7 +12,12 @@
       "Bash(done)",
       "Bash(git commit:*)",
       "Bash(mkdir:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(timeout 2 echo:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout 3 echo:*)",
+      "Bash(ffprobe:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
