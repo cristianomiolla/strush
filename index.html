@@ -250,14 +250,12 @@
     <!-- Preloader -->
 <div id="video-preloader" class="video-preloader">
     <div class="preloader-content">
-        <video id="preloader-video" class="preloader-video" muted playsinline preload="auto">
-        </video>
-        <canvas id="preloader-canvas" class="preloader-canvas"></canvas>
+        <img id="preloader-animation" class="preloader-animation" alt="Loading...">
     </div>
 </div>
 
 <style>
-    /* Video Preloader Styles */
+    /* Spritesheet Preloader Styles */
     .video-preloader {
         position: fixed;
         top: 0;
@@ -283,50 +281,35 @@
         position: relative;
         width: 50%;
         max-width: 600px;
-        aspect-ratio: 16/9;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .preloader-video {
-        width: 100%;
-        height: 100%;
+    .preloader-animation {
+        width: 600px;
+        height: 600px;
         object-fit: contain;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
         display: block;
-    }
-
-    .preloader-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        opacity: 0;
-        transition: opacity 0.1s ease;
-    }
-
-    .preloader-canvas.show {
-        opacity: 1;
-    }
-
-    .preloader-video.hide {
-        opacity: 0;
+        will-change: contents;
+        transform: translateZ(0);
+        backface-visibility: hidden;
     }
 
     /* Mobile styles */
     @media (max-width: 768px) {
         .preloader-content {
             width: 100%;
-            height: 100%;
             max-width: none;
-            aspect-ratio: auto;
         }
 
-        .preloader-video,
-        .preloader-canvas {
-            object-fit: cover;
+        .preloader-animation {
+            width: 80vw;
+            height: 80vw;
+            max-width: 500px;
+            max-height: 500px;
         }
     }
 </style>
@@ -336,43 +319,112 @@
         'use strict';
 
         const preloader = document.getElementById('video-preloader');
-        const video = document.getElementById('preloader-video');
-        const canvas = document.getElementById('preloader-canvas');
-        const ctx = canvas.getContext('2d');
+        const animationImg = document.getElementById('preloader-animation');
 
-        // Load correct video based on screen size
-        const isMobile = window.innerWidth <= 768;
-        const videoSource = isMobile ?
-            'assets/preloading/preloaderverticale.mp4' :
-            'assets/preloading/preloader.mp4';
-        video.src = videoSource;
+        // Genera array di 72 frame (da seq_0_0.png a seq_0_71.png)
+        const frames = [];
+        for (let i = 0; i <= 71; i++) {
+            frames.push(`assets/spritesheet/images/seq_0_${i}.png`);
+        }
 
-        let videoEnded = false;
+        let currentFrame = 0;
+        let animationInterval = null;
+        let animationEnded = false;
         let pageLoaded = false;
+        const fps = 24;
+        const frameDelay = 1000 / fps;
+        let frameCount = 0;
+        const totalFrames = frames.length; // Un solo loop completo
 
-        // Resize canvas to match video dimensions
-        function resizeCanvas() {
-            canvas.width = video.videoWidth || window.innerWidth;
-            canvas.height = video.videoHeight || window.innerHeight;
+        // Preload tutte le immagini in memoria con ottimizzazioni
+        const preloadedImages = [];
+        let loadedCount = 0;
+        let allImagesReady = false;
+
+        // Precarica tutte le immagini prima di iniziare
+        const preloadPromises = frames.map((src, index) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+
+                // Ottimizzazioni per il caricamento
+                img.loading = 'eager';
+                img.decoding = 'sync';
+
+                img.onload = () => {
+                    preloadedImages[index] = img; // Mantieni l'ordine corretto
+                    loadedCount++;
+                    if (loadedCount % 10 === 0 || loadedCount === frames.length) {
+                        console.log(`Loaded ${loadedCount}/${frames.length} frames`);
+                    }
+                    resolve(img);
+                };
+                img.onerror = () => {
+                    console.error(`Failed to load frame: ${src}`);
+                    reject(new Error(`Failed to load ${src}`));
+                };
+                img.src = src;
+            });
+        });
+
+        // Aspetta che TUTTE le immagini siano caricate
+        Promise.all(preloadPromises).then(() => {
+            console.log('All frames loaded and cached, starting animation');
+            allImagesReady = true;
+            // Ridotto delay perché ora è più ottimizzato
+            requestAnimationFrame(() => {
+                startAnimation();
+            });
+        }).catch((error) => {
+            console.error('Error loading frames:', error);
+        });
+
+        // Imposta il primo frame subito
+        animationImg.src = frames[0];
+        console.log('First frame set');
+
+        function startAnimation() {
+            if (!allImagesReady) return;
+
+            let lastFrameTime = performance.now();
+            let animationId;
+
+            function animate(currentTime) {
+                const elapsed = currentTime - lastFrameTime;
+
+                if (elapsed >= frameDelay) {
+                    frameCount++;
+                    currentFrame = (currentFrame + 1) % frames.length;
+
+                    // Usa l'oggetto Image precaricato invece di cambiare src
+                    animationImg.src = preloadedImages[currentFrame].src;
+
+                    lastFrameTime = currentTime - (elapsed % frameDelay);
+
+                    // Completa dopo un loop completo
+                    if (frameCount >= totalFrames) {
+                        cancelAnimationFrame(animationId);
+                        animationEnded = true;
+                        console.log('Animation ended');
+                        removePreloader();
+                        return;
+                    }
+                }
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            animationId = requestAnimationFrame(animate);
         }
 
-        // Capture and freeze last frame
-        function captureLastFrame() {
-            resizeCanvas();
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            canvas.classList.add('show');
-            video.classList.add('hide');
-        }
-
-        // Remove preloader with fade-out
+        // Remove preloader con fade-out
         function removePreloader() {
-            if (videoEnded && pageLoaded) {
+            if (animationEnded && pageLoaded) {
                 preloader.classList.add('fade-out');
 
                 setTimeout(function() {
                     preloader.style.display = 'none';
 
-                    // Show hero message after preloader removal
+                    // Show hero message dopo la rimozione del preloader
                     setTimeout(function() {
                         const heroMessage = document.querySelector('.hero-message');
                         if (heroMessage) {
@@ -383,47 +435,10 @@
             }
         }
 
-        // Video event handlers
-        video.addEventListener('loadedmetadata', function() {
-            resizeCanvas();
-        });
-
-        video.addEventListener('ended', function() {
-            videoEnded = true;
-            captureLastFrame();
-            removePreloader();
-        });
-
-        // Fallback: capture frame just before end
-        video.addEventListener('timeupdate', function() {
-            if (video.duration > 0 && video.currentTime >= video.duration - 0.1) {
-                if (!videoEnded) {
-                    captureLastFrame();
-                }
-            }
-        });
-
-        // Start video playback
-        video.play().catch(function(error) {
-            console.warn('Video autoplay failed:', error);
-            // If autoplay fails, capture first frame and proceed
-            captureLastFrame();
-            videoEnded = true;
-            removePreloader();
-        });
-
         // Page load handler
         window.addEventListener('load', function() {
             pageLoaded = true;
             removePreloader();
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (videoEnded) {
-                resizeCanvas();
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            }
         });
     })();
 </script>

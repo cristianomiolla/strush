@@ -17,7 +17,10 @@
       "Bash(findstr:*)",
       "Bash(timeout 3 echo:*)",
       "Bash(ffprobe:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(python update_preloader.py:*)",
+      "Bash(lsof:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
