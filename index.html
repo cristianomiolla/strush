@@ -251,6 +251,9 @@
 <div id="video-preloader" class="video-preloader">
     <div class="preloader-content">
         <img id="preloader-animation" class="preloader-animation" alt="Loading...">
+        <audio id="preloader-audio" preload="auto">
+            <source src="assets/spritesheet/audiologoreveal.wav" type="audio/wav">
+        </audio>
     </div>
 </div>
 
@@ -320,6 +323,7 @@
 
         const preloader = document.getElementById('video-preloader');
         const animationImg = document.getElementById('preloader-animation');
+        const preloaderAudio = document.getElementById('preloader-audio');
 
         // Genera array di 72 frame (da seq_0_0.png a seq_0_71.png)
         const frames = [];
@@ -370,7 +374,6 @@
         Promise.all(preloadPromises).then(() => {
             console.log('All frames loaded and cached, starting animation');
             allImagesReady = true;
-            // Ridotto delay perché ora è più ottimizzato
             requestAnimationFrame(() => {
                 startAnimation();
             });
@@ -384,6 +387,13 @@
 
         function startAnimation() {
             if (!allImagesReady) return;
+
+            // Avvia l'audio insieme all'animazione
+            if (preloaderAudio) {
+                preloaderAudio.play().catch(error => {
+                    console.log('Audio autoplay blocked:', error);
+                });
+            }
 
             let lastFrameTime = performance.now();
             let animationId;
