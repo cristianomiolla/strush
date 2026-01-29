@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strush | Assistenza</title>
+
+    <!-- Meta tag per il nome dell'applicazione -->
+    <meta name="application-name" content="Strush">
+
+    <!-- Collegamento ai font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/immagini/logo_favicon.png" type="image/png">
+
+
+<style>
+/* Dichiarazione dei font locali Unbounded con @font-face */
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./font/Strush/Unbounded-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Dichiarazione del font Inter Variable */
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    /* MODIFICATO: Aggiornato nome file */
+    src: url('./font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* Variabili CSS */
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondarygradient: linear-gradient(-180deg, #9495EA 0%, #8286D5 100%);
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --light: #E6F2F5;
+    --dark: #222222;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+    --border-thickness: 3px;
+    --border-radius-lg: 24px;
+    --border-radius-big: 36px;
+
+}
+
+/* Reset CSS di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili di base del corpo */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Utilizzo del font Unbounded per i titoli con pesi diversi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text);
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text);
+}
+
+h6 {
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: #121212;
+    font-size: 14px;
+}
+
+p {
+    color: #6B6F6E;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h4 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    a {
+        font-size: 16px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 0 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Section base style */
+.section {
+    padding: 96px 0 96px;
+}
+
+/* Stili per i titoli */
+.section-title {
+    text-align: center;
+    margin: 48px;
+    position: relative;
+    color: #121212;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.section-title .title-wrapper {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Effetto di rivelazione */
+.section-title.reveal .title-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: 10px;
+}
+
+/* Animazione della barra di sottolineatura */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    border-radius: 32px;
+    transition: transform 0.6s ease 0.3s;
+}
+
+.section-title.reveal::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Section sub-titles */
+.section-subtitles {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    color: #121212;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0 80px;
+    }
+    .section-title {
+        margin: 32px;
+    }
+    .section-subtitles {
+        margin-bottom: 32px;
+        font-size: 20px;
+    }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<!-- Cursore Animation Pallino viola + Blob-->
+<div id="cursor-placeholder"></div>
+
+
+<!-- Navbar -->
+<nav class="strush-navbar" id="mainNav">
+
+    <div class="strush-container">
+        <div class="strush-nav-container">
+            <!-- Logo sempre visibile e centrato in mobile -->
+            <div class="strush-logo-mobile">
+                <a href="index.html#hero" class="strush-logo-container">
+                    <div class="strush-logo">
+                        <!-- Modificato per matchare forma iniziale chatbot -->
+                        <div class="strush-logo-blob">
+                            <img src="assets/immagini/pittogramma.png" alt="Strush Logo">
+                        </div>
+                        <!-- NUOVA IMMAGINE LOGO TESTO -->
+                        <img src="assets/immagini/logo.png" alt="Strush" class="strush-logo-text-img">
+                    </div>
+                </a>
+            </div>
+
+            <!-- Menu hamburger a destra -->
+            <div class="strush-menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu dropdown per mobile -->
+            <div class="strush-mobile-dropdown" id="mobileDropdown">
+                <ul class="strush-mobile-links">
+                    <li><a href="index.html#features-mobile">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+
+            <!-- Menu desktop -->
+            <div class="strush-nav-links-container" id="navLinksContainer">
+                <!-- Logo per versione desktop -->
+                <div class="strush-logo-nav-item">
+                    <a href="index.html#hero" class="strush-logo-container">
+                        <div class="strush-logo">
+                             <!-- Modificato per matchare forma iniziale chatbot -->
+                            <div class="strush-logo-blob">
+                                <img src="assets/immagini/pittogramma.png" alt="Strush Logo">
+                            </div>
+                            <!-- NUOVA IMMAGINE LOGO TESTO -->
+                            <img src="assets/immagini/logo.png" alt="Strush" class="strush-logo-text-img">
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="strush-nav-links">
+                    <li><a href="index.html#features-desktop">Caratteristiche</a></li>
+                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
+                    <li><a href="index.html#how-it-works">Tutorial</a></li>
+                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Namespace all selectors with 'strush-' prefix to prevent conflicts */
+        .strush-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999; /* Navbar sopra il dropdown */
+            padding: 0;
+            transition: all 0.3s ease;
+            background-color: #121212;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        body {
+            padding-top: var(--nav-height, 70px);
+        }
+
+        .strush-container {
+            width: 96%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+        }
+
+        .strush-nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 4px 0;
+            position: relative;
+            min-height: 60px;
+        }
+
+        /* --- LOGO MOBILE --- */
+        .strush-logo-mobile {
+            display: none;
+        }
+
+        .strush-logo-mobile .strush-logo-blob {
+            width: 0;
+            height: 38px;
+            opacity: 0;
+            margin-right: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        .strush-logo-mobile .strush-logo-blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .strush-logo-mobile .strush-logo-text-img {
+             height: 24px;
+             width: auto;
+             display: inline-block;
+             vertical-align: middle;
+             margin-left: 0;
+             transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
+             opacity: 1;
+        }
+        /* --- FINE LOGO MOBILE --- */
+
+
+        /* Dropdown mobile styles */
+        .strush-mobile-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px; /* Default top position */
+            left: 0;
+            width: 100%;
+            background-color: #121212;
+            backdrop-filter: blur(15px); /* Per desktop */
+            -webkit-backdrop-filter: blur(15px); /* Per desktop */
+            z-index: 998; /* Dropdown sotto la navbar */
+            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+            padding: 16px 0;
+            border-radius: 0 0 16px 16px;
+            transform: translateY(-20px);
+            opacity: 0;
+            height: auto;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .strush-mobile-dropdown::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            /* MODIFICA: Ridotta opacità dei colori nel gradiente */
+            background: radial-gradient(ellipse at center, rgba(140, 141, 212, 0.1) 0%, rgba(142, 220, 169, 0.05) 40%, rgba(10, 10, 15, 0) 75%);
+            /* MODIFICA: Ridotta sfocatura per desktop */
+            filter: blur(25px); /* Era 35px */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.2s;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        .strush-mobile-dropdown.active { transform: translateY(0); opacity: 1; max-height: 400px;}
+        .strush-mobile-dropdown.active::after { opacity: 1; } /* Potresti anche ridurre questa opacità se vuoi, es. opacity: 0.7; */
+        .strush-mobile-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+        .strush-mobile-links li { margin: 8px 0; width: 100%; text-align: center; opacity: 0; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease; transition-delay: calc(0.05s * var(--i, 0)); }
+        .strush-mobile-dropdown.active .strush-mobile-links li { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + (0.05s * var(--i, 0))); }
+        .strush-mobile-links a { text-decoration: none; color: white; font-size: 18px; padding: 12px 20px; display: block; width: 100%; max-width: 250px; margin: 0 auto; border-radius: 16px; transition: all 0.3s ease; position: relative; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+        .strush-mobile-links a:hover { color: #84CD9D; background-color: rgba(255, 255, 255, 0.05); }
+
+        /* Stili Desktop Navbar */
+        .strush-nav-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; transition: all 0.3s ease; width: auto; padding: 8px; border-radius: 32px; margin: 0; position: relative; }
+        .strush-nav-links-container:hover { background-image: linear-gradient( 90deg, rgba(30, 30, 40, 0.8) 0%, rgba(80, 80, 110, 0.9) 25%, rgba(177, 172, 250, 0.2) 50%, rgba(80, 80, 110, 0.9) 75%, rgba(30, 30, 40, 0.8) 100% ); background-size: 200% 100%; animation: strush-shimmerBackground 3s linear infinite; }
+
+        .strush-logo-nav-item {
+            margin-right: 15px;
+            transition: margin-right 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+        .strush-logo-container { text-decoration: none; display: flex; align-items: center; }
+        .strush-logo { display: flex; align-items: center; }
+
+        /* --- LOGO DESKTOP --- */
+        .strush-logo-nav-item .strush-logo-blob {
+            width: 0;
+            height: 38px;
+            opacity: 0;
+            transform: scale(0.7);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0px;
+            overflow: hidden;
+            border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+            background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+            padding: 2px;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out;
+        }
+        .strush-logo-nav-item .strush-logo-blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .strush-logo-nav-item .strush-logo-text-img {
+            height: 20px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out 0.05s, margin-left 0.3s ease-in-out;
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob {
+            width: 38px;
+            opacity: 1;
+            transform: scale(1);
+            margin-right: 5px;
+            animation: navbar-blob-morph-from-chatbot 5s infinite;
+        }
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-text-img {
+            opacity: 0;
+            transform: scale(0.7);
+            width: 0;
+            overflow: hidden;
+            pointer-events: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item {
+            margin-right: 5px;
+        }
+        /* --- FINE LOGO DESKTOP --- */
+
+
+        @keyframes strush-shimmerBackground { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+
+        @keyframes navbar-blob-morph-from-chatbot {
+        0%  { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1)); }
+        15% { border-radius: 55% 45% 70% 30% / 45% 55% 45% 55%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        30% { border-radius: 41% 59% 27% 73% / 58% 28% 72% 42%; transform: rotate(9deg) scale(var(--blob-scale, 1)); }
+        45% { border-radius:  60% 40% 50% 50% / 35% 65% 35% 65%; transform: rotate(4deg) scale(var(--blob-scale, 1)); }
+        60% { border-radius: 55% 45% 35% 65% / 55% 45% 55% 45%; transform: rotate(-9deg) scale(var(--blob-scale, 1)); }
+        75% { border-radius: 30% 70% 50% 50% / 60% 40% 60% 40%; transform: rotate(-12deg) scale(var(--blob-scale, 1)); }
+        90% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; transform: rotate(-1deg) scale(var(--blob-scale, 1)); }
+        100% { border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; transform: rotate(0deg) scale(var(--blob-scale, 1));}
+        }
+
+        .strush-nav-links-container:hover .strush-logo-nav-item .strush-logo-blob,
+        .menu-active .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1;
+        }
+        .strush-logo-nav-item .strush-logo-blob {
+             --blob-scale: 0.7;
+        }
+
+        .strush-logo-mobile .strush-logo-blob {
+            --blob-scale: 1;
+        }
+
+        .strush-nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
+        .strush-nav-links li { margin: 0 4px; }
+        .strush-nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 8px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .strush-nav-links a:hover {
+            color: #84CD9D;
+        }
+        .strush-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #84CD9D, #9495EA);
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 32px;
+        }
+        .strush-nav-links a:hover::after {
+            width: calc(100% - 16px);
+        }
+        .strush-menu-btn { display: none; cursor: pointer; z-index: 999; }
+        .strush-menu-btn span { display: block; width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+        .strush-menu-btn.open span:nth-child(1), .strush-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .strush-menu-btn.open span:nth-child(2), .strush-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .strush-menu-btn.open span:nth-child(3), .strush-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* Media query unificata per dispositivi mobili */
+        @media screen and (max-width: 768px) {
+            .strush-navbar {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                height: 70px;
+                min-height: 70px;
+                display: flex;
+                align-items: center;
+            }
+            .strush-nav-container { display: grid; grid-template-columns: 1fr auto 1fr; padding: 0; height: 70px; align-items: center; justify-content: space-between; }
+
+            .strush-logo-mobile {
+                display: block;
+                z-index: 999;
+                grid-column: 2;
+                text-align: center;
+                padding: 0 15px;
+                margin-top: 0;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo-text-img {
+                opacity: 0;
+                width: 0;
+                margin-left: 0;
+                overflow: hidden;
+                pointer-events: none;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo-blob {
+                width: 38px;
+                height: 38px;
+                opacity: 1;
+                animation: navbar-blob-morph-from-chatbot 5s infinite;
+            }
+
+            .menu-active .strush-logo-mobile .strush-logo {
+                justify-content: center;
+            }
+
+            .strush-nav-links-container { display: none; }
+
+            .strush-mobile-dropdown {
+                display: block;
+                top: 69px;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .strush-mobile-dropdown::after {
+                /* MODIFICA: Ridotta sfocatura per mobile e estensione */
+                filter: blur(20px); /* Era 25px, originariamente 35px */
+                top: -15px;         /* Era -20px, originariamente -30px */
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+                /* L'opacità del gradiente è già stata ridotta nella regola generale di .strush-mobile-dropdown::after */
+            }
+            .strush-menu-btn { display: block; z-index: 999; grid-column: 3; justify-self: end; margin-right: 10px; }
+            .strush-menu-btn.open span, .strush-menu-btn.active span { background-color: #9495EA; }
+            .strush-container { width: 100%; max-width: 1140px; padding: 0 15px; box-sizing: border-box; }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileDropdown = document.getElementById('mobileDropdown');
+            const mobileLinks = document.querySelectorAll('.strush-mobile-links li a');
+            const navbar = document.getElementById('mainNav');
+
+            function updateNavbarHeight() {
+                const navbarHeight = navbar ? navbar.offsetHeight : 70;
+                document.documentElement.style.setProperty('--nav-height', navbarHeight + 'px');
+                document.body.style.paddingTop = navbarHeight + 'px';
+            }
+            updateNavbarHeight();
+
+            document.querySelectorAll('.strush-mobile-links li').forEach((item, index) => {
+                item.style.setProperty('--i', index);
+            });
+
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                menuBtn.classList.toggle('open');
+                menuBtn.classList.toggle('active');
+                mobileDropdown.classList.toggle('active');
+                document.body.classList.toggle('menu-active');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active');
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (mobileDropdown.classList.contains('active') &&
+                    !mobileDropdown.contains(e.target) &&
+                    !menuBtn.contains(e.target)) {
+                    menuBtn.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    mobileDropdown.classList.remove('active');
+                    document.body.classList.remove('menu-active');
+                }
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            let resizeTimerNav;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimerNav);
+                resizeTimerNav = setTimeout(updateNavbarHeight, 150);
+            }, { passive: true });
+        });
+    </script>
+
+</nav>
+
+<!-- Inizio Blocco Curva Navbar con Barra di Lettura -->
+<div class="navbar-bottom-curve">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 200 30"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 100%;"
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="curve-svg"
+        >
+      <!-- MODIFICA: Trasformazione applicata a un gruppo <g> interno -->
+      <g transform="matrix(1,0,0,-1,0,30)">
+          <defs>
+            <mask id="uniqueCurveMask">
+              <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
+              <!-- Questo path e le coordinate sono relative al sistema pre-trasformazione del <g> -->
+              <!-- (0,0) è l'angolo in alto a sinistra del <g>, Y cresce verso il basso) -->
+              <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
+            </mask>
+          </defs>
+          <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
+          <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
+          <rect x="0" y="0.5" width="200" height="29.5" fill="#121212" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
+
+          <!-- Path per la barra di progresso (solo l'arco) -->
+          <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
+          <path
+            id="readingProgressCurve"
+            class="progress-bar-path"
+            d="M0,0 A100,30 0 0 0 200,0"
+            ></path>
+      </g>
+    </svg>
+</div>
+
+<style>
+    .navbar-bottom-curve {
+        position: fixed;
+        top: 69px; /* Assicurati che questo valore sia corretto per la tua navbar */
+        left: 0;
+        width: 100%;
+        height: 30px; /* Altezza desktop */
+        z-index: 999;
+        background-color: transparent; /* Importante che sia trasparente */
+        pointer-events: none; /* Non intercetta eventi mouse sul contenitore */
+    }
+
+    .curve-svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .progress-bar-path {
+        fill: none;
+        stroke: #9495EA; /* Colore della barra di progresso, personalizzabile */
+        stroke-width: 3; /* Spessore desktop in unità SVG */
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.05s linear; /* Transizione fluida */
+        pointer-events: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        .navbar-bottom-curve {
+            height: 25px; /* Altezza mobile */
+            width: calc(100% + 1px);
+            left: -0.5px;
+        }
+        .progress-bar-path {
+            /* Per mantenere ~3px visivi quando l'SVG è alto 25px (contenitore)
+               ma la viewBox SVG è alta 30 unità:
+               stroke-width-svg = (3px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
+                                = (3 / 25) * 30 = 0.12 * 30 = 3.6
+            */
+            stroke-width: 3.6; /* Spessore mobile in unità SVG */
+        }
+    }
+</style>
+
+<script>
+    (function() { // IIFE per incapsulare lo scope ed evitare conflitti
+        const progressBarPath = document.getElementById('readingProgressCurve');
+
+        if (!progressBarPath) {
+            // console.error("Elemento 'readingProgressCurve' per la barra di progresso non trovato!");
+            return;
+        }
+
+        let pathLength;
+
+        function calculatePathLength() {
+            try {
+                pathLength = progressBarPath.getTotalLength();
+                progressBarPath.style.strokeDasharray = pathLength;
+                progressBarPath.style.strokeDashoffset = pathLength; // Inizia vuota
+            } catch (e) {
+                // console.error("Errore nel calcolare getTotalLength:", e);
+            }
+        }
+
+        function updateProgressBar() {
+            if (typeof pathLength === 'undefined' || pathLength === 0) {
+                calculatePathLength();
+                if (typeof pathLength === 'undefined' || pathLength === 0) return;
+            }
+
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const scrollableHeight = scrollHeight - clientHeight;
+
+            if (scrollableHeight <= 0) {
+                progressBarPath.style.strokeDashoffset = pathLength;
+                return;
+            }
+
+            const scrollPercentage = scrollTop / scrollableHeight;
+            const drawLength = pathLength * scrollPercentage;
+            progressBarPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, pathLength - drawLength));
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                calculatePathLength();
+                updateProgressBar(); // Imposta lo stato iniziale
+            });
+        } else {
+            calculatePathLength();
+            updateProgressBar(); // Imposta lo stato iniziale
+        }
+
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                calculatePathLength();
+                updateProgressBar();
+            }, 100); // Debounce leggero
+        });
+
+    })();
+</script>
+<!-- Fine Blocco Curva Navbar con Barra di Lettura -->
+
+
+<!-- Header principale -->
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h2 class="section-title">Assistenza</h2>
+            <p class="section-subtitles">Hai bisogno di aiuto? Siamo qui per te. Contattaci o consulta le nostre risorse per trovare le risposte che cerchi.</p>
+        </div>
+    </div>
+</header>
+
+<style>
+    /* Header principale */
+    .main-header {
+    background: var(--gradient-primary); /* Usa la variabile gradiente definita in :root */
+    padding: 48px 0px;
+    margin-top: 0; /* Rimosso il margin-top che causava lo spazio bianco */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px #8c8dd462;
+}
+
+    .main-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('pattern.png'); /* Assicurati che il pattern esista o rimuovi */
+    opacity: 0.1;
+    z-index: 0;
+    }
+
+    .main-header .container {
+    position: relative;
+    z-index: 2;
+    }
+
+    .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    }
+
+    .main-header h2 {
+    padding: 0px;
+    margin-bottom: 32px;
+    }
+
+    .main-header p {
+    margin-bottom: 0rem;
+    opacity: 0.9;
+    }
+
+    .section-title {
+    margin: 0px;
+    }
+
+</style>
+
+    <!-- Contenuto principale -->
+<main>
+    <div class="container">
+        <div class="terms-content">
+
+            <div class="terms-intro">
+                <h4>Come possiamo aiutarti?</h4>
+                <p>Se hai domande, problemi tecnici o semplicemente vuoi saperne di più su Strush, sei nel posto giusto. Di seguito trovi le principali modalità per ricevere assistenza.</p>
+            </div>
+
+            <div id="contact" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-envelope"></i>
+                    <h4>1. Contattaci via Email</h4>
+                </div>
+                <p>Per qualsiasi richiesta di assistenza, puoi scriverci direttamente al nostro indirizzo email:</p>
+                <p><strong><a href="mailto:support@strush.it" style="color: var(--secondary);">support@strush.it</a></strong></p>
+                <p>Il nostro team cercherà di risponderti nel minor tempo possibile, solitamente entro 24-48 ore lavorative.</p>
+            </div>
+
+            <div id="faq" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>2. Domande Frequenti (FAQ)</h4>
+                </div>
+                <p>Prima di contattarci, ti consigliamo di consultare la nostra sezione FAQ dove potresti trovare già la risposta alla tua domanda.</p>
+                <p><a href="faq.html" style="color: var(--secondary); font-weight: 600;">Vai alle FAQ <i class="fas fa-arrow-right"></i></a></p>
+            </div>
+
+            <div id="feedback" class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-comment-dots"></i>
+                    <h4>3. Feedback e Suggerimenti</h4>
+                </div>
+                <p>Il tuo feedback è prezioso per noi! Se hai suggerimenti su come migliorare Strush o vuoi segnalarci qualcosa, non esitare a scriverci. Apprezziamo ogni contributo della nostra community.</p>
+            </div>
+
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-clock"></i> Siamo disponibili dal lunedì al venerdì, 9:00 - 18:00
+                </div>
+                <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* Stile del contenuto dei Termini/Privacy (riutilizzato) */
+    h4 {
+        margin-bottom: 8px;
+    }
+
+    .terms-content {
+        background-color: white;
+        border-radius: var(--border-radius-big);
+        padding: 3rem;
+        box-shadow: 0 4px 10px #9495EA66;
+        border: 1px solid var(--secondaryextralight);
+        margin: 3rem 0;
+    }
+
+    .terms-intro {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .terms-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .terms-section-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary); /* Bordo inferiore con colore primario */
+    }
+
+    .terms-section-title i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: var(--secondary); /* Icone con colore secondario */
+        width: 25px; /* Larghezza fissa per allineamento */
+        text-align: center;
+    }
+
+        .terms-section-title h4 {
+            margin-bottom: 0; /* Rimuove margine H3 dentro al titolo sezione */
+        }
+
+    .terms-section p {
+        margin-bottom: 1rem; /* Applica a tutti i paragrafi, inclusi quelli che erano li */
+    }
+
+    /* NUOVA REGOLA AGGIUNTA per h5 */
+        .terms-section h5 { /* Applica a tutti gli h5 dentro .terms-section */
+            margin-bottom: 1rem; /* Imposta lo stesso margine inferiore di h4 */
+        }
+
+    /* Social links styling */
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--gradient-primary);
+        color: white !important;
+        border-radius: 24px;
+        font-weight: 600;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(148, 149, 234, 0.4);
+    }
+
+    .social-link i {
+        font-size: 1.2rem;
+    }
+
+    .update-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap; /* Permette di andare a capo in mobile */
+        gap: 1rem; /* Spazio tra gli elementi in mobile */
+    }
+
+    .last-update {
+        font-style: italic;
+        color: var(--text2);
+    }
+
+    .back-to-top {
+        display: inline-flex;
+        align-items: center;
+        color: var(--secondary);
+        font-weight: 600;
+        transition: transform 0.3s ease;
+    }
+
+    .back-to-top i {
+        margin-left: 0.5rem;
+    }
+
+    .toc {
+        background-color: rgba(180, 250, 205, 0.1);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .toc ul {
+        list-style-type: decimal;
+        margin-left: 1.5rem;
+    }
+
+    .toc a {
+        color: var(--secondary);
+        transition: color 0.3s ease;
+    }
+
+
+    @media (max-width: 768px) {
+
+        .terms-content {
+            padding: 2rem; /* Ridotto padding in mobile */
+            margin: 1.5rem 0;
+        }
+        .terms-section-title i {
+            font-size: 1.3rem; /* Icone leggermente più piccole */
+            margin-right: 0.8rem;
+        }
+
+        .update-info {
+        flex-direction: column; /* Impila gli elementi in mobile */
+        align-items: flex-start; /* Allinea a sinistra */
+        }
+
+        .social-links {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            justify-content: center;
+        }
+
+    }
+</style>
+
+<!-- Footer Section -->
+<div id="footer-placeholder"></div>
+
+<script src="js/include.js"></script>
+
+
+
+
+
+</body>
+</html>
