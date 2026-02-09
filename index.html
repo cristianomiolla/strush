@@ -3322,8 +3322,8 @@ text-shadow: 0 0px 20px #9495EA33;
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="step-number">2</div>
-                    <h4 class="step-description">Imposta i tuoi obiettivi finanziari</h4>
-                    <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
+                    <h4 class="step-description">Imposta il tuo budget mensile</h4>
+                    <p>Definisci quanto vuoi spendere ogni mese e tieni sotto controllo le tue finanze.</p>
                 </div>
             </div>
 
@@ -3343,7 +3343,7 @@ text-shadow: 0 0px 20px #9495EA33;
                 <div class="timeline-content">
                     <div class="step-number">4</div>
                     <h4 class="step-description">Analizza e migliora</h4>
-                    <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
+                    <p>Consulta i dati sulla dashboard o lasciati guidare dalla mascotte con suggerimenti personalizzati.</p>
                 </div>
             </div>
         </div> <!-- Fine .timeline -->
@@ -3608,6 +3608,7 @@ text-shadow: 0 0px 20px #9495EA33;
 <section id="avatar-evolution" class="avatar-evolution section">
 
     <div class="container">
+    <div class="coming-soon-badge">Coming Soon</div>
     <h2 class="section-title">Avatar</h2>
     <p class="section-subtitles">Scegli l'avatar che ti rappresenta e fallo evolvere migliorando le tue abitudini di spesa!</p>
     
@@ -3684,10 +3685,35 @@ text-shadow: 0 0px 20px #9495EA33;
 </div>
 
 <style>
-    
+
     .avatar-evolution {
         background: white;
         position: relative;
+    }
+
+    .coming-soon-badge {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        animation: pulse-badge 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-badge {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(148, 149, 234, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 10px rgba(148, 149, 234, 0);
+        }
     }
 
     /* Curva inferiore */
