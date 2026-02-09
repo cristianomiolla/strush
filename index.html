@@ -251,9 +251,6 @@
 <div id="video-preloader" class="video-preloader">
     <div class="preloader-content">
         <img id="preloader-animation" class="preloader-animation" alt="Loading...">
-        <audio id="preloader-audio" preload="auto">
-            <source src="assets/spritesheet/audiologoreveal.wav" type="audio/wav">
-        </audio>
     </div>
 </div>
 
@@ -323,7 +320,6 @@
 
         const preloader = document.getElementById('video-preloader');
         const animationImg = document.getElementById('preloader-animation');
-        const preloaderAudio = document.getElementById('preloader-audio');
 
         // Genera array di 72 frame (da seq_0_0.png a seq_0_71.png)
         const frames = [];
@@ -387,13 +383,6 @@
 
         function startAnimation() {
             if (!allImagesReady) return;
-
-            // Avvia l'audio insieme all'animazione
-            if (preloaderAudio) {
-                preloaderAudio.play().catch(error => {
-                    console.log('Audio autoplay blocked:', error);
-                });
-            }
 
             let lastFrameTime = performance.now();
             let animationId;
@@ -696,12 +685,6 @@
     <!-- Chatbot -->
 <section id="chatbot">
     <div class="chatbot-container" id="chatbot-container" style="display: none;">
-        <!-- Audio element for opening sound -->
-        <audio id="chatbot-open-sound" preload="auto">
-            <source src="sounds/notification.mp3" type="audio/mp3">
-            <source src="sounds/notification.ogg" type="audio/ogg">
-        </audio>
-
         <div class="chatbot-box" id="chatbot-box">
             <div class="chatbot-header">
                 <div>Dinuccio 🦖</div>
@@ -1016,7 +999,6 @@
             const chatbotMessages = document.getElementById('chatbot-messages');
             const chatbotInput = document.getElementById('chatbot-input');
             const chatbotSend = document.getElementById('chatbot-send');
-            const chatbotOpenSound = document.getElementById('chatbot-open-sound');
 
             let isFirstOpen = true;
 
@@ -1167,24 +1149,13 @@
                 setTimeout(showInitialOptions, 3500);
             }
 
-            function playOpenSound() {
-                chatbotOpenSound.currentTime = 0;
-                let playPromise = chatbotOpenSound.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        document.body.addEventListener('click', () => chatbotOpenSound.play(), { once: true });
-                    });
-                }
-            }
-
              function openChat() {
                  if (chatbotContainer.style.display === 'none') {
-                     chatbotContainer.style.display = 'block'; 
+                     chatbotContainer.style.display = 'block';
                  }
                  if (!chatbotContainer.classList.contains('chat-is-open')) {
                      chatbotContainer.classList.add('chat-is-open');
                      if (isFirstOpen) {
-                         playOpenSound();
                          isFirstOpen = false;
                          if (chatbotMessages.children.length === 0) {
                            startConversation();
@@ -3328,6 +3299,311 @@ text-shadow: 0 0px 20px #9495EA33;
 
 </section>
 
+    <!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works section">
+    <div class="container">
+        <h2 class="section-title">Tutorial</h2>
+
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <!-- Step 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">1</div>
+                    <h4 class="step-description">Registrati e configura il tuo profilo</h4>
+                    <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">2</div>
+                    <h4 class="step-description">Imposta i tuoi obiettivi finanziari</h4>
+                    <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">3</div>
+                    <h4 class="step-description">Traccia le tue spese quotidiane</h4>
+                    <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="step-number">4</div>
+                    <h4 class="step-description">Analizza e migliora</h4>
+                    <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
+                </div>
+            </div>
+        </div> <!-- Fine .timeline -->
+    </div>
+
+    <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">
+                <span class="disclaimer-point">DISCLAIMER:</span>
+                <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà dura</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo cinque volte a settimana</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">L'app non stampa i soldi e non cancella i debiti</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici che scroccano</span>
+                <span class="ticker-separator">*</span>
+                <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
+        </div>
+    </div>
+
+    <style>
+        .how-it-works {
+            background-color: #E6F2F5;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
+        }
+
+        .timeline-line {
+            position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+            background: var(--gradient-primary); transform: translateX(-50%); border-radius: 16px;
+        }
+
+        .timeline-line:after {
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 15px solid var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative; margin-bottom: 4rem; width: 100%; display: flex;
+        }
+        .timeline-item.left { justify-content: flex-start; }
+        .timeline-item.right { justify-content: flex-end; }
+
+        .timeline-dot {
+            position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
+            background: white; border: 4px solid var(--secondary); border-radius: 50%;
+            transform: translateX(-50%); z-index: 2;
+        }
+
+        .timeline-content {
+            width: 45%; background: white; padding: 32px; border-radius: 24px;
+            border: 1px solid var(--secondarylight);
+            box-shadow: 0 4px 10px #9495EA66;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        /* Stili Hover Desktop */
+        @media (hover: hover) and (min-width: 768px) { /* Applica solo se il device supporta hover e non è mobile */
+            .timeline-content:hover {
+                box-shadow: 0 4px 10px #9495EA66;
+            }
+
+            .timeline-content:hover .step-number {
+                border-radius: var(--step-blob-shape, 50%);
+                transform: scale(1.1) rotate(5deg);
+                background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
+            }
+        }
+
+
+        .timeline-item.left .timeline-content:before,
+        .timeline-item.right .timeline-content:before {
+            content: ''; position: absolute; top: 34px; /* Allinea al dot */
+            width: 40px; height: 2px; background-color: var(--secondary); z-index: 1;
+        }
+        .timeline-item.left .timeline-content:before { right: -40px; }
+        .timeline-item.right .timeline-content:before { left: -40px; }
+
+
+        .step-number {
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
+            margin-bottom: 1rem; position: relative; z-index: 1;
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            color: var(--text);
+;
+
+        }
+
+        .step-description { margin-top: 0; margin-bottom: 8px;}
+        .timeline-content p { margin-bottom: 0}
+
+        /* Curva inferiore */
+        .how-it-works::after {
+            content: ''; position: absolute; bottom: -29px; left: 0; width: 100%; height: 30px;
+            background: #E6F2F5; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
+        }
+
+        /* Ticker Styles */
+            .ticker-wrap {
+            width: 100%; overflow: hidden; background: #121212;
+            position: relative;
+            transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
+            }
+            .ticker {
+                display: inline-block; white-space: nowrap; padding-left: 100%;
+                animation: ticker 45s linear infinite;
+            }
+            .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
+            .ticker-item {
+                display: inline-block; font-size: 1rem; font-weight: 600;
+                color: #9495EA !important;
+                transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
+            }
+        .ticker-wrap:hover .ticker-item,
+        .ticker-wrap:hover .disclaimer-text,
+        .ticker-wrap:hover .disclaimer-point,
+        .ticker-wrap:hover .ticker-separator { color: #84CD9D !important; }
+
+        .ticker-separator {
+            font-size: 1.3rem; font-weight: 700; margin: 0 0.8rem;
+            vertical-align: middle; display: inline-block; color: #9495EA;
+            transition: color 0.3s ease;
+        }
+        .disclaimer-text, .disclaimer-point {
+            color: #9495EA; transition: color 0.3s ease; margin-right: 0.5rem;
+        }
+        .disclaimer-point { font-weight: bold; }
+
+            @keyframes ticker {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-100%); } /* Loop fluido */
+            }
+
+            /* Media query How It Works Mobile */
+            @media (max-width: 768px) {
+                .timeline-line { left: 20px; }
+                .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
+                .timeline-item { margin-bottom: 2rem; }
+                .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
+                .timeline-content { width: 100%; padding: 1.5rem; }
+                .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
+                    left: -25px; right: auto; width: 25px; top: 32px;
+                }
+                .ticker-item { font-size: 18px; margin-right: 1.5rem; }
+
+                /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
+                .ticker {
+                animation-duration: 60s; /* Era 30s, aumentato per rallentare */
+                }
+
+                .timeline-content.is-centered .step-number {
+                border-radius: var(--step-blob-shape, 50%);
+                transform: scale(1.1) rotate(5deg);
+                background: var(--gradient-primary);
+                }
+
+                .how-it-works::after {
+                bottom: -24px;
+                height: 25px;
+                }
+            }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Logica per le forme blob dei numeri dei passaggi (invariata) ---
+            const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
+            if (stepNumbers.length > 0) {
+                const stepBlobShapes = [
+                    '60% 40% 65% 35% / 35% 65% 35% 65%',
+                    '40% 60% 30% 70% / 60% 30% 70% 40%',
+                    ' 60% 40% 50% 50% / 35% 65% 35% 65%',
+                    '40% 60% 40% 60% / 70% 30% 70% 30%'
+                ];
+                stepNumbers.forEach((stepNumber, index) => {
+                    const blobShape = stepBlobShapes[index % stepBlobShapes.length];
+                    stepNumber.style.setProperty('--step-blob-shape', blobShape);
+                });
+            }
+
+            // --- NUOVO: Logica per attivare la timeline card centrale su mobile ---
+            const timelineItems = document.querySelectorAll('.how-it-works .timeline-content');
+            const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+            let scrollTimeout; // Per throttling leggero
+
+            function checkTimelineActivation() {
+                // Esegui solo su mobile
+                if (!mobileMediaQuery.matches || timelineItems.length === 0) {
+                    // Se non siamo più su mobile, rimuovi la classe da tutti
+                    timelineItems.forEach(item => item.classList.remove('is-centered'));
+                    return;
+                }
+
+                const viewportCenterY = window.innerHeight / 2;
+                let closestItem = null;
+                let minDistance = Infinity;
+
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    // Calcola il centro verticale dell'elemento rispetto alla viewport
+                    const itemCenterY = rect.top + rect.height / 2;
+                    const distance = Math.abs(viewportCenterY - itemCenterY);
+
+                    // Considera solo elementi visibili (almeno parzialmente)
+                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestItem = item;
+                        }
+                    }
+                });
+
+                // Rimuovi la classe da tutti tranne il più vicino (se trovato)
+                timelineItems.forEach(item => {
+                    if (item === closestItem) {
+                            // Aggiungi un piccolo threshold per evitare attivazioni troppo sensibili
+                            // Se l'elemento più vicino è effettivamente "vicino" al centro
+                            if (minDistance < (viewportCenterY * 0.5) ) { // Ad es. entro metà altezza viewport dal centro
+                            item.classList.add('is-centered');
+                            } else {
+                                item.classList.remove('is-centered'); // Rimuovi se non è abbastanza vicino
+                            }
+                    } else {
+                        item.classList.remove('is-centered');
+                    }
+                });
+            }
+
+            // Funzione per gestire lo scroll con throttling
+            function handleScroll() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(checkTimelineActivation, 50); // Esegui max ogni 50ms
+            }
+
+            // Aggiungi event listener per scroll e resize
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', checkTimelineActivation); // Controlla anche al resize
+
+            // Esegui un controllo iniziale al caricamento
+            checkTimelineActivation();
+
+        }); // Fine DOMContentLoaded
+    </script>
+
+</section>
+
     <!-- Avatar Evolution Section -->
 <section id="avatar-evolution" class="avatar-evolution section">
 
@@ -3410,7 +3686,7 @@ text-shadow: 0 0px 20px #9495EA33;
 <style>
     
     .avatar-evolution {
-        background: #E6F2F5;
+        background: white;
         position: relative;
     }
 
@@ -3422,7 +3698,7 @@ text-shadow: 0 0px 20px #9495EA33;
         left: 0;
         width: 100%;
         height: 30px;
-        background: #E6F2F5;
+        background: white;
         border-radius: 0 0 50% 50% / 0 0 100% 100%;
         z-index: 2;
     }
@@ -4339,312 +4615,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
-</section>
-
-
-    <!-- How It Works Section -->
-<section id="how-it-works" class="how-it-works section">
-    <div class="container">
-        <h2 class="section-title">Tutorial</h2>
-
-        <div class="timeline">
-            <div class="timeline-line"></div>
-
-            <!-- Step 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">1</div>
-                    <h4 class="step-description">Registrati e configura il tuo profilo</h4>
-                    <p>Inizia scaricando l'app e creando un account in pochi secondi. Inserisci le tue informazioni finanziarie di base e personalizza le impostazioni.</p>
-                </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">2</div>
-                    <h4 class="step-description">Imposta i tuoi obiettivi finanziari</h4>
-                    <p>Definisci cosa vuoi ottenere: risparmiare per una vacanza, acquistare una casa o semplicemente costruire un fondo di emergenza.</p>
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">3</div>
-                    <h4 class="step-description">Traccia le tue spese quotidiane</h4>
-                    <p>Registra facilmente ogni transazione e categorizzala. Con il tempo, otterrai informazioni preziose sulle tue abitudini di spesa.</p>
-                </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="step-number">4</div>
-                    <h4 class="step-description">Analizza e migliora</h4>
-                    <p>Utilizza i rapporti e le analisi per comprendere meglio le tue finanze e apportare modifiche che ti aiuteranno a raggiungere i tuoi obiettivi più velocemente.</p>
-                </div>
-            </div>
-        </div> <!-- Fine .timeline -->
-    </div>
-
-    <!-- Ticker/Scrolling Bar (fuori dal container, dentro la section) -->
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">
-                <span class="disclaimer-point">DISCLAIMER:</span>
-                <span class="disclaimer-text">Strush non assicura di farti diventare milionario</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Purtroppo se non smetti di comprare mini aspirapolvere USB per tastiera, sarà dura</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Non possiamo prometterti che il tuo amico scroccone ti restituisca i soldi</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Strush non garantisce che smetterai di ordinare il Glovoo cinque volte a settimana</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'app non stampa i soldi e non cancella i debiti</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">L'uso prolungato potrebbe causare la drastica riduzione di amici che scroccano</span>
-                <span class="ticker-separator">*</span>
-                <span class="disclaimer-text">Effetti collaterali possono includere attacchi di parsimonia</span>
-        </div>
-    </div>
-
-    <style>
-        .how-it-works {
-            background-color: white;
-            position: relative;
-        }
-
-        .timeline {
-            position: relative; margin: 0 auto 3rem; padding: 2rem 0; max-width: 1000px;
-        }
-
-        .timeline-line {
-            position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
-            background: var(--gradient-primary); transform: translateX(-50%); border-radius: 16px;
-        }
-
-        .timeline-line:after {
-            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
-            border-top: 15px solid var(--secondary);
-        }
-
-        .timeline-item {
-            position: relative; margin-bottom: 4rem; width: 100%; display: flex;
-        }
-        .timeline-item.left { justify-content: flex-start; }
-        .timeline-item.right { justify-content: flex-end; }
-
-        .timeline-dot {
-            position: absolute; top: 24px; left: 50%; width: 20px; height: 20px;
-            background: white; border: 4px solid var(--secondary); border-radius: 50%;
-            transform: translateX(-50%); z-index: 2;
-        }
-
-        .timeline-content {
-            width: 45%; background: white; padding: 32px; border-radius: 24px;
-            border: 1px solid var(--secondarylight);
-            box-shadow: 0 4px 10px #9495EA66;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-            position: relative;
-        }
-
-        /* Stili Hover Desktop */
-        @media (hover: hover) and (min-width: 768px) { /* Applica solo se il device supporta hover e non è mobile */
-            .timeline-content:hover {
-                box-shadow: 0 4px 10px #9495EA66;
-            }
-
-            .timeline-content:hover .step-number {
-                border-radius: var(--step-blob-shape, 50%);
-                transform: scale(1.1) rotate(5deg);
-                background: linear-gradient(135deg, #84CD9D 60%, #9495EA 100%);
-            }
-        }
-
-
-        .timeline-item.left .timeline-content:before,
-        .timeline-item.right .timeline-content:before {
-            content: ''; position: absolute; top: 34px; /* Allinea al dot */
-            width: 40px; height: 2px; background-color: var(--secondary); z-index: 1;
-        }
-        .timeline-item.left .timeline-content:before { right: -40px; }
-        .timeline-item.right .timeline-content:before { left: -40px; }
-
-
-        .step-number {
-            width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: bold; /* Changed color slightly for contrast */
-            margin-bottom: 1rem; position: relative; z-index: 1;
-            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            color: var(--text);
-;
-
-        }
-
-        .step-description { margin-top: 0; margin-bottom: 8px;}
-        .timeline-content p { margin-bottom: 0}
-
-        /* Curva inferiore */
-        .how-it-works::after {
-            content: ''; position: absolute; bottom: -29px; left: 0; width: 100%; height: 30px;
-            background: white; border-radius: 0 0 50% 50% / 0 0 100% 100%; z-index: 2;
-        }
-
-        /* Ticker Styles */
-            .ticker-wrap {
-            width: 100%; overflow: hidden; background: #121212;
-            position: relative;
-            transition: box-shadow 0.3s ease; cursor: pointer; padding: 8px 0; /* Padding verticale */
-            }
-            .ticker {
-                display: inline-block; white-space: nowrap; padding-left: 100%;
-                animation: ticker 45s linear infinite;
-            }
-            .ticker-wrap:hover .ticker { animation-play-state: paused !important; }
-            .ticker-item {
-                display: inline-block; font-size: 1rem; font-weight: 600;
-                color: #9495EA !important;
-                transition: color 0.3s ease; margin-right: 3rem; /* Spazio tra ripetizioni item */
-            }
-        .ticker-wrap:hover .ticker-item,
-        .ticker-wrap:hover .disclaimer-text,
-        .ticker-wrap:hover .disclaimer-point,
-        .ticker-wrap:hover .ticker-separator { color: #84CD9D !important; }
-
-        .ticker-separator {
-            font-size: 1.3rem; font-weight: 700; margin: 0 0.8rem;
-            vertical-align: middle; display: inline-block; color: #9495EA;
-            transition: color 0.3s ease;
-        }
-        .disclaimer-text, .disclaimer-point {
-            color: #9495EA; transition: color 0.3s ease; margin-right: 0.5rem;
-        }
-        .disclaimer-point { font-weight: bold; }
-
-            @keyframes ticker {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-100%); } /* Loop fluido */
-            }
-
-            /* Media query How It Works Mobile */
-            @media (max-width: 768px) {
-                .timeline-line { left: 20px; }
-                .timeline-dot { left: 20px; width: 16px; height: 16px; border-width: 3px; }
-                .timeline-item { margin-bottom: 2rem; }
-                .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 45px; padding-right: 10px; }
-                .timeline-content { width: 100%; padding: 1.5rem; }
-                .timeline-item.left .timeline-content:before, .timeline-item.right .timeline-content:before {
-                    left: -25px; right: auto; width: 25px; top: 32px;
-                }
-                .ticker-item { font-size: 18px; margin-right: 1.5rem; }
-
-                /* MODIFICATO: Rallenta il ticker su mobile aumentando la durata */
-                .ticker {
-                animation-duration: 60s; /* Era 30s, aumentato per rallentare */
-                }
-
-                .timeline-content.is-centered .step-number {
-                border-radius: var(--step-blob-shape, 50%);
-                transform: scale(1.1) rotate(5deg);
-                background: var(--gradient-primary);
-                }
-
-                .how-it-works::after {
-                bottom: -24px;
-                height: 25px;
-                }
-            }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Logica per le forme blob dei numeri dei passaggi (invariata) ---
-            const stepNumbers = document.querySelectorAll('.how-it-works .step-number');
-            if (stepNumbers.length > 0) {
-                const stepBlobShapes = [
-                    '60% 40% 65% 35% / 35% 65% 35% 65%',
-                    '40% 60% 30% 70% / 60% 30% 70% 40%',
-                    ' 60% 40% 50% 50% / 35% 65% 35% 65%',
-                    '40% 60% 40% 60% / 70% 30% 70% 30%'
-                ];
-                stepNumbers.forEach((stepNumber, index) => {
-                    const blobShape = stepBlobShapes[index % stepBlobShapes.length];
-                    stepNumber.style.setProperty('--step-blob-shape', blobShape);
-                });
-            }
-
-            // --- NUOVO: Logica per attivare la timeline card centrale su mobile ---
-            const timelineItems = document.querySelectorAll('.how-it-works .timeline-content');
-            const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
-            let scrollTimeout; // Per throttling leggero
-
-            function checkTimelineActivation() {
-                // Esegui solo su mobile
-                if (!mobileMediaQuery.matches || timelineItems.length === 0) {
-                    // Se non siamo più su mobile, rimuovi la classe da tutti
-                    timelineItems.forEach(item => item.classList.remove('is-centered'));
-                    return;
-                }
-
-                const viewportCenterY = window.innerHeight / 2;
-                let closestItem = null;
-                let minDistance = Infinity;
-
-                timelineItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    // Calcola il centro verticale dell'elemento rispetto alla viewport
-                    const itemCenterY = rect.top + rect.height / 2;
-                    const distance = Math.abs(viewportCenterY - itemCenterY);
-
-                    // Considera solo elementi visibili (almeno parzialmente)
-                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            closestItem = item;
-                        }
-                    }
-                });
-
-                // Rimuovi la classe da tutti tranne il più vicino (se trovato)
-                timelineItems.forEach(item => {
-                    if (item === closestItem) {
-                            // Aggiungi un piccolo threshold per evitare attivazioni troppo sensibili
-                            // Se l'elemento più vicino è effettivamente "vicino" al centro
-                            if (minDistance < (viewportCenterY * 0.5) ) { // Ad es. entro metà altezza viewport dal centro
-                            item.classList.add('is-centered');
-                            } else {
-                                item.classList.remove('is-centered'); // Rimuovi se non è abbastanza vicino
-                            }
-                    } else {
-                        item.classList.remove('is-centered');
-                    }
-                });
-            }
-
-            // Funzione per gestire lo scroll con throttling
-            function handleScroll() {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(checkTimelineActivation, 50); // Esegui max ogni 50ms
-            }
-
-            // Aggiungi event listener per scroll e resize
-            window.addEventListener('scroll', handleScroll);
-            window.addEventListener('resize', checkTimelineActivation); // Controlla anche al resize
-
-            // Esegui un controllo iniziale al caricamento
-            checkTimelineActivation();
-
-        }); // Fine DOMContentLoaded
-    </script>
 
 </section>
 
