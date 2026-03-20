@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strush | Assistenza</title>
+    <title>Strush | Crediti</title>
 
     <!-- Meta tag per il nome dell'applicazione -->
     <meta name="application-name" content="Strush">
@@ -771,17 +771,11 @@ img {
           <defs>
             <mask id="uniqueCurveMask">
               <rect x="0" y="0" width="200" height="30" fill="white" class="mask-rect"></rect>
-              <!-- Questo path e le coordinate sono relative al sistema pre-trasformazione del <g> -->
-              <!-- (0,0) è l'angolo in alto a sinistra del <g>, Y cresce verso il basso) -->
               <path d="M0,0 L200,0 A100,30 0 0 1 0,0 Z" fill="black" class="mask-path"></path>
             </mask>
           </defs>
-          <!-- Rettangolo colorato principale, mascherato per creare la curva piena -->
-          <!-- y="0.5" significa 0.5px dal top del <g> pre-trasformazione -->
           <rect x="0" y="0.5" width="200" height="29.5" fill="#121212" mask="url(#uniqueCurveMask)" class="main-rect"></rect>
 
-          <!-- Path per la barra di progresso (solo l'arco) -->
-          <!-- Disegnato da sinistra (0,0) a destra (200,0) nel sistema pre-trasformazione del <g> -->
           <path
             id="readingProgressCurve"
             class="progress-bar-path"
@@ -794,13 +788,13 @@ img {
 <style>
     .navbar-bottom-curve {
         position: fixed;
-        top: 69px; /* Assicurati che questo valore sia corretto per la tua navbar */
+        top: 69px;
         left: 0;
         width: 100%;
-        height: 30px; /* Altezza desktop */
+        height: 30px;
         z-index: 999;
-        background-color: transparent; /* Importante che sia trasparente */
-        pointer-events: none; /* Non intercetta eventi mouse sul contenitore */
+        background-color: transparent;
+        pointer-events: none;
     }
 
     .curve-svg {
@@ -811,36 +805,30 @@ img {
 
     .progress-bar-path {
         fill: none;
-        stroke: #9495EA; /* Colore della barra di progresso, personalizzabile */
-        stroke-width: 3; /* Spessore desktop in unità SVG */
+        stroke: #9495EA;
+        stroke-width: 3;
         stroke-linecap: round;
-        transition: stroke-dashoffset 0.05s linear; /* Transizione fluida */
+        transition: stroke-dashoffset 0.05s linear;
         pointer-events: auto;
     }
 
     @media screen and (max-width: 767px) {
         .navbar-bottom-curve {
-            height: 25px; /* Altezza mobile */
+            height: 25px;
             width: calc(100% + 1px);
             left: -0.5px;
         }
         .progress-bar-path {
-            /* Per mantenere ~3px visivi quando l'SVG è alto 25px (contenitore)
-               ma la viewBox SVG è alta 30 unità:
-               stroke-width-svg = (3px_desiderati / 25px_altezza_reale_contenitore) * 30_altezza_viewbox
-                                = (3 / 25) * 30 = 0.12 * 30 = 3.6
-            */
-            stroke-width: 3.6; /* Spessore mobile in unità SVG */
+            stroke-width: 3.6;
         }
     }
 </style>
 
 <script>
-    (function() { // IIFE per incapsulare lo scope ed evitare conflitti
+    (function() {
         const progressBarPath = document.getElementById('readingProgressCurve');
 
         if (!progressBarPath) {
-            // console.error("Elemento 'readingProgressCurve' per la barra di progresso non trovato!");
             return;
         }
 
@@ -850,9 +838,8 @@ img {
             try {
                 pathLength = progressBarPath.getTotalLength();
                 progressBarPath.style.strokeDasharray = pathLength;
-                progressBarPath.style.strokeDashoffset = pathLength; // Inizia vuota
+                progressBarPath.style.strokeDashoffset = pathLength;
             } catch (e) {
-                // console.error("Errore nel calcolare getTotalLength:", e);
             }
         }
 
@@ -880,11 +867,11 @@ img {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
                 calculatePathLength();
-                updateProgressBar(); // Imposta lo stato iniziale
+                updateProgressBar();
             });
         } else {
             calculatePathLength();
-            updateProgressBar(); // Imposta lo stato iniziale
+            updateProgressBar();
         }
 
         window.addEventListener('scroll', updateProgressBar, { passive: true });
@@ -895,7 +882,7 @@ img {
             resizeTimeout = setTimeout(function() {
                 calculatePathLength();
                 updateProgressBar();
-            }, 100); // Debounce leggero
+            }, 100);
         });
 
     })();
@@ -907,8 +894,8 @@ img {
 <header class="main-header">
     <div class="container">
         <div class="header-content">
-            <h2 class="section-title">Assistenza</h2>
-            <p class="section-subtitles">Hai bisogno di aiuto? Siamo qui per te. Contattaci o consulta le nostre risorse per trovare le risposte che cerchi.</p>
+            <h2 class="section-title">Crediti</h2>
+            <p class="section-subtitles">Informazioni sull'azienda, le tecnologie utilizzate e i ringraziamenti speciali.</p>
         </div>
     </div>
 </header>
@@ -916,9 +903,9 @@ img {
 <style>
     /* Header principale */
     .main-header {
-    background: var(--gradient-primary); /* Usa la variabile gradiente definita in :root */
+    background: var(--gradient-primary);
     padding: 48px 0px;
-    margin-top: 0; /* Rimosso il margin-top che causava lo spazio bianco */
+    margin-top: 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -932,7 +919,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('pattern.png'); /* Assicurati che il pattern esista o rimuovi */
+    background: url('pattern.png');
     opacity: 0.1;
     z-index: 0;
     }
@@ -968,33 +955,73 @@ img {
     <div class="container">
         <div class="terms-content">
 
-            <div class="terms-intro">
-                <h4>Come possiamo aiutarti?</h4>
-                <p>Se hai domande, problemi tecnici o semplicemente vuoi saperne di più su Strush, sei nel posto giusto. Di seguito trovi le principali modalità per ricevere assistenza.</p>
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-building"></i>
+                    <h4>Azienda</h4>
+                </div>
+                <p>Sviluppato da <strong>Strush SRLS</strong></p>
+                <p>Sede: Bari, Italia</p>
             </div>
 
-            <div id="contact" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
-                    <i class="fas fa-envelope"></i>
-                    <h4>1. Contattaci via Email</h4>
+                    <i class="fas fa-cogs"></i>
+                    <h4>Tecnologie utilizzate</h4>
                 </div>
-                <p>Per qualsiasi richiesta di assistenza, puoi scriverci direttamente al nostro indirizzo email:</p>
-                <p><strong><a href="mailto:support@strush.it" style="color: var(--secondary);">support@strush.it</a></strong></p>
-                <p>Il nostro team cercherà di risponderti nel minor tempo possibile, solitamente entro 24-48 ore lavorative.</p>
+                <p>Questa applicazione è stata sviluppata utilizzando tecnologie moderne:</p>
+                <ul class="credits-list">
+                    <li>React Native</li>
+                    <li>MongoDB</li>
+                    <li>Node.js</li>
+                </ul>
             </div>
 
-            <div id="feedback" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
-                    <i class="fas fa-comment-dots"></i>
-                    <h4>2. Feedback e Suggerimenti</h4>
+                    <i class="fas fa-font"></i>
+                    <h4>Font</h4>
                 </div>
-                <p>Il tuo feedback è prezioso per noi! Se hai suggerimenti su come migliorare Strush o vuoi segnalarci qualcosa, non esitare a scriverci. Apprezziamo ogni contributo della nostra community.</p>
+                <p>Questa applicazione utilizza i seguenti font:</p>
+                <ul class="credits-list">
+                    <li><strong>Daniel Sans</strong> – font proprietario derivato da <a href="https://fonts.google.com/specimen/Unbounded" target="_blank" style="color: var(--secondary); font-weight: 600;">Unbounded</a> (modificato)</li>
+                    <li><a href="https://fonts.google.com/specimen/Inter" target="_blank" style="color: var(--secondary); font-weight: 600;"><strong>Inter</strong></a> – font secondario</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-palette"></i>
+                    <h4>Icone</h4>
+                </div>
+                <p>Le icone utilizzate nell'app provengono da:</p>
+                <ul class="credits-list">
+                    <li><a href="https://lucide.dev/" target="_blank" style="color: var(--secondary); font-weight: 600;">Lucide</a></li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Licenze</h4>
+                </div>
+                <p>Tutti i marchi, loghi e risorse appartengono ai rispettivi proprietari.</p>
+                <p>Le librerie e i materiali open source utilizzati sono distribuiti secondo le rispettive licenze.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Ringraziamenti</h4>
+                </div>
+                <p>Un ringraziamento speciale a:</p>
+                <ul class="credits-list">
+                    <li><strong>Giuseppe Santoro</strong> – progettazione UI/UX</li>
+                    <li><strong>Dario Liaci</strong> – sound design del logo</li>
+                </ul>
             </div>
 
             <div class="update-info">
-                <div class="last-update">
-                    <i class="far fa-clock"></i> Siamo disponibili dal lunedì al venerdì, 9:00 - 18:00
-                </div>
                 <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
@@ -1031,73 +1058,63 @@ img {
         align-items: center;
         margin-bottom: 1.5rem;
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--primary); /* Bordo inferiore con colore primario */
+        border-bottom: 2px solid var(--primary);
     }
 
     .terms-section-title i {
         font-size: 1.5rem;
         margin-right: 1rem;
-        color: var(--secondary); /* Icone con colore secondario */
-        width: 25px; /* Larghezza fissa per allineamento */
+        color: var(--secondary);
+        width: 25px;
         text-align: center;
     }
 
         .terms-section-title h4 {
-            margin-bottom: 0; /* Rimuove margine H3 dentro al titolo sezione */
+            margin-bottom: 0;
         }
 
     .terms-section p {
-        margin-bottom: 1rem; /* Applica a tutti i paragrafi, inclusi quelli che erano li */
+        margin-bottom: 1rem;
     }
 
-    /* NUOVA REGOLA AGGIUNTA per h5 */
-        .terms-section h5 { /* Applica a tutti gli h5 dentro .terms-section */
-            margin-bottom: 1rem; /* Imposta lo stesso margine inferiore di h4 */
-        }
-
-    /* Social links styling */
-    .social-links {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        flex-wrap: wrap;
+    .terms-section h5 {
+        margin-bottom: 1rem;
     }
 
-    .social-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.5rem;
+    .credits-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    .credits-list li {
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        position: relative;
+        color: #6B6F6E;
+        font-size: 16px;
+    }
+
+    .credits-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
         background: var(--gradient-primary);
-        color: white !important;
-        border-radius: 24px;
-        font-weight: 600;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .social-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 15px rgba(148, 149, 234, 0.4);
-    }
-
-    .social-link i {
-        font-size: 1.2rem;
     }
 
     .update-info {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin-top: 4rem;
         padding-top: 2rem;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
-        flex-wrap: wrap; /* Permette di andare a capo in mobile */
-        gap: 1rem; /* Spazio tra gli elementi in mobile */
-    }
-
-    .last-update {
-        font-style: italic;
-        color: var(--text2);
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .back-to-top {
@@ -1112,48 +1129,20 @@ img {
         margin-left: 0.5rem;
     }
 
-    .toc {
-        background-color: rgba(180, 250, 205, 0.1);
-        border-left: 4px solid var(--primary);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border-radius: 0 8px 8px 0;
-    }
-
-    .toc ul {
-        list-style-type: decimal;
-        margin-left: 1.5rem;
-    }
-
-    .toc a {
-        color: var(--secondary);
-        transition: color 0.3s ease;
-    }
-
-
     @media (max-width: 768px) {
 
         .terms-content {
-            padding: 2rem; /* Ridotto padding in mobile */
+            padding: 2rem;
             margin: 1.5rem 0;
         }
         .terms-section-title i {
-            font-size: 1.3rem; /* Icone leggermente più piccole */
+            font-size: 1.3rem;
             margin-right: 0.8rem;
         }
 
         .update-info {
-        flex-direction: column; /* Impila gli elementi in mobile */
-        align-items: flex-start; /* Allinea a sinistra */
-        }
-
-        .social-links {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .social-link {
-            justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
         }
 
     }
@@ -1163,10 +1152,6 @@ img {
 <div id="footer-placeholder"></div>
 
 <script src="js/include.js"></script>
-
-
-
-
 
 </body>
 </html>
