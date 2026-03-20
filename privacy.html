@@ -910,7 +910,16 @@ img {
         <div class="header-content">
             <h2 class="section-title">Privacy Policy</h2>
             <p class="section-subtitles">La tua privacy è importante per noi. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali.</p>
-        </div> 
+            <!-- Switcher App / Sito -->
+            <div class="privacy-switcher">
+                <button class="privacy-switch-btn active" data-target="app" id="switchApp">
+                    <i class="fas fa-mobile-alt"></i> App
+                </button>
+                <button class="privacy-switch-btn" data-target="sito" id="switchSito">
+                    <i class="fas fa-globe"></i> Sito Web
+                </button>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -967,34 +976,264 @@ img {
     <!-- Contenuto principale -->
 <main>
     <div class="container">
-        <div class="terms-content"> <!-- Riutilizzo la classe per mantenere lo stile -->
+
+        <!-- ============================================ -->
+        <!-- PRIVACY POLICY APP (visibile di default)     -->
+        <!-- ============================================ -->
+        <div class="terms-content privacy-panel active" id="privacy-app">
 
             <div class="terms-intro">
-                <h4>Informativa sulla Privacy di Strush</h4>
+                <h4>Privacy Policy dell'App Strush</h4>
+                <p>Strush è un'applicazione di finanza personale che consente di gestire spese, budget e conti, e include funzionalità di gestione delle spese condivise e degli anticipi con altri utenti.</p>
+                <p>La presente Privacy Policy descrive le modalità con cui Strush SRLS raccoglie, utilizza e protegge i dati personali degli utenti dell'applicazione mobile Strush ("App").</p>
+                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR) e si applica a tutti gli utenti che scaricano, installano e utilizzano l'App.</p>
+                <p>Strush non utilizza pubblicità, non impiega strumenti di analytics o tracciamento in-app e non vende informazioni personali a terzi.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-shield"></i>
+                    <h4>1. Titolare del Trattamento</h4>
+                </div>
+                <p>Il Titolare del trattamento dei dati è:</p>
+                <p><strong>Strush SRLS</strong></p>
+                <p>Sede: Via Napoleone Colajanni, 2, 70125 Bari (BA), Italia</p>
+                <p>P.IVA: 09068680728</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-database"></i>
+                    <h4>2. Dati Raccolti</h4>
+                </div>
+                <p>Utilizziamo diversi tipi di dati per fornire e migliorare il servizio.</p>
+                <h5>2.1 Dati forniti dall'utente</h5>
+                <p>- Email</p>
+                <p>- Password (crittografata)</p>
+                <p>- Numero di telefono</p>
+                <p>- Username</p>
+                <p>- Eventuale username PayPal (utilizzato esclusivamente per consentire agli altri utenti di raggiungere direttamente il profilo PayPal del creditore per effettuare il pagamento; Strush non gestisce né elabora alcuna transazione finanziaria)</p>
+                <p>- Dati finanziari inseriti manualmente dall'utente: spese, budget, conti e saldi, categorie personalizzate, ecc. Strush non si connette in alcun modo ai conti bancari dell'utente e non ha accesso a dati bancari reali</p>
+                <h5>2.2 Dati di contatto</h5>
+                <p>Con il consenso dell'utente, l'App può accedere alla rubrica per:</p>
+                <p>- Sincronizzare i contatti</p>
+                <p>- Facilitare la gestione delle spese condivise</p>
+                <h5>2.3 Contenuti generati dall'utente</h5>
+                <p>Nell'ambito delle spese condivise, l'utente può inserire descrizioni, importi, categorie, commenti, solleciti e ricevute. Queste informazioni saranno visibili agli altri utenti con cui la spesa è stata condivisa. L'utente è il solo responsabile della scelta dei contatti con cui condividere tali informazioni.</p>
+                <h5>2.4 Informazioni condivise da altri utenti</h5>
+                <p>Altri utenti di Strush possono condividere spese con te utilizzando il tuo numero di telefono o email. In tal caso, Strush ti invierà una notifica e memorizzerà tali informazioni nel tuo account secondo le tue preferenze.</p>
+                <h5>2.5 Dati di utilizzo</h5>
+                <p>- Interazioni tra utenti (es. richieste di pagamento, solleciti)</p>
+                <p>Strush non utilizza strumenti di analytics, tracciamento o profilazione pubblicitaria. Non monitoriamo il comportamento dell'utente all'interno dell'App. Le piattaforme di distribuzione (App Store, Google Play) possono fornire al Titolare dati diagnostici aggregati (es. report di crash), che possono includere tipo di dispositivo, versione del sistema operativo e versione dell'App.</p>
+                <h5>2.6 Dati del dispositivo</h5>
+                <p>Per il corretto funzionamento del servizio e la sicurezza dell'account, il server può registrare informazioni tecniche di base quali: indirizzo IP, sistema operativo e versione dell'App.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>3. Finalità del Trattamento</h4>
+                </div>
+                <p>I dati vengono raccolti per le seguenti finalità:</p>
+                <p>- a) Creazione e gestione dell'account;</p>
+                <p>- b) Autenticazione e sicurezza (incluso invio OTP via SMS);</p>
+                <p>- c) Gestione delle spese personali e condivise;</p>
+                <p>- d) Calcolo di budget e riepiloghi finanziari;</p>
+                <p>- e) Facilitare le interazioni tra utenti;</p>
+                <p>- f) Generazione di insight e suggerimenti tramite sistemi automatizzati;</p>
+                <p>- g) Miglioramento dell'esperienza utente;</p>
+                <p>- h) Rilevamento e prevenzione di frodi, abusi o attività non autorizzate;</p>
+                <p>- i) Adempimento di obblighi previsti dalla legge.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>4. Base Giuridica del Trattamento</h4>
+                </div>
+                <p>I dati personali vengono trattati sulla base di:</p>
+                <p>- <strong>Esecuzione del contratto:</strong> per le finalità 3.a), 3.b), 3.c), 3.d) e 3.e), necessarie alla fornitura del servizio richiesto dall'utente;</p>
+                <p>- <strong>Consenso:</strong> per le finalità 3.f) e per l'accesso alla rubrica. Il consenso può essere revocato in qualsiasi momento;</p>
+                <p>- <strong>Legittimo interesse:</strong> per le finalità 3.g) e 3.h), al fine di migliorare il servizio e garantirne la sicurezza, a condizione che tali interessi non prevalgano sui diritti dell'utente;</p>
+                <p>- <strong>Obbligo legale:</strong> per la finalità 3.i), quando il trattamento è necessario per adempiere a obblighi di legge.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-address-book"></i>
+                    <h4>5. Accesso alla Rubrica</h4>
+                </div>
+                <p>L'accesso alla rubrica è richiesto esclusivamente per:</p>
+                <p>- Identificare contatti già presenti sulla piattaforma;</p>
+                <p>- Semplificare l'aggiunta di persone nelle spese condivise.</p>
+                <p>I dati della rubrica non vengono utilizzati per finalità diverse senza consenso. I dati della rubrica non vengono in alcun caso condivisi con terze parti per finalità di marketing.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-eye"></i>
+                    <h4>6. Visibilità delle Spese Condivise</h4>
+                </div>
+                <p>Strush è un servizio di gestione delle spese condivise. Quando condividi una spesa con altri utenti, i dettagli della transazione (importo, descrizione, categoria, data, eventuali commenti e ripartizione) saranno visibili a tutti gli utenti coinvolti nella spesa.</p>
+                <p>Una spesa condivisa o un anticipo possono essere modificati (importo, titolo e altre informazioni) esclusivamente dall'utente che li ha creati. Il debitore può in ogni caso confermare la restituzione dei soldi, ma non modificare i dettagli della spesa o dell'anticipo. Le spese inserite nell'App non sono rese pubbliche.</p>
+                <p>L'utente è il solo responsabile della scelta dei contatti con cui condividere le proprie informazioni finanziarie.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-share-alt"></i>
+                    <h4>7. Condivisione dei Dati</h4>
+                </div>
+                <p>I dati possono essere condivisi:</p>
+                <p>- Con altri utenti dell'App (solo le informazioni necessarie alle funzionalità, es. spese condivise);</p>
+                <p>- Con fornitori di servizi tecnici (es. hosting, database, invio SMS). In particolare, per l'invio di SMS e la verifica OTP ci avvaliamo del servizio Twilio Inc., il cui numero di telefono dell'utente viene condiviso esclusivamente per finalità di autenticazione e sicurezza;</p>
+                <p>- Con autorità competenti, qualora richiesto dalla legge applicabile.</p>
+                <p>I nostri fornitori sono contrattualmente obbligati a proteggere i dati secondo standard conformi alla presente Privacy Policy.</p>
+                <p>I dati non vengono venduti a terze parti. In particolare, nessun dato relativo a comunicazioni SMS viene condiviso con terze parti per finalità di marketing.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-globe-europe"></i>
+                    <h4>8. Trasferimento dei Dati all'Estero</h4>
+                </div>
+                <p>Alcuni dei nostri fornitori di servizi (tra cui Twilio Inc. per l'invio di SMS e Amazon Web Services per l'hosting) hanno sede o server ubicati al di fuori dell'Unione Europea, inclusi gli Stati Uniti.</p>
+                <p>In tal caso, il trasferimento dei dati avviene in conformità alle disposizioni del GDPR, mediante l'adozione di clausole contrattuali standard approvate dalla Commissione Europea o altre garanzie adeguate previste dalla normativa vigente.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-history"></i>
+                    <h4>9. Conservazione dei Dati</h4>
+                </div>
+                <p>I dati sono conservati su server sicuri e protetti, ospitati su infrastruttura Amazon Web Services (AWS). Adottiamo misure tecniche e organizzative adeguate per proteggere i dati da accessi non autorizzati, perdita o divulgazione.</p>
+                <p>I dati vengono conservati per il tempo necessario a fornire il servizio o fino alla richiesta di cancellazione da parte dell'utente.</p>
+                <p>In caso di cancellazione dell'account, l'utente non sarà più iscritto all'App, ma il suo contatto resterà visibile agli altri utenti come contatto non iscritto. Le spese condivise precedentemente registrate rimarranno visibili nei rispettivi account degli altri utenti. L'App consente infatti di gestire spese condivise anche con contatti non iscritti, i quali tuttavia non potranno accedere all'App per visualizzare la propria parte.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>10. Insight e Sistema Automatizzato</h4>
+                </div>
+                <p>L'App può fornire suggerimenti e insight basati sui dati inseriti dall'utente.</p>
+                <p>Tali informazioni:</p>
+                <p>- Sono generate automaticamente;</p>
+                <p>- Hanno scopo puramente informativo;</p>
+                <p>- Non costituiscono in alcun modo consulenza finanziaria, fiscale o legale.</p>
+                <p>Eventuali statistiche o riepiloghi visualizzati nell'App potrebbero essere incompleti o imprecisi: l'utente è responsabile di verificare le informazioni prima di basare su di esse qualsiasi decisione.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-server"></i>
+                    <h4>11. Archiviazione dei Dati e Integrità</h4>
+                </div>
+                <p>Tutti i dati dell'utente sono archiviati online sui server di Strush (infrastruttura Amazon Web Services). L'App non memorizza dati finanziari in locale sul dispositivo al di fuori della cache temporanea necessaria al funzionamento.</p>
+                <p>Pur adottando ogni misura ragionevole per mantenere l'integrità dei dati, non possiamo garantire contro la perdita o la corruzione. Raccomandiamo agli utenti di verificare periodicamente i propri dati all'interno dell'App.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-bell"></i>
+                    <h4>12. Notifiche Push</h4>
+                </div>
+                <p>L'App può inviare notifiche push tramite i sistemi nativi del dispositivo (Apple Push Notification Service per iOS, Firebase Cloud Messaging per Android). Le notifiche riguardano esclusivamente il funzionamento del servizio (es. nuove spese condivise, solleciti, aggiornamenti dell'account).</p>
+                <p>L'utente può disattivare le notifiche in qualsiasi momento dalle impostazioni del proprio dispositivo.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-check"></i>
+                    <h4>13. Diritti dell'Utente</h4>
+                </div>
+                <p>Ai sensi del GDPR, l'utente ha il diritto di:</p>
+                <p>- Accedere ai propri dati personali;</p>
+                <p>- Richiedere la rettifica di dati inesatti o incompleti;</p>
+                <p>- Richiedere la cancellazione dei dati e dell'account;</p>
+                <p>- Richiedere la limitazione del trattamento;</p>
+                <p>- Opporsi al trattamento per motivi connessi alla propria situazione particolare;</p>
+                <p>- Revocare il consenso (es. accesso rubrica) in qualsiasi momento, senza pregiudicare la liceità del trattamento effettuato prima della revoca;</p>
+                <p>- Richiedere la portabilità dei dati, inviando richiesta a info@strush.it;</p>
+                <p>- Presentare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+                <p>Per esercitare i propri diritti: <strong>info@strush.it</strong></p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-lock"></i>
+                    <h4>14. Sicurezza</h4>
+                </div>
+                <p>Prendiamo la sicurezza dei tuoi dati molto seriamente. Adottiamo misure di sicurezza tecniche e organizzative adeguate, tra cui:</p>
+                <p>- Crittografia dei dati sensibili (in transito e a riposo);</p>
+                <p>- Protezione degli accessi;</p>
+                <p>- Verifica tramite OTP.</p>
+                <p>Nessuna trasmissione di dati su Internet può essere garantita al 100% sicura. In caso di violazione della sicurezza dei dati, provvederemo a contattare gli utenti interessati come previsto dalla normativa applicabile.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-child"></i>
+                    <h4>15. Minori</h4>
+                </div>
+                <p>L'App non è destinata a minori di 14 anni. Non raccogliamo consapevolmente dati personali di minori di 14 anni. Se un genitore o tutore viene a conoscenza che il proprio figlio ha fornito dati personali senza il dovuto consenso, è invitato a contattarci a <strong>info@strush.it</strong> e provvederemo alla cancellazione tempestiva di tali dati.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-edit"></i>
+                    <h4>16. Modifiche alla Privacy Policy</h4>
+                </div>
+                <p>La presente informativa può essere aggiornata nel tempo. In caso di modifiche sostanziali, ne daremo comunicazione tramite l'App o il sito. Le modifiche sono efficaci dalla data di pubblicazione. La data dell'ultimo aggiornamento è indicata in fondo a questa pagina.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-envelope"></i>
+                    <h4>17. Contatti</h4>
+                </div>
+                <p>Per qualsiasi domanda relativa alla privacy:</p>
+                <p>Email: <strong>info@strush.it</strong></p>
+            </div>
+
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-calendar-alt"></i> Ultimo aggiornamento: 15 aprile 2025
+                </div>
+                <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- PRIVACY POLICY SITO (nascosta di default)    -->
+        <!-- ============================================ -->
+        <div class="terms-content privacy-panel" id="privacy-sito">
+
+            <div class="terms-intro">
+                <h4>Informativa sulla Privacy del Sito Web</h4>
                 <p>Benvenuto/a sul sito www.strush.it ("Sito"). La presente Privacy Policy ha lo scopo di descrivere le modalità di gestione del Sito in riferimento al trattamento dei dati personali degli utenti che lo consultano e che interagiscono con i servizi web accessibili per via telematica.</p>
-                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush srls, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
+                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush SRLS, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
                 <p>L'ultimo aggiornamento di questa informativa risale al <strong>15 aprile 2025</strong>.</p>
             </div>
 
-            <div id="introduction" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-info-circle"></i>
                     <h4>1. Introduzione</h4>
                 </div>
-                    <p>Benvenuto/a sul sito www.strush.it ("Sito"). La presente Privacy Policy ha lo scopo di descrivere le modalità di gestione del Sito in riferimento al trattamento dei dati personali degli utenti che lo consultano e che interagiscono con i servizi web accessibili per via telematica.</p>
-                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush srls, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
+                <p>Benvenuto/a sul sito www.strush.it ("Sito"). La presente Privacy Policy ha lo scopo di descrivere le modalità di gestione del Sito in riferimento al trattamento dei dati personali degli utenti che lo consultano e che interagiscono con i servizi web accessibili per via telematica.</p>
+                <p>La presente informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR - General Data Protection Regulation) a coloro che interagiscono con i servizi web di Strush SRLS, accessibili per via telematica a partire dall'indirizzo www.strush.it.</p>
             </div>
 
-            <div id="titolare" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-user-shield"></i>
                     <h4>2. Titolare del Trattamento</h4>
                 </div>
-                <p>Il Titolare del trattamento dei dati personali è Strush srls, con sede in [Indirizzo completo], email: [tua email], P.IVA/C.F.: [tua partita IVA o codice fiscale].</p>
-                <p><em>(Nota: Ricorda di sostituire i segnaposto [Indirizzo completo], [tua email], [tua partita IVA o codice fiscale] con le informazioni corrette.)</em></p>
+                <p>Il Titolare del trattamento dei dati personali è Strush SRLS, con sede in Via Napoleone Colajanni, 2, 70125 Bari (BA), Italia, email: info@strush.it, P.IVA: 09068680728.</p>
             </div>
 
-            <div id="data-types" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-database"></i>
                     <h4>3. Tipi di Dati Trattati</h4>
@@ -1007,11 +1246,9 @@ img {
                 <p>L'invio facoltativo, esplicito e volontario di dati personali attraverso il modulo di preregistrazione presente sul Sito comporta la successiva acquisizione dei dati forniti dal mittente, necessari per rispondere alle richieste e/o fornire i servizi richiesti.</p>
                 <h5>3.3 Cookie</h5>
                 <p>Il nostro Sito utilizza cookie tecnici necessari al funzionamento del Sito stesso e cookie analitici (Google Analytics) utilizzati in forma anonimizzata per raccogliere informazioni, in forma aggregata, sul numero degli utenti e su come questi visitano il Sito.</p>
-                    <!-- Potresti aggiungere un link alla Cookie Policy se ne hai una separata -->
-                    <!-- <p>Per maggiori dettagli sui cookie utilizzati, consulta la nostra <a href="cookie-policy.html">Cookie Policy</a>.</p> -->
             </div>
 
-            <div id="purpose" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-bullseye"></i>
                     <h4>4. Finalità del Trattamento</h4>
@@ -1023,7 +1260,7 @@ img {
                 <p>- d) Analizzare, in forma anonimizzata, le modalità di utilizzo del Sito per migliorare i servizi offerti (Google Analytics).</p>
             </div>
 
-            <div id="legal-basis" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-balance-scale"></i>
                     <h4>5. Base Giuridica del Trattamento</h4>
@@ -1035,7 +1272,7 @@ img {
                 <p>- Per le finalità di cui al punto 4.d): legittimo interesse del Titolare a migliorare il proprio Sito e i servizi offerti.</p>
             </div>
 
-            <div id="processing-methods" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-cogs"></i>
                     <h4>6. Modalità del Trattamento</h4>
@@ -1043,7 +1280,7 @@ img {
                 <p>I dati personali sono trattati con strumenti automatizzati per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti. Specifiche misure di sicurezza sono osservate per prevenire la perdita dei dati, usi illeciti o non corretti ed accessi non autorizzati.</p>
             </div>
 
-            <div id="recipients" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-users-cog"></i>
                     <h4>7. Destinatari dei Dati</h4>
@@ -1055,7 +1292,7 @@ img {
                 <p>I dati non saranno oggetto di diffusione.</p>
             </div>
 
-            <div id="transfer" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-globe-europe"></i>
                     <h4>8. Trasferimento dei Dati all'Estero</h4>
@@ -1063,7 +1300,7 @@ img {
                 <p>I dati personali potrebbero essere trasferiti al di fuori dell'Unione Europea nel caso in cui il Titolare si avvalga di fornitori con sede o server ubicati in paesi extra-UE (es. Google Analytics). In tal caso, il Titolare assicura che il trasferimento avverrà in conformità alle disposizioni di legge applicabili, previa stipula delle clausole contrattuali standard previste dalla Commissione Europea.</p>
             </div>
 
-            <div id="retention" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-history"></i>
                     <h4>9. Periodo di Conservazione dei Dati</h4>
@@ -1074,7 +1311,7 @@ img {
                 <p>- Dati analitici: in forma anonimizzata, per un periodo massimo di 26 mesi.</p>
             </div>
 
-            <div id="rights" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-user-check"></i>
                     <h4>10. Diritti degli Interessati</h4>
@@ -1087,11 +1324,10 @@ img {
                 <p>- Opporsi al trattamento per motivi connessi alla propria situazione particolare;</p>
                 <p>- Revocare il consenso prestato, senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca;</p>
                 <p>- Presentare reclamo al Garante per la protezione dei dati personali.</p>
-                <p>Per esercitare i propri diritti, gli interessati possono rivolgersi al Titolare del trattamento utilizzando i seguenti contatti: [Tua email/telefono].</p>
-                    <p><em>(Nota: Ricorda di sostituire il segnaposto [Tua email/telefono] con le informazioni di contatto corrette.)</em></p>
+                <p>Per esercitare i propri diritti, gli interessati possono rivolgersi al Titolare del trattamento all'indirizzo: <strong>info@strush.it</strong>.</p>
             </div>
 
-            <div id="changes" class="terms-section">
+            <div class="terms-section">
                 <div class="terms-section-title">
                     <i class="fas fa-edit"></i>
                     <h4>11. Modifiche alla Privacy Policy</h4>
@@ -1106,6 +1342,7 @@ img {
                 <a href="#" class="back-to-top">Torna in cima <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
+
     </div>
 </main>
 
@@ -1228,6 +1465,68 @@ img {
         }
 
     }
+
+    /* Switcher Privacy App / Sito */
+    .privacy-switcher {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .privacy-switch-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 32px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: 'Unbounded', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .privacy-switch-btn:hover {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: white;
+    }
+
+    .privacy-switch-btn.active {
+        background: white;
+        color: var(--text);
+        border-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .privacy-switch-btn i {
+        font-size: 16px;
+    }
+
+    /* Pannelli privacy */
+    .privacy-panel {
+        display: none;
+    }
+
+    .privacy-panel.active {
+        display: block;
+        animation: fadeInPanel 0.4s ease;
+    }
+
+    @keyframes fadeInPanel {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        .privacy-switch-btn {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+    }
 </style>
 
 <!-- Footer Section -->
@@ -1235,8 +1534,31 @@ img {
 
 <script src="js/include.js"></script>
 
-    
-    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const switchBtns = document.querySelectorAll('.privacy-switch-btn');
+        const panels = document.querySelectorAll('.privacy-panel');
+
+        switchBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+
+                // Aggiorna bottoni
+                switchBtns.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+
+                // Aggiorna pannelli
+                panels.forEach(function(panel) {
+                    panel.classList.remove('active');
+                });
+                document.getElementById('privacy-' + target).classList.add('active');
+
+                // Scroll top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    });
+</script>
 
 
 </body>
