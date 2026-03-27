@@ -1845,13 +1845,13 @@
         <div class="hero-image">
             <!-- Nessun overflow: hidden qui -->
             <div style="position: relative; display: inline-block;">
-                <img src="assets/idle/idle.svg" alt="Strush character" class="hero-character" style="width: 100%; height: auto; max-width: 180px;">
+                <canvas id="hero-sprite" class="hero-character" style="width: 100%; height: auto; max-width: 420px;"></canvas>
                 <img src="assets/idle/consiglioidle.svg" alt="Consiglio" class="hero-message">
             </div>
             <style>
                 @media (max-width: 768px) {
                     .hero-character {
-                        max-width: 100px !important;
+                        max-width: 280px !important;
                     }
                 }
             </style>
@@ -5535,6 +5535,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script src="js/include.js"></script>
 
+<script>
+(function() {
+    const canvas = document.getElementById('hero-sprite');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const totalFrames = 24;
+    const fps = 20;
+    const frameDelay = 1000 / fps;
+    const pauseMs = 2000;
+    const frames = [];
+    let loaded = 0;
+
+    for (let i = 0; i < totalFrames; i++) {
+        const img = new Image();
+        img.loading = 'eager';
+        img.decoding = 'sync';
+        img.src = 'assets/idle/spritesheet/IDLE/IDLE__' + String(i).padStart(5, '0') + '.png';
+        img.onload = function() {
+            loaded++;
+            if (loaded === 1) {
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                ctx.drawImage(img, 0, 0);
+            }
+            if (loaded === totalFrames) playOnce();
+        };
+        frames.push(img);
+    }
+
+    function playOnce() {
+        let currentFrame = 0;
+        let lastFrameTime = performance.now();
+
+        function animate(currentTime) {
+            const elapsed = currentTime - lastFrameTime;
+            if (elapsed >= frameDelay) {
+                currentFrame++;
+                lastFrameTime = currentTime - (elapsed % frameDelay);
+                if (currentFrame >= totalFrames) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(frames[0], 0, 0);
+                    setTimeout(playOnce, pauseMs);
+                    return;
+                }
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(frames[currentFrame], 0, 0);
+            }
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+    }
+})();
+</script>
 
 </body>
 

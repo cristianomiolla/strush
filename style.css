@@ -287,10 +287,10 @@ img {
 /* Hero message (consiglioidle.svg) */
 .hero-message {
     position: absolute;
-    top: -45%;
+    top: -35%;
     left: 50%;
     transform: translateX(-58%);
-    width: 180% !important;
+    width: 320px !important;
     max-width: none !important;
     height: auto !important;
     opacity: 0;
