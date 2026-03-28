@@ -315,7 +315,7 @@ img {
 
 @media (max-width: 768px) {
     .hero-message {
-        width: 300% !important;
+        width: 100% !important;
         top: -10%;
         left: 50%;
         transform: translateX(-50%);
