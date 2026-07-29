@@ -250,7 +250,7 @@
     <!-- Preloader -->
 <div id="video-preloader" class="video-preloader">
     <div class="preloader-content">
-        <img id="preloader-animation" class="preloader-animation" alt="Loading...">
+        <canvas id="preloader-canvas" class="preloader-canvas"></canvas>
     </div>
 </div>
 
@@ -286,16 +286,10 @@
         align-items: center;
     }
 
-    .preloader-animation {
+    .preloader-canvas {
         width: 600px;
-        height: 600px;
-        object-fit: contain;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        height: 338px;
         display: block;
-        will-change: contents;
-        transform: translateZ(0);
-        backface-visibility: hidden;
     }
 
     /* Mobile styles */
@@ -305,11 +299,11 @@
             max-width: none;
         }
 
-        .preloader-animation {
+        .preloader-canvas {
             width: 80vw;
-            height: 80vw;
+            height: 45vw;
             max-width: 500px;
-            max-height: 500px;
+            max-height: 281px;
         }
     }
 </style>
@@ -319,94 +313,66 @@
         'use strict';
 
         const preloader = document.getElementById('video-preloader');
-        const animationImg = document.getElementById('preloader-animation');
+        const canvas = document.getElementById('preloader-canvas');
+        const ctx = canvas.getContext('2d');
 
-        // Genera array di 72 frame (da seq_0_0.png a seq_0_71.png)
-        const frames = [];
-        for (let i = 0; i <= 71; i++) {
-            frames.push(`assets/spritesheet/images/seq_0_${i}.png`);
-        }
+        // Spritesheet config: 8 colonne x 9 righe, 72 frame, ogni frame 600x338
+        const COLS = 8;
+        const FRAME_W = 1200;
+        const FRAME_H = 675;
+        const TOTAL_FRAMES = 72;
+        const FPS = 24;
+        const FRAME_DELAY = 1000 / FPS;
+
+        canvas.width = FRAME_W;
+        canvas.height = FRAME_H;
 
         let currentFrame = 0;
-        let animationInterval = null;
         let animationEnded = false;
         let pageLoaded = false;
-        const fps = 24;
-        const frameDelay = 1000 / fps;
-        let frameCount = 0;
-        const totalFrames = frames.length; // Un solo loop completo
 
-        // Preload tutte le immagini in memoria con ottimizzazioni
-        const preloadedImages = [];
-        let loadedCount = 0;
-        let allImagesReady = false;
+        // Carica la spritesheet unica
+        const spritesheet = new Image();
+        spritesheet.onload = function() {
+            // Disegna il primo frame subito
+            drawFrame(0);
+            requestAnimationFrame(startAnimation);
+        };
+        spritesheet.onerror = function() {
+            console.error('Failed to load spritesheet');
+        };
+        spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.png';
 
-        // Precarica tutte le immagini prima di iniziare
-        const preloadPromises = frames.map((src, index) => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-
-                // Ottimizzazioni per il caricamento
-                img.loading = 'eager';
-                img.decoding = 'sync';
-
-                img.onload = () => {
-                    preloadedImages[index] = img; // Mantieni l'ordine corretto
-                    loadedCount++;
-                    if (loadedCount % 10 === 0 || loadedCount === frames.length) {
-                        console.log(`Loaded ${loadedCount}/${frames.length} frames`);
-                    }
-                    resolve(img);
-                };
-                img.onerror = () => {
-                    console.error(`Failed to load frame: ${src}`);
-                    reject(new Error(`Failed to load ${src}`));
-                };
-                img.src = src;
-            });
-        });
-
-        // Aspetta che TUTTE le immagini siano caricate
-        Promise.all(preloadPromises).then(() => {
-            console.log('All frames loaded and cached, starting animation');
-            allImagesReady = true;
-            requestAnimationFrame(() => {
-                startAnimation();
-            });
-        }).catch((error) => {
-            console.error('Error loading frames:', error);
-        });
-
-        // Imposta il primo frame subito
-        animationImg.src = frames[0];
-        console.log('First frame set');
+        function drawFrame(frame) {
+            const col = frame % COLS;
+            const row = Math.floor(frame / COLS);
+            ctx.clearRect(0, 0, FRAME_W, FRAME_H);
+            ctx.drawImage(
+                spritesheet,
+                col * FRAME_W, row * FRAME_H, FRAME_W, FRAME_H,
+                0, 0, FRAME_W, FRAME_H
+            );
+        }
 
         function startAnimation() {
-            if (!allImagesReady) return;
-
             let lastFrameTime = performance.now();
             let animationId;
 
             function animate(currentTime) {
                 const elapsed = currentTime - lastFrameTime;
 
-                if (elapsed >= frameDelay) {
-                    frameCount++;
-                    currentFrame = (currentFrame + 1) % frames.length;
+                if (elapsed >= FRAME_DELAY) {
+                    currentFrame++;
+                    lastFrameTime = currentTime - (elapsed % FRAME_DELAY);
 
-                    // Usa l'oggetto Image precaricato invece di cambiare src
-                    animationImg.src = preloadedImages[currentFrame].src;
-
-                    lastFrameTime = currentTime - (elapsed % frameDelay);
-
-                    // Completa dopo un loop completo
-                    if (frameCount >= totalFrames) {
+                    if (currentFrame >= TOTAL_FRAMES) {
                         cancelAnimationFrame(animationId);
                         animationEnded = true;
-                        console.log('Animation ended');
                         removePreloader();
                         return;
                     }
+
+                    drawFrame(currentFrame);
                 }
 
                 animationId = requestAnimationFrame(animate);
@@ -5540,6 +5506,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('hero-sprite');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+
     const totalFrames = 24;
     const fps = 20;
     const frameDelay = 1000 / fps;
