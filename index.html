@@ -324,7 +324,7 @@
         const FPS = 24;
         const FRAME_DELAY = 1000 / FPS;
 
-        // Su mobile dimezza la risoluzione del canvas per performance
+        // Su mobile riduce la risoluzione del canvas per performance
         const isMobile = window.innerWidth <= 768;
         const scale = isMobile ? 0.5 : 1;
         const FRAME_W = Math.round(SRC_FRAME_W * scale);
@@ -337,46 +337,33 @@
         let animationEnded = false;
         let pageLoaded = false;
 
-        // Frame bitmap pre-estratti (popolati in background su mobile)
-        const frameBitmaps = [];
+        // Carica la spritesheet
         const spritesheet = new Image();
+        spritesheet.decoding = 'async';
         spritesheet.onload = function() {
-            // Mostra subito il primo frame e avvia l'animazione
             drawFrame(0);
             requestAnimationFrame(startAnimation);
-
-            // Su mobile: prepara i bitmap in background per i frame successivi
-            if (typeof createImageBitmap === 'function' && isMobile) {
-                for (let i = 0; i < TOTAL_FRAMES; i++) {
-                    const col = i % COLS;
-                    const row = Math.floor(i / COLS);
-                    createImageBitmap(spritesheet,
-                        col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
-                        { resizeWidth: FRAME_W, resizeHeight: FRAME_H, resizeQuality: 'low' }
-                    ).then(function(bmp) { frameBitmaps[i] = bmp; });
-                }
-            }
         };
         spritesheet.onerror = function() {
             console.error('Failed to load spritesheet');
         };
-        spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.png';
+        // WebP è ~50% più leggero, con fallback PNG
+        var testWebP = document.createElement('canvas');
+        if (testWebP.toDataURL && testWebP.toDataURL('image/webp').indexOf('data:image/webp') === 0) {
+            spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.webp';
+        } else {
+            spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.png';
+        }
 
         function drawFrame(frame) {
+            const col = frame % COLS;
+            const row = Math.floor(frame / COLS);
             ctx.clearRect(0, 0, FRAME_W, FRAME_H);
-            if (frameBitmaps[frame]) {
-                // Frame pre-estratto: nessun scaling necessario
-                ctx.drawImage(frameBitmaps[frame], 0, 0);
-            } else {
-                // Fallback: crop dalla spritesheet con scaling
-                const col = frame % COLS;
-                const row = Math.floor(frame / COLS);
-                ctx.drawImage(
-                    spritesheet,
-                    col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
-                    0, 0, FRAME_W, FRAME_H
-                );
-            }
+            ctx.drawImage(
+                spritesheet,
+                col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
+                0, 0, FRAME_W, FRAME_H
+            );
         }
 
         function startAnimation() {
@@ -393,10 +380,6 @@
                     if (currentFrame >= TOTAL_FRAMES) {
                         cancelAnimationFrame(animationId);
                         animationEnded = true;
-                        // Libera memoria dei bitmap
-                        for (let i = 0; i < frameBitmaps.length; i++) {
-                            if (frameBitmaps[i]) frameBitmaps[i].close();
-                        }
                         removePreloader();
                         return;
                     }
