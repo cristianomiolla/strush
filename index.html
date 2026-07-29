@@ -337,32 +337,24 @@
         let animationEnded = false;
         let pageLoaded = false;
 
-        // Pre-estrai tutti i frame come ImageBitmap per evitare scaling a ogni drawImage
+        // Frame bitmap pre-estratti (popolati in background su mobile)
         const frameBitmaps = [];
         const spritesheet = new Image();
         spritesheet.onload = function() {
+            // Mostra subito il primo frame e avvia l'animazione
+            drawFrame(0);
+            requestAnimationFrame(startAnimation);
+
+            // Su mobile: prepara i bitmap in background per i frame successivi
             if (typeof createImageBitmap === 'function' && isMobile) {
-                // Su mobile: pre-croppa ogni frame dalla spritesheet come bitmap separato
-                const promises = [];
                 for (let i = 0; i < TOTAL_FRAMES; i++) {
                     const col = i % COLS;
                     const row = Math.floor(i / COLS);
-                    promises.push(
-                        createImageBitmap(spritesheet,
-                            col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
-                            { resizeWidth: FRAME_W, resizeHeight: FRAME_H, resizeQuality: 'low' }
-                        )
-                    );
+                    createImageBitmap(spritesheet,
+                        col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
+                        { resizeWidth: FRAME_W, resizeHeight: FRAME_H, resizeQuality: 'low' }
+                    ).then(function(bmp) { frameBitmaps[i] = bmp; });
                 }
-                Promise.all(promises).then(function(bitmaps) {
-                    for (let i = 0; i < bitmaps.length; i++) frameBitmaps[i] = bitmaps[i];
-                    drawFrame(0);
-                    requestAnimationFrame(startAnimation);
-                });
-            } else {
-                // Desktop: disegna direttamente dalla spritesheet (già fluido)
-                drawFrame(0);
-                requestAnimationFrame(startAnimation);
             }
         };
         spritesheet.onerror = function() {
