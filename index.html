@@ -337,12 +337,33 @@
         let animationEnded = false;
         let pageLoaded = false;
 
-        // Carica la spritesheet unica
+        // Pre-estrai tutti i frame come ImageBitmap per evitare scaling a ogni drawImage
+        const frameBitmaps = [];
         const spritesheet = new Image();
         spritesheet.onload = function() {
-            // Disegna il primo frame subito
-            drawFrame(0);
-            requestAnimationFrame(startAnimation);
+            if (typeof createImageBitmap === 'function' && isMobile) {
+                // Su mobile: pre-croppa ogni frame dalla spritesheet come bitmap separato
+                const promises = [];
+                for (let i = 0; i < TOTAL_FRAMES; i++) {
+                    const col = i % COLS;
+                    const row = Math.floor(i / COLS);
+                    promises.push(
+                        createImageBitmap(spritesheet,
+                            col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
+                            { resizeWidth: FRAME_W, resizeHeight: FRAME_H, resizeQuality: 'low' }
+                        )
+                    );
+                }
+                Promise.all(promises).then(function(bitmaps) {
+                    for (let i = 0; i < bitmaps.length; i++) frameBitmaps[i] = bitmaps[i];
+                    drawFrame(0);
+                    requestAnimationFrame(startAnimation);
+                });
+            } else {
+                // Desktop: disegna direttamente dalla spritesheet (già fluido)
+                drawFrame(0);
+                requestAnimationFrame(startAnimation);
+            }
         };
         spritesheet.onerror = function() {
             console.error('Failed to load spritesheet');
@@ -350,14 +371,20 @@
         spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.png';
 
         function drawFrame(frame) {
-            const col = frame % COLS;
-            const row = Math.floor(frame / COLS);
             ctx.clearRect(0, 0, FRAME_W, FRAME_H);
-            ctx.drawImage(
-                spritesheet,
-                col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
-                0, 0, FRAME_W, FRAME_H
-            );
+            if (frameBitmaps[frame]) {
+                // Frame pre-estratto: nessun scaling necessario
+                ctx.drawImage(frameBitmaps[frame], 0, 0);
+            } else {
+                // Fallback: crop dalla spritesheet con scaling
+                const col = frame % COLS;
+                const row = Math.floor(frame / COLS);
+                ctx.drawImage(
+                    spritesheet,
+                    col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
+                    0, 0, FRAME_W, FRAME_H
+                );
+            }
         }
 
         function startAnimation() {
@@ -374,6 +401,10 @@
                     if (currentFrame >= TOTAL_FRAMES) {
                         cancelAnimationFrame(animationId);
                         animationEnded = true;
+                        // Libera memoria dei bitmap
+                        for (let i = 0; i < frameBitmaps.length; i++) {
+                            if (frameBitmaps[i]) frameBitmaps[i].close();
+                        }
                         removePreloader();
                         return;
                     }
