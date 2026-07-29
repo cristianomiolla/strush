@@ -316,13 +316,19 @@
         const canvas = document.getElementById('preloader-canvas');
         const ctx = canvas.getContext('2d');
 
-        // Spritesheet config: 8 colonne x 9 righe, 72 frame, ogni frame 600x338
+        // Spritesheet config: 8 colonne x 9 righe, 72 frame
         const COLS = 8;
-        const FRAME_W = 1200;
-        const FRAME_H = 675;
+        const SRC_FRAME_W = 1200;
+        const SRC_FRAME_H = 675;
         const TOTAL_FRAMES = 72;
         const FPS = 24;
         const FRAME_DELAY = 1000 / FPS;
+
+        // Su mobile dimezza la risoluzione del canvas per performance
+        const isMobile = window.innerWidth <= 768;
+        const scale = isMobile ? 0.5 : 1;
+        const FRAME_W = Math.round(SRC_FRAME_W * scale);
+        const FRAME_H = Math.round(SRC_FRAME_H * scale);
 
         canvas.width = FRAME_W;
         canvas.height = FRAME_H;
@@ -349,7 +355,7 @@
             ctx.clearRect(0, 0, FRAME_W, FRAME_H);
             ctx.drawImage(
                 spritesheet,
-                col * FRAME_W, row * FRAME_H, FRAME_W, FRAME_H,
+                col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
                 0, 0, FRAME_W, FRAME_H
             );
         }
