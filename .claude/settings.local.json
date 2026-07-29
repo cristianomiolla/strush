@@ -21,7 +21,16 @@
       "Bash(python update_preloader.py:*)",
       "Bash(lsof:*)",
       "Bash(python:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(find '/c/Users/crist/OneDrive/Documenti/progetti/strush/landing page/main' -type f \\\\\\(-name *.html -o -name *.jsx -o -name *.tsx -o -name *.js -o -name package.json \\\\\\))",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"Done: $f\")",
+      "Bash(identify 'z:/Generale/Strush/landing page/main/assets/spritesheet/images/seq_0_0.png')",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(ls \"z:/Generale/Strush/landing page/main/assets/idle/spritesheet/IDLE/IDLE__\"*)",
+      "Bash(ls \"z:/Generale/Strush/landing page/main/assets/idle/spritesheet/IDLE/\"IDLE__*)"
     ],
     "deny": [],
     "ask": []
