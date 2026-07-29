@@ -318,17 +318,14 @@
 
         // Spritesheet config: 8 colonne x 9 righe, 72 frame
         const COLS = 8;
-        const SRC_FRAME_W = 1200;
-        const SRC_FRAME_H = 675;
         const TOTAL_FRAMES = 72;
         const FPS = 24;
         const FRAME_DELAY = 1000 / FPS;
 
-        // Su mobile riduce la risoluzione del canvas per performance
+        // Su mobile usa spritesheet pre-ridimensionata (no scaling GPU)
         const isMobile = window.innerWidth <= 768;
-        const scale = isMobile ? 0.35 : 1;
-        const FRAME_W = Math.round(SRC_FRAME_W * scale);
-        const FRAME_H = Math.round(SRC_FRAME_H * scale);
+        const FRAME_W = isMobile ? 600 : 1200;
+        const FRAME_H = isMobile ? 337 : 675;
 
         canvas.width = FRAME_W;
         canvas.height = FRAME_H;
@@ -337,7 +334,7 @@
         let animationEnded = false;
         let pageLoaded = false;
 
-        // Carica la spritesheet
+        // Carica la spritesheet (mobile: pre-ridimensionata 445KB, desktop: full 990KB)
         const spritesheet = new Image();
         spritesheet.decoding = 'async';
         spritesheet.onload = function() {
@@ -347,10 +344,13 @@
         spritesheet.onerror = function() {
             console.error('Failed to load spritesheet');
         };
-        // WebP è ~50% più leggero, con fallback PNG
+        // WebP con fallback PNG
         var testWebP = document.createElement('canvas');
-        if (testWebP.toDataURL && testWebP.toDataURL('image/webp').indexOf('data:image/webp') === 0) {
-            spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.webp';
+        var supportsWebP = testWebP.toDataURL && testWebP.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        if (supportsWebP) {
+            spritesheet.src = isMobile
+                ? 'assets/spritesheet/logo-reveal-spritesheet-mobile.webp'
+                : 'assets/spritesheet/logo-reveal-spritesheet.webp';
         } else {
             spritesheet.src = 'assets/spritesheet/logo-reveal-spritesheet.png';
         }
@@ -359,9 +359,10 @@
             const col = frame % COLS;
             const row = Math.floor(frame / COLS);
             ctx.clearRect(0, 0, FRAME_W, FRAME_H);
+            // Nessun scaling: sorgente e canvas hanno la stessa risoluzione
             ctx.drawImage(
                 spritesheet,
-                col * SRC_FRAME_W, row * SRC_FRAME_H, SRC_FRAME_W, SRC_FRAME_H,
+                col * FRAME_W, row * FRAME_H, FRAME_W, FRAME_H,
                 0, 0, FRAME_W, FRAME_H
             );
         }
