@@ -657,9 +657,7 @@
             }
         });
     </script>
-    
-</section>
-      
+
 
     <!-- Chatbot -->
 <section id="chatbot">
@@ -982,17 +980,6 @@
             let isFirstOpen = true;
 
             const optionsDefinition = {
-                preregister: {
-                    text: 'Voglio preregistrarmi all\'alpha',
-                    action: () => {
-                        const messageHTML = 'Ah, un visionario! 😎 (niente spam, giuriamo).<br>' +
-                                            '<button class="chatbot-action-button" onclick="window.open(\'download.html\', \'_blank\');" style="margin-top: 10px; margin-bottom: 5px;">🔔 Preregistrati</button>';
-                        addMessage(messageHTML, true);
-                        setTimeout(() => {
-                            askForMoreHelp([optionsDefinition.ideas, optionsDefinition.scroccone]);
-                        }, 3500);
-                    }
-                },
                 ideas: {
                     text: 'Ho delle idee geniali (forse 😅) da condividere',
                     action: () => {
@@ -1031,7 +1018,7 @@
                                 chatbotMessages.appendChild(messageElement);
                                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
                                 setTimeout(() => {
-                                    askForMoreHelp([optionsDefinition.preregister, optionsDefinition.ideas]);
+                                    askForMoreHelp([optionsDefinition.ideas]);
                                 }, 2000);
                             }, 1500);
                         }, 2000);
@@ -1117,7 +1104,6 @@
 
             function showInitialOptions() {
                  addOptions([
-                    optionsDefinition.preregister,
                     optionsDefinition.ideas,
                     optionsDefinition.scroccone
                 ]);
@@ -1183,7 +1169,6 @@
                     setTimeout(() => {
                         addMessage('✅ Input ricevuto. Se non lo usiamo, è solo perché il mondo non è ancora pronto. 🌍', true);
                          askForMoreHelp([
-                             optionsDefinition.preregister,
                              optionsDefinition.ideas,
                              optionsDefinition.scroccone
                          ]);
@@ -1201,7 +1186,7 @@
         });
     </script>
 </section>
-
+      
 
     <!-- Cursore Animation Pallino viola + Blob-->
 <div id="cursor-placeholder"></div>
