@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strush Analytics | Connect TikTok</title>
+    <meta name="application-name" content="Strush Analytics">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="assets/immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/immagini/logo_favicon.png" type="image/png">
+
+<style>
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-radius-big: 36px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; line-height: 1.6; font-weight: 400; padding-top: 70px; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Unbounded', sans-serif; line-height: 1.5; }
+h2 { font-weight: 700; font-size: 40px; }
+h4 { font-weight: 500; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+a { text-decoration: none; color: #121212; font-size: 14px; }
+p { color: #6B6F6E; font-size: 16px; }
+ul { list-style: none; }
+img { max-width: 100%; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin: 0; color: #121212; font-weight: bold; }
+.section-subtitles { text-align: center; max-width: 700px; margin: 0 auto; color: #121212; font-size: 20px; }
+
+@media (max-width: 768px) {
+    h2 { font-size: 32px; }
+    a { font-size: 16px; }
+    .section-subtitles { font-size: 18px; }
+}
+
+.sa-nav { position: fixed; top: 0; left: 0; width: 100%; height: 70px; z-index: 999; background-color: #121212; display: flex; align-items: center; justify-content: center; }
+.sa-logo { display: flex; align-items: center; }
+.sa-blob { width: 38px; height: 38px; margin-right: 8px; padding: 2px; overflow: hidden; border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); display: flex; justify-content: center; align-items: center; }
+.sa-blob img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.sa-logo-text { height: 22px; width: auto; display: inline-block; }
+
+.main-header { background: var(--gradient-primary); padding: 48px 0; text-align: center; position: relative; overflow: hidden; box-shadow: 0 8px 20px #8c8dd462; }
+.header-content { max-width: 800px; margin: 0 auto; }
+.main-header h2 { margin-bottom: 24px; }
+
+.terms-content { background-color: white; border-radius: var(--border-radius-big); padding: 3rem; box-shadow: 0 4px 10px #9495EA66; border: 1px solid var(--secondaryextralight); margin: 3rem auto; max-width: 760px; text-align: center; }
+.terms-content p { margin-bottom: 1rem; }
+.perm-list { text-align: left; margin: 1.5rem auto 2rem; max-width: 560px; }
+.perm-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; color: #6B6F6E; font-size: 16px; }
+.perm-list i { color: var(--secondary); margin-top: 5px; width: 20px; text-align: center; }
+.perm-list strong { color: var(--text); }
+
+.connect-btn {
+    display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+    padding: 14px 32px; border: none; border-radius: 32px; background: #121212; color: white;
+    font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.connect-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(148, 149, 234, 0.45); }
+.small-links { margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.small-links a { color: var(--secondary); font-weight: 600; }
+
+@media (max-width: 768px) { .terms-content { padding: 2rem; margin: 1.5rem auto; } }
+</style>
+</head>
+
+<body>
+
+<div id="cursor-placeholder"></div>
+
+<nav class="sa-nav">
+    <a href="index.html" class="sa-logo">
+        <span class="sa-blob"><img src="assets/immagini/pittogramma.png" alt="Strush Logo"></span>
+        <img src="assets/immagini/logo.png" alt="Strush" class="sa-logo-text">
+    </a>
+</nav>
+
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h2 class="section-title">Connect TikTok</h2>
+            <p class="section-subtitles">Authorize Strush Analytics to read the performance metrics of your TikTok account.</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="terms-content">
+            <h4>What Strush Analytics will access</h4>
+            <p>Strush Analytics is an internal tool of Strush SRLS. It only reads data and never posts or changes anything on your account.</p>
+
+            <ul class="perm-list">
+                <li><i class="fas fa-user"></i><span><strong>Basic profile</strong> (user.info.basic): display name and avatar.</span></li>
+                <li><i class="fas fa-chart-simple"></i><span><strong>Account statistics</strong> (user.info.stats): followers, total likes and number of videos.</span></li>
+                <li><i class="fas fa-video"></i><span><strong>Your videos</strong> (video.list): list of your videos with views, likes, comments and shares.</span></li>
+            </ul>
+
+            <button type="button" class="connect-btn" id="connectBtn">
+                <i class="fab fa-tiktok"></i> Connect TikTok
+            </button>
+
+            <div class="small-links">
+                <a href="analytics-privacy.html">Privacy Policy</a>
+                <a href="analytics-terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="js/include.js"></script>
+
+<script>
+    // 1) Inserisci qui la Client key della tua app TikTok (e' un dato pubblico, NON inserire mai la Client secret)
+    var CLIENT_KEY = 'INSERISCI_CLIENT_KEY';
+    var REDIRECT_URI = 'https://www.strush.it/analytics-callback.html';
+    var SCOPES = 'user.info.basic,user.info.stats,video.list';
+
+    document.getElementById('connectBtn').addEventListener('click', function () {
+        // Parametro "state" casuale, verificato al ritorno per evitare richieste falsificate
+        var arr = new Uint8Array(16);
+        window.crypto.getRandomValues(arr);
+        var state = Array.prototype.map.call(arr, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+        try { sessionStorage.setItem('tt_state', state); } catch (e) {}
+
+        var url = 'https://www.tiktok.com/v2/auth/authorize/'
+            + '?client_key=' + encodeURIComponent(CLIENT_KEY)
+            + '&scope=' + encodeURIComponent(SCOPES)
+            + '&response_type=code'
+            + '&redirect_uri=' + encodeURIComponent(REDIRECT_URI)
+            + '&state=' + state;
+        window.location.href = url;
+    });
+</script>
+
+</body>
+</html>

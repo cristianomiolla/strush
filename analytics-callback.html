@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strush Analytics | Authorization</title>
+    <meta name="application-name" content="Strush Analytics">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="assets/immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/immagini/logo_favicon.png" type="image/png">
+
+<style>
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-radius-big: 36px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; line-height: 1.6; font-weight: 400; padding-top: 70px; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Unbounded', sans-serif; line-height: 1.5; }
+h2 { font-weight: 700; font-size: 40px; }
+h4 { font-weight: 500; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+a { text-decoration: none; color: #121212; font-size: 14px; }
+p { color: #6B6F6E; font-size: 16px; }
+img { max-width: 100%; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin: 0; color: #121212; font-weight: bold; }
+.section-subtitles { text-align: center; max-width: 700px; margin: 0 auto; color: #121212; font-size: 20px; }
+
+@media (max-width: 768px) {
+    h2 { font-size: 32px; }
+    a { font-size: 16px; }
+    .section-subtitles { font-size: 18px; }
+}
+
+.sa-nav { position: fixed; top: 0; left: 0; width: 100%; height: 70px; z-index: 999; background-color: #121212; display: flex; align-items: center; justify-content: center; }
+.sa-logo { display: flex; align-items: center; }
+.sa-blob { width: 38px; height: 38px; margin-right: 8px; padding: 2px; overflow: hidden; border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%; background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%); display: flex; justify-content: center; align-items: center; }
+.sa-blob img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.sa-logo-text { height: 22px; width: auto; display: inline-block; }
+
+.main-header { background: var(--gradient-primary); padding: 48px 0; text-align: center; position: relative; overflow: hidden; box-shadow: 0 8px 20px #8c8dd462; }
+.header-content { max-width: 800px; margin: 0 auto; }
+.main-header h2 { margin-bottom: 24px; }
+
+.terms-content { background-color: white; border-radius: var(--border-radius-big); padding: 3rem; box-shadow: 0 4px 10px #9495EA66; border: 1px solid var(--secondaryextralight); margin: 3rem auto; max-width: 760px; text-align: center; }
+.terms-content p { margin-bottom: 1rem; }
+.status-icon { font-size: 3rem; margin-bottom: 1rem; }
+.status-ok { color: var(--primary); }
+.status-ko { color: #D9534F; }
+.code-box { display: inline-block; margin: 0.5rem 0 1.5rem; padding: 10px 18px; border-radius: 16px; background: #F4F4FB; border: 1px solid var(--secondaryextralight); font-family: monospace; font-size: 15px; color: var(--text); word-break: break-all; }
+.copy-btn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 24px; border: none; border-radius: 32px; background: #121212; color: white; font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 500; }
+.small-links { margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.small-links a { color: var(--secondary); font-weight: 600; }
+.hidden { display: none; }
+
+@media (max-width: 768px) { .terms-content { padding: 2rem; margin: 1.5rem auto; } }
+</style>
+</head>
+
+<body>
+
+<div id="cursor-placeholder"></div>
+
+<nav class="sa-nav">
+    <a href="index.html" class="sa-logo">
+        <span class="sa-blob"><img src="assets/immagini/pittogramma.png" alt="Strush Logo"></span>
+        <img src="assets/immagini/logo.png" alt="Strush" class="sa-logo-text">
+    </a>
+</nav>
+
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h2 class="section-title">Authorization</h2>
+            <p class="section-subtitles">Strush Analytics &middot; TikTok connection</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="terms-content">
+
+            <!-- Esito positivo -->
+            <div id="okBox" class="hidden">
+                <div class="status-icon status-ok"><i class="fas fa-circle-check"></i></div>
+                <h4>TikTok account connected</h4>
+                <p>Authorization completed. Strush Analytics received the authorization code and will exchange it on the server for a read-only access token. No password is ever shared with the app.</p>
+                <p>Authorization code received:</p>
+                <div class="code-box" id="codeBox"></div>
+                <br>
+                <button type="button" class="copy-btn" id="copyBtn"><i class="far fa-copy"></i> Copy code</button>
+            </div>
+
+            <!-- Esito negativo -->
+            <div id="koBox" class="hidden">
+                <div class="status-icon status-ko"><i class="fas fa-circle-xmark"></i></div>
+                <h4>Connection not completed</h4>
+                <p id="koMsg">The authorization was not completed.</p>
+                <p><a href="analytics-connect.html"><strong style="color: var(--secondary);">Try again</strong></a></p>
+            </div>
+
+            <div class="small-links">
+                <a href="analytics-privacy.html">Privacy Policy</a>
+                <a href="analytics-terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="js/include.js"></script>
+
+<script>
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var code = params.get('code');
+        var state = params.get('state');
+        var error = params.get('error');
+        var savedState = null;
+        try { savedState = sessionStorage.getItem('tt_state'); } catch (e) {}
+
+        function showError(msg) {
+            document.getElementById('koMsg').textContent = msg;
+            document.getElementById('koBox').classList.remove('hidden');
+        }
+
+        if (error) {
+            showError('TikTok returned: ' + (params.get('error_description') || error) + '.');
+        } else if (!code) {
+            showError('No authorization code was received.');
+        } else if (savedState && state !== savedState) {
+            showError('The security check (state) failed. Please start again from the connect page.');
+        } else {
+            // Mostriamo solo l'inizio del codice; il pulsante copia quello completo
+            document.getElementById('codeBox').textContent = code.slice(0, 8) + '\u2026 (' + code.length + ' characters)';
+            document.getElementById('okBox').classList.remove('hidden');
+            document.getElementById('copyBtn').addEventListener('click', function () {
+                var btn = this;
+                navigator.clipboard.writeText(code).then(function () {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+                });
+            });
+            try { sessionStorage.removeItem('tt_state'); } catch (e) {}
+            // Rimuove il codice dalla barra degli indirizzi
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    })();
+</script>
+
+</body>
+</html>
