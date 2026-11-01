@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strush Analytics | Privacy Policy</title>
+    <meta name="application-name" content="Strush Analytics">
+    <meta name="description" content="Privacy Policy of Strush Analytics, the internal tool used by Strush SRLS to read the performance metrics of its own TikTok account.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="assets/immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/immagini/logo_favicon.png" type="image/png">
+
+<style>
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-radius-big: 36px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Inter', sans-serif; line-height: 1.6; font-weight: 400; padding-top: 70px; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Unbounded', sans-serif; line-height: 1.5; }
+h2 { font-weight: 700; font-size: 40px; }
+h4 { font-weight: 500; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+h5 { font-weight: 400; font-size: 16px; color: var(--text); margin-bottom: 1rem; }
+
+a { text-decoration: none; color: #121212; font-size: 14px; }
+p { color: #6B6F6E; font-size: 16px; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+.section-title { text-align: center; margin: 0; color: #121212; font-weight: bold; }
+.section-subtitles { text-align: center; max-width: 700px; margin: 0 auto; color: #121212; font-size: 20px; }
+
+@media (max-width: 768px) {
+    h2 { font-size: 32px; }
+    a { font-size: 16px; }
+    .section-subtitles { font-size: 18px; }
+}
+
+/* Navbar semplificata */
+.sa-nav {
+    position: fixed; top: 0; left: 0; width: 100%; height: 70px; z-index: 999;
+    background-color: #121212; display: flex; align-items: center; justify-content: center;
+}
+.sa-logo { display: flex; align-items: center; }
+.sa-blob {
+    width: 38px; height: 38px; margin-right: 8px; padding: 2px; overflow: hidden;
+    border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    display: flex; justify-content: center; align-items: center;
+}
+.sa-blob img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.sa-logo-text { height: 22px; width: auto; display: inline-block; }
+
+/* Header */
+.main-header {
+    background: var(--gradient-primary); padding: 48px 0; text-align: center;
+    position: relative; overflow: hidden; box-shadow: 0 8px 20px #8c8dd462;
+}
+.main-header .container { position: relative; z-index: 2; }
+.header-content { max-width: 800px; margin: 0 auto; }
+.main-header h2 { margin-bottom: 24px; }
+
+/* Contenuto */
+.terms-content {
+    background-color: white; border-radius: var(--border-radius-big); padding: 3rem;
+    box-shadow: 0 4px 10px #9495EA66; border: 1px solid var(--secondaryextralight); margin: 3rem 0;
+}
+.terms-intro { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.terms-intro p, .terms-section p { margin-bottom: 1rem; }
+.terms-section { margin-bottom: 2.5rem; }
+.terms-section-title {
+    display: flex; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+.terms-section-title i { font-size: 1.5rem; margin-right: 1rem; color: var(--secondary); width: 25px; text-align: center; }
+.terms-section-title h4 { margin-bottom: 0; }
+
+.update-info {
+    display: flex; align-items: center; justify-content: space-between; margin-top: 4rem;
+    padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.1); flex-wrap: wrap; gap: 1rem;
+}
+.last-update { font-style: italic; color: var(--text2); }
+.update-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.update-links a { display: inline-flex; align-items: center; color: var(--secondary); font-weight: 600; }
+.update-links a i { margin-left: 0.5rem; }
+
+@media (max-width: 768px) {
+    .terms-content { padding: 2rem; margin: 1.5rem 0; }
+    .terms-section-title i { font-size: 1.3rem; margin-right: 0.8rem; }
+    .update-info { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="cursor-placeholder"></div>
+
+<nav class="sa-nav">
+    <a href="index.html" class="sa-logo">
+        <span class="sa-blob"><img src="assets/immagini/pittogramma.png" alt="Strush Logo"></span>
+        <img src="assets/immagini/logo.png" alt="Strush" class="sa-logo-text">
+    </a>
+</nav>
+
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h2 class="section-title">Privacy Policy</h2>
+            <p class="section-subtitles">Strush Analytics: how we handle the data of our own TikTok account.</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="terms-content">
+
+            <div class="terms-intro">
+                <h4>Privacy Policy of Strush Analytics</h4>
+                <p>Strush Analytics (the "Tool") is a private, internal tool operated by Strush SRLS to read the performance metrics of the TikTok account(s) of Strush and to build internal performance reports. It is not a public service and it is not available to the general public.</p>
+                <p>The Tool is separate from the Strush mobile app and from the www.strush.it website, which have their own privacy policies. This policy applies only to the Tool and to the data it obtains through TikTok.</p>
+                <p>This notice is provided pursuant to Article 13 of Regulation (EU) 2016/679 (GDPR).</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-shield"></i>
+                    <h4>1. Data Controller</h4>
+                </div>
+                <p><strong>Strush SRLS</strong></p>
+                <p>Registered office: Via Napoleone Colajanni, 2, 70125 Bari (BA), Italy</p>
+                <p>VAT No.: 09068680728</p>
+                <p>Email: support@strush.it</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-database"></i>
+                    <h4>2. Data We Access</h4>
+                </div>
+                <p>When the owner of a TikTok account authorizes the Tool through TikTok Login Kit, the Tool uses the TikTok Display API with the scopes <strong>user.info.basic</strong>, <strong>user.info.stats</strong> and <strong>video.list</strong>, and accesses only:</p>
+                <p>- Basic profile information: TikTok open ID, display name and avatar;</p>
+                <p>- Account statistics: number of followers, number of accounts followed, total likes and number of videos;</p>
+                <p>- For the videos published by the authorized account: video ID, title, description, publication date, duration, share link, cover image and the counters of views, likes, comments and shares.</p>
+                <p>The Tool also stores the authorization tokens issued by TikTok, which are needed to call the TikTok API on behalf of the authorizing account.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-ban"></i>
+                    <h4>3. Data We Do Not Access</h4>
+                </div>
+                <p>The Tool does not access private messages, contacts, followers' personal data, comments' authors, or any data about other TikTok users. It does not post, edit or delete content, and it does not interact with other accounts on your behalf. It performs read-only operations.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>4. Purposes and Legal Basis</h4>
+                </div>
+                <p>The data is used solely to monitor the performance of the videos published by the authorized account and to produce internal periodic summaries (for example, views, likes, comments and shares recorded at 24 hours, 7 days and 30 days after publication).</p>
+                <p>The legal basis for the processing is the consent of the account owner, given through the TikTok authorization flow and revocable at any time, and the legitimate interest of the Controller in assessing the performance of its own content.</p>
+                <p>The data is not used for advertising, profiling of individuals, resale, or training of generative AI models.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-server"></i>
+                    <h4>5. Storage and Recipients</h4>
+                </div>
+                <p>The data is processed by automation workflows operated by the Controller and stored in the Controller's private workspace on Notion. Summaries of the metrics may be sent to a private Telegram chat accessible only to authorized members of the Strush team.</p>
+                <p>We do not sell, rent or share the data with third parties for advertising or for any purpose other than those described above. Data may be disclosed to the competent authorities only where required by law.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-globe-europe"></i>
+                    <h4>6. International Transfers</h4>
+                </div>
+                <p>Some of the service providers we use (such as Notion and Telegram) may process data outside the European Union, including in the United States. In that case the transfer takes place in accordance with the GDPR, through the standard contractual clauses approved by the European Commission or other adequate safeguards provided by law.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-history"></i>
+                    <h4>7. Retention</h4>
+                </div>
+                <p>The metrics are kept for as long as the authorized account uses the Tool. Authorization tokens are kept only as long as access is active. When access is revoked, or upon request of the account owner, the tokens are deleted immediately and the stored data is deleted within 30 days.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-lock"></i>
+                    <h4>8. Security</h4>
+                </div>
+                <p>We adopt appropriate technical and organizational measures to protect the data from unauthorized access, loss or disclosure, including restricted access to the workspace and to the credentials of the Tool. No transmission over the Internet can be guaranteed to be completely secure.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-slash"></i>
+                    <h4>9. Revoking Access</h4>
+                </div>
+                <p>You can revoke the access of the Tool to your TikTok account at any time from your TikTok settings (Security and permissions, then Apps and services), or by writing to <strong>support@strush.it</strong>. After revocation the Tool stops collecting data.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-check"></i>
+                    <h4>10. Your Rights</h4>
+                </div>
+                <p>Under the GDPR you have the right to:</p>
+                <p>- Access your personal data;</p>
+                <p>- Request the rectification of inaccurate or incomplete data;</p>
+                <p>- Request the deletion of your data;</p>
+                <p>- Request the restriction of the processing;</p>
+                <p>- Object to the processing on grounds relating to your particular situation;</p>
+                <p>- Withdraw your consent at any time, without affecting the lawfulness of the processing carried out before the withdrawal;</p>
+                <p>- Request the portability of your data;</p>
+                <p>- Lodge a complaint with the Italian Data Protection Authority (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+                <p>To exercise your rights write to <strong>support@strush.it</strong>.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-edit"></i>
+                    <h4>11. Changes to this Policy</h4>
+                </div>
+                <p>This policy may be updated from time to time. The date of the latest update is shown at the bottom of this page, and the changes are effective from the date of publication.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-envelope"></i>
+                    <h4>12. Contact</h4>
+                </div>
+                <p>For any question about privacy: <strong>support@strush.it</strong></p>
+            </div>
+
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-calendar-alt"></i> Last updated: 1 November 2026
+                </div>
+                <div class="update-links">
+                    <a href="analytics-terms.html">Terms of Service <i class="fas fa-arrow-right"></i></a>
+                    <a href="#">Back to top <i class="fas fa-arrow-up"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="js/include.js"></script>
+
+</body>
+</html>
