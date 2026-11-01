@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strush Analytics | Terms of Service</title>
+    <meta name="application-name" content="Strush Analytics">
+    <meta name="description" content="Terms of Service of Strush Analytics, the internal tool used by Strush SRLS to read the performance metrics of its own TikTok account.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="assets/immagini/logo_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/immagini/logo_favicon.png" type="image/png">
+
+<style>
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Unbounded'; src: url('./font/Strush/Unbounded-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+    --primary: #84CD9D;
+    --secondary: #9495EA;
+    --secondaryextralight: #D1D1F2;
+    --text: #121212;
+    --text2: #6B6F6E;
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-radius-big: 36px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Inter', sans-serif; line-height: 1.6; font-weight: 400; padding-top: 70px; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Unbounded', sans-serif; line-height: 1.5; }
+h2 { font-weight: 700; font-size: 40px; }
+h4 { font-weight: 500; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+h5 { font-weight: 400; font-size: 16px; color: var(--text); margin-bottom: 1rem; }
+
+a { text-decoration: none; color: #121212; font-size: 14px; }
+p { color: #6B6F6E; font-size: 16px; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+.section-title { text-align: center; margin: 0; color: #121212; font-weight: bold; }
+.section-subtitles { text-align: center; max-width: 700px; margin: 0 auto; color: #121212; font-size: 20px; }
+
+@media (max-width: 768px) {
+    h2 { font-size: 32px; }
+    a { font-size: 16px; }
+    .section-subtitles { font-size: 18px; }
+}
+
+/* Navbar semplificata */
+.sa-nav {
+    position: fixed; top: 0; left: 0; width: 100%; height: 70px; z-index: 999;
+    background-color: #121212; display: flex; align-items: center; justify-content: center;
+}
+.sa-logo { display: flex; align-items: center; }
+.sa-blob {
+    width: 38px; height: 38px; margin-right: 8px; padding: 2px; overflow: hidden;
+    border-radius: 60% 40% 65% 35% / 35% 65% 35% 65%;
+    background: linear-gradient(135deg, #84CD9D 0%, #9495EA 100%);
+    display: flex; justify-content: center; align-items: center;
+}
+.sa-blob img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.sa-logo-text { height: 22px; width: auto; display: inline-block; }
+
+/* Header */
+.main-header {
+    background: var(--gradient-primary); padding: 48px 0; text-align: center;
+    position: relative; overflow: hidden; box-shadow: 0 8px 20px #8c8dd462;
+}
+.main-header .container { position: relative; z-index: 2; }
+.header-content { max-width: 800px; margin: 0 auto; }
+.main-header h2 { margin-bottom: 24px; }
+
+/* Contenuto */
+.terms-content {
+    background-color: white; border-radius: var(--border-radius-big); padding: 3rem;
+    box-shadow: 0 4px 10px #9495EA66; border: 1px solid var(--secondaryextralight); margin: 3rem 0;
+}
+.terms-intro { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.terms-intro p, .terms-section p { margin-bottom: 1rem; }
+.terms-section { margin-bottom: 2.5rem; }
+.terms-section-title {
+    display: flex; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+.terms-section-title i { font-size: 1.5rem; margin-right: 1rem; color: var(--secondary); width: 25px; text-align: center; }
+.terms-section-title h4 { margin-bottom: 0; }
+
+.update-info {
+    display: flex; align-items: center; justify-content: space-between; margin-top: 4rem;
+    padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.1); flex-wrap: wrap; gap: 1rem;
+}
+.last-update { font-style: italic; color: var(--text2); }
+.update-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.update-links a { display: inline-flex; align-items: center; color: var(--secondary); font-weight: 600; }
+.update-links a i { margin-left: 0.5rem; }
+
+@media (max-width: 768px) {
+    .terms-content { padding: 2rem; margin: 1.5rem 0; }
+    .terms-section-title i { font-size: 1.3rem; margin-right: 0.8rem; }
+    .update-info { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="cursor-placeholder"></div>
+
+<nav class="sa-nav">
+    <a href="index.html" class="sa-logo">
+        <span class="sa-blob"><img src="assets/immagini/pittogramma.png" alt="Strush Logo"></span>
+        <img src="assets/immagini/logo.png" alt="Strush" class="sa-logo-text">
+    </a>
+</nav>
+
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <h2 class="section-title">Terms of Service</h2>
+            <p class="section-subtitles">Strush Analytics: the conditions of use of our internal TikTok analytics tool.</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="terms-content">
+
+            <div class="terms-intro">
+                <h4>Terms of Service of Strush Analytics</h4>
+                <p>These Terms of Service govern the use of Strush Analytics (the "Tool"), an internal tool operated by Strush SRLS ("we", "us") to collect and report the performance metrics of the TikTok account(s) of Strush.</p>
+                <p>The Tool is separate from the Strush mobile app and from the www.strush.it website, which are governed by their own terms and conditions. By authorizing the Tool to access a TikTok account you confirm that you have read and accepted these Terms.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>1. Purpose and Scope</h4>
+                </div>
+                <p>The Tool reads, through the TikTok Display API, the public profile statistics and the list of videos of an authorized TikTok account, together with the counters of views, likes, comments and shares, in order to produce internal performance reports. The Tool is not a public service and it is not offered to consumers.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-check"></i>
+                    <h4>2. Eligibility and Access</h4>
+                </div>
+                <p>Only the owners of a TikTok account, or persons expressly authorized by them, who complete the TikTok authorization flow can connect an account to the Tool. You must be at least 18 years old, or the age of majority in your country, to authorize the Tool.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-key"></i>
+                    <h4>3. Permissions</h4>
+                </div>
+                <p>By authorizing the Tool you grant it read-only access to your basic profile information (user.info.basic), your account statistics (user.info.stats) and the list of your own videos with their public counters (video.list). The Tool never publishes, edits or deletes content, never sends messages and never acts on your behalf.</p>
+                <p>The data we process and how we protect it are described in the <a href="analytics-privacy.html"><strong>Privacy Policy of Strush Analytics</strong></a>.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>4. Acceptable Use</h4>
+                </div>
+                <p>The Tool must be used only on accounts that you own or that you are authorized to manage, in compliance with the applicable law and with the TikTok Terms of Service and TikTok Developer Terms. It is forbidden to attempt to access data of other users, to bypass security measures, to overload the Tool or to use it for purposes other than those described in these Terms.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fab fa-tiktok"></i>
+                    <h4>5. TikTok</h4>
+                </div>
+                <p>TikTok is a trademark of its respective owner. The Tool is not endorsed by, sponsored by or affiliated with TikTok. The availability and the accuracy of the data depend on the TikTok API, which may change or be interrupted at any time.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-copyright"></i>
+                    <h4>6. Intellectual Property</h4>
+                </div>
+                <p>The Tool, its name and logo belong to Strush SRLS. Your TikTok content and account data remain yours, and the Tool does not acquire any right over them beyond what is strictly needed to produce the internal reports described above.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <h4>7. Availability and Disclaimer</h4>
+                </div>
+                <p>The Tool is provided "as is" and "as available", without warranties of any kind. We do not guarantee that it will be uninterrupted, error-free or that the metrics displayed will be complete or accurate. The reports are for information purposes only and do not constitute advice of any kind.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-scale-unbalanced"></i>
+                    <h4>8. Limitation of Liability</h4>
+                </div>
+                <p>To the maximum extent permitted by law, Strush SRLS is not liable for any indirect or consequential damage, loss of data or loss of profit deriving from the use of, or the inability to use, the Tool, except in the cases in which liability cannot be excluded by law.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-user-slash"></i>
+                    <h4>9. Revocation and Termination</h4>
+                </div>
+                <p>You can revoke the access of the Tool to your TikTok account at any time from your TikTok settings (Security and permissions, then Apps and services), or by writing to <strong>support@strush.it</strong>. We may suspend or terminate the access of the Tool to an account at any time, in particular if these Terms or the TikTok policies are violated. After revocation or termination the Tool stops collecting data and the stored data is handled as described in the Privacy Policy.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-edit"></i>
+                    <h4>10. Changes to these Terms</h4>
+                </div>
+                <p>We may update these Terms from time to time. The latest version is always available at this address, and the changes are effective from the date of publication. Continuing to use the Tool after a change means that you accept the updated Terms.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-gavel"></i>
+                    <h4>11. Governing Law</h4>
+                </div>
+                <p>These Terms are governed by Italian law. For any dispute the competent court is the court of Bari (Italy), without prejudice to any mandatory consumer protection rule that provides otherwise.</p>
+            </div>
+
+            <div class="terms-section">
+                <div class="terms-section-title">
+                    <i class="fas fa-envelope"></i>
+                    <h4>12. Contact</h4>
+                </div>
+                <p><strong>Strush SRLS</strong>, Via Napoleone Colajanni, 2, 70125 Bari (BA), Italy, VAT No. 09068680728</p>
+                <p>Email: <strong>support@strush.it</strong></p>
+            </div>
+
+            <div class="update-info">
+                <div class="last-update">
+                    <i class="far fa-calendar-alt"></i> Last updated: 1 November 2026
+                </div>
+                <div class="update-links">
+                    <a href="analytics-privacy.html">Privacy Policy <i class="fas fa-arrow-right"></i></a>
+                    <a href="#">Back to top <i class="fas fa-arrow-up"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="js/include.js"></script>
+
+</body>
+</html>
