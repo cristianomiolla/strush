@@ -4,9 +4,7 @@
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <!-- === MODIFICA HTML: Logo completo === -->
                     <img src="assets/immagini/logocompleto.png" alt="Strush Logo Completo" class="footer-logo-complete">
-                    <!-- === FINE MODIFICA HTML === -->
                 </div>
                 <p class="elevator-pitch">Tieni d'occhio le tue spese, dividi i conti con gli amici e fai pace con i tuoi soldi.</p>
                 <p class="footer-email">E-mail: <a href="mailto:info@strush.it">info@strush.it</a></p>
@@ -21,9 +19,9 @@
                 <h5 class="links-rapidi">Link Rapidi</h5>
                 <ul>
                     <li><a href="index.html#hero">Home</a></li>
-                    <li><a href="index.html#features">Caratteristiche</a></li>
-                    <li><a href="index.html#avatar-evolution">Avatar</a></li>
-                    <li><a href="index.html#testimonials">Testimonianze</a></li>
+                    <li><a href="index.html#features-desktop">Caratteristiche</a></li>
+                    <li><a href="index.html#manifesto">Dove andiamo</a></li>
+                    <li><a href="index.html#team">Team</a></li>
                 </ul>
             </div>
 
@@ -48,12 +46,11 @@
         <div class="copyright">
             <h6 class="proudly-crafted">Proudly crafted in Southern Italy 🌞</h6>
             <h6 class="copyright-text">Sede legale: Via Napoleone Colajanni, 2 Bari (BA) - Capitale sociale: 9.500€ - P. IVA: 09068680728<br>© 2025 Strush SRLS - Tutti i diritti riservati </h6>
-            
         </div>
     </div>
 
     <style>
-        /* Stili generali del footer (invariati) */
+        /* Stili generali del footer */
         footer {
             background-color: var(--dark);
             color: white;
@@ -90,29 +87,13 @@
             margin-bottom: 16px;
         }
 
-        /* === MODIFICA CSS: Stile per l'immagine del logo completo === */
         .footer-logo-complete {
-            height: 24px;  /* Adatta l'altezza come desideri */
-            width: auto;  /* Mantiene le proporzioni */
-            display: block; /* Rimuove spazio extra sotto l'immagine se inline */
-            /* Se vuoi centrarlo orizzontalmente quando .footer-about è text-align: center (in mobile) */
-            /* margin-left: auto; */
-            /* margin-right: auto; */
-            /* Per allinearlo a sinistra di default: */
-            /* margin-right: auto; */
+            height: 24px;
+            width: auto;
+            display: block;
         }
-        /* === FINE MODIFICA CSS === */
 
-        /* RIMOSSI GLI STILI PER .footer-logo .logo-blob, .footer-logo img (pittogramma), .footer-logo .logo-text e le animazioni associate */
-        /* .footer-logo .logo-blob { ... } */
-        /* @keyframes footer-blob-morph-shape-only { ... } */
-        /* .footer-logo img { ... } */
-        /* .footer-logo .logo-blob:hover { ... } */
-        /* .footer-logo .logo-blob:hover img { ... } */
-        /* .footer-logo .logo-text { ... } */
-
-
-        /* Links sections (invariati) */
+        /* Links sections */
         .footer-links h5{
             position: relative;
             padding-bottom: 8px;
@@ -166,7 +147,7 @@
             transform: scaleX(1);
         }
 
-        /* Social icons (invariati) */
+        /* Social icons */
         .footer-social {
             display: flex;
             gap: 15px;
@@ -211,7 +192,7 @@
             opacity: 1;
         }
 
-        /* Copyright section (invariati) */
+        /* Copyright section */
         .copyright {
             text-align: center;
             padding-top: 16px;
