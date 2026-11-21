@@ -2108,6 +2108,406 @@ text-shadow: 0 0px 20px #9495EA33;
 </section>
 
 
+    <!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section" style="display: none;">
+
+    <div class="container">
+        <h2 class="section-title">Cosa Dicono Gli Utenti</h2>
+
+        <!-- Story Container -->
+        <div class="story-container">
+            <!-- Progress Bars -->
+            <div class="progress-bars">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Stories Content -->
+            <div class="stories-content">
+                <div class="story active">
+                    <div class="story-inner">
+                        <div class="blob blob-1"></div>
+                        <div class="blob blob-2"></div>
+                        <div class="quote-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#9495EA">
+                                <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
+                            </svg>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>È una specie di gioco! Tenere sotto controllo le spese è diventato qualcosa che voglio fare, non che devo fare.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="avatar-blob avatar-shape-1" id="avatar-blob-1">
+                                <img src="assets/immagini/testimonial 1.jpg" alt="Scapi A." class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-info">
+                                <h5>Scapi A.</h5>
+                                <p>Utente da 6 mesi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story">
+                    <div class="story-inner">
+                        <div class="blob blob-1"></div>
+                        <div class="blob blob-2"></div>
+                        <div class="quote-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#9495EA">
+                                <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
+                            </svg>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>L'app più intuitiva che abbia mai usato. Ogni volta che sblocco un badge mi sento tipo livello 10 del risparmio.</p>
+                        </div>
+                        <div class="testimonial-author">
+                             <div class="avatar-blob avatar-shape-2" id="avatar-blob-2">
+                                <img src="assets/immagini/testimonial 2.jpg" alt="Sgabbi Y." class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-info">
+                                <h5>Sgabbi Y.</h5>
+                                <p>Utente da 1 anno</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story">
+                    <div class="story-inner">
+                        <div class="blob blob-1"></div>
+                        <div class="blob blob-2"></div>
+                        <div class="quote-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#9495EA">
+                                <path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" />
+                            </svg>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>Chi l'avrebbe mai detto che mi sarei gasato per aver messo da parte 5 euro?</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="avatar-blob avatar-shape-3" id="avatar-blob-3">
+                                <img src="assets/immagini/testimonial 3.jpg" alt="Baluiso A." class="testimonial-avatar">
+                            </div>
+                            <div class="testimonial-info">
+                                <h5>Baluiso A.</h5>
+                                <p>Utente da 8 mesi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .testimonials {
+            background: #FFFFFF;
+            position: relative;
+        }
+
+
+        /* Bottom curve - maintained from original */
+        .testimonials::after {
+            content: '';
+            position: absolute;
+            bottom: -29px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: #FFFFFF;
+            border-radius: 0 0 50% 50% / 0 0 100% 100%;
+            z-index: 2;
+        }
+
+
+        /* Story container styles */
+        .story-container {
+            position: relative;
+            max-width: 900px;
+            margin: auto auto auto auto;
+            overflow: hidden;
+            cursor: pointer;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        /* Progress bars styles */
+        .progress-bars { display: flex; gap: 8px; margin-bottom: 20px; }
+        .progress-bar { height: 4px; flex: 1; background: rgba(0, 0, 0, 0.1); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: var(--secondary); border-radius: 2px; transition: width 0.1s linear; }
+        .progress-fill.completed { width: 100%; }
+        .progress-fill.no-transition { transition: none; }
+
+        /* Stories content styles */
+        .stories-content { position: relative; height: 380px; -webkit-tap-highlight-color: transparent; }
+        .story { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translateX(50px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
+        .story.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+
+        .story-inner {
+            background: rgb(255, 255, 255);
+            border-radius: var(--border-radius-big);
+            border: 1px solid var(--secondarylight);
+            padding: 32px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.1s ease, background-color 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+            box-shadow: 0 4px 10px #9495EA66;
+        }
+
+        /* Irregular blob shapes */
+        .blob { position: absolute; z-index: 0; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;  }
+        .blob-1 { top: -90px; left: -60px; width: 200px; height: 180px; background-color: #F3F3FF; transform: rotate(30deg); }
+        .blob-2 { bottom: -80px; right: -40px; width: 220px; height: 200px; background-color: #F3F3FF; transform: rotate(-15deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+
+        /* Quote icon styles */
+        .quote-icon { margin-bottom: 24px; position: relative; z-index: 1; }
+
+        /* Testimonial content styles */
+        .testimonial-content { margin-bottom: 32px; flex-grow: 1; position: relative; z-index: 1; }
+        .testimonial-content p { font-size: 24px; color: var(--text); }
+
+        /* Testimonial author styles */
+        .testimonial-author { display: flex; align-items: center; margin-top: auto; position: relative; z-index: 1; }
+
+        /* Base avatar blob styles */
+        .avatar-blob {
+            width: 68px;
+            height: 68px;
+            position: relative;
+            margin-right: 20px;
+            transition: filter 0.3s ease, transform 0.3s ease;
+            overflow: visible;
+            
+        }
+
+        /* Common border properties for all avatar shapes */
+        .avatar-blob::before {
+            content: '';
+            position: absolute;
+            inset: calc(-1 * 3px);
+            background: var(--gradient-primary);
+            z-index: -1;
+            border-radius: 50%;
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+        }
+
+        /* Avatar image styles */
+        .testimonial-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Definizione delle forme blob per gli avatar */
+        .avatar-shape-1 { --blob-shape: 60% 40% 65% 35% / 35% 65% 35% 65%; }
+        .avatar-shape-2 { --blob-shape: 40% 60% 30% 70% / 60% 30% 70% 40%; }
+        .avatar-shape-3 { --blob-shape: 70% 30% 60% 40% / 30% 70% 30% 70%; }
+
+        .testimonial-info h5 { margin: 0 0 0.3rem; }
+        .testimonial-info p { margin: 0; font-size: 14px; } /* Stile base per desktop/default */
+
+        /* Stile per l'effetto di pressione attiva */
+        .story-inner:active {
+            background-color: #E9EAEA;
+            transform: translateY(1px);
+            transition: all 0.05s ease-out;
+        }
+
+
+        /* --- Stili Hover Desktop --- */
+        @media (hover: hover) and (min-width: 768px) {
+            .story-inner:hover {
+                box-shadow: 0 4px 10px #9495EA66;
+            }
+
+            .story-inner:hover .avatar-blob::before {
+                border-radius: var(--blob-shape);
+                background: var(--gradient-secondary);
+            }
+
+            .story-inner:hover .avatar-blob {
+                transform: scale(1.1) rotate(5deg);
+            }
+
+            .story-inner:hover .testimonial-avatar {
+                border-radius: var(--blob-shape);
+            }
+        }
+
+
+        /* Media query unificata per dispositivi mobili */
+        @media (max-width: 768px) {
+
+            .testimonials::after {
+                bottom: -24px;
+                height: 25px;
+            }
+
+            .story-inner { padding: 24px; }
+            .testimonial-content { margin-bottom: 16px; }
+            .stories-content { height: 300px; }
+            .testimonial-content p { font-size: 18px;}
+            .quote-icon { margin-bottom: 16px; }
+            .quote-icon svg { width: 30px; height: 30px; }
+            .avatar-blob { width: 50px; height: 50px; margin-right: 16px; }
+
+            /* ---- MODIFICA QUI ---- */
+            .testimonial-info p {
+                font-size: 14px; /* Dimensione desiderata */
+                /* Impedisce a iOS/Safari di ingrandire automaticamente il testo */
+                -webkit-text-size-adjust: none;
+                text-size-adjust: none;
+            }
+            /* ---- FINE MODIFICA ---- */
+
+            .blob-1 { width: 120px; height: 100px; top: -50px; left: -30px; }
+            .blob-2 { width: 130px; height: 110px; bottom: -40px; right: -20px; }
+
+            .story.active .avatar-blob {
+                transform: scale(1.1) rotate(5deg);
+                transition: filter 0.3s ease, transform 0.3s ease;
+            }
+            .story.active .avatar-blob::before {
+                border-radius: var(--blob-shape);
+                background: var(--gradient-secondary);
+                transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+            }
+            .story.active .testimonial-avatar {
+                border-radius: var(--blob-shape);
+                 transition: border-radius 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+        }
+    </style>
+
+    <script>
+        // Lo script rimane invariato come richiesto
+        document.addEventListener('DOMContentLoaded', function() {
+            const stories = document.querySelectorAll('.story');
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const progressFills = document.querySelectorAll('.progress-fill');
+            const storyContainer = document.querySelector('.story-container');
+
+            let currentStoryIndex = 0;
+            let animationFrameId;
+            let startTime;
+            const storyDuration = 5000; // 5 secondi per storia
+            let progressIntervalId; // ID per l'intervallo di avanzamento
+
+            // Funzione per mostrare una specifica storia
+            function showStory(index) {
+                stories.forEach(story => {
+                    story.classList.remove('active');
+                });
+                stories[index].classList.add('active');
+                startProgressAnimation(index);
+            }
+
+            // Funzione per animare la barra di progresso
+            function startProgressAnimation(index) {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                if (progressIntervalId) clearTimeout(progressIntervalId);
+
+                progressFills.forEach((fill, i) => {
+                    fill.style.transition = 'none'; // Reset senza animazione
+                    if (i < index) {
+                        fill.style.width = '100%';
+                        fill.classList.add('completed');
+                    } else {
+                        fill.style.width = '0%';
+                        fill.classList.remove('completed');
+                    }
+                });
+
+                void progressFills[index].offsetWidth; // Forza reflow
+
+                progressFills[index].style.transition = `width ${storyDuration / 1000}s linear`;
+                progressFills[index].style.width = '100%';
+
+                progressIntervalId = setTimeout(() => {
+                    progressFills[index].classList.add('completed');
+                    goToNextStory();
+                }, storyDuration);
+            }
+
+
+            // Funzione per andare alla storia successiva
+            function goToNextStory() {
+                    // Completa la barra corrente istantaneamente
+                if(progressFills[currentStoryIndex]){
+                        progressFills[currentStoryIndex].style.transition = 'none';
+                        progressFills[currentStoryIndex].style.width = '100%';
+                        progressFills[currentStoryIndex].classList.add('completed');
+                }
+
+
+                currentStoryIndex = (currentStoryIndex + 1) % stories.length;
+
+                // Se torniamo alla prima storia, resetta tutte le barre
+                if (currentStoryIndex === 0) {
+                        progressFills.forEach(fill => {
+                            fill.style.transition = 'none';
+                            fill.style.width = '0%';
+                            fill.classList.remove('completed');
+                    });
+                        void progressFills[0].offsetWidth; // Forza reflow
+                }
+
+                showStory(currentStoryIndex);
+            }
+
+            // Click/Tap event per avanzare manualmente
+            storyContainer.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (progressIntervalId) clearTimeout(progressIntervalId);
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                goToNextStory();
+            });
+
+
+            // Pausa/Ripresa con visibilità pagina
+            document.addEventListener('visibilitychange', () => {
+                    if (progressIntervalId) clearTimeout(progressIntervalId);
+                    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+                    if (!document.hidden) {
+                    // Riparte l'animazione della storia corrente da capo quando torna visibile
+                    showStory(currentStoryIndex);
+                    } else {
+                        if(progressFills[currentStoryIndex]){
+                          progressFills[currentStoryIndex].style.transition = 'none'; // Stop animation
+                        }
+                    }
+            });
+
+            // Avvia automaticamente la prima storia
+            showStory(0);
+        });
+    </script>
+
+</section>
+
+
     <!-- Team Section -->
 <section id="team" class="team section">
 
